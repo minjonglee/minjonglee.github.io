@@ -26,12 +26,18 @@ Audit performed before implementation, September 25, 2026.
 
 - Main source: user-provided `MJL_CV_20260901.docx`, whose internal last-update line is September 2, 2026; supplemented by the user's research brief.
 - 21 publication records preserved: 20 published/early-view entries and one manuscript in revision. Author names are restored from the CV. No co-first/corresponding badge is inferred for Min Jong Lee.
-- Seven DOI records matched by title and author against Crossref metadata. All four featured papers have DOI links. The other 13 published papers use explicitly labeled Scholar searches. Rate-limited metadata queries were not treated as verification.
+- Seven DOI records matched by title and author against Crossref metadata. All three papers currently featured on the homepage have DOI links. The other 13 published papers use explicitly labeled Scholar searches. Rate-limited metadata queries were not treated as verification.
 - Eight patent records retained with original status and identifiers. US application numbers are labeled US only; China/Taiwan mentions remain notes because separate local numbers are unavailable.
 - Research/project summaries are grounded in CV titles and the supplied brief; they do not add quantitative claims. “Related patent” links are topic associations, not a claim of legal family linkage or technology licensing.
 - AEEL and Prof. Shim are linked to the provided laboratory website. No affiliation with MIT, Stanford, SK hynix, or another prospective institution/company is implied.
-- The user-provided portrait is applied on Home and About. No paper figures or event photographs were supplied, so the interface omits empty image blocks. No synthetic portrait or experimental chart was created.
+- The user-provided portrait is applied on Home and About. No paper figures or event photographs were supplied; the homepage uses original conceptual SVG diagrams and no experimental charts.
 - ORCID/LinkedIn remain null until exact profile URLs are supplied. Conference/talk/visit details remain unfilled. No pre-2023 education history is inferred.
 - Publication status, project dates, and patent status remain the CV snapshot; this redesign is not a live registry or comprehensive bibliography update.
 
 See `QA.md` for validation, and `../README.md` for editing and deployment.
+
+## September 26 homepage simplification
+
+- The homepage now has five sections: hero, verified highlights, three research areas, three featured papers, and a short about section. Long lists and the research trajectory remain on detailed pages.
+- Projects and collaborations now appear within Research; recognition and the optional gallery appear within About. Old page URLs redirect to these sections. Contact is anchored in the shared footer.
+- Three original SVG conceptual illustrations accompany the selected papers. They are not experimental plots or reproduced publisher figures; publication images can be replaced when approved source figures are available.

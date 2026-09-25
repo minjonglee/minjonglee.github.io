@@ -46,16 +46,15 @@ export function publication(data, p) {
 }
 
 export function featured(data) {
-  return `<div class="featured-grid">${data.featured.map((f,i)=>{
+  return `<div class="featured-grid">${data.featured.slice(0,3).map(f=>{
     const p=data.publications.find(p=>p.id===f.paper);
-    return `<article class="featured-work ${p.image?'has-figure':''}">${p.image?`<figure class="research-figure"><img src="${e(p.image)}" alt="${e(p.imageAlt)}" width="960" height="600" loading="lazy" decoding="async"></figure>`:`<span class="featured-index" aria-hidden="true">0${i+1} /</span>`}
-    <div class="featured-copy">${label(`${p.journal.split(' · ')[0]} · ${p.year}`)}<h3>${e(f.title)}</h3><p class="research-question">${e(f.question)}</p><p>${e(f.contribution)}</p>${tags(p.topics.map(id=>data.topics.find(t=>t.id===id).label))}<div class="link-row">${paperLink(p)}${textLink(`projects.html#${f.project}`,'Project')}</div></div></article>`;
+    return `<article class="featured-work"><figure class="research-figure"><img src="${e(p.image)}" alt="${e(p.imageAlt)}" width="960" height="600" loading="lazy" decoding="async"><figcaption>Conceptual illustration</figcaption></figure><div class="featured-copy"><p class="work-topic">${e(f.title)}</p><h3>${e(p.title)}</h3><p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p><p class="work-contribution">${e(f.contribution)}</p>${paperLink(p)}</div></article>`;
   }).join('')}</div>`;
 }
 
 export function layout(data, {file, title, description, body, canonical, extraHead='', bodyClass=''}) {
   const url = `https://minjonglee.github.io/${canonical ?? (file==='index.html'?'':file)}`;
-  const nav = [['research.html','Research'],['publications.html','Publications'],['projects.html','Projects'],['patents.html','Patents'],['about.html','About'],['activities.html','Activities']];
+  const nav = [['research.html','Research'],['publications.html','Publications'],['patents.html','Patents'],['about.html','About']];
   const person = {'@context':'https://schema.org','@type':'Person',name:data.profile.name,url:'https://minjonglee.github.io/',email:`mailto:${data.profile.email}`,affiliation:{'@type':'CollegeOrUniversity',name:'Korea University'},sameAs:[data.scholar,data.profile.orcid,data.profile.linkedin].filter(Boolean)};
   return `<!doctype html>
 <html lang="en">
@@ -64,7 +63,7 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${e(title)} — Min Jong Lee</title>
   <meta name="description" content="${e(description)}">
-  <meta name="theme-color" content="#f7f6f2">
+  <meta name="theme-color" content="#faf9f6">
   <link rel="canonical" href="${e(url)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Min Jong Lee · Research Portfolio">
@@ -89,7 +88,7 @@ ${extraHead}
     <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(([href,name])=>`<a href="${href}"${file===href?' aria-current="page"':''}>${name}</a>`).join('')}<a class="nav-cv" href="${e(data.profile.cv)}" download aria-label="Download Min Jong Lee's CV as PDF">CV <span aria-hidden="true">↓</span></a></nav>
   </div></header>
   <main id="main" tabindex="-1">${body}</main>
-  <footer class="site-footer"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">MIN JONG LEE<span class="brand-dot" aria-hidden="true">.</span></a><p>Interface &amp; defect engineering<br>for memory and computing.</p></div><div><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${textLink(data.scholar,'Google Scholar')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Min Jong Lee</span><span>Korea University · Seoul</span><a href="#top">Back to top ↑</a></div></div></footer>
+  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">MIN JONG LEE<span class="brand-dot" aria-hidden="true">.</span></a><p>Korea University · Electrical Engineering</p></div><div><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${textLink(data.scholar,'Google Scholar')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Min Jong Lee</span><span>Korea University · Seoul</span><a href="#top">Back to top ↑</a></div></div></footer>
 </body>
 </html>
 `;

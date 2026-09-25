@@ -2,8 +2,8 @@
   'use strict';
   const pageName = location.pathname.split('/').pop() || 'index.html';
   const legacyAnchors = pageName === 'index.html'
-    ? { '#publications': 'publications.html', '#patents': 'patents.html', '#projects': 'projects.html', '#recognition': 'activities.html', '#contact': 'about.html#contact' }
-    : pageName === 'patents.html' ? { '#projects': 'projects.html' } : {};
+    ? { '#publications': 'publications.html', '#patents': 'patents.html', '#projects': 'research.html#projects', '#recognition': 'about.html#recognition' }
+    : pageName === 'patents.html' ? { '#projects': 'research.html#projects' } : {};
   if (legacyAnchors[location.hash]) { location.replace(legacyAnchors[location.hash]); return; }
   const menu = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#primary-nav');

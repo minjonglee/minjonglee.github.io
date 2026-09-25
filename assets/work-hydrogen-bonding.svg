@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#eeede8"/>
+  <path d="M87 104H873M87 496H873" stroke="#242621" stroke-width="2"/>
+  <rect x="126" y="143" width="708" height="39" fill="#262823"/>
+  <rect x="126" y="418" width="708" height="39" fill="#262823"/>
+  <g fill="#eeede8" stroke="#805247" stroke-width="3">
+    <circle cx="215" cy="243" r="17"/><circle cx="345" cy="243" r="17"/><circle cx="475" cy="243" r="17"/><circle cx="605" cy="243" r="17"/><circle cx="735" cy="243" r="17"/>
+    <circle cx="280" cy="355" r="17"/><circle cx="410" cy="355" r="17"/><circle cx="540" cy="355" r="17"/><circle cx="670" cy="355" r="17"/>
+  </g>
+  <g stroke="#262823" stroke-width="2.5" fill="none">
+    <path d="M215 226v-44M345 226v-44M475 226v-44M605 226v-44M735 226v-44"/>
+    <path d="M280 372v46M410 372v46M540 372v46M670 372v46"/>
+  </g>
+  <g stroke="#805247" stroke-width="2" stroke-dasharray="5 9">
+    <path d="M228 255l39 88M358 255l39 88M488 255l39 88M618 255l39 88"/>
+    <path d="M332 255l-39 88M462 255l-39 88M592 255l-39 88M722 255l-39 88"/>
+  </g>
+</svg>

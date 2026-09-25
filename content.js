@@ -27,8 +27,8 @@ window.SITE_CONTENT = {
       "id": "paper-02",
       "authors": "Min Jong Lee, Sang Heon Lee, Dong Gyu Lee, Tae Hyuk Kim, Yubhin Cho, Gyeong Min Lee, Sung Su Yoon, Seon Joong Kim, Hyungju Ahn, Tae Kyung Lee*, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": null,
-      "imageAlt": "",
+      "image": "assets/work-hydrogen-bonding.svg",
+      "imageAlt": "Conceptual illustration of molecular links connecting a device interface to repeatable memory states; not experimental data",
       "doi": "10.1002/adma.202511728",
       "doiSource": "https://api.crossref.org/works/10.1002/adma.202511728",
       "topics": [
@@ -45,8 +45,8 @@ window.SITE_CONTENT = {
       "id": "paper-03",
       "authors": "Min Jong Lee, Tae Hyuk Kim, Sang Heon Lee, Seunghyun Oh, Muhammad Asghar Khan, Gyeong Min Lee, Young Kyun Choi, Soyeon Lee, Hyungju Ahn, Soong Ju Oh, Jiwoong Yang, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": null,
-      "imageAlt": "",
+      "image": "assets/work-trap-control.svg",
+      "imageAlt": "Conceptual cross-section of an interface layer between device films with fewer marked trap sites; not experimental data",
       "doi": "10.1002/adfm.202421080",
       "doiSource": "https://api.crossref.org/works/10.1002/adfm.202421080",
       "topics": [
@@ -79,8 +79,8 @@ window.SITE_CONTENT = {
       "id": "paper-05",
       "authors": "Min Jong Lee, Ji-Sang Park, Tae Hyuk Kim, Muhammad Ahsan Saeed, Gyeong Min Lee, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": null,
-      "imageAlt": "",
+      "image": "assets/work-molecular-contacts.svg",
+      "imageAlt": "Conceptual illustration of a self-assembled molecular layer between a contact and an organic device layer; not experimental data",
       "topics": [
         "interfaces",
         "opto"
@@ -604,36 +604,22 @@ window.SITE_CONTENT = {
   ],
   "featured": [
     {
-      "paper": "paper-02",
-      "project": "hydrogen-bonded-memory",
-      "title": "Hydrogen bonds as a device design variable",
-      "question": "Can molecular interactions make artificial synapses more linear and symmetric?",
-      "contribution": "Hydrogen-bond-driven control of artificial synapses connects molecular interactions with neuromorphic device behavior.",
-      "visualLabel": "Hydrogen bonding / Artificial synapses"
+      "paper": "paper-05",
+      "project": "molecular-contacts",
+      "title": "Interface engineering",
+      "contribution": "Self-assembled monolayers tailor hole-selective contacts for indoor organic photovoltaics and capacitor devices."
     },
     {
       "paper": "paper-03",
       "project": "optoelectronic-memory",
-      "title": "An interface route to lower trap density",
-      "question": "How can an intermediate layer improve low-power optoelectronic memory?",
-      "contribution": "Intermediate-layer engineering reduces trap density in optoelectronic memristors for multifunctional systems.",
-      "visualLabel": "Trap control / Optoelectronic memory"
+      "title": "Emerging memory",
+      "contribution": "An intermediate layer reduces trap density in low-power optoelectronic memristors."
     },
     {
-      "paper": "paper-05",
-      "project": "molecular-contacts",
-      "title": "Molecular contacts across device platforms",
-      "question": "How do self-assembled monolayers reshape charge-selective contacts?",
-      "contribution": "SAM-based hole-selective contacts connect interface engineering with indoor organic photovoltaics and capacitor devices.",
-      "visualLabel": "Molecular contacts / Indoor photovoltaics"
-    },
-    {
-      "paper": "paper-06",
-      "project": "oxide-electrodes",
-      "title": "Thin-film electrodes as a common platform",
-      "question": "Can ALD-grown oxide electrodes serve both photovoltaics and capacitors?",
-      "contribution": "Laminated In₂O₃:V₂O₅ nanocompounds establish an electrode platform spanning organic photovoltaics and capacitor devices.",
-      "visualLabel": "ALD oxides / Device platforms"
+      "paper": "paper-02",
+      "project": "hydrogen-bonded-memory",
+      "title": "Reliable neuromorphic computing",
+      "contribution": "Hydrogen-bond-driven artificial synapses improve linearity and symmetry for neuromorphic computing."
     }
   ],
   "pillars": [

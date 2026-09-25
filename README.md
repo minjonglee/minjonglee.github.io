@@ -4,7 +4,7 @@
 
 배포 주소: <https://minjonglee.github.io/>
 
-**Interface & Defect Engineering for Memory and Computing**를 중심으로 구성한 개인 연구 포트폴리오입니다. HTML/CSS/JavaScript 정적 사이트이며, 상단 메뉴는 각기 다른 페이지로 이동합니다. 운영용 프레임워크·외부 폰트·추적 스크립트·npm 의존성이 없습니다.
+**Interface & Defect Engineering for Memory and Computing**를 중심으로 구성한 개인 연구 포트폴리오입니다. HTML/CSS/JavaScript 정적 사이트이며, 상단 메뉴는 Research, Publications, Patents, About, CV로 이동합니다. 운영용 프레임워크·외부 폰트·추적 스크립트·npm 의존성이 없습니다.
 
 ## 로컬에서 보기
 
@@ -20,15 +20,13 @@ python -m http.server 8765 --bind 127.0.0.1
 
 | 파일 | 역할 |
 |---|---|
-| `index.html` | 메인: 연구 정체성, 세 연구 축, 대표 연구, 연구 흐름, 소개 |
-| `research.html` | 연구 질문, 현재 연구, 확인된 결과, 방법, 향후 방향 |
+| `index.html` | 메인: 소개, 검증된 실적 요약, 세 연구 영역, 대표 논문 세 편 |
+| `research.html` | 연구 질문, 현재 연구, 확인된 결과, 향후 방향, 연구 사례·공동 과제 |
 | `publications.html` | 전체 저자·학술지·연도, 주제별 필터, 논문 링크 |
-| `projects.html` | 연구 사례와 CV에 기재된 공동·산학 과제 |
 | `patents.html` | 등록·출원 상태를 구분한 특허 기록 |
-| `about.html` | 소개, 연구 환경, 학력, 연락처 |
-| `activities.html` | 수상·장학·연구자 프로그램·학술활동 갤러리 |
+| `about.html` | 소개, 연구 환경, 학력, 수상·장학·학술활동 갤러리 |
 | `cv.html`, `assets/min-jong-lee-cv.pdf` | 웹 CV와 바로 다운로드하는 공개용 PDF |
-| `contact.html`, `recognition.html` | 이전 주소를 새 페이지로 연결하는 호환 페이지 |
+| `projects.html`, `activities.html`, `contact.html`, `recognition.html` | 이전 주소를 Research·About·푸터로 연결하는 호환 페이지 |
 | `content.js` | 프로필·연구·논문·특허·과제·수상·사진의 편집 원본 |
 | `scripts/pages.mjs` | 각 페이지의 구조·고정 문구 |
 | `scripts/components.mjs` | 공통 헤더·푸터·메타데이터·목록·시각 요소 |
@@ -83,7 +81,7 @@ node scripts/check.mjs
 
 DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`로 표시합니다. 심사 중 원고에는 `status: "In revision"` 등을 넣으면 게재 논문과 구분되고 출판 링크를 만들지 않습니다. 상태가 바뀌면 CV와 함께 갱신하세요.
 
-홈 대표 연구는 `featured` 배열에서 논문의 `id`, 연결할 연구 프로젝트, 연구 질문과 기여 문장을 지정합니다. 수치 결과를 새로 넣을 때는 실제 논문과 대조합니다.
+홈 대표 연구는 `featured` 배열의 논문 세 편만 표시합니다. `paper`의 ID와 짧은 연구 주제·기여 문장을 수정하고, 해당 논문의 `image`와 `imageAlt`에 그림 경로·대체텍스트를 넣습니다. 현재 그림 세 장은 실험 결과가 아닌 개념도이므로, 실제 논문 그림을 사용할 권리가 확인되면 교체할 수 있습니다. 수치 결과를 새로 넣을 때는 실제 논문과 대조합니다.
 
 ### 연구와 과제
 
@@ -100,7 +98,7 @@ DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`�
 | 필요한 자료 | 데이터 위치 | 권장 형식 |
 |---|---|---|
 | 인물 사진 교체(선택) | `profile.portrait`, `profile.portraitAlt` | 현재 사진 적용 완료; 고해상도 원본이 있으면 교체 가능 |
-| 대표 연구 그림 4장 | 해당 `publications[].image`, `imageAlt` | 약 1.9:1, 960px 이상, PNG/WebP/SVG |
+| 대표 연구 그림 3장(선택) | 해당 `publications[].image`, `imageAlt` | 현재 개념도 적용; 실제 논문 그림으로 교체 시 약 8:5, 960px 이상 권장 |
 | 학회·연구방문·연구실 사진 | `gallery[].image`, `alt`, `caption` | 가로 4:3, 900×675px 이상, WebP/JPEG |
 
 파일은 `assets/`에 넣고 예를 들어 `"portrait": "assets/portrait.webp"`로 지정합니다. 대체텍스트는 사진의 인물·행사 또는 연구 그림의 과학적 내용을 설명해야 합니다. 이미지 경로만 있고 대체텍스트가 없으면 생성기가 오류를 내도록 했습니다. 현재 인물 사진은 원본의 3:4 비율로 표시하고, 연구 그림은 잘리지 않도록 전체가 보입니다. 다른 비율의 인물 사진으로 교체할 때는 `styles.css`의 `.portrait` 비율과 `scripts/components.mjs`의 이미지 너비·높이도 함께 수정하세요. 원본 파일명에 공백을 넣지 않는 편이 편리합니다.
@@ -144,7 +142,7 @@ GitHub 저장소 **Settings → Pages → Build and deployment → Source → De
 
 ## 아직 필요한 정보
 
-- 대표 연구 그림 4장, 학술활동 사진과 행사명·날짜. 인물 사진은 적용했으며 고해상도 원본으로 교체할 수 있습니다.
+- 실제 논문 그림 3장으로 현재 개념도를 교체할 수 있습니다. 학술활동 사진과 행사명·날짜도 아직 필요합니다. 인물 사진은 적용했으며 고해상도 원본으로 교체할 수 있습니다.
 - 본인의 정확한 ORCID·LinkedIn 주소.
 - 학회 발표·초청 강연·연구방문 세부 기록, 현재 CV에 없는 추가 학력.
 - 원고의 최신 심사 상태, 이후 추가된 실적, 특허 상태 변경.
