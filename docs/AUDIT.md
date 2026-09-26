@@ -36,8 +36,10 @@ Audit performed before implementation, September 25, 2026.
 
 See `QA.md` for validation, and `../README.md` for editing and deployment.
 
-## September 26 homepage simplification
+## September 26 site refinement
 
-- The homepage now has five sections: hero, verified highlights, three research areas, three featured papers, and a short about section. Long lists and the research trajectory remain on detailed pages.
-- Projects and collaborations now appear within Research; recognition and the optional gallery appear within About. Old page URLs redirect to these sections. Contact is anchored in the shared footer.
-- Three original SVG conceptual illustrations accompany the selected papers. They are not experimental plots or reproduced publisher figures; publication images can be replaced when approved source figures are available.
+- Compared the live GitHub Pages HTML with the repository before editing; the substantive pages matched. The homepage now has six major sections: hero, verified highlights, research framework, three featured outputs, three current research previews, and About. Full lists remain on their own pages.
+- Home, About, Research, Projects, Publications, Patents, and CV form the primary navigation. Projects is a substantive page again, with independent, industry, interdisciplinary, and collaborative records. Recognition and the gallery remain on About; Contact remains in the footer. Three legacy URLs still redirect.
+- Research now distinguishes a common scientific question, three device platforms, and integrated/3D systems as a future direction. Flexible-device work is identified as CV-listed collaboration. The Publications flexible filter intentionally has no published result in the supplied CV.
+- Verified program titles, periods, and sponsors are retained. Only the doctoral research support project has a verified principal-investigator role; other individual program roles are marked `[VERIFY ROLE]`. Paper-linked case studies retain the roles and outputs supported by their publication records.
+- Three original SVG conceptual illustrations accompany the selected papers. They are labeled as illustrations, not measured data or reproduced publisher figures. Actual paper figures can replace them when available and cleared for use.

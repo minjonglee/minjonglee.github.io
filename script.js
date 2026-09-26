@@ -2,8 +2,8 @@
   'use strict';
   const pageName = location.pathname.split('/').pop() || 'index.html';
   const legacyAnchors = pageName === 'index.html'
-    ? { '#publications': 'publications.html', '#patents': 'patents.html', '#projects': 'research.html#projects', '#recognition': 'about.html#recognition' }
-    : pageName === 'patents.html' ? { '#projects': 'research.html#projects' } : {};
+    ? { '#publications': 'publications.html', '#patents': 'patents.html', '#projects': 'projects.html', '#recognition': 'about.html#recognition' }
+    : pageName === 'patents.html' ? { '#projects': 'projects.html' } : {};
   if (legacyAnchors[location.hash]) { location.replace(legacyAnchors[location.hash]); return; }
   const menu = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#primary-nav');
@@ -29,6 +29,7 @@
   const controls = document.querySelector('.publication-controls');
   const list = document.querySelector('#publication-list');
   const count = document.querySelector('#publication-count');
+  const empty = document.querySelector('#publication-empty');
   if (controls && list && count) {
     controls.hidden = false;
     const buttons = [...controls.querySelectorAll('[data-filter]')];
@@ -43,6 +44,7 @@
       let visible = 0;
       rows.forEach(row => { row.hidden = topic !== 'all' && !row.dataset.topics.split(' ').includes(topic); if (!row.hidden) visible++; });
       count.textContent = `${visible} published ${visible === 1 ? 'paper' : 'papers'}${topic === 'all' ? '' : ' · ' + button.textContent}`;
+      if (empty) empty.hidden = visible !== 0;
     }));
   }
   document.querySelectorAll('.print-button').forEach(button => { button.hidden = false; button.addEventListener('click', () => window.print()); });

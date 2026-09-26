@@ -4,7 +4,7 @@
 
 배포 주소: <https://minjonglee.github.io/>
 
-**Interface & Defect Engineering for Memory and Computing**를 중심으로 구성한 개인 연구 포트폴리오입니다. HTML/CSS/JavaScript 정적 사이트이며, 상단 메뉴는 Research, Publications, Patents, About, CV로 이동합니다. 운영용 프레임워크·외부 폰트·추적 스크립트·npm 의존성이 없습니다.
+**Interface and device physics for emerging electronics**를 중심으로 구성한 개인 연구 포트폴리오입니다. HTML/CSS/JavaScript 정적 사이트이며, 상단 메뉴는 Home, About, Research, Projects, Publications, Patents, CV입니다. 운영용 프레임워크·외부 폰트·추적 스크립트·npm 의존성이 없습니다.
 
 ## 로컬에서 보기
 
@@ -20,13 +20,14 @@ python -m http.server 8765 --bind 127.0.0.1
 
 | 파일 | 역할 |
 |---|---|
-| `index.html` | 메인: 소개, 검증된 실적 요약, 세 연구 영역, 대표 논문 세 편 |
-| `research.html` | 연구 질문, 현재 연구, 확인된 결과, 향후 방향, 연구 사례·공동 과제 |
+| `index.html` | 메인: 소개, 검증된 실적 요약, 연구 구조, 대표 논문 세 편, 진행 중 연구 세 건 |
+| `research.html` | 공통 물리학 질문, 세 장치 플랫폼, 근거와 방법, 별도로 구분한 미래 방향 |
+| `projects.html` | 독립 연구·산업 협력·학제간 프로그램·공동 연구의 과제별 기록 |
 | `publications.html` | 전체 저자·학술지·연도, 주제별 필터, 논문 링크 |
 | `patents.html` | 등록·출원 상태를 구분한 특허 기록 |
 | `about.html` | 소개, 연구 환경, 학력, 수상·장학·학술활동 갤러리 |
 | `cv.html`, `assets/min-jong-lee-cv.pdf` | 웹 CV와 바로 다운로드하는 공개용 PDF |
-| `projects.html`, `activities.html`, `contact.html`, `recognition.html` | 이전 주소를 Research·About·푸터로 연결하는 호환 페이지 |
+| `activities.html`, `contact.html`, `recognition.html` | 이전 주소를 About·푸터로 연결하는 호환 페이지 |
 | `content.js` | 프로필·연구·논문·특허·과제·수상·사진의 편집 원본 |
 | `scripts/pages.mjs` | 각 페이지의 구조·고정 문구 |
 | `scripts/components.mjs` | 공통 헤더·푸터·메타데이터·목록·시각 요소 |
@@ -77,7 +78,7 @@ node scripts/check.mjs
 }
 ```
 
-주제 ID: `memory`, `interfaces`, `oxide`, `opto`. 주제는 여러 개 지정할 수 있습니다. 본인의 제1저자 역할이 확인된 경우에만 `type: "first"`를 사용합니다. `co`는 일반 공동저자를 뜻하며 공동제1저자 배지가 아닙니다.
+주제 ID: `memory`, `interfaces`, `opto`, `flexible`, `oxide`. 주제는 여러 개 지정할 수 있습니다. 현재 `flexible`로 분류된 게재 논문은 없어 필터에 설명 문구가 표시됩니다. 본인의 제1저자 역할이 확인된 경우에만 `type: "first"`를 사용합니다. `co`는 일반 공동저자를 뜻하며 공동제1저자 배지가 아닙니다.
 
 DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`로 표시합니다. 심사 중 원고에는 `status: "In revision"` 등을 넣으면 게재 논문과 구분되고 출판 링크를 만들지 않습니다. 상태가 바뀌면 CV와 함께 갱신하세요.
 
@@ -85,7 +86,7 @@ DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`�
 
 ### 연구와 과제
 
-`pillars`의 `current`, `results`, `methods`, `future`를 구분해 편집합니다. 계획은 `future`에 두고 실제 결과가 생겼을 때 옮깁니다. `researchProjects`는 연구 질문 중심의 사례, `projects`는 CV에 기재된 과제 목록입니다. 개별 역할은 확인된 경우에만 `personalRole`에 입력합니다.
+`pillars`의 `current`, `results`, `methods`, `future`를 구분해 편집합니다. 계획은 `future`에 두고 실제 결과가 생겼을 때 옮깁니다. `researchProjects`는 논문과 연결된 연구 사례, `projects`는 CV에 기재된 프로그램 목록입니다. 과제의 `category`는 `independent`, `industry`, `interdisciplinary`, `collaborative` 중 하나입니다. 개별 역할은 확인된 경우에만 `personalRole`에 입력합니다. 없으면 공개 화면에 `[VERIFY ROLE]`이 표시됩니다. 홈의 진행 중 연구 세 건은 `scripts/pages.mjs`의 `previews` 배열에서 선택합니다.
 
 ### 특허
 
@@ -93,7 +94,7 @@ DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`�
 
 ## 사진과 연구 그림 넣기
 
-제공받은 인물 사진은 `assets/min-jong-lee-portrait.jpg`에 적용되어 있습니다. 연구 그림과 행사 사진은 실제 자료를 받기 전까지 화면에 표시하지 않습니다. 경로를 채우고 HTML을 다시 생성하면 해당 이미지가 나타납니다.
+제공받은 인물 사진은 `assets/min-jong-lee-portrait.jpg`에 적용되어 있습니다. 대표 연구 세 건에는 사실과 구별되는 개념도가 표시됩니다. 실제 논문 그림과 행사 사진을 받으면 경로를 채우고 HTML을 다시 생성해 교체할 수 있습니다.
 
 | 필요한 자료 | 데이터 위치 | 권장 형식 |
 |---|---|---|
@@ -146,6 +147,6 @@ GitHub 저장소 **Settings → Pages → Build and deployment → Source → De
 - 본인의 정확한 ORCID·LinkedIn 주소.
 - 학회 발표·초청 강연·연구방문 세부 기록, 현재 CV에 없는 추가 학력.
 - 원고의 최신 심사 상태, 이후 추가된 실적, 특허 상태 변경.
-- 나머지 DOI와 산업과제의 공개 가능한 개인 역할·성과가 있으면 추가 가능.
+- 나머지 DOI와 박사과제 외 프로그램의 공개 가능한 개인 역할·성과가 있으면 추가 가능. 현재 확인되지 않은 역할은 `[VERIFY ROLE]`로 표시합니다.
 
 기존 CV의 실적·상태·기간은 근거 없이 변경하지 않았습니다. 연구소·대학·기업 지원 목표를 현재 소속이나 협업 실적으로 표시하지 않습니다.

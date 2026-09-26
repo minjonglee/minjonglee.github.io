@@ -458,6 +458,8 @@ window.SITE_CONTENT = {
   ],
   "projects": [
     {
+      "id": "doctoral-ionic-memory",
+      "category": "independent",
       "period": "2026.09–present",
       "title": "상태 형성 동역학 및 저주파 잡음 해석 기반 이온 이동 제어형 멤리스터의 멀티 레벨 정밀도 한계 규명",
       "englishTitle": "Multilevel precision limits in ion-migration-controlled memristors",
@@ -465,6 +467,8 @@ window.SITE_CONTENT = {
       "personalRole": "Principal investigator"
     },
     {
+      "id": "photonic-skin",
+      "category": "interdisciplinary",
       "period": "2026.07–present",
       "title": "초경량 비행향 Physical AI를 위한 Photonic Skin 연구실",
       "englishTitle": "Photonic skin for ultralight aerial Physical AI",
@@ -472,6 +476,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "flexible-fpcb",
+      "category": "industry",
       "period": "2026.01–present",
       "title": "초고굴곡 FPCB 배선 소재 개발",
       "englishTitle": "Interconnect materials for highly flexible FPCBs",
@@ -479,6 +485,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "infrared-gas-sensing",
+      "category": "interdisciplinary",
       "period": "2024.04–present",
       "title": "스마트 주거 환경을 위한 저전력 다종 복합 유해가스 측정용 적외선 가스센서 기술 개발",
       "englishTitle": "Low-power infrared gas-sensing technology for smart homes",
@@ -486,6 +494,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "low-light-photovoltaics",
+      "category": "collaborative",
       "period": "2022.03–present",
       "title": "전일 동작 광전지 개발을 위한 약광 발전 한계 돌파 연구",
       "englishTitle": "Overcoming low-light power-generation limits in photovoltaics",
@@ -493,6 +503,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "ald-electrodes-industry",
+      "category": "industry",
       "period": "2020.09–2025.09",
       "title": "TiN 전극 대체를 위한 ALD 기반 초박막 다성분계 전극 개발",
       "englishTitle": "ALD-based ultrathin multicomponent electrodes as alternatives to TiN",
@@ -500,6 +512,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "inorganic-display-training",
+      "category": "collaborative",
       "period": "2023.03–2025.08",
       "title": "산업 전환형 무기발광 디스플레이 전문인력양성사업",
       "englishTitle": "Training for the transition to inorganic light-emitting displays",
@@ -507,6 +521,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "stretchable-films",
+      "category": "interdisciplinary",
       "period": "2020.04–2024.12",
       "title": "고신축특성을 가지는 고신뢰성 고내구성 점착필름 및 대면적 코팅 공정 기술 개발",
       "englishTitle": "Durable stretchable adhesive films and large-area coating processes",
@@ -514,6 +530,8 @@ window.SITE_CONTENT = {
       "personalRole": null
     },
     {
+      "id": "stretchable-pcb",
+      "category": "industry",
       "period": "2024.08–2024.11",
       "title": "Liquid Metal Particle활용 Stretchable PCB 제작",
       "englishTitle": "Stretchable PCBs using liquid metal particles",
@@ -587,39 +605,43 @@ window.SITE_CONTENT = {
   "topics": [
     {
       "id": "memory",
-      "label": "Memory & Computing"
+      "label": "Memory & Reliability"
     },
     {
       "id": "interfaces",
       "label": "Interfaces & Defects"
     },
     {
-      "id": "oxide",
-      "label": "Thin-Film / Oxide Electronics"
+      "id": "opto",
+      "label": "Optoelectronics & Hybrid Devices"
     },
     {
-      "id": "opto",
-      "label": "Organic & Optoelectronics"
+      "id": "flexible",
+      "label": "Flexible Electronics"
+    },
+    {
+      "id": "oxide",
+      "label": "Thin-Film / Oxide Electronics"
     }
   ],
   "featured": [
     {
-      "paper": "paper-05",
-      "project": "molecular-contacts",
-      "title": "Interface engineering",
-      "contribution": "Self-assembled monolayers tailor hole-selective contacts for indoor organic photovoltaics and capacitor devices."
+      "paper": "paper-02",
+      "project": "hydrogen-bonded-memory",
+      "title": "Molecular control of synaptic response",
+      "contribution": "Hydrogen-bond-driven artificial synapses improve linearity and symmetry for neuromorphic computing."
     },
     {
       "paper": "paper-03",
       "project": "optoelectronic-memory",
-      "title": "Emerging memory",
+      "title": "Reducing traps in optoelectronic memory",
       "contribution": "An intermediate layer reduces trap density in low-power optoelectronic memristors."
     },
     {
-      "paper": "paper-02",
-      "project": "hydrogen-bonded-memory",
-      "title": "Reliable neuromorphic computing",
-      "contribution": "Hydrogen-bond-driven artificial synapses improve linearity and symmetry for neuromorphic computing."
+      "paper": "paper-05",
+      "project": "molecular-contacts",
+      "title": "Molecular contacts for indoor devices",
+      "contribution": "Self-assembled monolayers tailor hole-selective contacts for indoor organic photovoltaics and capacitor devices."
     }
   ],
   "pillars": [
@@ -704,6 +726,14 @@ window.SITE_CONTENT = {
       "paper-14",
       "paper-19"
     ]
+  },
+  "flexible": {
+    "title": "Flexible & Stretchable Electronics",
+    "question": "How can electronic materials and interconnects remain useful under bending and stretching?",
+    "scope": "The supplied CV lists programs on highly flexible FPCB interconnect materials, stretchable PCBs using liquid metal particles, and durable stretchable adhesive films.",
+    "evidence": "These are CV-listed collaborative programs; individual methods, roles, and device results are not specified in the supplied record.",
+    "projects": ["flexible-fpcb", "stretchable-pcb", "stretchable-films"],
+    "papers": []
   },
   "researchProjects": [
     {
