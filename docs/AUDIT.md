@@ -43,3 +43,9 @@ See `QA.md` for validation, and `../README.md` for editing and deployment.
 - Research now distinguishes a common scientific question, three device platforms, and integrated/3D systems as a future direction. Flexible-device work is identified as CV-listed collaboration. The Publications flexible filter intentionally has no published result in the supplied CV.
 - Verified program titles, periods, and sponsors are retained. Only the doctoral research support project has a verified principal-investigator role; other individual program roles are marked `[VERIFY ROLE]`. Paper-linked case studies retain the roles and outputs supported by their publication records.
 - Three original SVG conceptual illustrations accompany the selected papers. They are labeled as illustrations, not measured data or reproduced publisher figures. Actual paper figures can replace them when available and cleared for use.
+
+## September 27 editorial pass
+
+- The live site and local repository matched before editing. The requested seven-link navigation, six-section home, and dedicated Projects page were already present, so this pass did not add sections or reset the architecture.
+- Tightened the research introduction and separated published memory/optoelectronic work from CV-listed flexible-device collaborations. About's biography and vision now use the editable profile data instead of duplicate hard-coded prose.
+- Regenerated the public CV PDF with the same broad research-identity summary as the web CV. Publication, patent, project, and award records remain based on the September 2, 2026 source CV.

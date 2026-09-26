@@ -15,7 +15,14 @@ September 26, 2026. Local static server; Microsoft Edge Chromium via Playwright.
 ## Scope
 
 - The published-paper, first-author-paper, and registered-patent counts are computed from `content.js` rather than typed into the homepage. Their source is the CV updated September 2, 2026.
-- The downloadable PDF remains the public CV from the preceding pass. The three SVGs are conceptual diagrams, not measured data or reproduced figures.
+- The downloadable PDF was regenerated with the same research-identity wording as the web CV. All five A4 pages were rendered and visually checked. The three SVGs are conceptual diagrams, not measured data or reproduced figures.
 - No external font, client framework, analytics, or runtime content fetch is used.
 
 See `AUDIT.md` for evidence and unresolved content sources.
+
+## September 27 editorial pass
+
+- Confirmed the live versions of all seven substantive pages matched the repository before editing.
+- Clarified the home hero's verified memory/optoelectronic work versus CV-listed flexible-electronics collaborations and made the academic position explicit.
+- Removed repeated current/future paragraphs from the Research page's core-science introduction. About biography and research vision now read from editable `profile.bio` and `profile.vision` fields.
+- Rechecked 28 page/viewport combinations at 1440, 820, 390, and 320 px: no horizontal overflow, missing images, missing alt text, or page errors. Mobile menu and focus return passed. `scripts/check.mjs` found 210 internal references and zero errors.

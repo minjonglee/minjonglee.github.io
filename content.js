@@ -599,8 +599,8 @@ window.SITE_CONTENT = {
       "degree": "Integrated M.S.–Ph.D. Program",
       "school": "School of Electrical Engineering, Korea University"
     },
-    "bio": "I am an integrated M.S.–Ph.D. researcher in electrical engineering at Korea University, advised by Prof. Jae Won Shim. My work examines how molecular interfaces, defects, ionic dynamics, and thin-film materials govern electronic devices.",
-    "vision": "My long-term goal is to connect materials and interface physics with reliable memory and integrated computing hardware. Organic and hybrid optoelectronics provide a foundation for this trajectory: the same questions about contacts, traps, and transport reappear in emerging memory devices."
+    "bio": "My first-author publications span molecular contacts, organic photovoltaics, ALD oxide electrodes, optoelectronic memristors, and artificial synapses. Across these platforms, interfaces and defects are recurring scientific questions.",
+    "vision": "I aim to connect interface, defect, ionic, and charge-transport physics with more reliable electronic devices. My current doctoral project studies multilevel precision in ionic memory; integrated and 3D electronic systems are a longer-term research direction."
   },
   "topics": [
     {
