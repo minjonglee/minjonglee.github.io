@@ -17,7 +17,7 @@ export function portrait(data, compact = false) {
   const p = data.profile;
   return p.portrait
     ? `<figure class="portrait ${compact ? 'portrait-small' : ''}"><img src="${e(p.portrait)}" alt="${e(p.portraitAlt)}" width="354" height="472" ${compact ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async"></figure>`
-    : `<figure class="portrait placeholder ${compact ? 'portrait-small' : ''}"><span class="placeholder-index" aria-hidden="true">MJL /</span><div><span class="placeholder-title">Portrait forthcoming</span><span class="placeholder-caption">Min Jong Lee · Korea University</span></div><figcaption class="sr-only">Placeholder for a professional portrait of Min Jong Lee.</figcaption></figure>`;
+    : '';
 }
 
 export function researchDiagram() {
@@ -34,19 +34,19 @@ export function paperReference(data, id) {
   return `<li><a href="publications.html#${e(p.id)}">${e(p.title)}</a><span>${e(p.journal.split(' · ')[0])} · ${p.year}</span></li>`;
 }
 
-export function publication(data, p) {
+export function publication(data, p, {showYear = true} = {}) {
   const topicNames = p.topics.map(id=>data.topics.find(t=>t.id===id).label);
-  return `<article class="publication-item ${p.featured?'is-featured':''}" id="${e(p.id)}" data-topics="${p.topics.join(' ')}">
-    <div class="publication-index"><span>${p.year}</span></div>
+  const titleTag = showYear ? 'h3' : 'h4';
+  return `<article class="publication-item ${showYear?'':'publication-no-year'}" id="${e(p.id)}" data-topics="${p.topics.join(' ')}">${showYear?`<div class="publication-index"><span>${p.year}</span></div>`:''}
     <div class="publication-body"><div class="badges">${p.type==='first'?'<span class="badge">First author</span>':''}${!p.status&&data.featured.some(f=>f.paper===p.id)?'<span class="badge badge-outline">Featured</span>':''}${p.status?`<span class="badge badge-outline">${e(p.status)} · not published</span>`:''}</div>
-    <h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p><p class="journal">${e(p.journal)} <span>(${p.year})</span></p>${tags(topicNames)}</div>
+    <${titleTag}>${e(p.title)}</${titleTag}><p class="authors">${authors(p.authors)}</p><p class="journal">${e(p.journal)} <span>(${p.year})</span></p>${tags(topicNames)}</div>
     <div class="publication-link">${paperLink(p)}</div></article>`;
 }
 
 export function featured(data) {
   return `<div class="featured-grid">${data.featured.slice(0,3).map(f=>{
     const p=data.publications.find(p=>p.id===f.paper);
-    return `<article class="featured-work"><figure class="research-figure"><img src="${e(p.image)}" alt="${e(p.imageAlt)}" width="960" height="600" loading="lazy" decoding="async"><figcaption>Conceptual illustration · not experimental data</figcaption></figure><div class="featured-copy"><p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p><h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}</div></article>`;
+    return `<article class="featured-work ${p.image?'featured-with-image':''}">${p.image?`<figure class="research-figure"><img src="${e(p.image)}" alt="${e(p.imageAlt)}" width="960" height="600" loading="lazy" decoding="async"></figure>`:`<p class="work-source">${e(p.journal.split(' · ')[0])}<br>${p.year}</p>`}<div class="featured-copy">${p.image?`<p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p>`:''}<h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}${p.doi?`<span class="work-doi">DOI ${e(p.doi)}</span>`:''}</div></article>`;
   }).join('')}</div>`;
 }
 
@@ -83,10 +83,10 @@ ${extraHead}
   <header class="site-header"><div class="header-inner shell">
     <a class="brand" href="index.html" aria-label="Min Jong Lee, home">MIN JONG LEE<span class="brand-dot" aria-hidden="true">.</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation" hidden><span>Menu</span><span class="menu-symbol" aria-hidden="true">+</span></button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(([href,name])=>`<a href="${href}"${file===href?' aria-current="page"':''}>${name}</a>`).join('')}<a class="nav-cv" href="${e(data.profile.cv)}" download aria-label="Download Min Jong Lee's CV as PDF">CV <span aria-hidden="true">↓</span></a></nav>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(([href,name])=>`<a href="${href}"${file===href?' aria-current="page"':''}>${name}</a>`).join('')}<a class="nav-cv" href="${e(data.profile.cv)}" download aria-label="Download Min Jong Lee's CV as PDF">CV</a></nav>
   </div></header>
   <main id="main" tabindex="-1">${body}</main>
-  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">MIN JONG LEE<span class="brand-dot" aria-hidden="true">.</span></a><p>Korea University · Electrical Engineering</p></div><div><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${textLink(data.scholar,'Google Scholar')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Min Jong Lee</span><span>Korea University · Seoul</span><a href="#top">Back to top ↑</a></div></div></footer>
+  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">MIN JONG LEE<span class="brand-dot" aria-hidden="true">.</span></a><p>Korea University<br>School of Electrical Engineering</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${textLink(data.scholar,'Google Scholar')}${data.profile.orcid?textLink(data.profile.orcid,'ORCID'):''}${textLink(data.profile.labUrl,'AEEL')}${textLink(data.profile.cv,'CV','download')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Min Jong Lee</span><span>Seoul, Republic of Korea</span><a href="#top">Back to top ↑</a></div></div></footer>
 </body>
 </html>
 `;

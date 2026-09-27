@@ -1,6 +1,6 @@
 // Single editable content source. Run: node scripts/build.mjs
 // Source: user-supplied CV (September 2, 2026) and research brief.
-// Null profile/image fields stay absent or show labeled placeholders.
+// Unverified optional fields remain absent from the published pages.
 window.SITE_CONTENT = {
   "scholar": "https://scholar.google.co.kr/citations?user=-BlGIHUAAAAJ&hl=ko",
   "publications": [
@@ -27,8 +27,8 @@ window.SITE_CONTENT = {
       "id": "paper-02",
       "authors": "Min Jong Lee, Sang Heon Lee, Dong Gyu Lee, Tae Hyuk Kim, Yubhin Cho, Gyeong Min Lee, Sung Su Yoon, Seon Joong Kim, Hyungju Ahn, Tae Kyung Lee*, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": "assets/work-hydrogen-bonding.svg",
-      "imageAlt": "Conceptual illustration of molecular links connecting a device interface to repeatable memory states; not experimental data",
+      "image": null,
+      "imageAlt": "",
       "doi": "10.1002/adma.202511728",
       "doiSource": "https://api.crossref.org/works/10.1002/adma.202511728",
       "topics": [
@@ -45,8 +45,8 @@ window.SITE_CONTENT = {
       "id": "paper-03",
       "authors": "Min Jong Lee, Tae Hyuk Kim, Sang Heon Lee, Seunghyun Oh, Muhammad Asghar Khan, Gyeong Min Lee, Young Kyun Choi, Soyeon Lee, Hyungju Ahn, Soong Ju Oh, Jiwoong Yang, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": "assets/work-trap-control.svg",
-      "imageAlt": "Conceptual cross-section of an interface layer between device films with fewer marked trap sites; not experimental data",
+      "image": null,
+      "imageAlt": "",
       "doi": "10.1002/adfm.202421080",
       "doiSource": "https://api.crossref.org/works/10.1002/adfm.202421080",
       "topics": [
@@ -79,8 +79,8 @@ window.SITE_CONTENT = {
       "id": "paper-05",
       "authors": "Min Jong Lee, Ji-Sang Park, Tae Hyuk Kim, Muhammad Ahsan Saeed, Gyeong Min Lee, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": "assets/work-molecular-contacts.svg",
-      "imageAlt": "Conceptual illustration of a self-assembled molecular layer between a contact and an organic device layer; not experimental data",
+      "image": null,
+      "imageAlt": "",
       "topics": [
         "interfaces",
         "opto"
@@ -599,8 +599,8 @@ window.SITE_CONTENT = {
       "degree": "Integrated M.S.–Ph.D. Program",
       "school": "School of Electrical Engineering, Korea University"
     },
-    "bio": "My first-author publications span molecular contacts, organic photovoltaics, ALD oxide electrodes, optoelectronic memristors, and artificial synapses. Across these platforms, interfaces and defects are recurring scientific questions.",
-    "vision": "I aim to connect interface, defect, ionic, and charge-transport physics with more reliable electronic devices. My current doctoral project studies multilevel precision in ionic memory; integrated and 3D electronic systems are a longer-term research direction."
+    "bio": "My research began with organic and hybrid optoelectronics, where molecular contacts, thin-film electrodes, and interfacial defects affect charge transport. First-author papers on photovoltaic, capacitor, optoelectronic-memory, and synaptic devices connect that foundation to emerging memory.",
+    "vision": "I study how interface structure, defects, and ionic dynamics affect device behavior and reliability. My current doctoral project examines multilevel precision in ionic memory. Low-temperature and integrated electronic systems are future research directions."
   },
   "topics": [
     {
@@ -830,26 +830,7 @@ window.SITE_CONTENT = {
       "patents": []
     }
   ],
-  "gallery": [
-    {
-      "title": "Conferences & presentations",
-      "caption": "Conference or presentation photo to be added.",
-      "image": null,
-      "alt": ""
-    },
-    {
-      "title": "Research visits & training",
-      "caption": "Research visit or training photo to be added.",
-      "image": null,
-      "alt": ""
-    },
-    {
-      "title": "Laboratory & collaboration",
-      "caption": "Laboratory or collaboration photo to be added.",
-      "image": null,
-      "alt": ""
-    }
-  ],
+  "gallery": [],
   "trajectory": [
     {
       "title": "Organic electronics",

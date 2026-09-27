@@ -20,7 +20,7 @@ Audit performed before implementation, September 25, 2026.
 - Added `projects.html`, `activities.html`, and `cv.html`; legacy `recognition.html` and `contact.html` remain accessible through redirect pages with fallback links.
 - Research organized into three pillars and a connected optoelectronics foundation. “Established”, “Current”, and “Emerging / future” text describes the strength of evidence. Circuit/system topics use dashed rules in the cross-scale framework.
 - About and footer carry contact links. A public PDF CV omits the original phone number and detailed postal address.
-- Headers use two system font stacks, warm paper, dark text, thin dividers, and a modest warm accent retained from the former identity. The conceptual interface SVG is explicitly labeled; it is not research data.
+- Headers use two system font stacks, warm paper, dark text, and thin dividers. The later site-wide pass changed the accent to deep blue and removed conceptual research SVGs.
 
 ## Evidence and deliberate limitations
 
@@ -30,7 +30,7 @@ Audit performed before implementation, September 25, 2026.
 - Eight patent records retained with original status and identifiers. US application numbers are labeled US only; China/Taiwan mentions remain notes because separate local numbers are unavailable.
 - Research/project summaries are grounded in CV titles and the supplied brief; they do not add quantitative claims. “Related patent” links are topic associations, not a claim of legal family linkage or technology licensing.
 - AEEL and Prof. Shim are linked to the provided laboratory website. No affiliation with MIT, Stanford, SK hynix, or another prospective institution/company is implied.
-- The user-provided portrait is applied on Home and About. No paper figures or event photographs were supplied; the homepage uses original conceptual SVG diagrams and no experimental charts.
+- The user-provided portrait is applied on Home and About. No paper figures or event photographs were supplied; the final homepage uses text-led featured work and no experimental charts.
 - ORCID/LinkedIn remain null until exact profile URLs are supplied. Conference/talk/visit details remain unfilled. No pre-2023 education history is inferred.
 - Publication status, project dates, and patent status remain the CV snapshot; this redesign is not a live registry or comprehensive bibliography update.
 
@@ -41,11 +41,18 @@ See `QA.md` for validation, and `../README.md` for editing and deployment.
 - Compared the live GitHub Pages HTML with the repository before editing; the substantive pages matched. The homepage now has six major sections: hero, verified highlights, research framework, three featured outputs, three current research previews, and About. Full lists remain on their own pages.
 - Home, About, Research, Projects, Publications, Patents, and CV form the primary navigation. Projects is a substantive page again, with independent, industry, interdisciplinary, and collaborative records. Recognition and the gallery remain on About; Contact remains in the footer. Three legacy URLs still redirect.
 - Research now distinguishes a common scientific question, three device platforms, and integrated/3D systems as a future direction. Flexible-device work is identified as CV-listed collaboration. The Publications flexible filter intentionally has no published result in the supplied CV.
-- Verified program titles, periods, and sponsors are retained. Only the doctoral research support project has a verified principal-investigator role; other individual program roles are marked `[VERIFY ROLE]`. Paper-linked case studies retain the roles and outputs supported by their publication records.
-- Three original SVG conceptual illustrations accompany the selected papers. They are labeled as illustrations, not measured data or reproduced publisher figures. Actual paper figures can replace them when available and cleared for use.
+- Verified program titles, periods, and sponsors are retained. Only the doctoral research support project has a verified principal-investigator role; other individual program roles were initially marked for internal verification and are now omitted from the live pages. Paper-linked case studies retain roles and outputs supported by publication records.
+- Three conceptual illustrations were used during the September 26 stage. The final pass removed them; cleared actual figures can be added later.
 
 ## September 27 editorial pass
 
 - The live site and local repository matched before editing. The requested seven-link navigation, six-section home, and dedicated Projects page were already present, so this pass did not add sections or reset the architecture.
 - Tightened the research introduction and separated published memory/optoelectronic work from CV-listed flexible-device collaborations. About's biography and vision now use the editable profile data instead of duplicate hard-coded prose.
 - Regenerated the public CV PDF with the same broad research-identity summary as the web CV. Publication, patent, project, and award records remain based on the September 2, 2026 source CV.
+
+## September 27 final site-wide pass
+
+- Standardized the seven-link navigation, footer, deep blue accent, page-title treatment, and editorial rows across all substantive pages.
+- Removed unverified role labels, empty gallery prompts, and three conceptual science SVGs from the live site. The portrait is the only supplied photograph. Featured work is text-led until reusable real research figures are available.
+- Rewrote About around the electronic-device and interface-physics identity; shortened Research to scientific questions, three device platforms, and a clearly marked future direction. Project records remain on Projects, selected and full chronological papers on Publications, and award records on About.
+- Grouped published papers by year and retained only verified first-author markers. Kept registered and application patent states separate, with technical area as quiet metadata.

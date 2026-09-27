@@ -43,6 +43,9 @@
       });
       let visible = 0;
       rows.forEach(row => { row.hidden = topic !== 'all' && !row.dataset.topics.split(' ').includes(topic); if (!row.hidden) visible++; });
+      list.querySelectorAll('[data-year-group]').forEach(group => {
+        group.hidden = ![...group.querySelectorAll('.publication-item')].some(row => !row.hidden);
+      });
       count.textContent = `${visible} published ${visible === 1 ? 'paper' : 'papers'}${topic === 'all' ? '' : ' · ' + button.textContent}`;
       if (empty) empty.hidden = visible !== 0;
     }));
