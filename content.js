@@ -27,7 +27,7 @@ window.SITE_CONTENT = {
       "id": "paper-02",
       "authors": "Min Jong Lee, Sang Heon Lee, Dong Gyu Lee, Tae Hyuk Kim, Yubhin Cho, Gyeong Min Lee, Sung Su Yoon, Seon Joong Kim, Hyungju Ahn, Tae Kyung Lee*, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": "assets/concept-memory-switching.png",
+      "image": "assets/concept-memory-switching.jpg",
       "imageAlt": "Concept illustration of a layered memristive device with blue ion pathways; not an experimental figure",
       "imageCaption": "Concept illustration · not a paper figure",
       "doi": "10.1002/adma.202511728",
@@ -46,7 +46,7 @@ window.SITE_CONTENT = {
       "id": "paper-03",
       "authors": "Min Jong Lee, Tae Hyuk Kim, Sang Heon Lee, Seunghyun Oh, Muhammad Asghar Khan, Gyeong Min Lee, Young Kyun Choi, Soyeon Lee, Hyungju Ahn, Soong Ju Oh, Jiwoong Yang, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": "assets/concept-trap-engineered-memory.png",
+      "image": "assets/concept-trap-engineered-memory.jpg",
       "imageAlt": "Concept illustration of a layered optoelectronic memory device with an engineered interface; not an experimental figure",
       "imageCaption": "Concept illustration · not a paper figure",
       "doi": "10.1002/adfm.202421080",
@@ -81,7 +81,7 @@ window.SITE_CONTENT = {
       "id": "paper-05",
       "authors": "Min Jong Lee, Ji-Sang Park, Tae Hyuk Kim, Muhammad Ahsan Saeed, Gyeong Min Lee, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": "assets/concept-molecular-interface.png",
+      "image": "assets/concept-molecular-interface.jpg",
       "imageAlt": "Concept illustration of a molecular interface between thin-film layers; not an experimental figure",
       "imageCaption": "Concept illustration · not a paper figure",
       "topics": [
@@ -615,7 +615,7 @@ window.SITE_CONTENT = {
     "linkedin": null,
     "portrait": "assets/min-jong-lee-portrait.jpg",
     "portraitAlt": "Portrait of Min Jong Lee in a dark suit against a light background",
-    "heroImage": "assets/concept-device-layers.png",
+    "heroImage": "assets/concept-device-layers.jpg",
     "heroImageAlt": "Concept illustration of a layered electronic device and its interface",
     "heroImageCaption": "Concept illustration",
     "cv": "assets/min-jong-lee-cv.pdf",
@@ -868,10 +868,10 @@ window.SITE_CONTENT = {
     }
   ],
   "researchFigures": {
-    "interfaces": {"image": "assets/concept-molecular-interface.png", "alt": "Concept illustration of an ordered molecular interface in a thin-film device", "caption": "Concept illustration · not experimental data"},
-    "memory": {"image": "assets/concept-memory-switching.png", "alt": "Concept illustration of ion paths in a layered memory device", "caption": "Concept illustration · not experimental data"},
-    "optoelectronics": {"image": "assets/concept-optoelectronic-stack.png", "alt": "Concept illustration of a hybrid optoelectronic thin-film stack receiving light", "caption": "Concept illustration · not experimental data"},
-    "flexible": {"image": "assets/concept-flexible-circuit.png", "alt": "Concept illustration of a curved flexible electronic circuit", "caption": "Concept illustration · not experimental data"}
+    "interfaces": {"image": "assets/concept-molecular-interface.jpg", "alt": "Concept illustration of an ordered molecular interface in a thin-film device", "caption": "Concept illustration · not experimental data"},
+    "memory": {"image": "assets/concept-memory-switching.jpg", "alt": "Concept illustration of ion paths in a layered memory device", "caption": "Concept illustration · not experimental data"},
+    "optoelectronics": {"image": "assets/concept-optoelectronic-stack.jpg", "alt": "Concept illustration of a hybrid optoelectronic thin-film stack receiving light", "caption": "Concept illustration · not experimental data"},
+    "flexible": {"image": "assets/concept-flexible-circuit.jpg", "alt": "Concept illustration of a curved flexible electronic circuit", "caption": "Concept illustration · not experimental data"}
   },
   "gallery": [],
   "trajectory": [

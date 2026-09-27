@@ -1,15 +1,15 @@
 # Research image assets
 
-The six `assets/concept-*.png` images were generated with the built-in imagegen tool on September 27, 2026. The user-supplied composite image was a **visual reference** for scientific subject matter and a restrained blue/white palette. It was not used as evidence. These assets are conceptual illustrations, **not experimental microscopy, measurement data, device schematics, or figures from the cited papers**. The pages label them accordingly.
+The six `assets/concept-*.jpg` images were generated with the built-in imagegen tool on September 27, 2026, then encoded as quality-92 JPEGs for the website while preserving their 1448×1086 resolution. The user-supplied composite image was a **visual reference** for scientific subject matter and a restrained blue/white palette. It was not used as evidence. These assets are conceptual illustrations, **not experimental microscopy, measurement data, device schematics, or figures from the cited papers**. The pages label them accordingly.
 
 | Asset | Current use | Prompt subject |
 |---|---|---|
-| `concept-device-layers.png` | Home hero | Layered emerging electronic device with electrode, functional layer, thin interface, substrate, and restrained blue charge motifs |
-| `concept-molecular-interface.png` | Research: interfaces; featured paper on molecular contacts | Ordered molecular self-assembled interface between a thin contact and organic/hybrid semiconductor |
-| `concept-memory-switching.png` | Research: memory; featured paper on synaptic response | Layered memristive device with subtle ion pathways and defect sites |
-| `concept-trap-engineered-memory.png` | Featured paper on trap reduction | Optoelectronic memristor stack with an ultra-thin intermediate layer, incident light, and subtle charge/defect motifs |
-| `concept-optoelectronic-stack.png` | Research: optoelectronics | Hybrid optoelectronic thin-film stack receiving soft incident light |
-| `concept-flexible-circuit.png` | Research: flexible electronics | Curved flexible circuit with thin conductive traces and layered materials |
+| `concept-device-layers.jpg` | Home hero | Layered emerging electronic device with electrode, functional layer, thin interface, substrate, and restrained blue charge motifs |
+| `concept-molecular-interface.jpg` | Research: interfaces; featured paper on molecular contacts | Ordered molecular self-assembled interface between a thin contact and organic/hybrid semiconductor |
+| `concept-memory-switching.jpg` | Research: memory; featured paper on synaptic response | Layered memristive device with subtle ion pathways and defect sites |
+| `concept-trap-engineered-memory.jpg` | Featured paper on trap reduction | Optoelectronic memristor stack with an ultra-thin intermediate layer, incident light, and subtle charge/defect motifs |
+| `concept-optoelectronic-stack.jpg` | Research: optoelectronics | Hybrid optoelectronic thin-film stack receiving soft incident light |
+| `concept-flexible-circuit.jpg` | Research: flexible electronics | Curved flexible circuit with thin conductive traces and layered materials |
 
 ## Generation prompt set
 
