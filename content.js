@@ -27,8 +27,9 @@ window.SITE_CONTENT = {
       "id": "paper-02",
       "authors": "Min Jong Lee, Sang Heon Lee, Dong Gyu Lee, Tae Hyuk Kim, Yubhin Cho, Gyeong Min Lee, Sung Su Yoon, Seon Joong Kim, Hyungju Ahn, Tae Kyung Lee*, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": null,
-      "imageAlt": "",
+      "image": "assets/concept-memory-switching.png",
+      "imageAlt": "Concept illustration of a layered memristive device with blue ion pathways; not an experimental figure",
+      "imageCaption": "Concept illustration · not a paper figure",
       "doi": "10.1002/adma.202511728",
       "doiSource": "https://api.crossref.org/works/10.1002/adma.202511728",
       "topics": [
@@ -45,8 +46,9 @@ window.SITE_CONTENT = {
       "id": "paper-03",
       "authors": "Min Jong Lee, Tae Hyuk Kim, Sang Heon Lee, Seunghyun Oh, Muhammad Asghar Khan, Gyeong Min Lee, Young Kyun Choi, Soyeon Lee, Hyungju Ahn, Soong Ju Oh, Jiwoong Yang, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": null,
-      "imageAlt": "",
+      "image": "assets/concept-trap-engineered-memory.png",
+      "imageAlt": "Concept illustration of a layered optoelectronic memory device with an engineered interface; not an experimental figure",
+      "imageCaption": "Concept illustration · not a paper figure",
       "doi": "10.1002/adfm.202421080",
       "doiSource": "https://api.crossref.org/works/10.1002/adfm.202421080",
       "topics": [
@@ -79,8 +81,9 @@ window.SITE_CONTENT = {
       "id": "paper-05",
       "authors": "Min Jong Lee, Ji-Sang Park, Tae Hyuk Kim, Muhammad Ahsan Saeed, Gyeong Min Lee, and Jae Won Shim*",
       "source": "MJL_CV_20260901.docx; updated September 2, 2026",
-      "image": null,
-      "imageAlt": "",
+      "image": "assets/concept-molecular-interface.png",
+      "imageAlt": "Concept illustration of a molecular interface between thin-film layers; not an experimental figure",
+      "imageCaption": "Concept illustration · not a paper figure",
       "topics": [
         "interfaces",
         "opto"
@@ -612,8 +615,9 @@ window.SITE_CONTENT = {
     "linkedin": null,
     "portrait": "assets/min-jong-lee-portrait.jpg",
     "portraitAlt": "Portrait of Min Jong Lee in a dark suit against a light background",
-    "heroImage": null,
-    "heroImageAlt": "",
+    "heroImage": "assets/concept-device-layers.png",
+    "heroImageAlt": "Concept illustration of a layered electronic device and its interface",
+    "heroImageCaption": "Concept illustration",
     "cv": "assets/min-jong-lee-cv.pdf",
     "updated": "September 27, 2026",
     "education": [
@@ -864,10 +868,10 @@ window.SITE_CONTENT = {
     }
   ],
   "researchFigures": {
-    "interfaces": {"image": null, "alt": ""},
-    "memory": {"image": null, "alt": ""},
-    "optoelectronics": {"image": null, "alt": ""},
-    "flexible": {"image": null, "alt": ""}
+    "interfaces": {"image": "assets/concept-molecular-interface.png", "alt": "Concept illustration of an ordered molecular interface in a thin-film device", "caption": "Concept illustration · not experimental data"},
+    "memory": {"image": "assets/concept-memory-switching.png", "alt": "Concept illustration of ion paths in a layered memory device", "caption": "Concept illustration · not experimental data"},
+    "optoelectronics": {"image": "assets/concept-optoelectronic-stack.png", "alt": "Concept illustration of a hybrid optoelectronic thin-film stack receiving light", "caption": "Concept illustration · not experimental data"},
+    "flexible": {"image": "assets/concept-flexible-circuit.png", "alt": "Concept illustration of a curved flexible electronic circuit", "caption": "Concept illustration · not experimental data"}
   },
   "gallery": [],
   "trajectory": [

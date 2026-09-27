@@ -29,8 +29,9 @@ export function trajectory(data) {
 }
 
 export function scientificVisual(image, alt, {label:caption='Research figure',className=''} = {}) {
+  const priority=className==='hero-science' ? 'fetchpriority="high"' : 'loading="lazy"';
   return image
-    ? `<figure class="scientific-visual ${e(className)}"><img src="${e(image)}" alt="${e(alt)}" width="960" height="600" loading="lazy" decoding="async"><figcaption>${e(caption)}</figcaption></figure>`
+    ? `<figure class="scientific-visual ${e(className)}"><img src="${e(image)}" alt="${e(alt)}" width="1448" height="1086" ${priority} decoding="async"><figcaption>${e(caption)}</figcaption></figure>`
     : `<figure class="scientific-visual visual-placeholder ${e(className)}" aria-label="${e(caption)} awaiting a verified image"><span>${e(caption)}</span><strong>[ADD VERIFIED RESEARCH FIGURE]</strong><figcaption>Original research image pending</figcaption></figure>`;
 }
 
@@ -57,7 +58,7 @@ export function publication(data, p, {showYear = true} = {}) {
 export function featured(data) {
   return `<div class="featured-grid">${data.featured.slice(0,3).map(f=>{
     const p=data.publications.find(p=>p.id===f.paper);
-    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:'Paper figure'})}<div class="featured-copy"><p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p><h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}</div></article>`;
+    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:p.imageCaption??'Paper figure'})}<div class="featured-copy"><p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p><h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}</div></article>`;
   }).join('')}</div>`;
 }
 
