@@ -56,3 +56,11 @@ See `QA.md` for validation, and `../README.md` for editing and deployment.
 - Removed unverified role labels, empty gallery prompts, and three conceptual science SVGs from the live site. The portrait is the only supplied photograph. Featured work is text-led until reusable real research figures are available.
 - Rewrote About around the electronic-device and interface-physics identity; shortened Research to scientific questions, three device platforms, and a clearly marked future direction. Project records remain on Projects, selected and full chronological papers on Publications, and award records on About.
 - Grouped published papers by year and retained only verified first-author markers. Kept registered and application patent states separate, with technical area as quiet metadata.
+
+## September 27 role and education correction
+
+- The user supplied two corrected education entries, including periods, degrees, GPAs, and undergraduate honor. These supersede the earlier expected completion date and the original audit's assumption that no pre-2023 education could be shown.
+- The user confirmed participation as a researcher in the listed government-funded and industry–academic R&D programs. The doctoral research support project remains the sole program labeled Principal Investigator.
+- Home now moves directly from the hero to Research, Featured Work, Current Research, and About. The numerical highlight strip was removed.
+- Projects separates independent ownership, government R&D participation, industry–academic R&D participation, and paper-linked published research. Integrated electronic systems is presented as a long-term direction, with 3D integration one possible path.
+- The public HTML CV and downloadable PDF were regenerated from the corrected data. Publication and patent records still derive from the September 2, 2026 CV snapshot; the education and role corrections came directly from the user's September 27 request.

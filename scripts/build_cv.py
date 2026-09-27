@@ -49,9 +49,13 @@ flow.append(para('School of Electrical Engineering, Korea University<br/>Seoul, 
 flow.append(para('Public curriculum vitae | Record updated '+esc(profile['updated']),'small'))
 heading('Research identity')
 flow.append(para('<b>Interface and device physics for emerging electronics</b>'))
-flow.append(para('Research interests: molecular and thin-film interfaces, defects, ionic dynamics, charge transport, emerging memory, optoelectronics, and flexible-device collaborations. Integrated and 3D electronics is a future research direction.'))
+flow.append(para('Research interests: molecular and thin-film interfaces, defects, ionic dynamics, charge transport, emerging memory, optoelectronics, and flexible-device R&amp;D. Integrated electronic systems are a long-term research direction.'))
 heading('Education')
-flow.append(para('<b>'+esc(profile['education']['degree'])+'</b> | '+esc(profile['education']['period'])+'<br/>'+esc(profile['education']['school'])+'<br/>Advisor: '+esc(profile['advisor'])))
+for item in profile['education']:
+    details='<b>'+esc(item['degree'])+'</b> | '+esc(item['period'])+'<br/>'+esc(item['school'])+'<br/>GPA: '+esc(item['gpa'])
+    if item.get('honor'): details+=' | '+esc(item['honor'])
+    if item.get('advisor'): details+='<br/>Advisor: '+esc(item['advisor'])
+    flow.append(para(details))
 
 published=[p for p in data['publications'] if not p.get('status')]
 heading('First-author publications')
@@ -83,7 +87,7 @@ heading('Awards & academic programs')
 for p in sorted(data['awards'],key=lambda p:-int(p['year'])):
     flow.append(KeepTogether([para('<b>'+p['year']+' | '+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])),Spacer(1,2)]))
 flow.append(Spacer(1,15))
-flow.append(para('Source: user-supplied CV updated September 2, 2026. English labels for Korean titles are descriptive translations. Project periods refer to the programs listed in the CV. Author symbols: † equal contribution; * corresponding author. Original phone number and detailed postal address omitted.','small'))
+flow.append(para('Public version updated September 2026. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
 
 def footer(canvas, doc):
     canvas.saveState()

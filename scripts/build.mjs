@@ -19,10 +19,10 @@ for (const item of data.featured.slice(0,3)) {
   if (!paper || paper.status) throw new Error(`Featured paper ${item.paper} needs a published record.`);
 }
 const definitions=[
- ['index.html','Interface & Device Physics for Emerging Electronics','Min Jong Lee studies interfaces, defects, ionic and charge transport across memory and optoelectronic devices, with CV-listed flexible-electronics collaborations.',pages.home],
+ ['index.html','Interface & Device Physics for Emerging Electronics','Min Jong Lee studies interfaces, defects, ions, and charge transport across memory, optoelectronic, and flexible electronic devices.',pages.home],
  ['about.html','About','Min Jong Lee is an integrated M.S.–Ph.D. researcher in electronic devices, materials, and interface physics at Korea University.',pages.about],
- ['research.html','Research','The science of interfaces, defects, ions, and transport across memory, optoelectronic, and flexible device platforms; integrated systems are a future direction.',pages.research],
- ['projects.html','Projects','Verified doctoral, industry, interdisciplinary, and collaborative research programs and paper-linked device studies from Min Jong Lee’s CV.',pages.projects],
+ ['research.html','Research','Interface and device physics across memory, optoelectronic, and flexible platforms, with integrated electronic systems as a long-term direction.',pages.research],
+ ['projects.html','Projects','Independent doctoral research, government-funded and industry–academic R&D programs, and selected published research.',pages.projects],
  ['publications.html','Publications','Publications by Min Jong Lee in memory, interface science, thin-film electronics, organic and hybrid optoelectronics.',pages.publications],
  ['patents.html','Patents & Technology Translation','Verified CV records of registered patents and applications in memory, interfaces, semiconductor devices, and optoelectronics.',pages.patents],
  ['cv.html','Curriculum Vitae','Public academic CV of Min Jong Lee, including education, publications, patents, projects, and recognition.',pages.cv]

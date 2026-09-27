@@ -21,11 +21,11 @@ export function portrait(data, compact = false) {
 }
 
 export function researchDiagram() {
-  return `<figure class="research-map" aria-label="Research framework: interface, defect, ionic and transport physics connect memory, optoelectronic, and flexible device platforms; integrated and three-dimensional systems are an emerging direction."><div class="map-core"><span>Core science</span><strong>Interfaces · Defects · Ions · Transport</strong></div><div class="map-platforms"><div>Memory &amp;<br>reliability</div><div>Optoelectronics &amp;<br>hybrid devices</div><div>Flexible &amp;<br>stretchable electronics</div></div><div class="map-future"><span>Emerging direction</span><strong>Integrated &amp; 3D electronic systems</strong></div></figure>`;
+  return `<figure class="research-map" aria-label="Research framework: interface, defect, ionic and transport physics connect memory, optoelectronic, and flexible device platforms; integrated electronic systems are a long-term direction."><div class="map-core"><span>Core science</span><strong>Interfaces · Defects · Ions · Transport</strong></div><div class="map-platforms"><div>Memory &amp;<br>reliability</div><div>Optoelectronics &amp;<br>hybrid devices</div><div>Flexible &amp;<br>stretchable electronics</div></div><div class="map-future"><span>Long-term direction</span><strong>Integrated electronic systems</strong></div></figure>`;
 }
 
 export function trajectory(data) {
-  return `<ol class="trajectory">${data.trajectory.map((s,i)=>`<li class="${i===4?'prospective':''}"><span class="eyebrow">${e(s.phase)}</span><h3>${e(s.title)}</h3><p>${e(s.detail)}</p></li>`).join('')}</ol>`;
+  return `<ol class="trajectory">${data.trajectory.map((s,i)=>`<li class="${i===4?'prospective':''}"><span class="eyebrow">${String(i+1).padStart(2,'0')} · ${e(s.phase)}</span><h3>${e(s.title)}</h3><p>${e(s.detail)}</p></li>`).join('')}</ol>`;
 }
 
 export function paperReference(data, id) {

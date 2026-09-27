@@ -388,7 +388,7 @@ window.SITE_CONTENT = {
       "title": "Semiconductor device",
       "inventors": "김태균, 심재원, 이민종",
       "jurisdiction": "US",
-      "territoryNote": "The CV also lists US, China, Taiwan. Only the US application number is supplied.",
+      "territoryNote": "China and Taiwan are also listed; the identifier shown is for the US application.",
       "id": "patent-04",
       "tags": [
         "SEMICONDUCTOR"
@@ -403,7 +403,7 @@ window.SITE_CONTENT = {
       "title": "METHOD OF MANUFACTURING SEMICONDUCTOR MEMORY DEVICE",
       "inventors": "김태균, 심재원, 이민종",
       "jurisdiction": "US",
-      "territoryNote": "The CV also lists US, Taiwan. Only the US application number is supplied.",
+      "territoryNote": "Taiwan is also listed; the identifier shown is for the US application.",
       "id": "patent-05",
       "tags": [
         "MEMORY",
@@ -464,16 +464,16 @@ window.SITE_CONTENT = {
       "title": "상태 형성 동역학 및 저주파 잡음 해석 기반 이온 이동 제어형 멤리스터의 멀티 레벨 정밀도 한계 규명",
       "englishTitle": "Multilevel precision limits in ion-migration-controlled memristors",
       "sponsor": "Doctoral Research Support Program · Ministry of Education",
-      "personalRole": "Principal investigator"
+      "personalRole": "Principal Investigator"
     },
     {
       "id": "photonic-skin",
-      "category": "interdisciplinary",
+      "category": "government",
       "period": "2026.07–present",
       "title": "초경량 비행향 Physical AI를 위한 Photonic Skin 연구실",
       "englishTitle": "Photonic skin for ultralight aerial Physical AI",
       "sponsor": "Basic Research Laboratory · MSIT",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "flexible-fpcb",
@@ -482,25 +482,25 @@ window.SITE_CONTENT = {
       "title": "초고굴곡 FPCB 배선 소재 개발",
       "englishTitle": "Interconnect materials for highly flexible FPCBs",
       "sponsor": "Samsung Electronics",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "infrared-gas-sensing",
-      "category": "interdisciplinary",
+      "category": "government",
       "period": "2024.04–present",
       "title": "스마트 주거 환경을 위한 저전력 다종 복합 유해가스 측정용 적외선 가스센서 기술 개발",
       "englishTitle": "Low-power infrared gas-sensing technology for smart homes",
       "sponsor": "K-Sensor R&D · Ministry of Trade, Industry and Energy",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "low-light-photovoltaics",
-      "category": "collaborative",
+      "category": "government",
       "period": "2022.03–present",
       "title": "전일 동작 광전지 개발을 위한 약광 발전 한계 돌파 연구",
       "englishTitle": "Overcoming low-light power-generation limits in photovoltaics",
       "sponsor": "Mid-career Researcher Program · MSIT",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "ald-electrodes-industry",
@@ -509,25 +509,25 @@ window.SITE_CONTENT = {
       "title": "TiN 전극 대체를 위한 ALD 기반 초박막 다성분계 전극 개발",
       "englishTitle": "ALD-based ultrathin multicomponent electrodes as alternatives to TiN",
       "sponsor": "Samsung Electronics",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "inorganic-display-training",
-      "category": "collaborative",
+      "category": "government",
       "period": "2023.03–2025.08",
       "title": "산업 전환형 무기발광 디스플레이 전문인력양성사업",
       "englishTitle": "Training for the transition to inorganic light-emitting displays",
       "sponsor": "Ministry of Trade, Industry and Energy",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "stretchable-films",
-      "category": "interdisciplinary",
+      "category": "government",
       "period": "2020.04–2024.12",
       "title": "고신축특성을 가지는 고신뢰성 고내구성 점착필름 및 대면적 코팅 공정 기술 개발",
       "englishTitle": "Durable stretchable adhesive films and large-area coating processes",
       "sponsor": "Ministry of Trade, Industry and Energy",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     },
     {
       "id": "stretchable-pcb",
@@ -536,7 +536,7 @@ window.SITE_CONTENT = {
       "title": "Liquid Metal Particle활용 Stretchable PCB 제작",
       "englishTitle": "Stretchable PCBs using liquid metal particles",
       "sponsor": "Samsung Electronics",
-      "personalRole": null
+      "personalRole": "Participating Researcher"
     }
   ],
   "awards": [
@@ -593,14 +593,25 @@ window.SITE_CONTENT = {
     "portrait": "assets/min-jong-lee-portrait.jpg",
     "portraitAlt": "Portrait of Min Jong Lee in a dark suit against a light background",
     "cv": "assets/min-jong-lee-cv.pdf",
-    "updated": "September 2, 2026",
-    "education": {
-      "period": "March 2023 – February 2028 (expected)",
-      "degree": "Integrated M.S.–Ph.D. Program",
-      "school": "School of Electrical Engineering, Korea University"
-    },
+    "updated": "September 27, 2026",
+    "education": [
+      {
+        "period": "March 2023 – Present",
+        "degree": "Integrated M.S.–Ph.D. Program in Electrical Engineering",
+        "school": "Korea University, Seoul, Republic of Korea",
+        "gpa": "4.06 / 4.50",
+        "advisor": "Prof. Jae Won Shim"
+      },
+      {
+        "period": "March 2019 – February 2023",
+        "degree": "B.S. in Electronic Engineering",
+        "school": "Soongsil University, Seoul, Republic of Korea",
+        "gpa": "4.01 / 4.50",
+        "honor": "Magna Cum Laude"
+      }
+    ],
     "bio": "My research began with organic and hybrid optoelectronics, where molecular contacts, thin-film electrodes, and interfacial defects affect charge transport. First-author papers on photovoltaic, capacitor, optoelectronic-memory, and synaptic devices connect that foundation to emerging memory.",
-    "vision": "I study how interface structure, defects, and ionic dynamics affect device behavior and reliability. My current doctoral project examines multilevel precision in ionic memory. Low-temperature and integrated electronic systems are future research directions."
+    "vision": "I study how interface structure, defects, and ionic dynamics affect device behavior and reliability. My current doctoral project examines multilevel precision in ionic memory. Longer term, I aim to connect thin-film device platforms through low-temperature electronics, heterogeneous integration, and device–system co-design."
   },
   "topics": [
     {
@@ -696,20 +707,20 @@ window.SITE_CONTENT = {
     {
       "id": "integration",
       "number": "03",
-      "title": "Integrated Memory & Computing",
-      "subtitle": "Oxide electronics, 3D integration & hardware-aware computing",
-      "question": "How can emerging memory and low-temperature electronic devices be integrated into scalable computing hardware?",
-      "summary": "ALD oxide electrodes, thin-film processing, and device characterization form the experimental foundation. I aim to extend this foundation toward hardware-aware modeling and integrated memory–logic systems.",
+      "title": "Integrated Electronic Systems",
+      "subtitle": "Low-temperature electronics, heterogeneous integration & device–system co-design",
+      "question": "How can emerging thin-film and electronic-device platforms be integrated into scalable, multifunctional electronic systems?",
+      "summary": "ALD oxide electrodes, thin-film processing, and device characterization form an experimental foundation. I aim to connect device platforms through low-temperature electronics and heterogeneous integration.",
       "motivation": "A useful device must eventually operate within the thermal, electrical, and variability constraints of a larger system. Linking these constraints back to materials choices is a long-term research objective.",
       "current": "Established work includes ALD-processed In₂O₃:V₂O₅ laminated electrodes for photovoltaic and capacitor devices. Thin-film process integration and electrical measurements provide a foundation for examining device nonidealities.",
-      "results": "The 2023 first-author electrode study demonstrates a shared oxide platform for two device classes. CV-listed industry projects provide experience with ALD-based electrode development.",
+      "results": "The 2023 first-author electrode study demonstrates a shared oxide platform for two device classes. Industry–academic R&D also includes ALD-based electrode development.",
       "methods": [
         "Atomic layer deposition",
         "Thin-film device processing",
         "I–V / C–V / pulse testing",
         "Physics-guided device analysis"
       ],
-      "future": "Low-temperature oxide semiconductors, BEOL-compatible devices, ferroelectrics, monolithic 3D integration, memory–logic integration, and compute-in-memory are emerging directions. Circuit- and system-level co-design is the intended next step.",
+      "future": "Possible directions include low-temperature oxide electronics, heterogeneous and 3D integration, integrated memory and optoelectronics, and device–system co-design. These are research aims, not completed platforms.",
       "papers": [
         "paper-06",
         "paper-04"
@@ -730,8 +741,8 @@ window.SITE_CONTENT = {
   "flexible": {
     "title": "Flexible & Stretchable Electronics",
     "question": "How can electronic materials and interconnects remain useful under bending and stretching?",
-    "scope": "The supplied CV lists programs on highly flexible FPCB interconnect materials, stretchable PCBs using liquid metal particles, and durable stretchable adhesive films.",
-    "evidence": "These are CV-listed collaborative programs; individual methods, roles, and device results are not specified in the supplied record.",
+    "scope": "Government-funded and industry–academic R&D includes highly flexible FPCB interconnect materials, stretchable PCBs using liquid metal particles, and durable stretchable adhesive films.",
+    "evidence": "Participation in these programs extends device and materials research to mechanical deformation.",
     "projects": ["flexible-fpcb", "stretchable-pcb", "stretchable-films"],
     "papers": []
   },
@@ -741,14 +752,14 @@ window.SITE_CONTENT = {
       "title": "Ionic dynamics & multilevel precision",
       "status": "Current research · 2026–present",
       "question": "What limits the precision of multilevel states in ion-migration-controlled memristors?",
-      "role": "Principal investigator, doctoral research support project (Ministry of Education).",
+      "role": "Principal Investigator",
       "approach": "Study state-formation dynamics alongside low-frequency electrical noise to connect state variability with ionic motion.",
       "methods": [
         "State-formation dynamics",
         "Low-frequency noise analysis",
         "Memristor characterization"
       ],
-      "outcome": "The project began in September 2026. Results are not yet reported in the supplied CV.",
+      "outcome": "The project began in September 2026; its scientific results remain in development.",
       "papers": [],
       "patents": []
     },
@@ -757,7 +768,7 @@ window.SITE_CONTENT = {
       "title": "Molecular control of artificial synapses",
       "status": "Published work · 2025",
       "question": "Can molecular interactions make artificial synapses more linear and symmetric?",
-      "role": "First author of the associated Advanced Materials paper.",
+      "role": "First Author",
       "approach": "Use hydrogen bonding as a molecular design variable to study linear and symmetric synaptic response.",
       "methods": [
         "Molecular interactions",
@@ -777,7 +788,7 @@ window.SITE_CONTENT = {
       "title": "Interface-controlled optoelectronic memory",
       "status": "Published work · 2025",
       "question": "How can an intermediate layer improve low-power optoelectronic memory?",
-      "role": "First author of the associated Advanced Functional Materials paper.",
+      "role": "First Author",
       "approach": "Introduce an intermediate layer to address traps in low-power optoelectronic memristors.",
       "methods": [
         "Intermediate-layer engineering",
@@ -798,7 +809,7 @@ window.SITE_CONTENT = {
       "title": "Molecular contacts for organic devices",
       "status": "Published work · 2024",
       "question": "How do self-assembled monolayers reshape charge-selective contacts?",
-      "role": "First author of the associated Chemical Engineering Journal paper.",
+      "role": "First Author",
       "approach": "Study SAM-tailored hole-selective contacts across indoor organic photovoltaic and capacitor devices.",
       "methods": [
         "Self-assembled monolayers",
@@ -816,7 +827,7 @@ window.SITE_CONTENT = {
       "title": "ALD oxide electrode platforms",
       "status": "Published work · 2023",
       "question": "Can ALD-grown oxide electrodes serve both photovoltaics and capacitors?",
-      "role": "First author of the associated Journal of Alloys and Compounds paper.",
+      "role": "First Author",
       "approach": "Process laminated In₂O₃:V₂O₅ nanocompounds by ALD and examine their use as electrodes in different device architectures.",
       "methods": [
         "Atomic layer deposition",
@@ -833,33 +844,33 @@ window.SITE_CONTENT = {
   "gallery": [],
   "trajectory": [
     {
-      "title": "Organic electronics",
+      "title": "Organic & hybrid electronics",
       "detail": "Photovoltaics & photodetectors",
       "phase": "Foundation"
     },
     {
-      "title": "Interfaces",
+      "title": "Interface engineering",
       "detail": "Molecular contacts & transport",
-      "phase": "Established work"
+      "phase": "Established expertise"
     },
     {
-      "title": "Defects & ions",
+      "title": "Defect & ionic physics",
       "detail": "Traps, state dynamics & noise",
       "phase": "Current research"
     },
     {
-      "title": "Emerging memory",
+      "title": "Emerging memory & reliability",
       "detail": "Synaptic & multilevel devices",
-      "phase": "Current research"
+      "phase": "Current device focus"
     },
     {
-      "title": "Integrated hardware",
-      "detail": "Memory–logic & computing",
-      "phase": "Future direction"
+      "title": "Integrated electronic systems",
+      "detail": "Low-temperature electronics · heterogeneous and 3D integration · device–system co-design",
+      "phase": "Long-term direction"
     }
   ],
   "notes": {
-    "bibliography": "Publication and patent records follow the CV updated September 2, 2026. Manuscript status is shown separately from published work.",
-    "authors": "Author symbols are retained from the CV: † denotes equal contribution; * denotes corresponding authors. Role badges refer to Min Jong Lee only."
+    "bibliography": "Manuscript status is shown separately from published work.",
+    "authors": "† denotes equal contribution; * denotes corresponding authors. Role badges refer to Min Jong Lee only."
   }
 };
