@@ -27,3 +27,10 @@ See `AUDIT.md` for the source audit and `../README.md` for editing instructions.
 - Research presents Integrated Electronic Systems as a long-term direction. Low-temperature electronics, heterogeneous/3D integration, and device–system co-design are prospective subdirections.
 - Seven substantive pages were retested at four viewport sizes (28 combinations) with no overflow, missing images, image-alt omissions, or page errors. Navigation and mobile Escape focus behavior passed. `scripts/check.mjs` reported 199 valid internal references and zero errors.
 - The five-page public CV PDF was regenerated, rendered to PNG, and visually inspected page by page. Text extraction confirms both corrected education entries and program roles.
+
+## September 27 final academic-polish pass
+
+- Preserved the established five-section Home, navigation, palette, and type system. Restored the requested connecting sentence in the Home research overview.
+- Split institution and location onto separate lines in About education. Refined the five research-journey stages and awards hierarchy without changing their factual records.
+- Compact government and industry program rows now display title, sponsor, full-month period, role, and a single title-grounded description. Published research retains its scientific question, role, approach, finding, and linked outputs; a redundant methods line was removed.
+- Retested all seven substantive pages at desktop, tablet, and two mobile widths. Checked 199 internal references, project role counts, publication filters, and the mobile navigation interaction.

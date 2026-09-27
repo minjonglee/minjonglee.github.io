@@ -64,3 +64,9 @@ See `QA.md` for validation, and `../README.md` for editing and deployment.
 - Home now moves directly from the hero to Research, Featured Work, Current Research, and About. The numerical highlight strip was removed.
 - Projects separates independent ownership, government R&D participation, industry–academic R&D participation, and paper-linked published research. Integrated electronic systems is presented as a long-term direction, with 3D integration one possible path.
 - The public HTML CV and downloadable PDF were regenerated from the corrected data. Publication and patent records still derive from the September 2, 2026 CV snapshot; the education and role corrections came directly from the user's September 27 request.
+
+## September 27 final academic-polish pass
+
+- Kept the existing site concept. Home, About, and Research now use the same Core Science and Long-term Direction vocabulary; the five-stage About journey uses the user's requested scientific subtopics.
+- Projects program rows were shortened to verified titles, sponsor, full-month period, confirmed role, and a concise description grounded in each title. The official Korean doctoral-project title remains on the Independent Research section; full Korean program titles remain in the public CV.
+- Simplified the published-research entries by removing a methods line that repeated the scientific approach. About awards separate award names from awarding bodies for easier scanning.

@@ -473,7 +473,8 @@ window.SITE_CONTENT = {
       "title": "초경량 비행향 Physical AI를 위한 Photonic Skin 연구실",
       "englishTitle": "Photonic skin for ultralight aerial Physical AI",
       "sponsor": "Basic Research Laboratory · MSIT",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Photonic skin research for ultralight aerial Physical AI."
     },
     {
       "id": "flexible-fpcb",
@@ -482,7 +483,8 @@ window.SITE_CONTENT = {
       "title": "초고굴곡 FPCB 배선 소재 개발",
       "englishTitle": "Interconnect materials for highly flexible FPCBs",
       "sponsor": "Samsung Electronics",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Wiring materials for highly flexible printed circuit boards."
     },
     {
       "id": "infrared-gas-sensing",
@@ -491,7 +493,8 @@ window.SITE_CONTENT = {
       "title": "스마트 주거 환경을 위한 저전력 다종 복합 유해가스 측정용 적외선 가스센서 기술 개발",
       "englishTitle": "Low-power infrared gas-sensing technology for smart homes",
       "sponsor": "K-Sensor R&D · Ministry of Trade, Industry and Energy",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Low-power infrared sensing of multiple hazardous gases in residential settings."
     },
     {
       "id": "low-light-photovoltaics",
@@ -500,7 +503,8 @@ window.SITE_CONTENT = {
       "title": "전일 동작 광전지 개발을 위한 약광 발전 한계 돌파 연구",
       "englishTitle": "Overcoming low-light power-generation limits in photovoltaics",
       "sponsor": "Mid-career Researcher Program · MSIT",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Photovoltaic operation under low-light conditions."
     },
     {
       "id": "ald-electrodes-industry",
@@ -509,7 +513,8 @@ window.SITE_CONTENT = {
       "title": "TiN 전극 대체를 위한 ALD 기반 초박막 다성분계 전극 개발",
       "englishTitle": "ALD-based ultrathin multicomponent electrodes as alternatives to TiN",
       "sponsor": "Samsung Electronics",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Ultrathin multicomponent ALD electrodes investigated as alternatives to TiN."
     },
     {
       "id": "inorganic-display-training",
@@ -518,7 +523,8 @@ window.SITE_CONTENT = {
       "title": "산업 전환형 무기발광 디스플레이 전문인력양성사업",
       "englishTitle": "Training for the transition to inorganic light-emitting displays",
       "sponsor": "Ministry of Trade, Industry and Energy",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Researcher training for the transition to inorganic light-emitting displays."
     },
     {
       "id": "stretchable-films",
@@ -527,7 +533,8 @@ window.SITE_CONTENT = {
       "title": "고신축특성을 가지는 고신뢰성 고내구성 점착필름 및 대면적 코팅 공정 기술 개발",
       "englishTitle": "Durable stretchable adhesive films and large-area coating processes",
       "sponsor": "Ministry of Trade, Industry and Energy",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Stretchable adhesive films and large-area coating processes."
     },
     {
       "id": "stretchable-pcb",
@@ -536,7 +543,8 @@ window.SITE_CONTENT = {
       "title": "Liquid Metal Particle활용 Stretchable PCB 제작",
       "englishTitle": "Stretchable PCBs using liquid metal particles",
       "sponsor": "Samsung Electronics",
-      "personalRole": "Participating Researcher"
+      "personalRole": "Participating Researcher",
+      "summary": "Liquid-metal-particle approaches to stretchable PCB fabrication."
     }
   ],
   "awards": [
@@ -740,8 +748,8 @@ window.SITE_CONTENT = {
   },
   "flexible": {
     "title": "Flexible & Stretchable Electronics",
-    "question": "How can electronic materials and interconnects remain useful under bending and stretching?",
-    "scope": "Government-funded and industry–academic R&D includes highly flexible FPCB interconnect materials, stretchable PCBs using liquid metal particles, and durable stretchable adhesive films.",
+    "question": "How can electronic materials and interconnects remain functional under bending and stretching?",
+    "scope": "Research experience in flexible interconnects, stretchable PCB technologies, and mechanically robust films extends interface and transport questions into deformable electronic systems.",
     "evidence": "Participation in these programs extends device and materials research to mechanical deformation.",
     "projects": ["flexible-fpcb", "stretchable-pcb", "stretchable-films"],
     "papers": []
@@ -845,27 +853,27 @@ window.SITE_CONTENT = {
   "trajectory": [
     {
       "title": "Organic & hybrid electronics",
-      "detail": "Photovoltaics & photodetectors",
+      "detail": "Photovoltaics · Photodetectors · Thin-film devices",
       "phase": "Foundation"
     },
     {
       "title": "Interface engineering",
-      "detail": "Molecular contacts & transport",
+      "detail": "Molecular contacts · Energetics · Charge transport",
       "phase": "Established expertise"
     },
     {
-      "title": "Defect & ionic physics",
-      "detail": "Traps, state dynamics & noise",
-      "phase": "Current research"
+      "title": "Defects & ionic dynamics",
+      "detail": "Traps · State dynamics · Electrical noise",
+      "phase": "Current scientific focus"
     },
     {
       "title": "Emerging memory & reliability",
-      "detail": "Synaptic & multilevel devices",
+      "detail": "Memristive · Synaptic · Multilevel devices",
       "phase": "Current device focus"
     },
     {
       "title": "Integrated electronic systems",
-      "detail": "Low-temperature electronics · heterogeneous and 3D integration · device–system co-design",
+      "detail": "Low-temperature electronics · Heterogeneous integration · 3D integration · Device–system co-design",
       "phase": "Long-term direction"
     }
   ],

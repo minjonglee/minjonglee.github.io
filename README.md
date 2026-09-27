@@ -86,7 +86,7 @@ DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`�
 
 ### 연구와 과제
 
-`pillars`의 `current`, `results`, `methods`, `future`를 구분해 편집합니다. 계획은 `future`에 두고 실제 결과가 생겼을 때 옮깁니다. `researchProjects`는 논문과 연결된 연구 사례, `projects`는 연구 프로그램 목록입니다. 과제의 `category`는 `independent`, `government`, `industry` 중 하나입니다. 사용자 확인에 따라 독립 박사과제는 `Principal Investigator`, 나머지 정부·산학 프로그램은 `Participating Researcher`로 표시합니다. 역할이 바뀌면 확인 후 `personalRole`을 수정하세요. 홈의 진행 중 연구 세 건은 `scripts/pages.mjs`의 `previews` 배열에서 선택합니다.
+`pillars`의 `current`, `results`, `methods`, `future`를 구분해 편집합니다. 계획은 `future`에 두고 실제 결과가 생겼을 때 옮깁니다. `researchProjects`는 논문과 연결된 연구 사례, `projects`는 연구 프로그램 목록입니다. 과제의 `category`는 `independent`, `government`, `industry` 중 하나입니다. 정부·산학 과제의 `summary`는 Projects에 표시되는 한 줄 설명입니다. 사용자 확인에 따라 독립 박사과제는 `Principal Investigator`, 나머지 정부·산학 프로그램은 `Participating Researcher`로 표시합니다. 역할이 바뀌면 확인 후 `personalRole`을 수정하세요. 홈의 진행 중 연구 세 건은 `scripts/pages.mjs`의 `previews` 배열에서 선택합니다.
 
 ### 특허
 

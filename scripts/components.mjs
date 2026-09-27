@@ -28,6 +28,11 @@ export function trajectory(data) {
   return `<ol class="trajectory">${data.trajectory.map((s,i)=>`<li class="${i===4?'prospective':''}"><span class="eyebrow">${String(i+1).padStart(2,'0')} · ${e(s.phase)}</span><h3>${e(s.title)}</h3><p>${e(s.detail)}</p></li>`).join('')}</ol>`;
 }
 
+export function formatPeriod(period) {
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return period.replace(/(\d{4})\.(\d{2})/g,(_,year,month)=>`${months[Number(month)-1]} ${year}`).replace('–',' – ').replace('present','Present');
+}
+
 export function paperReference(data, id) {
   const p = data.publications.find(x=>x.id===id);
   if (!p) throw new Error(`Unknown paper ${id}`);
