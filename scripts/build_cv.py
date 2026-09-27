@@ -75,7 +75,8 @@ heading('Patents')
 for i,p in enumerate(data['patents'],1):
     title=f'<b>{i}. {esc(p["englishTitle"])}</b>'
     original=esc(p['title'])
-    facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(p['jurisdiction'])+' | '+esc(p['number'])+' | '+esc(p['date'])
+    number_label=p.get('numberLabel') or ('Registration number' if p['status']=='Registered' else 'Application number')
+    facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(p['jurisdiction'])+' | '+esc(number_label)+': '+esc(p['number'])+' | '+esc(p['date'])
     if p.get('territoryNote'): facts+='<br/>'+esc(p['territoryNote'])
     flow.append(KeepTogether([para(title),para(original,'small'),para(facts),Spacer(1,3)]))
 heading('Research projects')

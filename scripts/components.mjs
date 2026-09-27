@@ -28,6 +28,12 @@ export function trajectory(data) {
   return `<ol class="trajectory">${data.trajectory.map((s,i)=>`<li class="${i===4?'prospective':''}"><span class="eyebrow">${String(i+1).padStart(2,'0')} · ${e(s.phase)}</span><h3>${e(s.title)}</h3><p>${e(s.detail)}</p></li>`).join('')}</ol>`;
 }
 
+export function scientificVisual(image, alt, {label:caption='Research figure',className=''} = {}) {
+  return image
+    ? `<figure class="scientific-visual ${e(className)}"><img src="${e(image)}" alt="${e(alt)}" width="960" height="600" loading="lazy" decoding="async"><figcaption>${e(caption)}</figcaption></figure>`
+    : `<figure class="scientific-visual visual-placeholder ${e(className)}" aria-label="${e(caption)} awaiting a verified image"><span>${e(caption)}</span><strong>[ADD VERIFIED RESEARCH FIGURE]</strong><figcaption>Original research image pending</figcaption></figure>`;
+}
+
 export function formatPeriod(period) {
   const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
   return period.replace(/(\d{4})\.(\d{2})/g,(_,year,month)=>`${months[Number(month)-1]} ${year}`).replace('–',' – ').replace('present','Present');
@@ -51,13 +57,13 @@ export function publication(data, p, {showYear = true} = {}) {
 export function featured(data) {
   return `<div class="featured-grid">${data.featured.slice(0,3).map(f=>{
     const p=data.publications.find(p=>p.id===f.paper);
-    return `<article class="featured-work ${p.image?'featured-with-image':''}">${p.image?`<figure class="research-figure"><img src="${e(p.image)}" alt="${e(p.imageAlt)}" width="960" height="600" loading="lazy" decoding="async"></figure>`:`<p class="work-source">${e(p.journal.split(' · ')[0])}<br>${p.year}</p>`}<div class="featured-copy">${p.image?`<p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p>`:''}<h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}${p.doi?`<span class="work-doi">DOI ${e(p.doi)}</span>`:''}</div></article>`;
+    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:'Paper figure'})}<div class="featured-copy"><p class="work-source">${e(p.journal.split(' · ')[0])} · ${p.year}</p><h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}</div></article>`;
   }).join('')}</div>`;
 }
 
 export function layout(data, {file, title, description, body, canonical, extraHead='', bodyClass=''}) {
   const url = `https://minjonglee.github.io/${canonical ?? (file==='index.html'?'':file)}`;
-  const nav = [['index.html','Home'],['about.html','About'],['research.html','Research'],['projects.html','Projects'],['publications.html','Publications'],['patents.html','Patents']];
+  const nav = [['index.html','Home'],['about.html','About'],['research.html','Research'],['projects.html','Projects'],['publications.html','Publications'],['patents.html','Patents'],['activities.html','Activities']];
   const person = {'@context':'https://schema.org','@type':'Person',name:data.profile.name,url:'https://minjonglee.github.io/',email:`mailto:${data.profile.email}`,affiliation:{'@type':'CollegeOrUniversity',name:'Korea University'},sameAs:[data.scholar,data.profile.orcid,data.profile.linkedin].filter(Boolean)};
   return `<!doctype html>
 <html lang="en">
@@ -66,7 +72,7 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${e(title)} — Min Jong Lee</title>
   <meta name="description" content="${e(description)}">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#fafaf8">
   <link rel="canonical" href="${e(url)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Min Jong Lee · Electronic Device Research">
@@ -91,7 +97,7 @@ ${extraHead}
     <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(([href,name])=>`<a href="${href}"${file===href?' aria-current="page"':''}>${name}</a>`).join('')}<a class="nav-cv" href="${e(data.profile.cv)}" download aria-label="Download Min Jong Lee's CV as PDF">CV</a></nav>
   </div></header>
   <main id="main" tabindex="-1">${body}</main>
-  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">MIN JONG LEE<span class="brand-dot" aria-hidden="true">.</span></a><p>Korea University<br>School of Electrical Engineering</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${textLink(data.scholar,'Google Scholar')}${data.profile.orcid?textLink(data.profile.orcid,'ORCID'):''}${textLink(data.profile.labUrl,'AEEL')}${textLink(data.profile.cv,'CV','download')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Min Jong Lee</span><span>Seoul, Republic of Korea</span><a href="#top">Back to top ↑</a></div></div></footer>
+  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">MIN JONG LEE</a><p>Korea University<br>School of Electrical Engineering</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${textLink(data.scholar,'Google Scholar')}${data.profile.orcid?textLink(data.profile.orcid,'ORCID'):''}${textLink(data.profile.labUrl,'AEEL')}${textLink('activities.html','Activities')}${textLink(data.profile.cv,'CV','download')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Min Jong Lee</span><span>Seoul, Republic of Korea</span><a href="#top">Back to top ↑</a></div></div></footer>
 </body>
 </html>
 `;

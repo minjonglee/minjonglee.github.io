@@ -432,7 +432,8 @@ window.SITE_CONTENT = {
       "date": "2024.07.04",
       "title": "반도체 메모리 소자의 제조 방법",
       "inventors": "김태균, 심재원, 이민종",
-      "jurisdiction": "Korea",
+      "jurisdiction": "Korea · US · Taiwan",
+      "numberLabel": "Korean application number",
       "id": "patent-07",
       "tags": [
         "MEMORY",
@@ -445,14 +446,16 @@ window.SITE_CONTENT = {
       "status": "Application",
       "number": "10-2024-0060762",
       "date": "2024.05.08",
-      "title": "반도체 장치",
+      "title": "누설전류를 줄이기 위하여 인듐 산화물 및 바나듐 산화물의 나노라미네이트 고 일함수 전극을 통한 MIM 커패시터 제작 방법",
       "inventors": "김태균, 심재원, 이민종",
-      "jurisdiction": "Korea",
+      "jurisdiction": "Korea · US · China · Taiwan",
+      "numberLabel": "Korean application number",
       "id": "patent-08",
       "tags": [
-        "SEMICONDUCTOR"
+        "SEMICONDUCTOR",
+        "CAPACITOR"
       ],
-      "englishTitle": "Semiconductor device",
+      "englishTitle": "MIM capacitor fabrication using high-work-function In₂O₃/V₂O₅ nanolaminate electrodes to reduce leakage current",
       "relatedResearch": "integration"
     }
   ],
@@ -463,6 +466,7 @@ window.SITE_CONTENT = {
       "period": "2026.09–present",
       "title": "상태 형성 동역학 및 저주파 잡음 해석 기반 이온 이동 제어형 멤리스터의 멀티 레벨 정밀도 한계 규명",
       "englishTitle": "Multilevel precision limits in ion-migration-controlled memristors",
+      "topics": ["Ionic memory", "Device variability"],
       "sponsor": "Doctoral Research Support Program · Ministry of Education",
       "personalRole": "Principal Investigator"
     },
@@ -472,6 +476,7 @@ window.SITE_CONTENT = {
       "period": "2026.07–present",
       "title": "초경량 비행향 Physical AI를 위한 Photonic Skin 연구실",
       "englishTitle": "Photonic skin for ultralight aerial Physical AI",
+      "topics": ["Photonic skin", "Sensing"],
       "sponsor": "Basic Research Laboratory · MSIT",
       "personalRole": "Participating Researcher",
       "summary": "Photonic skin research for ultralight aerial Physical AI."
@@ -482,6 +487,7 @@ window.SITE_CONTENT = {
       "period": "2026.01–present",
       "title": "초고굴곡 FPCB 배선 소재 개발",
       "englishTitle": "Interconnect materials for highly flexible FPCBs",
+      "topics": ["Flexible interconnects"],
       "sponsor": "Samsung Electronics",
       "personalRole": "Participating Researcher",
       "summary": "Wiring materials for highly flexible printed circuit boards."
@@ -492,6 +498,7 @@ window.SITE_CONTENT = {
       "period": "2024.04–present",
       "title": "스마트 주거 환경을 위한 저전력 다종 복합 유해가스 측정용 적외선 가스센서 기술 개발",
       "englishTitle": "Low-power infrared gas-sensing technology for smart homes",
+      "topics": ["Infrared sensing"],
       "sponsor": "K-Sensor R&D · Ministry of Trade, Industry and Energy",
       "personalRole": "Participating Researcher",
       "summary": "Low-power infrared sensing of multiple hazardous gases in residential settings."
@@ -502,6 +509,7 @@ window.SITE_CONTENT = {
       "period": "2022.03–present",
       "title": "전일 동작 광전지 개발을 위한 약광 발전 한계 돌파 연구",
       "englishTitle": "Overcoming low-light power-generation limits in photovoltaics",
+      "topics": ["Low-light photovoltaics"],
       "sponsor": "Mid-career Researcher Program · MSIT",
       "personalRole": "Participating Researcher",
       "summary": "Photovoltaic operation under low-light conditions."
@@ -512,6 +520,7 @@ window.SITE_CONTENT = {
       "period": "2020.09–2025.09",
       "title": "TiN 전극 대체를 위한 ALD 기반 초박막 다성분계 전극 개발",
       "englishTitle": "ALD-based ultrathin multicomponent electrodes as alternatives to TiN",
+      "topics": ["ALD electrodes", "Thin films"],
       "sponsor": "Samsung Electronics",
       "personalRole": "Participating Researcher",
       "summary": "Ultrathin multicomponent ALD electrodes investigated as alternatives to TiN."
@@ -522,6 +531,7 @@ window.SITE_CONTENT = {
       "period": "2023.03–2025.08",
       "title": "산업 전환형 무기발광 디스플레이 전문인력양성사업",
       "englishTitle": "Training for the transition to inorganic light-emitting displays",
+      "topics": ["Inorganic displays"],
       "sponsor": "Ministry of Trade, Industry and Energy",
       "personalRole": "Participating Researcher",
       "summary": "Researcher training for the transition to inorganic light-emitting displays."
@@ -532,6 +542,7 @@ window.SITE_CONTENT = {
       "period": "2020.04–2024.12",
       "title": "고신축특성을 가지는 고신뢰성 고내구성 점착필름 및 대면적 코팅 공정 기술 개발",
       "englishTitle": "Durable stretchable adhesive films and large-area coating processes",
+      "topics": ["Stretchable films", "Coating"],
       "sponsor": "Ministry of Trade, Industry and Energy",
       "personalRole": "Participating Researcher",
       "summary": "Stretchable adhesive films and large-area coating processes."
@@ -542,6 +553,7 @@ window.SITE_CONTENT = {
       "period": "2024.08–2024.11",
       "title": "Liquid Metal Particle활용 Stretchable PCB 제작",
       "englishTitle": "Stretchable PCBs using liquid metal particles",
+      "topics": ["Stretchable PCBs"],
       "sponsor": "Samsung Electronics",
       "personalRole": "Participating Researcher",
       "summary": "Liquid-metal-particle approaches to stretchable PCB fabrication."
@@ -600,6 +612,8 @@ window.SITE_CONTENT = {
     "linkedin": null,
     "portrait": "assets/min-jong-lee-portrait.jpg",
     "portraitAlt": "Portrait of Min Jong Lee in a dark suit against a light background",
+    "heroImage": null,
+    "heroImageAlt": "",
     "cv": "assets/min-jong-lee-cv.pdf",
     "updated": "September 27, 2026",
     "education": [
@@ -849,6 +863,12 @@ window.SITE_CONTENT = {
       "patents": []
     }
   ],
+  "researchFigures": {
+    "interfaces": {"image": null, "alt": ""},
+    "memory": {"image": null, "alt": ""},
+    "optoelectronics": {"image": null, "alt": ""},
+    "flexible": {"image": null, "alt": ""}
+  },
   "gallery": [],
   "trajectory": [
     {

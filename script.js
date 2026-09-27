@@ -50,6 +50,45 @@
       if (empty) empty.hidden = visible !== 0;
     }));
   }
+  const galleryButtons = [...document.querySelectorAll('.gallery-open')];
+  const galleryDialog = document.querySelector('#gallery-dialog');
+  if (galleryDialog && galleryButtons.length) {
+    let activeIndex = 0;
+    let opener = null;
+    const image = galleryDialog.querySelector('img');
+    const meta = galleryDialog.querySelector('.gallery-dialog-meta');
+    const title = galleryDialog.querySelector('.gallery-dialog-title');
+    const caption = galleryDialog.querySelector('.gallery-dialog-caption');
+    const previous = galleryDialog.querySelector('.gallery-prev');
+    const next = galleryDialog.querySelector('.gallery-next');
+    previous.hidden = next.hidden = galleryButtons.length < 2;
+    const show = index => {
+      activeIndex = (index + galleryButtons.length) % galleryButtons.length;
+      const button = galleryButtons[activeIndex];
+      const thumbnail = button.querySelector('img');
+      image.src = thumbnail.currentSrc || thumbnail.src;
+      image.alt = thumbnail.alt;
+      meta.textContent = [button.dataset.galleryCategory, button.dataset.galleryLocation, button.dataset.galleryYear].filter(Boolean).join(' · ');
+      title.textContent = button.dataset.galleryTitle;
+      caption.textContent = button.dataset.galleryCaption;
+      caption.hidden = !button.dataset.galleryCaption;
+    };
+    galleryButtons.forEach((button,index) => button.addEventListener('click', () => {
+      opener = button;
+      show(index);
+      galleryDialog.showModal();
+      galleryDialog.querySelector('.gallery-close').focus();
+    }));
+    previous.addEventListener('click', () => show(activeIndex - 1));
+    next.addEventListener('click', () => show(activeIndex + 1));
+    galleryDialog.querySelector('.gallery-close').addEventListener('click', () => galleryDialog.close());
+    galleryDialog.addEventListener('click', event => { if (event.target === galleryDialog) galleryDialog.close(); });
+    galleryDialog.addEventListener('close', () => { opener?.focus(); image.removeAttribute('src'); });
+    galleryDialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' && galleryButtons.length > 1) { event.preventDefault(); show(activeIndex - 1); }
+      if (event.key === 'ArrowRight' && galleryButtons.length > 1) { event.preventDefault(); show(activeIndex + 1); }
+    });
+  }
   document.querySelectorAll('.print-button').forEach(button => { button.hidden = false; button.addEventListener('click', () => window.print()); });
   const year = document.querySelector('#copyright-year');
   if (year) year.textContent = String(new Date().getFullYear());
