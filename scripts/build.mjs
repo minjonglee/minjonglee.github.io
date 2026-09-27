@@ -19,12 +19,12 @@ for (const item of data.featured.slice(0,3)) {
   if (!paper || paper.status) throw new Error(`Featured paper ${item.paper} needs a published record.`);
 }
 const definitions=[
- ['index.html','Interface & Device Physics for Emerging Electronics','Min Jong Lee studies interfaces, defects, ions, and charge transport across memory, optoelectronic, and flexible electronic devices.',pages.home],
+ ['index.html','Interface & Device Physics for Emerging Electronics','Min Jong Lee studies interfaces, defects, ionic motion, and charge transport in emerging electronic devices, spanning memory, optoelectronic, and flexible electronic platforms.',pages.home],
  ['about.html','About','Min Jong Lee is an integrated M.S.–Ph.D. researcher in electronic devices, materials, and interface physics at Korea University.',pages.about],
  ['research.html','Research','Interface and device physics across memory, optoelectronic, and flexible platforms, with integrated electronic systems as a long-term direction.',pages.research],
- ['projects.html','Projects','Independent doctoral research, government-funded and industry–academic R&D programs, and selected published research.',pages.projects],
+ ['projects.html','Projects','Independent doctoral research and participation in government-funded and industry–academic R&D programs.',pages.projects],
  ['publications.html','Publications','Publications by Min Jong Lee in memory, interface science, thin-film electronics, organic and hybrid optoelectronics.',pages.publications],
- ['patents.html','Patents & Technology Translation','Verified CV records of registered patents and applications in memory, interfaces, semiconductor devices, and optoelectronics.',pages.patents],
+ ['patents.html','Patents & Technology Translation','Registered patents and applications in memory, interfaces, semiconductor devices, and optoelectronics.',pages.patents],
  ['cv.html','Curriculum Vitae','Public academic CV of Min Jong Lee, including education, publications, patents, projects, and recognition.',pages.cv]
 ];
 for (const [file,title,description,render] of definitions) {

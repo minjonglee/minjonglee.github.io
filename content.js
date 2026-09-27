@@ -8,7 +8,7 @@ window.SITE_CONTENT = {
       "year": 2026,
       "type": "first",
       "status": "In revision",
-      "journal": "Advanced Materials",
+      "journal": "",
       "title": "Chiral Neuromorphic Memory IC",
       "id": "paper-01",
       "authors": "Min Jong Lee, Hyoungwook Cho, Hyung-Min Lee*, and Jae Won Shim*, et al.",
@@ -618,7 +618,7 @@ window.SITE_CONTENT = {
         "honor": "Magna Cum Laude"
       }
     ],
-    "bio": "My research began with organic and hybrid optoelectronics, where molecular contacts, thin-film electrodes, and interfacial defects affect charge transport. First-author papers on photovoltaic, capacitor, optoelectronic-memory, and synaptic devices connect that foundation to emerging memory.",
+    "bio": "My research began with organic and hybrid optoelectronics, where molecular contacts, thin-film electrodes, and interfacial defects affect charge transport. My first-author work has progressed from photovoltaic and capacitor devices to optoelectronic memory and artificial synapses, expanding my research from interface engineering toward emerging memory.",
     "vision": "I study how interface structure, defects, and ionic dynamics affect device behavior and reliability. My current doctoral project examines multilevel precision in ionic memory. Longer term, I aim to connect thin-film device platforms through low-temperature electronics, heterogeneous integration, and device–system co-design."
   },
   "topics": [
@@ -693,16 +693,16 @@ window.SITE_CONTENT = {
       "number": "02",
       "title": "Adaptive & Reliable Memory Devices",
       "subtitle": "Resistive, capacitive & emerging memory",
-      "question": "How can interfacial and defect physics be translated into reliable—or deliberately stochastic—memory behavior?",
+      "question": "How can interfacial and defect physics be used to understand and control memory variability and reliability?",
       "summary": "Memory depends on how a device changes state and how well it holds that state. My work links molecular and interfacial control to synaptic devices, optoelectronic memristors, and capacitor platforms.",
-      "motivation": "Variability can limit precision, while controlled state dynamics may offer useful functionality. The challenge is to understand when disorder should be suppressed and when it can be used.",
-      "current": "My current focus includes low-power switching, variability, and reliability in memristors. DRAM MIM capacitors, dielectric interfaces, leakage, and stack integration are additional research interests identified in my CV.",
+      "motivation": "Variability can limit precision and reliability in memory devices. Understanding the roles of interfaces, defects, and ionic motion can help explain how device states form and change.",
+      "current": "My current focus includes low-power switching, variability, and reliability in memristors. Earlier work also includes MIM capacitors, dielectric and electrode interfaces, leakage control, and thin-film stack integration.",
       "results": "First-author studies address linear and symmetric artificial synapses and low-power optoelectronic memristors. Collaborative work also investigates the ionic landscape in perovskite memristors.",
       "methods": [
         "I–V / C–V measurements",
-        "Pulse testing",
-        "Interface / electrode engineering",
-        "Device nonideality analysis"
+        "Pulse measurements",
+        "Trap analysis",
+        "Interface / electrode engineering"
       ],
       "future": "Explore retention–endurance–variability trade-offs and the boundary between binary and multilevel operation. Ferroelectric and memcapacitive concepts are future interests, not completed device platforms.",
       "papers": [
@@ -749,7 +749,7 @@ window.SITE_CONTENT = {
   "flexible": {
     "title": "Flexible & Stretchable Electronics",
     "question": "How can electronic materials and interconnects remain functional under bending and stretching?",
-    "scope": "Research experience in flexible interconnects, stretchable PCB technologies, and mechanically robust films extends interface and transport questions into deformable electronic systems.",
+    "scope": "Research experience includes flexible interconnects, stretchable PCB technologies, and mechanically robust films in deformable electronic systems.",
     "evidence": "Participation in these programs extends device and materials research to mechanical deformation.",
     "projects": ["flexible-fpcb", "stretchable-pcb", "stretchable-films"],
     "papers": []

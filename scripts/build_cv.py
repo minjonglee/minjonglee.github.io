@@ -70,7 +70,7 @@ for group in ['first','co']:
 heading('Manuscript in revision')
 for p in data['publications']:
     if p.get('status'):
-        flow.append(para(author(p['authors'])+'. “'+esc(p['title'])+'.” '+esc(p['journal'])+' ('+str(p['year'])+'). <b>'+esc(p['status'])+'; not published.</b>'))
+        flow.append(para(author(p['authors'])+'. “'+esc(p['title'])+'.” <b>Manuscript in revision | '+str(p['year'])+'; not published.</b>'))
 heading('Patents')
 for i,p in enumerate(data['patents'],1):
     title=f'<b>{i}. {esc(p["englishTitle"])}</b>'
@@ -80,14 +80,15 @@ for i,p in enumerate(data['patents'],1):
     flow.append(KeepTogether([para(title),para(original,'small'),para(facts),Spacer(1,3)]))
 heading('Research projects')
 for p in data['projects']:
-    text='<b>'+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])+'<br/>'+esc(p['sponsor'])+' | '+esc(p['period'])
-    if p.get('personalRole'): text+=' | '+esc(p['personalRole'])
+    text='<b>'+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])+'<br/>'+esc(p['sponsor'])+'<br/>Program period: '+esc(p['period'])
+    if p.get('personalRole'): text+=' | Role: '+esc(p['personalRole'])
+    if p.get('personalParticipationPeriod'): text+='<br/>My participation: '+esc(p['personalParticipationPeriod'])
     flow.append(KeepTogether([para(text),Spacer(1,3)]))
 heading('Awards & academic programs')
 for p in sorted(data['awards'],key=lambda p:-int(p['year'])):
     flow.append(KeepTogether([para('<b>'+p['year']+' | '+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])),Spacer(1,2)]))
 flow.append(Spacer(1,15))
-flow.append(para('Public version updated September 2026. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
+flow.append(para('Public version updated September 2026. Project dates are official program periods, not individual participation dates. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
 
 def footer(canvas, doc):
     canvas.saveState()

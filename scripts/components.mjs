@@ -21,7 +21,7 @@ export function portrait(data, compact = false) {
 }
 
 export function researchDiagram() {
-  return `<figure class="research-map" aria-label="Research framework: interface, defect, ionic and transport physics connect memory, optoelectronic, and flexible device platforms; integrated electronic systems are a long-term direction."><div class="map-core"><span>Core science</span><strong>Interfaces · Defects · Ions · Transport</strong></div><div class="map-platforms"><div>Memory &amp;<br>reliability</div><div>Optoelectronics &amp;<br>hybrid devices</div><div>Flexible &amp;<br>stretchable electronics</div></div><div class="map-future"><span>Long-term direction</span><strong>Integrated electronic systems</strong></div></figure>`;
+  return `<figure class="research-map" aria-label="Research framework: interface and transport questions inform work across memory and optoelectronic devices; flexible electronics is a parallel research platform. Integrated electronic systems are a long-term direction."><div class="map-core"><span>Core science</span><strong>Interfaces · Defects · Ions · Transport</strong></div><div class="map-platforms"><div>Memory &amp;<br>reliability</div><div>Optoelectronics &amp;<br>hybrid devices</div><div>Flexible &amp;<br>stretchable electronics</div></div><div class="map-future"><span>Long-term direction</span><strong>Integrated electronic systems</strong></div></figure>`;
 }
 
 export function trajectory(data) {
@@ -44,7 +44,7 @@ export function publication(data, p, {showYear = true} = {}) {
   const titleTag = showYear ? 'h3' : 'h4';
   return `<article class="publication-item ${showYear?'':'publication-no-year'}" id="${e(p.id)}" data-topics="${p.topics.join(' ')}">${showYear?`<div class="publication-index"><span>${p.year}</span></div>`:''}
     <div class="publication-body"><div class="badges">${p.type==='first'?'<span class="badge">First author</span>':''}${!p.status&&data.featured.some(f=>f.paper===p.id)?'<span class="badge badge-outline">Featured</span>':''}${p.status?`<span class="badge badge-outline">${e(p.status)} · not published</span>`:''}</div>
-    <${titleTag}>${e(p.title)}</${titleTag}><p class="authors">${authors(p.authors)}</p><p class="journal">${e(p.journal)} <span>(${p.year})</span></p>${tags(topicNames)}</div>
+    <${titleTag}>${e(p.title)}</${titleTag}><p class="authors">${authors(p.authors)}</p><p class="journal">${p.status?`Manuscript in revision · ${p.year}`:`${e(p.journal)} <span>(${p.year})</span>`}</p>${tags(topicNames)}</div>
     <div class="publication-link">${paperLink(p)}</div></article>`;
 }
 
