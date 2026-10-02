@@ -28,6 +28,10 @@ for(const name of ['publications','projects','patents','research','awards','gall
   assert.ok(editor.fields.some(field=>field.name==='order'));
 }
 assert.ok(config.media.some(source=>source.name==='images'&&source.input==='assets'));
+const projectFields=editors.find(item=>item.name==='projects').fields;
+for(const key of ['title','program','fundingAgency','personalRole','startDate','status']) assert.equal(projectFields.find(field=>field.name===key)?.required,true,`project ${key} should be required`);
+for(const key of ['endDate','shortTitle','periodDisplay','description','relatedResearch','relatedPublications']) assert.ok(projectFields.some(field=>field.name===key),`project ${key} editor missing`);
+assert.notEqual(projectFields.find(field=>field.name==='period')?.required,true,'legacy period should not be required for new projects');
 
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'minjonglee-cms-'));
 const content=path.join(temp,'content'),out=path.join(temp,'output');
@@ -35,13 +39,15 @@ fs.cpSync(path.join(defaultRoot,'content'),content,{recursive:true});
 const write=(collection,name,data)=>fs.writeFileSync(path.join(content,collection,`${name}.json`),JSON.stringify(data,null,2)+'\n');
 const build=()=>{
   execFileSync(process.execPath,[path.join(defaultRoot,'scripts','build.mjs')],{env:{...process.env,SITE_CONTENT_DIR:content,SITE_OUTPUT_DIR:out},stdio:'pipe'});
-  return Object.fromEntries(['index','about','research','projects','publications','patents','conferences','activities'].map(name=>[name,fs.readFileSync(path.join(out,`${name}.html`),'utf8')]));
+  return Object.fromEntries(['index','about','research','projects','publications','patents','conferences','activities','cv'].map(name=>[name,fs.readFileSync(path.join(out,`${name}.html`),'utf8')]));
 };
 try{
   const newPaper={id:'cms-test-paper',title:'CMS test publication',authors:'A. Researcher, Min Jong Lee',journalName:'Test Journal',year:2027,publicationType:'Journal Article',publicationStatus:'Published',volume:'38',issue:'12',startPage:'1234',endPage:'1246',doi:'10.1234/example',keywords:['ionic memory'],featured:true,featuredOrder:0,featuredTitle:'CMS test feature',featuredContribution:'Test contribution',visible:true,image:'/assets/concept-memory-switching.jpg',imageAlt:'Concept device illustration'};
   write('publications','cms-test-paper',newPaper);
   const project=JSON.parse(fs.readFileSync(path.join(content,'projects','doctoral-ionic-memory.json'),'utf8'));
   write('projects','cms-test-project',{...project,id:'cms-test-project',englishTitle:'CMS test project',caseStudyId:'',homeAnchor:'cms-test-project',featured:true,featuredOrder:0,visible:true});
+  const minimalProject={id:'cms-minimal-project',title:'CMS 신규 과제',program:'CMS test program',fundingAgency:'Test agency',personalRole:'Researcher',startDate:'2027-01',status:'Ongoing',visible:true};
+  write('projects','cms-minimal-project',minimalProject);
   const patent=JSON.parse(fs.readFileSync(path.join(content,'patents',fs.readdirSync(path.join(content,'patents')).find(file=>file.endsWith('.json'))),'utf8'));
   write('patents','cms-test-patent',{...patent,id:'cms-test-patent',title:'CMS test patent',visible:true});
   write('conferences','cms-test-conference',{id:'cms-test-conference',conferenceName:'CMS test conference',title:'CMS test presentation',authors:'Min Jong Lee',year:2027,presentationType:'Poster',visible:true,order:1});
@@ -50,6 +56,15 @@ try{
   write('research','cms-test-area',{...area,id:'cms-test-area',displayTitle:'CMS test research area',homeTitle:'CMS test research area',homeRole:'platform',order:6,featured:true,selectedPapers:[],showPapers:false,visible:true});
   let html=build();
   for(const [page,text] of [['publications','CMS test publication'],['index','CMS test feature'],['index','CMS test news'],['projects','CMS test project'],['patents','CMS test patent'],['conferences','CMS test presentation'],['activities','CMS test news'],['research','CMS test research area']]) assert.ok(html[page].includes(text),`${page} did not pick up new content`);
+  assert.ok(html.projects.split('id="ongoing"')[1].split('id="completed"')[0].includes('CMS 신규 과제'),'minimal project should appear among ongoing projects');
+  assert.ok(html.projects.includes('2027.01 – Present'),'project period should derive from CMS dates');
+  assert.ok(html.cv.includes('CMS 신규 과제'),'CV should use the original title when no English title is supplied');
+  minimalProject.status='Completed';write('projects','cms-minimal-project',minimalProject);html=build();
+  assert.ok(!html.projects.split('id="ongoing"')[1].split('id="completed"')[0].includes('CMS 신규 과제'),'status change should remove project from ongoing list');
+  assert.ok(html.projects.split('id="completed"')[1].includes('CMS 신규 과제'),'status change should place project in completed list');
+  minimalProject.endDate='2027-02';write('projects','cms-minimal-project',minimalProject);html=build();
+  assert.ok(html.projects.includes('2027.01 – 2027.02'),'completed period should use the end date');
+  assert.ok(html.projects.indexOf('id="cms-minimal-project"')<html.projects.indexOf('id="ald-electrodes-industry"'),'completed projects should sort by end date');
   for(const text of ['Vol. 38','Issue 12','pp. 1234–1246','https://doi.org/10.1234/example']) assert.ok(html.publications.includes(text),`new publication missing ${text}`);
   assert.ok(html.index.includes('assets/concept-memory-switching.jpg'),'CMS image path was not normalized');
   newPaper.title='CMS updated publication';newPaper.featured=false;write('publications','cms-test-paper',newPaper);

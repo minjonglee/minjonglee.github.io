@@ -25,11 +25,23 @@ assert.equal(data.education.length,2);
 assert.equal(data.experience.length,1);
 assert.equal(data.awards.length,6);
 assert.equal(data.projects.length,9);
+assert.equal(new Set(data.projects.map(item=>item.title.trim().toLocaleLowerCase())).size,data.projects.length,'duplicate project titles');
 assert.equal(data.patents.length,8);
 for(const item of data.education) assert.ok(pages.about.includes(item.degree),`education missing: ${item.id}`);
 for(const item of data.experience) assert.ok(pages.about.includes(item.title),`experience missing: ${item.id}`);
 for(const item of data.awards) assert.ok(pages.about.includes(item.title),`honor missing: ${item.id}`);
+assert.ok(!pages.about.includes('class="award-year"'),'About should list honors without year headings');
+for(const item of data.awards) assert.ok(pages.about.includes(`class="award-entry" id="${item.id}"`),`honor should remain directly linkable: ${item.id}`);
+assert.ok(pages.about.indexOf('id="education"')<pages.about.indexOf('id="experience"')&&pages.about.indexOf('id="experience"')<pages.about.indexOf('id="recognition"'),'About section order is incorrect');
+const sortedAwards=[...data.awards].sort((a,b)=>Number(b.year)-Number(a.year)||Number(a.order??999)-Number(b.order??999));
+assert.deepEqual([...pages.about.matchAll(/class="award-entry" id="([^"]+)"/g)].map(match=>match[1]),sortedAwards.map(item=>item.id),'About honors order is incorrect');
 for(const item of data.projects) assert.ok(pages.projects.includes(`id="${item.id}"`)||pages.projects.includes(item.title),`project missing: ${item.id}`);
+assert.ok(pages.projects.indexOf('id="ongoing"')<pages.projects.indexOf('id="completed"'),'Projects status section order is incorrect');
+for(const item of data.projects) {
+  const section=item.status==='Completed'?'completed':'ongoing';
+  const html=section==='ongoing'?pages.projects.split('id="ongoing"')[1].split('id="completed"')[0]:pages.projects.split('id="completed"')[1];
+  assert.ok(html.includes(`id="${item.id}"`),`project in wrong status section: ${item.id}`);
+}
 for(const item of data.patents) {
   assert.ok(pages.patents.includes(`id="${item.id}"`),`patent missing: ${item.id}`);
   assert.ok(item.applicationNumber||item.registrationNumber,`patent identifier missing: ${item.id}`);

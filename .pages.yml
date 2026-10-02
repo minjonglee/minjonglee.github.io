@@ -1353,15 +1353,16 @@
             "field": false
           },
           "view": {
-            "primary": "englishTitle",
+            "primary": "title",
             "fields": [
-              "englishTitle",
-              "order",
+              "title",
+              "status",
+              "startDate",
               "visible"
             ],
             "sort": [
               "order",
-              "englishTitle"
+              "title"
             ],
             "default": {
               "sort": "order",
@@ -1392,25 +1393,23 @@
                   "government",
                   "industry"
                 ]
-              },
-              "required": true
+              }
             },
             {
               "name": "period",
               "label": "Period",
-              "type": "string",
-              "required": true
+              "type": "string"
             },
             {
               "name": "title",
               "label": "Title",
-              "type": "string"
+              "type": "string",
+              "required": true
             },
             {
               "name": "englishTitle",
               "label": "English title",
-              "type": "string",
-              "required": true
+              "type": "string"
             },
             {
               "name": "topics",
@@ -1426,7 +1425,8 @@
             {
               "name": "personalRole",
               "label": "My role",
-              "type": "string"
+              "type": "string",
+              "required": true
             },
             {
               "name": "summary",
@@ -1487,17 +1487,20 @@
             {
               "name": "program",
               "label": "Program",
-              "type": "string"
+              "type": "string",
+              "required": true
             },
             {
               "name": "fundingAgency",
               "label": "Funding agency",
-              "type": "string"
+              "type": "string",
+              "required": true
             },
             {
               "name": "startDate",
               "label": "Start date (YYYY-MM)",
-              "type": "string"
+              "type": "string",
+              "required": true
             },
             {
               "name": "endDate",
@@ -1513,6 +1516,39 @@
                   "Ongoing",
                   "Completed"
                 ]
+              },
+              "default": "Ongoing",
+              "required": true
+            },
+            {
+              "name": "shortTitle",
+              "label": "Short title (optional)",
+              "type": "string"
+            },
+            {
+              "name": "periodDisplay",
+              "label": "Period display override (optional)",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text"
+            },
+            {
+              "name": "researchCategory",
+              "label": "Research category",
+              "type": "string"
+            },
+            {
+              "name": "relatedResearch",
+              "label": "Related research",
+              "type": "reference",
+              "options": {
+                "collection": "research",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
               }
             },
             {
@@ -1792,32 +1828,29 @@
               ]
             },
             {
-              "name": "groups",
-              "label": "Groups",
-              "type": "object",
-              "list": {
-                "collapsible": true
-              },
-              "fields": [
-                {
-                  "name": "id",
-                  "label": "Stable URL ID",
-                  "type": "string",
-                  "required": true,
-                  "pattern": "^[a-z0-9-]+$",
-                  "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
-                },
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "description",
-                  "label": "Description",
-                  "type": "text"
-                }
-              ]
+              "name": "ongoingTitle",
+              "label": "Ongoing Title",
+              "type": "string"
+            },
+            {
+              "name": "completedTitle",
+              "label": "Completed Title",
+              "type": "string"
+            },
+            {
+              "name": "caseStudiesTitle",
+              "label": "Case Studies Title",
+              "type": "string"
+            },
+            {
+              "name": "emptyOngoing",
+              "label": "Empty Ongoing",
+              "type": "string"
+            },
+            {
+              "name": "emptyCompleted",
+              "label": "Empty Completed",
+              "type": "string"
             },
             {
               "name": "note",

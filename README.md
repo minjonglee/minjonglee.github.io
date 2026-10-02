@@ -8,7 +8,7 @@ This is a static HTML, CSS, and JavaScript site. The editable source is JSON in 
 
 | Main menu | Page | Contents |
 |---|---|---|
-| About | `about.html` | Biography, education, experience, honors and scholarships |
+| About | `about.html` | Portrait and biography, followed by aligned education, experience, honors and scholarships lists |
 | Research | `research.html` | Research overview; **Projects** tab opens `projects.html` |
 | Publications | `publications.html` | **Papers**, **Patents**, and **Conferences** tabs open their own pages |
 | Activities | `activities.html` | News & Media and Gallery |
@@ -45,8 +45,8 @@ The public Papers list and web/PDF CV show only **Accepted, In Press, ASAP, Earl
 
 - **Publications → Patents:** Enter the original title, inventors, status, primary country, applicable jurisdictions, application or registration number, and relevant date. Select **Registered** or **Application** for the public status filter. Keep the existing Stable URL ID so links continue to work. Patent `10-2024-0060762` uses the detailed Korean MIM capacitor title confirmed by the site owner.
 - **Publications → Conferences:** Add only presentations with verified conference, title, presenters, year, and any confirmed date, location, and presentation type. The page currently shows an honest empty state because no complete conference record has been supplied.
-- **Research → Projects:** Edit program, funding agency, official program dates, project status, personal role, and participation period separately. Official project dates are not a claim of personal involvement throughout the whole program. Related case studies remain in this group.
-- **About → Education / Experience / Awards & Scholarships:** Update career and recognition records here. The About page uses these collections directly.
+- **Research → Projects:** Choose **New** and enter a stable URL ID, original project title, program, funding agency, personal role, start date (`YYYY-MM`), and status. An end date is optional. The public page automatically places **Ongoing** and **Completed** records in separate lists and sorts them by start or end date; changing only the status moves the record. English/short titles, a period display override, description, related research/publications, and external URL are optional. Existing program period, sponsor, case study, image, and related fields remain editable. Official project dates are not a claim of personal involvement throughout the whole program; use **My participation period** when it is known.
+- **About → Education / Experience / Awards & Scholarships:** Update career and recognition records here. The About page uses these collections directly. Honors form one newest-first list; each item retains its own year and CMS order, without year subheadings.
 - **Activities → News & Media / Gallery:** Add dated and sourced news or authorized photographs. These collections are currently empty. The Activities page also draws the two featured, verified awards from **About → Awards & Scholarships**; no news article or event photograph is inferred. Add image alternative text, a date, and a caption for each gallery photograph.
 
 For any collection, **Show on website** hides a record without deleting it. **Display order** sorts records where a date or year does not determine order. Images and the CV PDF upload to `assets/`. Keep image ownership and alt text accurate. Research concept images are labeled as such rather than presented as experimental evidence; see `docs/IMAGE_ASSETS.md`.
