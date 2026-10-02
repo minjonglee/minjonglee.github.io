@@ -28,6 +28,7 @@ def collection(name):
     return sorted([record for record in records if record.get('visible', True)], key=lambda record: (record.get('order', 999), record.get('id', '')))
 data = {
     'profile': json.loads((ROOT/'content'/'profile.json').read_text(encoding='utf-8')),
+    'education': collection('education'),
     'publications': collection('publications'),
     'patents': collection('patents'),
     'projects': collection('projects'),
@@ -60,32 +61,32 @@ heading('Research identity')
 flow.append(para('<b>Interface and device physics for emerging electronics</b>'))
 flow.append(para('Research interests: molecular and thin-film interfaces, defects, ionic dynamics, charge transport, emerging memory, optoelectronics, and flexible-device R&amp;D. Integrated electronic systems are a long-term research direction.'))
 heading('Education')
-for item in profile['education']:
-    details='<b>'+esc(item['degree'])+'</b> | '+esc(item['period'])+'<br/>'+esc(item['school'])+'<br/>GPA: '+esc(item['gpa'])
-    if item.get('honor'): details+=' | '+esc(item['honor'])
+for item in data['education']:
+    details='<b>'+esc(item['degree'])+'</b> | '+esc(item.get('period',''))+'<br/>'+esc(item['school'])
+    if item.get('gpa'): details+='<br/>GPA: '+esc(item['gpa'])
+    if item.get('honor'): details+=(' | ' if item.get('gpa') else '<br/>')+esc(item['honor'])
     if item.get('advisor'): details+='<br/>Advisor: '+esc(item['advisor'])
     flow.append(para(details))
 
-published=[p for p in data['publications'] if not p.get('status')]
+published=[p for p in data['publications'] if p.get('publicationStatus',p.get('status','Published')) in {'Accepted','In Press','ASAP','Early View','Online Published','Published'}]
 heading('First-author publications')
 number=0
 for group in ['first','co']:
     if group=='co': heading('Co-authored publications')
     for p in sorted([p for p in published if p['type']==group],key=lambda p:-p['year']):
         number+=1
-        text=f'<b>{number}.</b> {author(p["authors"])}. “{esc(p["title"])}.” <b>{esc(p["journal"])}</b> ({p["year"]}).'
+        text=f'<b>{number}.</b> {author(p["authors"])}. “{esc(p["title"])}.” <b>{esc(p.get("journalName") or p.get("journal", ""))}</b> ({p["year"]}{", "+p["publicationStatus"] if p.get("publicationStatus") not in {None,"Published"} else ""}).'
         if p.get('doi'): text+=' <link href="https://doi.org/'+p['doi']+'">doi:'+esc(p['doi'])+'</link>'
         flow.append(KeepTogether([para(text),Spacer(1,3)]))
-heading('Manuscript in revision')
-for p in data['publications']:
-    if p.get('status'):
-        flow.append(para(author(p['authors'])+'. “'+esc(p['title'])+'.” <b>Manuscript in revision | '+str(p['year'])+'; not published.</b>'))
 heading('Patents')
 for i,p in enumerate(data['patents'],1):
-    title=f'<b>{i}. {esc(p["englishTitle"])}</b>'
+    title=f'<b>{i}. {esc(p.get("englishTitle") or p["title"])}</b>'
     original=esc(p['title'])
-    number_label=p.get('numberLabel') or ('Registration number' if p['status']=='Registered' else 'Application number')
-    facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(p['jurisdiction'])+' | '+esc(number_label)+': '+esc(p['number'])+' | '+esc(p['date'])
+    registered=p['status'] in {'Registered','Granted'}
+    number_label='Registration number' if registered else 'Application number'
+    identifier=p.get('registrationNumber') or p.get('applicationNumber') or p.get('number','')
+    record_date=p.get('registrationDate') or p.get('applicationDate') or p.get('date','')
+    facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(p['jurisdiction'])+' | '+esc(number_label)+': '+esc(identifier)+' | '+esc(record_date)
     if p.get('territoryNote'): facts+='<br/>'+esc(p['territoryNote'])
     flow.append(KeepTogether([para(title),para(original,'small'),para(facts),Spacer(1,3)]))
 heading('Research projects')
@@ -98,7 +99,7 @@ heading('Awards & academic programs')
 for p in sorted(data['awards'],key=lambda p:-int(p['year'])):
     flow.append(KeepTogether([para('<b>'+p['year']+' | '+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])),Spacer(1,2)]))
 flow.append(Spacer(1,15))
-flow.append(para('Public version updated September 2026. Project dates are official program periods, not individual participation dates. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
+flow.append(para('Public version updated October 2026. Project dates are official program periods, not individual participation dates. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
 
 def footer(canvas, doc):
     canvas.saveState()

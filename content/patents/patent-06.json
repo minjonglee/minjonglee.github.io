@@ -1,7 +1,5 @@
 {
   "status": "Application",
-  "number": "10-2025-0091536",
-  "date": "2025.07.08",
   "title": "페로브스카이트-고분자 박막을 이용한 선형 대칭형 인공 시냅스 소자 및 이의 제조 방법",
   "inventors": "심재원, 이민종",
   "jurisdiction": "Korea",
@@ -13,5 +11,8 @@
   "relatedResearch": "memory",
   "order": 6,
   "visible": true,
-  "featured": false
+  "featured": false,
+  "country": "KR",
+  "applicationNumber": "10-2025-0091536",
+  "applicationDate": "2025-07-08"
 }

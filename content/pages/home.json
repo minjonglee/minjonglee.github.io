@@ -38,6 +38,11 @@
     "title": "Featured work",
     "moreLabel": "All publications"
   },
+  "activities": {
+    "title": "Activities",
+    "moreLabel": "News & gallery",
+    "empty": "Verified news and research photographs will appear here as they become available."
+  },
   "current": {
     "title": "Current research",
     "moreLabel": "View all projects"

@@ -1,10 +1,8 @@
 {
   "status": "Application",
-  "number": "19/037,592",
-  "date": "2025.01.27",
   "title": "METHOD OF MANUFACTURING SEMICONDUCTOR MEMORY DEVICE",
   "inventors": "김태균, 심재원, 이민종",
-  "jurisdiction": "US",
+  "jurisdiction": "US · Taiwan",
   "territoryNote": "Taiwan is also listed; the identifier shown is for the US application.",
   "id": "patent-05",
   "tags": [
@@ -15,5 +13,8 @@
   "relatedResearch": "memory",
   "order": 5,
   "visible": true,
-  "featured": false
+  "featured": false,
+  "country": "US",
+  "applicationNumber": "19/037,592",
+  "applicationDate": "2025-01-27"
 }

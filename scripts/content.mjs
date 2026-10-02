@@ -27,17 +27,21 @@ export function loadContent(contentRoot=path.join(defaultRoot,'content')) {
   const site=single('site.json');
   site.seo=Object.fromEntries((site.seoPages??[]).map(entry=>[entry.file,entry]));
   const profile=single('profile.json');
-  const pages=Object.fromEntries(['home','research','projects','publications','patents','about','activities','cv'].map(name=>[name,single(`pages/${name}.json`)]));
+  const pages=Object.fromEntries(['home','research','projects','publications','patents','conferences','about','activities','cv'].map(name=>[name,single(`pages/${name}.json`)]));
   const publications=collection('publications');
   const projects=collection('projects');
   const patents=collection('patents');
   const awards=collection('awards');
+  const education=collection('education');
+  const experience=collection('experience');
+  const conferences=collection('conferences');
+  const news=collection('news');
   const topics=collection('topics');
   const research=collection('research');
   const researchProjects=collection('research-cases');
   const gallery=collection('gallery');
   const featured=publications.filter(p=>p.featured===true&&isPublicationVisible(p)).sort((a,b)=>number(a.featuredOrder)-number(b.featuredOrder)||ordered(a,b)).map(p=>({paper:p.id,project:p.featuredProject,title:p.featuredTitle||p.title,contribution:p.featuredContribution||''}));
-  const data={site,profile,pages,publications,projects,patents,awards,topics,research,researchProjects,gallery,featured,scholar:profile.scholar,notes:site.notes,trajectory:pages.about.trajectory};
+  const data={site,profile,pages,publications,projects,patents,awards,education,experience,conferences,news,topics,research,researchProjects,gallery,featured,scholar:profile.scholar,notes:site.notes,trajectory:pages.about.trajectory};
   // Compatibility while page templates are moved from the old object shape.
   data.pillars=research.filter(item=>['interfaces','memory','integration'].includes(item.id));
   const opto=research.find(item=>item.id==='optoelectronics');

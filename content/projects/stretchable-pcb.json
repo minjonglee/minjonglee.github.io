@@ -17,5 +17,10 @@
   "homeAnchor": "stretchable-pcb",
   "caseStudyId": "",
   "order": 9,
-  "visible": true
+  "visible": true,
+  "program": "삼성전자",
+  "fundingAgency": "삼성전자㈜",
+  "startDate": "2024-08",
+  "endDate": "2024-11",
+  "status": "Completed"
 }

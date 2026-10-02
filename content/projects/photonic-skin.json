@@ -18,5 +18,10 @@
   "homeAnchor": "photonic-skin",
   "caseStudyId": "",
   "order": 2,
-  "visible": true
+  "visible": true,
+  "program": "기초연구실",
+  "fundingAgency": "과학기술정보통신부",
+  "startDate": "2026-07",
+  "endDate": "",
+  "status": "Ongoing"
 }

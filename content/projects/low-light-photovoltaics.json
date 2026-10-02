@@ -17,5 +17,10 @@
   "homeAnchor": "low-light-photovoltaics",
   "caseStudyId": "",
   "order": 5,
-  "visible": true
+  "visible": true,
+  "program": "중견 연구",
+  "fundingAgency": "과학기술정보통신부",
+  "startDate": "2022-03",
+  "endDate": "",
+  "status": "Ongoing"
 }

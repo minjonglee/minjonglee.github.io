@@ -11,19 +11,20 @@ vm.runInNewContext(fs.readFileSync(path.join(defaultRoot,'content.js'),'utf8'),c
 const previous=context.window.SITE_CONTENT;
 const current=loadContent();
 for(const name of ['publications','projects','patents','awards','topics']){
-  assert.equal(current[name].length,previous[name].length,`${name} count changed during migration`);
+  assert.equal(current[name].length,previous[name].length+(name==='publications'?2:0),`${name} count changed unexpectedly`);
   for(const item of previous[name]) assert.ok(current[name].some(record=>record.id===item.id)||name==='awards',`missing migrated ${name}: ${item.id}`);
 }
 assert.equal(fs.readdirSync(path.join(defaultRoot,'content','research-cases')).filter(file=>file.endsWith('.json')).length,previous.researchProjects.length,'research case migration count changed');
 const config=JSON.parse(fs.readFileSync(path.join(defaultRoot,'.pages.yml'),'utf8'));
 const editors=config.content.flatMap(group=>group.items);
-for(const name of ['publications','projects','patents','research','awards','gallery']){
+for(const name of ['publications','projects','patents','research','awards','gallery','education','experience','conferences','news']){
   const editor=editors.find(item=>item.name===name);
   assert.equal(editor?.type,'collection',`${name} editor missing`);
   assert.equal(editor.operations.create,true);
   assert.equal(editor.operations.delete,true);
+  assert.equal(editor.fields.find(field=>field.name==='id')?.required,true,`${name} needs a stable filename ID`);
   assert.ok(editor.fields.some(field=>field.name==='visible'));
-  assert.ok(editor.fields.some(field=>field.name==='featured'));
+  if(name!=='education') assert.ok(editor.fields.some(field=>field.name==='featured'));
   assert.ok(editor.fields.some(field=>field.name==='order'));
 }
 assert.ok(config.media.some(source=>source.name==='images'&&source.input==='assets'));
@@ -34,7 +35,7 @@ fs.cpSync(path.join(defaultRoot,'content'),content,{recursive:true});
 const write=(collection,name,data)=>fs.writeFileSync(path.join(content,collection,`${name}.json`),JSON.stringify(data,null,2)+'\n');
 const build=()=>{
   execFileSync(process.execPath,[path.join(defaultRoot,'scripts','build.mjs')],{env:{...process.env,SITE_CONTENT_DIR:content,SITE_OUTPUT_DIR:out},stdio:'pipe'});
-  return Object.fromEntries(['index','research','projects','publications','patents'].map(name=>[name,fs.readFileSync(path.join(out,`${name}.html`),'utf8')]));
+  return Object.fromEntries(['index','about','research','projects','publications','patents','conferences','activities'].map(name=>[name,fs.readFileSync(path.join(out,`${name}.html`),'utf8')]));
 };
 try{
   const newPaper={id:'cms-test-paper',title:'CMS test publication',authors:'A. Researcher, Min Jong Lee',journalName:'Test Journal',year:2027,publicationType:'Journal Article',publicationStatus:'Published',volume:'38',issue:'12',startPage:'1234',endPage:'1246',doi:'10.1234/example',keywords:['ionic memory'],featured:true,featuredOrder:0,featuredTitle:'CMS test feature',featuredContribution:'Test contribution',visible:true,image:'/assets/concept-memory-switching.jpg',imageAlt:'Concept device illustration'};
@@ -42,11 +43,13 @@ try{
   const project=JSON.parse(fs.readFileSync(path.join(content,'projects','doctoral-ionic-memory.json'),'utf8'));
   write('projects','cms-test-project',{...project,id:'cms-test-project',englishTitle:'CMS test project',caseStudyId:'',homeAnchor:'cms-test-project',featured:true,featuredOrder:0,visible:true});
   const patent=JSON.parse(fs.readFileSync(path.join(content,'patents',fs.readdirSync(path.join(content,'patents')).find(file=>file.endsWith('.json'))),'utf8'));
-  write('patents','cms-test-patent',{...patent,id:'cms-test-patent',englishTitle:'CMS test patent',visible:true});
+  write('patents','cms-test-patent',{...patent,id:'cms-test-patent',title:'CMS test patent',visible:true});
+  write('conferences','cms-test-conference',{id:'cms-test-conference',conferenceName:'CMS test conference',title:'CMS test presentation',authors:'Min Jong Lee',year:2027,presentationType:'Poster',visible:true,order:1});
+  write('news','cms-test-news',{id:'cms-test-news',title:'CMS test news',date:'2027-01-01',type:'News',source:'Test source',featured:true,visible:true,order:1});
   const area=JSON.parse(fs.readFileSync(path.join(content,'research','memory.json'),'utf8'));
   write('research','cms-test-area',{...area,id:'cms-test-area',displayTitle:'CMS test research area',homeTitle:'CMS test research area',homeRole:'platform',order:6,featured:true,selectedPapers:[],showPapers:false,visible:true});
   let html=build();
-  for(const [page,text] of [['publications','CMS test publication'],['index','CMS test feature'],['index','CMS test project'],['patents','CMS test patent'],['research','CMS test research area']]) assert.ok(html[page].includes(text),`${page} did not pick up new content`);
+  for(const [page,text] of [['publications','CMS test publication'],['index','CMS test feature'],['index','CMS test news'],['projects','CMS test project'],['patents','CMS test patent'],['conferences','CMS test presentation'],['activities','CMS test news'],['research','CMS test research area']]) assert.ok(html[page].includes(text),`${page} did not pick up new content`);
   for(const text of ['Vol. 38','Issue 12','pp. 1234–1246','https://doi.org/10.1234/example']) assert.ok(html.publications.includes(text),`new publication missing ${text}`);
   assert.ok(html.index.includes('assets/concept-memory-switching.jpg'),'CMS image path was not normalized');
   newPaper.title='CMS updated publication';newPaper.featured=false;write('publications','cms-test-paper',newPaper);

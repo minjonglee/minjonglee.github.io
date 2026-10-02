@@ -5,6 +5,9 @@ export const textLink = (href, label, extra = '') => `<a class="text-link" href=
 export const tags = values => `<ul class="tags" aria-label="Topics">${values.map(x => `<li>${e(x)}</li>`).join('')}</ul>`;
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
+export const patentIdentifier = p => p.registrationNumber || p.applicationNumber || p.number || '';
+export const patentRecordDate = p => p.registrationDate || p.applicationDate || p.date || '';
+export const sectionTabs = (items,file,label) => `<nav class="section-tabs shell" aria-label="${e(label)}">${items.map(item=>`<a href="${e(item.href)}"${item.href===file?' aria-current="page"':''}>${e(item.label)}</a>`).join('')}</nav>`;
 export const doiHref = p => p.doiUrl || (p.doi ? `https://doi.org/${String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'')}` : '');
 const publicStatuses=new Set(['Accepted','In Press','ASAP','Early View','Online Published','Published']);
 export const isPublicationVisible = p => publicStatuses.has(p.publicationStatus || p.status || 'Published');
@@ -80,7 +83,8 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   const seo=site.seo[file]??{};
   const url = `${site.baseUrl}${canonical ?? (file==='index.html'?'':file)}`;
   const nav=site.navigation.filter(item=>item.visible!==false).sort((a,b)=>a.order-b.order);
-  const footerHref=item=>item.kind==='cv'?data.profile.cv:item.kind==='scholar'?data.scholar:item.kind==='lab'?data.profile.labUrl:item.href;
+  const activeFile=file==='projects.html'?'research.html':['patents.html','conferences.html'].includes(file)?'publications.html':file;
+  const footerHref=item=>item.kind==='cv'?'cv.html':item.kind==='scholar'?data.scholar:item.kind==='lab'?data.profile.labUrl:item.href;
   const person = {'@context':'https://schema.org','@type':'Person',name:data.profile.name,url:site.baseUrl,email:`mailto:${data.profile.email}`,affiliation:{'@type':'CollegeOrUniversity',name:data.profile.institution},sameAs:[data.scholar,data.profile.orcid,data.profile.linkedin].filter(Boolean)};
   return `<!doctype html>
 <html lang="en">
@@ -111,10 +115,10 @@ ${extraHead}
   <header class="site-header"><div class="header-inner shell">
     <a class="brand" href="index.html" aria-label="${e(data.profile.name)}, home">${e(data.profile.name.toUpperCase())}<span class="brand-dot" aria-hidden="true">.</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation" hidden><span>Menu</span><span class="menu-symbol" aria-hidden="true">+</span></button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(item=>{const href=item.kind==='cv'?data.profile.cv:item.href;return `<a${item.kind==='cv'?' class="nav-cv"':''} href="${e(href)}"${file===href?' aria-current="page"':''}${item.kind==='cv'?' download':''}>${e(item.label)}</a>`}).join('')}</nav>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(item=>{const href=item.kind==='cv'?'cv.html':item.href;return `<a${item.kind==='cv'?' class="nav-cv"':''} href="${e(href)}"${activeFile===href?' aria-current="page"':''}>${e(item.label)}</a>`}).join('')}</nav>
   </div></header>
   <main id="main" tabindex="-1">${body}</main>
-  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">${e(data.profile.name.toUpperCase())}</a><p>${e(footer.affiliation)}<br>${e(footer.department)}</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${footer.links.map(item=>textLink(footerHref(item),e(item.label),item.kind==='cv'?'download':'')).join('')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> ${e(footer.copyrightName)}</span><span>${e(footer.location)}</span><a href="#top">${e(footer.backToTop)}</a></div></div></footer>
+  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">${e(data.profile.name.toUpperCase())}</a><p>${e(footer.affiliation)}<br>${e(footer.department)}</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${footer.links.map(item=>textLink(footerHref(item),e(item.label))).join('')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> ${e(footer.copyrightName)}</span><span>${e(footer.location)}</span><a href="#top">${e(footer.backToTop)}</a></div></div></footer>
 </body>
 </html>
 `;

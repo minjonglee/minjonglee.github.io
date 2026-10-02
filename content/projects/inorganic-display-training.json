@@ -17,5 +17,10 @@
   "homeAnchor": "inorganic-display-training",
   "caseStudyId": "",
   "order": 7,
-  "visible": true
+  "visible": true,
+  "program": "산업혁신인재성장지원(R&D)",
+  "fundingAgency": "산업통상자원부",
+  "startDate": "2023-03",
+  "endDate": "2025-08",
+  "status": "Completed"
 }

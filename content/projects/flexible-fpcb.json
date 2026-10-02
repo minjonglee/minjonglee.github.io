@@ -17,5 +17,10 @@
   "homeAnchor": "flexible-fpcb",
   "caseStudyId": "",
   "order": 3,
-  "visible": true
+  "visible": true,
+  "program": "삼성전자",
+  "fundingAgency": "삼성전자㈜",
+  "startDate": "2026-01",
+  "endDate": "",
+  "status": "Ongoing"
 }

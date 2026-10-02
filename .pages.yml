@@ -23,10 +23,189 @@
   ],
   "content": [
     {
-      "name": "home-management",
-      "label": "Home & profile",
+      "name": "site-settings",
+      "label": "Site Settings",
       "type": "group",
       "items": [
+        {
+          "name": "site",
+          "label": "Navigation & footer",
+          "type": "file",
+          "path": "content/site.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "siteTitle",
+              "label": "Website title",
+              "type": "string"
+            },
+            {
+              "name": "baseUrl",
+              "label": "Base Url",
+              "type": "string"
+            },
+            {
+              "name": "themeColor",
+              "label": "Theme Color",
+              "type": "string"
+            },
+            {
+              "name": "favicon",
+              "label": "Favicon",
+              "type": "string"
+            },
+            {
+              "name": "socialPreview",
+              "label": "Social preview image",
+              "type": "image",
+              "options": {
+                "media": "images"
+              }
+            },
+            {
+              "name": "socialPreviewAlt",
+              "label": "Social preview image alternative text",
+              "type": "string"
+            },
+            {
+              "name": "navigation",
+              "label": "Navigation",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Label",
+                  "type": "string"
+                },
+                {
+                  "name": "href",
+                  "label": "Href",
+                  "type": "string"
+                },
+                {
+                  "name": "order",
+                  "label": "Display order",
+                  "type": "number",
+                  "description": "Lower numbers appear first."
+                },
+                {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
+                {
+                  "name": "kind",
+                  "label": "Kind",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "footer",
+              "label": "Footer",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "affiliation",
+                  "label": "Affiliation",
+                  "type": "string"
+                },
+                {
+                  "name": "department",
+                  "label": "Department",
+                  "type": "string"
+                },
+                {
+                  "name": "location",
+                  "label": "Location",
+                  "type": "string"
+                },
+                {
+                  "name": "copyrightName",
+                  "label": "Copyright Name",
+                  "type": "string"
+                },
+                {
+                  "name": "backToTop",
+                  "label": "Back To Top",
+                  "type": "string"
+                },
+                {
+                  "name": "links",
+                  "label": "Links",
+                  "type": "object",
+                  "list": {
+                    "collapsible": true
+                  },
+                  "fields": [
+                    {
+                      "name": "label",
+                      "label": "Label",
+                      "type": "string"
+                    },
+                    {
+                      "name": "kind",
+                      "label": "Kind",
+                      "type": "string"
+                    },
+                    {
+                      "name": "href",
+                      "label": "Href",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "notes",
+              "label": "Notes",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "bibliography",
+                  "label": "Bibliography",
+                  "type": "string"
+                },
+                {
+                  "name": "authors",
+                  "label": "Authors / presenters",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "seoPages",
+              "label": "Page SEO",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "file",
+                  "label": "File",
+                  "type": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
         {
           "name": "home",
           "label": "Home page",
@@ -162,6 +341,28 @@
               "description": "Show this item in a featured area on the home page."
             },
             {
+              "name": "activities",
+              "label": "Activities",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "moreLabel",
+                  "label": "More Label",
+                  "type": "string"
+                },
+                {
+                  "name": "empty",
+                  "label": "Empty",
+                  "type": "string"
+                }
+              ]
+            },
+            {
               "name": "current",
               "label": "Current",
               "type": "object",
@@ -218,8 +419,54 @@
           ]
         },
         {
+          "name": "cv-page",
+          "label": "CV page text",
+          "type": "file",
+          "path": "content/pages/cv.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "downloadLabel",
+              "label": "Download Label",
+              "type": "string"
+            },
+            {
+              "name": "updatedPrefix",
+              "label": "Updated Prefix",
+              "type": "string"
+            },
+            {
+              "name": "researchIdentityTitle",
+              "label": "Research Identity Title",
+              "type": "string"
+            },
+            {
+              "name": "researchIdentity",
+              "label": "Research Identity",
+              "type": "string"
+            },
+            {
+              "name": "researchInterests",
+              "label": "Research Interests",
+              "type": "text"
+            },
+            {
+              "name": "sourceNote",
+              "label": "Source Note",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "about-management",
+      "label": "About",
+      "type": "group",
+      "items": [
+        {
           "name": "profile",
-          "label": "Profile & contact",
+          "label": "Profile",
           "type": "file",
           "path": "content/profile.json",
           "format": "json",
@@ -333,46 +580,6 @@
               "type": "string"
             },
             {
-              "name": "education",
-              "label": "Education",
-              "type": "object",
-              "list": {
-                "collapsible": true
-              },
-              "fields": [
-                {
-                  "name": "period",
-                  "label": "Period",
-                  "type": "string"
-                },
-                {
-                  "name": "degree",
-                  "label": "Degree",
-                  "type": "string"
-                },
-                {
-                  "name": "school",
-                  "label": "School",
-                  "type": "string"
-                },
-                {
-                  "name": "gpa",
-                  "label": "Gpa",
-                  "type": "string"
-                },
-                {
-                  "name": "advisor",
-                  "label": "Advisor",
-                  "type": "string"
-                },
-                {
-                  "name": "honor",
-                  "label": "Honor",
-                  "type": "string"
-                }
-              ]
-            },
-            {
               "name": "bio",
               "label": "Bio",
               "type": "text"
@@ -420,180 +627,421 @@
           ]
         },
         {
-          "name": "site",
-          "label": "Site settings, menu & footer",
-          "type": "file",
-          "path": "content/site.json",
+          "name": "education",
+          "label": "Education",
+          "type": "collection",
+          "path": "content/education",
           "format": "json",
+          "filename": {
+            "template": "{fields.id}.json",
+            "field": false
+          },
+          "view": {
+            "primary": "degree",
+            "fields": [
+              "degree",
+              "order",
+              "visible"
+            ],
+            "sort": [
+              "order",
+              "degree"
+            ],
+            "default": {
+              "sort": "order",
+              "order": "asc"
+            }
+          },
+          "operations": {
+            "create": true,
+            "rename": false,
+            "delete": true
+          },
           "fields": [
             {
-              "name": "siteTitle",
-              "label": "Website title",
+              "name": "id",
+              "label": "Stable URL ID",
+              "type": "string",
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+            },
+            {
+              "name": "period",
+              "label": "Period",
               "type": "string"
             },
             {
-              "name": "baseUrl",
-              "label": "Base Url",
+              "name": "degree",
+              "label": "Degree",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "school",
+              "label": "School",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "gpa",
+              "label": "Gpa",
               "type": "string"
             },
             {
-              "name": "themeColor",
-              "label": "Theme Color",
+              "name": "advisor",
+              "label": "Advisor",
               "type": "string"
             },
             {
-              "name": "favicon",
-              "label": "Favicon",
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "honor",
+              "label": "Honor",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "experience",
+          "label": "Experience",
+          "type": "collection",
+          "path": "content/experience",
+          "format": "json",
+          "filename": {
+            "template": "{fields.id}.json",
+            "field": false
+          },
+          "view": {
+            "primary": "title",
+            "fields": [
+              "title",
+              "order",
+              "visible"
+            ],
+            "sort": [
+              "order",
+              "title"
+            ],
+            "default": {
+              "sort": "order",
+              "order": "asc"
+            }
+          },
+          "operations": {
+            "create": true,
+            "rename": false,
+            "delete": true
+          },
+          "fields": [
+            {
+              "name": "id",
+              "label": "Stable URL ID",
+              "type": "string",
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "organization",
+              "label": "Organization",
               "type": "string"
             },
             {
-              "name": "socialPreview",
-              "label": "Social preview image",
-              "type": "image",
+              "name": "department",
+              "label": "Department",
+              "type": "string"
+            },
+            {
+              "name": "period",
+              "label": "Period",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "label": "Type",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text"
+            },
+            {
+              "name": "url",
+              "label": "External URL",
+              "type": "string"
+            },
+            {
+              "name": "featured",
+              "label": "Feature on homepage",
+              "type": "boolean",
+              "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
+            }
+          ]
+        },
+        {
+          "name": "awards",
+          "label": "Awards & Scholarships",
+          "type": "collection",
+          "path": "content/awards",
+          "format": "json",
+          "filename": {
+            "template": "{fields.id}.json",
+            "field": false
+          },
+          "view": {
+            "primary": "title",
+            "fields": [
+              "title",
+              "order",
+              "visible"
+            ],
+            "sort": [
+              "order",
+              "title"
+            ],
+            "default": {
+              "sort": "order",
+              "order": "asc"
+            }
+          },
+          "operations": {
+            "create": true,
+            "rename": false,
+            "delete": true
+          },
+          "fields": [
+            {
+              "name": "id",
+              "label": "Stable URL ID",
+              "type": "string",
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+            },
+            {
+              "name": "year",
+              "label": "Year",
+              "type": "number"
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "englishTitle",
+              "label": "English title",
+              "type": "string"
+            },
+            {
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "featured",
+              "label": "Feature on homepage",
+              "type": "boolean",
+              "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "type",
+              "label": "Type",
+              "type": "select",
               "options": {
-                "media": "images"
+                "values": [
+                  "Award",
+                  "Scholarship",
+                  "Honor",
+                  "Fellowship"
+                ]
               }
             },
             {
-              "name": "socialPreviewAlt",
-              "label": "Social preview image alternative text",
+              "name": "organization",
+              "label": "Organization",
               "type": "string"
             },
             {
-              "name": "navigation",
-              "label": "Navigation",
+              "name": "date",
+              "label": "Date",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text"
+            },
+            {
+              "name": "url",
+              "label": "External URL",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "about-page",
+          "label": "About page text",
+          "type": "file",
+          "path": "content/pages/about.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "field",
+              "label": "Field",
+              "type": "string"
+            },
+            {
+              "name": "positionLines",
+              "label": "Position Lines",
+              "type": "string",
+              "list": true
+            },
+            {
+              "name": "biographyTitle",
+              "label": "Biography Title",
+              "type": "string"
+            },
+            {
+              "name": "biographyExtra",
+              "label": "Biography Extra",
+              "type": "text"
+            },
+            {
+              "name": "visionTitle",
+              "label": "Vision Title",
+              "type": "string"
+            },
+            {
+              "name": "visionLinkLabel",
+              "label": "Vision Link Label",
+              "type": "string"
+            },
+            {
+              "name": "journeyTitle",
+              "label": "Journey Title",
+              "type": "string"
+            },
+            {
+              "name": "journeyIntro",
+              "label": "Journey Intro",
+              "type": "text"
+            },
+            {
+              "name": "trajectory",
+              "label": "Trajectory",
               "type": "object",
               "list": {
                 "collapsible": true
               },
               "fields": [
-                {
-                  "name": "label",
-                  "label": "Label",
-                  "type": "string"
-                },
-                {
-                  "name": "href",
-                  "label": "Href",
-                  "type": "string"
-                },
-                {
-                  "name": "order",
-                  "label": "Display order",
-                  "type": "number",
-                  "description": "Lower numbers appear first."
-                },
-                {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it."
-                },
-                {
-                  "name": "kind",
-                  "label": "Kind",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "name": "footer",
-              "label": "Footer",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "affiliation",
-                  "label": "Affiliation",
-                  "type": "string"
-                },
-                {
-                  "name": "department",
-                  "label": "Department",
-                  "type": "string"
-                },
-                {
-                  "name": "location",
-                  "label": "Location",
-                  "type": "string"
-                },
-                {
-                  "name": "copyrightName",
-                  "label": "Copyright Name",
-                  "type": "string"
-                },
-                {
-                  "name": "backToTop",
-                  "label": "Back To Top",
-                  "type": "string"
-                },
-                {
-                  "name": "links",
-                  "label": "Links",
-                  "type": "object",
-                  "list": {
-                    "collapsible": true
-                  },
-                  "fields": [
-                    {
-                      "name": "label",
-                      "label": "Label",
-                      "type": "string"
-                    },
-                    {
-                      "name": "kind",
-                      "label": "Kind",
-                      "type": "string"
-                    },
-                    {
-                      "name": "href",
-                      "label": "Href",
-                      "type": "string"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "notes",
-              "label": "Notes",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "bibliography",
-                  "label": "Bibliography",
-                  "type": "string"
-                },
-                {
-                  "name": "authors",
-                  "label": "Authors",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "name": "seoPages",
-              "label": "Page SEO",
-              "type": "object",
-              "list": {
-                "collapsible": true
-              },
-              "fields": [
-                {
-                  "name": "file",
-                  "label": "File",
-                  "type": "string"
-                },
                 {
                   "name": "title",
                   "label": "Title",
                   "type": "string"
                 },
                 {
-                  "name": "description",
-                  "label": "Description",
-                  "type": "text"
+                  "name": "detail",
+                  "label": "Detail",
+                  "type": "string"
+                },
+                {
+                  "name": "phase",
+                  "label": "Phase",
+                  "type": "string"
                 }
               ]
+            },
+            {
+              "name": "environmentTitle",
+              "label": "Environment Title",
+              "type": "string"
+            },
+            {
+              "name": "independence",
+              "label": "Independence",
+              "type": "text"
+            },
+            {
+              "name": "independentLinkLabel",
+              "label": "Independent Link Label",
+              "type": "string"
+            },
+            {
+              "name": "labLinkLabel",
+              "label": "Lab Link Label",
+              "type": "string"
+            },
+            {
+              "name": "educationTitle",
+              "label": "Education Title",
+              "type": "string"
+            },
+            {
+              "name": "recognitionTitle",
+              "label": "Recognition Title",
+              "type": "string"
+            },
+            {
+              "name": "recognitionLinkLabel",
+              "label": "Recognition Link Label",
+              "type": "string"
+            },
+            {
+              "name": "activitiesTitle",
+              "label": "Activities Title",
+              "type": "string"
+            },
+            {
+              "name": "activitiesIntro",
+              "label": "Activities Intro",
+              "type": "string"
+            },
+            {
+              "name": "activitiesLinkLabel",
+              "label": "Activities Link Label",
+              "type": "string"
             }
           ]
         }
@@ -601,12 +1049,12 @@
     },
     {
       "name": "research-management",
-      "label": "Research & projects",
+      "label": "Research",
       "type": "group",
       "items": [
         {
           "name": "research",
-          "label": "Research areas",
+          "label": "Research Areas",
           "type": "collection",
           "path": "content/research",
           "format": "json",
@@ -646,7 +1094,8 @@
               "name": "visible",
               "label": "Show on website",
               "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
             },
             {
               "name": "image",
@@ -840,7 +1289,7 @@
             },
             {
               "name": "status",
-              "label": "Legacy publication status",
+              "label": "Status",
               "type": "string"
             },
             {
@@ -1031,7 +1480,39 @@
               "name": "visible",
               "label": "Show on website",
               "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "program",
+              "label": "Program",
+              "type": "string"
+            },
+            {
+              "name": "fundingAgency",
+              "label": "Funding agency",
+              "type": "string"
+            },
+            {
+              "name": "startDate",
+              "label": "Start date (YYYY-MM)",
+              "type": "string"
+            },
+            {
+              "name": "endDate",
+              "label": "End date (YYYY-MM)",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "label": "Status",
+              "type": "select",
+              "options": {
+                "values": [
+                  "Ongoing",
+                  "Completed"
+                ]
+              }
             },
             {
               "name": "image",
@@ -1055,11 +1536,6 @@
             {
               "name": "collaborators",
               "label": "Collaborators",
-              "type": "string"
-            },
-            {
-              "name": "status",
-              "label": "Legacy publication status",
               "type": "string"
             },
             {
@@ -1134,7 +1610,7 @@
             },
             {
               "name": "status",
-              "label": "Legacy publication status",
+              "label": "Status",
               "type": "string"
             },
             {
@@ -1189,7 +1665,8 @@
               "name": "visible",
               "label": "Show on website",
               "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
             },
             {
               "name": "order",
@@ -1352,17 +1829,84 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "topics",
+          "label": "Research topics",
+          "type": "collection",
+          "path": "content/topics",
+          "format": "json",
+          "filename": {
+            "template": "{fields.id}.json",
+            "field": false
+          },
+          "view": {
+            "primary": "label",
+            "fields": [
+              "label",
+              "order",
+              "visible"
+            ],
+            "sort": [
+              "order",
+              "label"
+            ],
+            "default": {
+              "sort": "order",
+              "order": "asc"
+            }
+          },
+          "operations": {
+            "create": true,
+            "rename": false,
+            "delete": true
+          },
+          "fields": [
+            {
+              "name": "id",
+              "label": "Stable URL ID",
+              "type": "string",
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+            },
+            {
+              "name": "label",
+              "label": "Label",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "featured",
+              "label": "Feature on homepage",
+              "type": "boolean",
+              "description": "Show this item in a featured area on the home page."
+            }
+          ]
         }
       ]
     },
     {
       "name": "outputs",
-      "label": "Research outputs",
+      "label": "Publications",
       "type": "group",
       "items": [
         {
           "name": "publications",
-          "label": "Publications",
+          "label": "Papers",
           "type": "collection",
           "path": "content/publications",
           "format": "json",
@@ -1400,7 +1944,7 @@
             },
             {
               "name": "authors",
-              "label": "Authors",
+              "label": "Authors / presenters",
               "type": "string",
               "required": true
             },
@@ -1446,7 +1990,7 @@
             },
             {
               "name": "year",
-              "label": "Publication or event year",
+              "label": "Year",
               "type": "number",
               "required": true
             },
@@ -1546,7 +2090,7 @@
             },
             {
               "name": "eIssn",
-              "label": "eISSN",
+              "label": "EISSN",
               "type": "string"
             },
             {
@@ -1729,7 +2273,7 @@
             },
             {
               "name": "type",
-              "label": "Legacy author role",
+              "label": "Type",
               "type": "select",
               "options": {
                 "values": [
@@ -1767,15 +2311,15 @@
             "field": false
           },
           "view": {
-            "primary": "englishTitle",
+            "primary": "title",
             "fields": [
-              "englishTitle",
+              "title",
               "order",
               "visible"
             ],
             "sort": [
               "order",
-              "englishTitle"
+              "title"
             ],
             "default": {
               "sort": "order",
@@ -1790,31 +2334,24 @@
           "fields": [
             {
               "name": "status",
-              "label": "Legacy publication status",
+              "label": "Status",
               "type": "select",
               "options": {
                 "values": [
                   "Registered",
-                  "Application"
+                  "Application",
+                  "Pending",
+                  "Granted",
+                  "Published"
                 ]
               },
               "required": true
             },
             {
-              "name": "number",
-              "label": "Patent number",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "date",
-              "label": "Patent date",
-              "type": "string"
-            },
-            {
               "name": "title",
               "label": "Title",
-              "type": "string"
+              "type": "string",
+              "required": true
             },
             {
               "name": "inventors",
@@ -1843,8 +2380,7 @@
             {
               "name": "englishTitle",
               "label": "English title",
-              "type": "string",
-              "required": true
+              "type": "string"
             },
             {
               "name": "relatedResearch",
@@ -1867,7 +2403,8 @@
               "name": "visible",
               "label": "Show on website",
               "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
             },
             {
               "name": "featured",
@@ -1876,14 +2413,34 @@
               "description": "Show this item in a featured area on the home page."
             },
             {
+              "name": "country",
+              "label": "Primary country",
+              "type": "string"
+            },
+            {
+              "name": "registrationNumber",
+              "label": "Registration number",
+              "type": "string"
+            },
+            {
+              "name": "registrationDate",
+              "label": "Registration date",
+              "type": "string"
+            },
+            {
+              "name": "applicationNumber",
+              "label": "Application number",
+              "type": "string"
+            },
+            {
+              "name": "applicationDate",
+              "label": "Application date",
+              "type": "string"
+            },
+            {
               "name": "territoryNote",
               "label": "Patent territory note",
               "type": "text"
-            },
-            {
-              "name": "numberLabel",
-              "label": "Number label",
-              "type": "string"
             },
             {
               "name": "assignee",
@@ -1925,25 +2482,25 @@
           ]
         },
         {
-          "name": "topics",
-          "label": "Publication topics",
+          "name": "conferences",
+          "label": "Conferences",
           "type": "collection",
-          "path": "content/topics",
+          "path": "content/conferences",
           "format": "json",
           "filename": {
             "template": "{fields.id}.json",
             "field": false
           },
           "view": {
-            "primary": "label",
+            "primary": "conferenceName",
             "fields": [
-              "label",
+              "conferenceName",
               "order",
               "visible"
             ],
             "sort": [
               "order",
-              "label"
+              "conferenceName"
             ],
             "default": {
               "sort": "order",
@@ -1965,34 +2522,85 @@
               "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
-              "name": "label",
-              "label": "Label",
+              "name": "title",
+              "label": "Title",
+              "type": "string"
+            },
+            {
+              "name": "conferenceName",
+              "label": "Conference name",
               "type": "string",
               "required": true
             },
             {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
+              "name": "authors",
+              "label": "Authors / presenters",
+              "type": "string"
             },
             {
-              "name": "visible",
-              "label": "Show on website",
-              "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "name": "year",
+              "label": "Year",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "date",
+              "label": "Date",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "label": "Location",
+              "type": "string"
+            },
+            {
+              "name": "presentationType",
+              "label": "Presentation type",
+              "type": "select",
+              "options": {
+                "values": [
+                  "Oral",
+                  "Poster",
+                  "Invited",
+                  "Keynote",
+                  "Other"
+                ]
+              }
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text"
+            },
+            {
+              "name": "url",
+              "label": "External URL",
+              "type": "string"
             },
             {
               "name": "featured",
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
             }
           ]
         },
         {
           "name": "publications-page",
-          "label": "Publications page text",
+          "label": "Papers page text",
           "type": "file",
           "path": "content/pages/publications.json",
           "format": "json",
@@ -2091,34 +2699,65 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "conferences-page",
+          "label": "Conferences page text",
+          "type": "file",
+          "path": "content/pages/conferences.json",
+          "format": "json",
+          "fields": [
+            {
+              "name": "hero",
+              "label": "Hero",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "name": "empty",
+              "label": "Empty",
+              "type": "string"
+            }
+          ]
         }
       ]
     },
     {
-      "name": "about-management",
-      "label": "About & activities",
+      "name": "activities-management",
+      "label": "Activities",
       "type": "group",
       "items": [
         {
-          "name": "awards",
-          "label": "Awards & programs",
+          "name": "news",
+          "label": "News & Media",
           "type": "collection",
-          "path": "content/awards",
+          "path": "content/news",
           "format": "json",
           "filename": {
             "template": "{fields.id}.json",
             "field": false
           },
           "view": {
-            "primary": "englishTitle",
+            "primary": "title",
             "fields": [
-              "englishTitle",
+              "title",
               "order",
               "visible"
             ],
             "sort": [
               "order",
-              "englishTitle"
+              "title"
             ],
             "default": {
               "sort": "order",
@@ -2140,55 +2779,83 @@
               "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
-              "name": "year",
-              "label": "Publication or event year",
-              "type": "number"
-            },
-            {
               "name": "title",
               "label": "Title",
-              "type": "string"
-            },
-            {
-              "name": "englishTitle",
-              "label": "English title",
               "type": "string",
               "required": true
             },
             {
-              "name": "category",
-              "label": "Category",
+              "name": "date",
+              "label": "Date",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "type",
+              "label": "Type",
               "type": "select",
               "options": {
                 "values": [
-                  "award",
-                  "fellowship"
+                  "News",
+                  "Media Coverage",
+                  "Press Release",
+                  "Interview",
+                  "Announcement"
                 ]
               }
             },
             {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
+              "name": "source",
+              "label": "Source",
+              "type": "string"
             },
             {
-              "name": "visible",
-              "label": "Show on website",
-              "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "name": "shortDescription",
+              "label": "Short description",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "label": "External URL",
+              "type": "string"
+            },
+            {
+              "name": "thumbnail",
+              "label": "Thumbnail",
+              "type": "image",
+              "options": {
+                "media": "images"
+              }
+            },
+            {
+              "name": "thumbnailAlt",
+              "label": "Thumbnail alternative text",
+              "type": "string"
             },
             {
               "name": "featured",
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
             }
           ]
         },
         {
           "name": "gallery",
-          "label": "Gallery photographs",
+          "label": "Gallery",
           "type": "collection",
           "path": "content/gallery",
           "format": "json",
@@ -2273,8 +2940,24 @@
             },
             {
               "name": "year",
-              "label": "Publication or event year",
+              "label": "Year",
               "type": "string"
+            },
+            {
+              "name": "date",
+              "label": "Date",
+              "type": "string"
+            },
+            {
+              "name": "relatedActivity",
+              "label": "Related activity ID",
+              "type": "reference",
+              "options": {
+                "collection": "news",
+                "multiple": false,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
             },
             {
               "name": "order",
@@ -2286,138 +2969,14 @@
               "name": "visible",
               "label": "Show on website",
               "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
             },
             {
               "name": "featured",
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
-            }
-          ]
-        },
-        {
-          "name": "about-page",
-          "label": "About page text",
-          "type": "file",
-          "path": "content/pages/about.json",
-          "format": "json",
-          "fields": [
-            {
-              "name": "field",
-              "label": "Field",
-              "type": "string"
-            },
-            {
-              "name": "positionLines",
-              "label": "Position Lines",
-              "type": "string",
-              "list": true
-            },
-            {
-              "name": "biographyTitle",
-              "label": "Biography Title",
-              "type": "string"
-            },
-            {
-              "name": "biographyExtra",
-              "label": "Biography Extra",
-              "type": "text"
-            },
-            {
-              "name": "visionTitle",
-              "label": "Vision Title",
-              "type": "string"
-            },
-            {
-              "name": "visionLinkLabel",
-              "label": "Vision Link Label",
-              "type": "string"
-            },
-            {
-              "name": "journeyTitle",
-              "label": "Journey Title",
-              "type": "string"
-            },
-            {
-              "name": "journeyIntro",
-              "label": "Journey Intro",
-              "type": "text"
-            },
-            {
-              "name": "trajectory",
-              "label": "Trajectory",
-              "type": "object",
-              "list": {
-                "collapsible": true
-              },
-              "fields": [
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "detail",
-                  "label": "Detail",
-                  "type": "string"
-                },
-                {
-                  "name": "phase",
-                  "label": "Phase",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "name": "environmentTitle",
-              "label": "Environment Title",
-              "type": "string"
-            },
-            {
-              "name": "independence",
-              "label": "Independence",
-              "type": "text"
-            },
-            {
-              "name": "independentLinkLabel",
-              "label": "Independent Link Label",
-              "type": "string"
-            },
-            {
-              "name": "labLinkLabel",
-              "label": "Lab Link Label",
-              "type": "string"
-            },
-            {
-              "name": "educationTitle",
-              "label": "Education Title",
-              "type": "string"
-            },
-            {
-              "name": "recognitionTitle",
-              "label": "Recognition Title",
-              "type": "string"
-            },
-            {
-              "name": "recognitionLinkLabel",
-              "label": "Recognition Link Label",
-              "type": "string"
-            },
-            {
-              "name": "activitiesTitle",
-              "label": "Activities Title",
-              "type": "string"
-            },
-            {
-              "name": "activitiesIntro",
-              "label": "Activities Intro",
-              "type": "string"
-            },
-            {
-              "name": "activitiesLinkLabel",
-              "label": "Activities Link Label",
-              "type": "string"
             }
           ]
         },
@@ -2451,6 +3010,16 @@
               ]
             },
             {
+              "name": "newsIntro",
+              "label": "News Intro",
+              "type": "string"
+            },
+            {
+              "name": "newsEmpty",
+              "label": "News Empty",
+              "type": "string"
+            },
+            {
               "name": "recognitionTitle",
               "label": "Recognition Title",
               "type": "string"
@@ -2479,45 +3048,6 @@
             {
               "name": "galleryEmpty",
               "label": "Gallery Empty",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "name": "cv-page",
-          "label": "CV page text",
-          "type": "file",
-          "path": "content/pages/cv.json",
-          "format": "json",
-          "fields": [
-            {
-              "name": "downloadLabel",
-              "label": "Download Label",
-              "type": "string"
-            },
-            {
-              "name": "updatedPrefix",
-              "label": "Updated Prefix",
-              "type": "string"
-            },
-            {
-              "name": "researchIdentityTitle",
-              "label": "Research Identity Title",
-              "type": "string"
-            },
-            {
-              "name": "researchIdentity",
-              "label": "Research Identity",
-              "type": "string"
-            },
-            {
-              "name": "researchInterests",
-              "label": "Research Interests",
-              "type": "text"
-            },
-            {
-              "name": "sourceNote",
-              "label": "Source Note",
               "type": "text"
             }
           ]

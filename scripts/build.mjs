@@ -24,7 +24,7 @@ for (const item of data.featured) {
   const paper=data.publications.find(p=>p.id===item.paper);
   if (!paper || isUnpublished(paper)) throw new Error(`Featured paper ${item.paper} needs a published record.`);
 }
-const definitions=[['index.html',pages.home],['about.html',pages.about],['research.html',pages.research],['projects.html',pages.projects],['publications.html',pages.publications],['patents.html',pages.patents],['activities.html',pages.activities],['cv.html',pages.cv]];
+const definitions=[['index.html',pages.home],['about.html',pages.about],['research.html',pages.research],['projects.html',pages.projects],['publications.html',pages.publications],['patents.html',pages.patents],['conferences.html',pages.conferences],['activities.html',pages.activities],['cv.html',pages.cv]];
 for (const [file,render] of definitions) {
   const {title,description}=data.site.seo[file];
   fs.writeFileSync(path.join(outputRoot,file),layout(data,{file,title,description,body:render(data),bodyClass:file==='cv.html'?'cv-page':''}));

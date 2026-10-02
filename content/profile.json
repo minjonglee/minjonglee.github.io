@@ -17,23 +17,7 @@
   "heroImageAlt": "Concept illustration of a layered electronic device and its interface",
   "heroImageCaption": "Concept illustration",
   "cv": "/assets/min-jong-lee-cv.pdf",
-  "updated": "September 27, 2026",
-  "education": [
-    {
-      "period": "March 2023 – Present",
-      "degree": "Integrated M.S.–Ph.D. Program in Electrical Engineering",
-      "school": "Korea University, Seoul, Republic of Korea",
-      "gpa": "4.06 / 4.50",
-      "advisor": "Prof. Jae Won Shim"
-    },
-    {
-      "period": "March 2019 – February 2023",
-      "degree": "B.S. in Electronic Engineering",
-      "school": "Soongsil University, Seoul, Republic of Korea",
-      "gpa": "4.01 / 4.50",
-      "honor": "Magna Cum Laude"
-    }
-  ],
+  "updated": "October 3, 2026",
   "bio": "My research began with organic and hybrid optoelectronics, where molecular contacts, thin-film electrodes, and interfacial defects affect charge transport. My first-author work has progressed from photovoltaic and capacitor devices to optoelectronic memory and artificial synapses, expanding my research from interface engineering toward emerging memory.",
   "vision": "I study how interface structure, defects, and ionic dynamics affect device behavior and reliability. My current doctoral project examines multilevel precision in ionic memory. Longer term, I aim to connect thin-film device platforms through low-temperature electronics, heterogeneous integration, and device–system co-design.",
   "scholar": "https://scholar.google.co.kr/citations?user=-BlGIHUAAAAJ&hl=ko",

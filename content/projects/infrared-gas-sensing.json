@@ -17,5 +17,10 @@
   "homeAnchor": "infrared-gas-sensing",
   "caseStudyId": "",
   "order": 4,
-  "visible": true
+  "visible": true,
+  "program": "시장선도를 위한 한국 주도형 K-Sensor 기술개발 (R&D)",
+  "fundingAgency": "산업통상자원부",
+  "startDate": "2024-04",
+  "endDate": "",
+  "status": "Ongoing"
 }

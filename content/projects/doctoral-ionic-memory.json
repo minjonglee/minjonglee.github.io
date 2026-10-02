@@ -17,5 +17,10 @@
   "homeAnchor": "ionic-dynamics",
   "caseStudyId": "ionic-dynamics",
   "order": 1,
-  "visible": true
+  "visible": true,
+  "program": "박사과정생 연구장려금지원사업",
+  "fundingAgency": "교육부",
+  "startDate": "2026-09",
+  "endDate": "",
+  "status": "Ongoing"
 }

@@ -3,8 +3,9 @@
   "year": "2026",
   "title": "KU희망장학금 선정",
   "englishTitle": "KU Hope Scholarship",
-  "category": "fellowship",
   "order": 5,
   "visible": true,
-  "featured": false
+  "featured": false,
+  "type": "Scholarship",
+  "organization": "고려대학교"
 }

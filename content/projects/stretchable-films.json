@@ -18,5 +18,10 @@
   "homeAnchor": "stretchable-films",
   "caseStudyId": "",
   "order": 8,
-  "visible": true
+  "visible": true,
+  "program": "전략 핵심 소재 자립화 기술개발",
+  "fundingAgency": "산업통상자원부",
+  "startDate": "2020-04",
+  "endDate": "2024-12",
+  "status": "Completed"
 }

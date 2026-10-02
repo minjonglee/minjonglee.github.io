@@ -3,8 +3,9 @@
   "year": "2026",
   "title": "BK21 참여대학원생 우수저널 게재 논문 선정",
   "englishTitle": "BK21 Recognition for Publication in an Outstanding Journal",
-  "category": "award",
   "order": 4,
   "visible": true,
-  "featured": false
+  "featured": false,
+  "type": "Honor",
+  "organization": "BK21"
 }

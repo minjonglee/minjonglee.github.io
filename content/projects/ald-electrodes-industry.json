@@ -2,7 +2,7 @@
   "id": "ald-electrodes-industry",
   "category": "industry",
   "period": "2020.09–2025.09",
-  "title": "TiN 전극 대체를 위한 ALD 기반 초박막 다성분계 전극 개발",
+  "title": "TiN 전극 대체를 위한 atomic layer deposition (ALD) 기반 초박막 다성분계 (다층박막) 전극 개발",
   "englishTitle": "ALD-based ultrathin multicomponent electrodes as alternatives to TiN",
   "topics": [
     "ALD electrodes",
@@ -18,5 +18,10 @@
   "homeAnchor": "ald-electrodes-industry",
   "caseStudyId": "",
   "order": 6,
-  "visible": true
+  "visible": true,
+  "program": "삼성전자 전략산학",
+  "fundingAgency": "삼성전자㈜",
+  "startDate": "2020-09",
+  "endDate": "2025-09",
+  "status": "Completed"
 }

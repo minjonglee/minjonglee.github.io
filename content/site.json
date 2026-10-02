@@ -7,52 +7,34 @@
   "socialPreviewAlt": "Min Jong Lee — Interface and device physics for emerging electronics",
   "navigation": [
     {
-      "label": "Home",
-      "href": "index.html",
-      "order": 1,
-      "visible": true
-    },
-    {
       "label": "About",
       "href": "about.html",
-      "order": 2,
+      "order": 1,
       "visible": true
     },
     {
       "label": "Research",
       "href": "research.html",
-      "order": 3,
-      "visible": true
-    },
-    {
-      "label": "Projects",
-      "href": "projects.html",
-      "order": 4,
+      "order": 2,
       "visible": true
     },
     {
       "label": "Publications",
       "href": "publications.html",
-      "order": 5,
-      "visible": true
-    },
-    {
-      "label": "Patents",
-      "href": "patents.html",
-      "order": 6,
+      "order": 3,
       "visible": true
     },
     {
       "label": "Activities",
       "href": "activities.html",
-      "order": 7,
+      "order": 4,
       "visible": true
     },
     {
       "label": "CV",
       "href": "",
       "kind": "cv",
-      "order": 8,
+      "order": 5,
       "visible": true
     }
   ],
@@ -82,7 +64,7 @@
     ]
   },
   "notes": {
-    "bibliography": "Manuscript status is shown separately from published work.",
+    "bibliography": "Publication records display verified bibliographic metadata where available.",
     "authors": "† denotes equal contribution; * denotes corresponding authors."
   },
   "seoPages": [
@@ -113,13 +95,18 @@
     },
     {
       "file": "patents.html",
-      "title": "Patents & Technology Translation",
+      "title": "Patents",
       "description": "Registered patents and applications in memory, interfaces, semiconductor devices, and optoelectronics."
+    },
+    {
+      "file": "conferences.html",
+      "title": "Conferences",
+      "description": "Verified conference presentations and scholarly meetings by Min Jong Lee."
     },
     {
       "file": "activities.html",
       "title": "Activities",
-      "description": "Academic recognition and a growing archive of research and conference photographs from Min Jong Lee."
+      "description": "Research news, media coverage, and a gallery of documented academic activities from Min Jong Lee."
     },
     {
       "file": "cv.html",
