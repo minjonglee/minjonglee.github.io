@@ -192,12 +192,12 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .publication-count { color:var(--muted); font-size:12px; margin-top:15px; }
 .publication-year { margin-top:46px; }
 .publication-year>h2 { font-size:33px; border-bottom:1px solid var(--line); padding-bottom:15px; }
-.publication-item { padding:19px 0 21px; border-bottom:1px solid var(--line); min-width:0; }
+.publication-item { padding:17px 0 19px; border-bottom:1px solid var(--line); min-width:0; }
 .publication-topline { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:12px 22px; min-width:0; }
-.publication-meta { display:flex; flex-wrap:wrap; gap:0 9px; align-items:baseline; min-width:0; font-size:12px; color:var(--muted); line-height:1.5; }
-.publication-source { color:var(--accent); font-weight:600; }
+.publication-meta { display:flex; flex-wrap:wrap; gap:0 9px; align-items:baseline; min-width:0; font-size:12.5px; color:var(--muted); line-height:1.5; }
+.publication-source { color:var(--accent); font-size:15.5px; font-weight:600; }
 .publication-meta-separator { color:#a6adb6; }
-.publication-item h3 { font-family:var(--serif); font-size:clamp(20px,2vw,26px); line-height:1.31; font-weight:400; letter-spacing:-.018em; margin:6px 0 7px; overflow-wrap:anywhere; text-wrap:pretty; }
+.publication-item h3 { font-family:var(--serif); font-size:22px; line-height:1.24; font-weight:400; letter-spacing:-.018em; margin:5px 0 7px; overflow-wrap:anywhere; text-wrap:pretty; }
 .publication-item .authors { color:var(--muted); font-size:12px; line-height:1.65; overflow-wrap:anywhere; }
 .publication-item .authors strong { color:var(--muted); font-weight:600; }
 .publication-author-note { color:var(--muted); font-size:11px; line-height:1.6; margin-top:5px; }
@@ -297,6 +297,7 @@ dd { margin:0; font-size:14px; color:var(--muted); }
   .hero-focus { gap:16px; }.hero-focus dd { font-size:16px; }.about-intro { grid-template-columns:minmax(0,1fr) minmax(210px,27%); gap:45px; }
   .gallery-grid,.gallery-placeholder-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .trajectory { grid-template-columns:repeat(3,1fr); gap:28px; }.program-row,.patent-item { grid-template-columns:145px 1fr; gap:30px; }
+  .publication-item h3 { font-size:21px; }.publication-source { font-size:15px; }
 }
 @media(max-width:760px) {
   html { scroll-padding-top:96px; }.shell { width:calc(100% - 44px); }.section { padding-block:64px; }
@@ -315,7 +316,7 @@ dd { margin:0; font-size:14px; color:var(--muted); }
   .patent-item { grid-template-columns:1fr; gap:18px; padding-block:30px; }.patent-number { display:flex; align-items:center; gap:20px; }.patent-status { margin:0; }.patent-item h3 { font-size:28px; }
   .publications-hero { padding-block:44px 30px; }.publications-hero p { font-size:14px; }
   .publications-section { padding-bottom:52px; }.publication-controls { grid-template-columns:1fr; gap:10px; }.publication-year { margin-top:37px; }.publication-year>h2 { font-size:29px; }
-  .publication-item { padding-block:18px 19px; }.publication-item h3 { font-size:21px; }.publication-topline { gap:8px 12px; }.publication-meta { overflow-wrap:anywhere; }
+  .publication-item { padding-block:16px 17px; }.publication-item h3 { font-size:19px; }.publication-topline { gap:8px 12px; }.publication-meta { font-size:12px; overflow-wrap:anywhere; }.publication-source { font-size:14px; }
   .about-intro { grid-template-columns:1fr; gap:32px; padding-block:48px 65px; }.about-intro .portrait { max-width:260px; }.about-field { font-size:22px; }.about-narrative { grid-template-columns:1fr; gap:20px; }
   .trajectory { grid-template-columns:1fr; gap:0; margin-top:32px; }.trajectory li { border-top:none; border-left:1px solid var(--ink); margin-left:6px; padding:0 0 24px 25px; position:relative; }
   .trajectory li::before { content:''; position:absolute; width:7px; height:7px; border:1px solid var(--ink); background:var(--paper); border-radius:50%; top:3px; left:-4px; }.trajectory li:last-child { border-left-style:dashed; padding-bottom:0; }.trajectory .eyebrow { margin-bottom:7px; }
