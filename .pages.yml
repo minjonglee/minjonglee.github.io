@@ -1984,7 +1984,7 @@
             {
               "name": "authors",
               "label": "Authors / presenters",
-              "type": "string",
+              "type": "text",
               "required": true
             },
             {
@@ -2320,12 +2320,6 @@
                   "co"
                 ]
               }
-            },
-            {
-              "name": "status",
-              "label": "Legacy publication status",
-              "type": "string",
-              "description": "Legacy value kept for existing records. Use Publication status above for new records."
             },
             {
               "name": "externalUrl",

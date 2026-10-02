@@ -5,14 +5,18 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 import {defaultRoot,loadContent} from './content.mjs';
+import {isPublicationVisible} from './components.mjs';
 
 const context={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(defaultRoot,'content.js'),'utf8'),context);
 const previous=context.window.SITE_CONTENT;
 const current=loadContent();
 for(const name of ['publications','projects','patents','awards','topics']){
-  assert.equal(current[name].length,previous[name].length+(name==='publications'?2:0),`${name} count changed unexpectedly`);
-  for(const item of previous[name]) assert.ok(current[name].some(record=>record.id===item.id)||name==='awards',`missing migrated ${name}: ${item.id}`);
+  if(name!=='publications') assert.equal(current[name].length,previous[name].length,`${name} count changed unexpectedly`);
+  for(const item of previous[name]){
+    if(name==='publications'&&!isPublicationVisible(item)) continue;
+    assert.ok(current[name].some(record=>record.id===item.id)||name==='awards',`missing migrated ${name}: ${item.id}`);
+  }
 }
 assert.equal(fs.readdirSync(path.join(defaultRoot,'content','research-cases')).filter(file=>file.endsWith('.json')).length,previous.researchProjects.length,'research case migration count changed');
 const config=JSON.parse(fs.readFileSync(path.join(defaultRoot,'.pages.yml'),'utf8'));

@@ -39,7 +39,7 @@ Homepage research rows come from **Research → Research Areas** records marked 
 
 Open **Publications → Papers → New**. Enter a unique lowercase **Stable URL ID** such as `new-memory-paper`, Title, Authors in publication order, Journal, Year, Publication status, and author role. Enter only verified Volume, Issue, Pages, Article number, publication dates, and DOI values. `†` and `*` can remain in the Authors field. A DOI alone creates a `https://doi.org/` link. Use **Feature on homepage** only for a representative paper.
 
-The public Papers list and web/PDF CV show only **Accepted, In Press, ASAP, Early View, Online Published, and Published** records. **Manuscript, Submitted, Under Review, and In Revision** records stay editable in CMS but do not appear publicly. The existing hidden manuscript is preserved. The current public list has 22 verified records: 6 first-author and 16 co-authored. The metadata line combines Journal, Year, and available bibliographic fields without changing how they are stored.
+The public Papers list and web/PDF CV show only **Accepted, In Press, ASAP, Early View, Online Published, and Published** records. **Manuscript, Submitted, Under Review, and In Revision** records can stay editable in CMS but do not appear publicly. The current public list has 22 verified records: 6 first-author and 16 co-authored. The metadata line combines Journal, Year, and available bibliographic fields without changing how they are stored.
 
 ### Add other records
 

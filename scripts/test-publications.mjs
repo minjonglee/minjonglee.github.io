@@ -9,10 +9,13 @@ const context={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(defaultRoot,'content.js'),'utf8'),context);
 const old=context.window.SITE_CONTENT.publications;
 const current=loadContent();
-assert.equal(current.publications.length,old.length+2,'the two verified new papers should be added alongside preserved records');
+for(const id of ['paper-22','paper-23']) assert.ok(current.publications.some(p=>p.id===id),`missing verified new paper ${id}`);
 for(const before of old){
   const after=current.publications.find(p=>p.id===before.id);
-  assert.ok(after,`missing ${before.id}`);
+  if(!after){
+    assert.ok(!isPublicationVisible(before),`missing published legacy paper ${before.id}`);
+    continue;
+  }
   for(const key of ['title','authors','journal','year','doi','status','type','image','imageAlt'])
     if(key in before) assert.deepEqual(after[key],before[key],`${before.id}: ${key} changed`);
   assert.equal(after.journalName,(before.journal||'').split(' · ')[0]);
@@ -63,4 +66,4 @@ assert.ok(!page.includes('id="paper-01"')&&!page.includes('Chiral Neuromorphic M
 assert.ok(!page.includes('publication-manuscripts')&&!page.includes('A manuscript in revision'));
 assert.ok(page.indexOf('>2026</h2>')<page.indexOf('>2025</h2>'));
 assert.ok(page.includes('id="publication-search"')&&page.includes('id="publication-year-filter"'));
-console.log(`Preserved ${old.length} legacy publication records and verified ${visiblePapers.length} visible papers, CMS fields, metadata, and status filtering.`);
+console.log(`Preserved published legacy records and verified ${visiblePapers.length} visible papers, CMS fields, metadata, and status filtering.`);
