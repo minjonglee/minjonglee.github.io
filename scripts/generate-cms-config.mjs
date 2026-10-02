@@ -50,7 +50,7 @@ function fields(value,scope){
   return Object.entries(value).map(([key,item])=>{
     const qualified=`${scope}.${key}`;
     const field={name:key,label:labels[key]||title(key)};
-    if(key==='id') {field.type='string';field.readonly=true;field.description='Stable anchor used by links. New items use the filename if blank.';return field;}
+    if(key==='id') {field.type='string';field.required=true;field.pattern='^[a-z0-9-]+$';field.description='Short English key for links, e.g. new-memory-study. Keep existing keys unchanged.';return field;}
     if(refTargets[qualified]) {field.type='reference';field.options={collection:refTargets[qualified],multiple:Array.isArray(item),value:'{fields.id}',label:'{primary}'};return field;}
     if(choices[qualified]) {field.type='select';field.options={values:choices[qualified]};return field;}
     if(Array.isArray(item)) {
@@ -79,7 +79,7 @@ const collection=(name,label,primary)=>{
     const field=schema.find(item=>item.name===key);
     if(field) field.required=true;
   }
-  return {name,label,type:'collection',path:`content/${name}`,format:'json',filename:{template:'{primary}.json',field:'create'},view:{primary,fields:[primary,'order','visible'],sort:['order',primary],default:{sort:'order',order:'asc'}},operations:{create:true,rename:false,delete:true},fields:schema};
+  return {name,label,type:'collection',path:`content/${name}`,format:'json',filename:{template:'{fields.id}.json',field:false},view:{primary,fields:[primary,'order','visible'],sort:['order',primary],default:{sort:'order',order:'asc'}},operations:{create:true,rename:false,delete:true},fields:schema};
 };
 const file=(name,label,relative)=>({name,label,type:'file',path:`content/${relative}`,format:'json',fields:fields(mergeValues([read(relative),name==='profile'?{externalLinks:[{label:'',href:''}]}:{}]),name)});
 const config={

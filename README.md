@@ -28,7 +28,7 @@ Site: <https://minjonglee.github.io/> · Repository: <https://github.com/minjong
 
 **논문 추가 예시:** Publications → New → 제목, 저자, 학술지, 연도, 연구 주제 등을 입력 → Save. 게재 논문이면 Publication status를 비워 둡니다. 심사 중 원고라면 `In revision`처럼 상태를 적으면 게재 논문과 별도로 나옵니다. DOI를 확인한 경우에만 넣으세요. DOI가 없으면 Scholar 검색 링크가 생깁니다. `Featured`를 켜면 Home의 대표 연구에 포함되며 `Homepage order`로 순서를 정합니다. `Show on website`를 끄면 항목을 삭제하지 않고 숨길 수 있습니다.
 
-**과제·연구·특허 추가:** 해당 컬렉션에서 New → Save. 연구 분야는 Research 페이지에 새 섹션으로 자동 표시됩니다. 연구 분야에서 Home section placement와 Feature on homepage를 설정하면 Home에도 표시됩니다. Projects의 `Featured`는 Home의 Current research 목록에 표시합니다. 특허는 상태를 Registered 또는 Application으로 구분합니다. 목록 순서는 `Display order`의 작은 숫자가 앞입니다. 기존 항목의 Stable URL ID와 파일명은 기존 북마크를 위해 유지하세요.
+**과제·연구·특허 추가:** 해당 컬렉션에서 New → Save. 새 항목의 **Stable URL ID**에는 `new-memory-study`처럼 짧은 영문 소문자·숫자·하이픈을 입력합니다. 이 값이 파일명과 페이지 내 주소가 됩니다. 연구 분야는 Research 페이지에 새 섹션으로 자동 표시됩니다. 연구 분야에서 Home section placement와 Feature on homepage를 설정하면 Home에도 표시됩니다. Projects의 `Featured`는 Home의 Current research 목록에 표시합니다. 특허는 상태를 Registered 또는 Application으로 구분합니다. 목록 순서는 `Display order`의 작은 숫자가 앞입니다. 기존 항목의 Stable URL ID는 북마크를 위해 유지하세요.
 
 **연결 항목:** 논문 주제, 연구 분야의 관련 논문, 연구 사례의 관련 논문·특허는 CMS 참조 필드에서 선택할 수 있습니다. Projects의 `Detailed research case ID`는 별도 사례와 연결합니다. 페이지 내부 주소를 직접 입력하는 버튼은 `.html#anchor` 형태를 사용합니다.
 
@@ -40,7 +40,7 @@ Site: <https://minjonglee.github.io/> · Repository: <https://github.com/minjong
 
 `.github/workflows/pages.yml`은 `main`의 CMS 데이터·자산·코드 변경을 감지합니다. Node 22로 페이지를 생성하고 내부 링크·이미지 속성 및 CMS 항목 동작을 검사한 후 `.site/`에 공개 파일만 모아 GitHub Pages에 배포합니다. `content/`의 JSON이나 `content.js`는 공개 배포물에 포함하지 않습니다. 기존 `index.html` 등은 저장소에 남아 있어 기존 URL과 로컬 파일 미리보기를 유지합니다.
 
-**한 번만 설정:** GitHub 저장소 → Settings → Pages → Build and deployment → Source를 **GitHub Actions**로 지정합니다. 이후 CMS Save가 `main`에 커밋되면 자동 배포됩니다. [GitHub Pages 공식 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+GitHub Pages 배포 소스는 **GitHub Actions**로 설정했습니다(2026-10-02 확인). CMS Save가 `main`에 커밋되면 자동 배포됩니다. 배포 방식을 다시 변경해야 할 때는 저장소 → Settings → Pages → Build and deployment → Source에서 선택합니다. [GitHub Pages 공식 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
 `content.js`는 이전 데이터의 읽기 전용 백업입니다. 새 빌드는 이를 사용하지 않습니다. 새 항목은 파일명을 등록하지 않아도 각 컬렉션 디렉터리를 자동으로 읽습니다. 생성된 HTML을 직접 수정하면 다음 빌드 때 덮어씁니다.
 

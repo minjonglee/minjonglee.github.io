@@ -611,8 +611,8 @@
           "path": "content/research",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "displayTitle",
@@ -708,8 +708,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "areaType",
@@ -898,8 +899,8 @@
           "path": "content/projects",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "englishTitle",
@@ -927,8 +928,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "category",
@@ -1091,8 +1093,8 @@
           "path": "content/research-cases",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "title",
@@ -1120,8 +1122,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "title",
@@ -1317,8 +1320,9 @@
                   "name": "id",
                   "label": "Stable URL ID",
                   "type": "string",
-                  "readonly": true,
-                  "description": "Stable anchor used by links. New items use the filename if blank."
+                  "required": true,
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
                 },
                 {
                   "name": "title",
@@ -1363,8 +1367,8 @@
           "path": "content/publications",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "title",
@@ -1426,8 +1430,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "authors",
@@ -1570,8 +1575,8 @@
           "path": "content/patents",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "englishTitle",
@@ -1637,8 +1642,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "tags",
@@ -1737,8 +1743,8 @@
           "path": "content/topics",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "label",
@@ -1766,8 +1772,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "label",
@@ -1926,8 +1933,8 @@
           "path": "content/awards",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "englishTitle",
@@ -1955,8 +1962,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "year",
@@ -2012,8 +2020,8 @@
           "path": "content/gallery",
           "format": "json",
           "filename": {
-            "template": "{primary}.json",
-            "field": "create"
+            "template": "{fields.id}.json",
+            "field": false
           },
           "view": {
             "primary": "title",
@@ -2041,8 +2049,9 @@
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
-              "readonly": true,
-              "description": "Stable anchor used by links. New items use the filename if blank."
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "title",
