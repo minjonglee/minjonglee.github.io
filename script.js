@@ -79,7 +79,7 @@
       const thumbnail = button.querySelector('img');
       image.src = thumbnail.currentSrc || thumbnail.src;
       image.alt = thumbnail.alt;
-      meta.textContent = [button.dataset.galleryCategory, button.dataset.galleryLocation, button.dataset.galleryYear].filter(Boolean).join(' · ');
+      meta.textContent = [button.dataset.galleryCategory, button.dataset.galleryLocation, button.dataset.galleryDate].filter(Boolean).join(' · ');
       title.textContent = button.dataset.galleryTitle;
       caption.textContent = button.dataset.galleryCaption;
       caption.hidden = !button.dataset.galleryCaption;

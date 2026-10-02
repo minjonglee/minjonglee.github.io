@@ -20,7 +20,7 @@
   "homeRole": "platform",
   "homeTitle": "Flexible & stretchable electronics",
   "homeDescription": "Interconnects, stretchable PCBs, and thin films in government and industry R&D.",
-  "featured": true,
+  "featured": false,
   "paragraphs": [
     {
       "label": "",

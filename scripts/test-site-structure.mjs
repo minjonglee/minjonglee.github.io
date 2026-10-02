@@ -41,7 +41,13 @@ for(const status of ['all','registered','application']) assert.ok(pages.patents.
 assert.equal((pages.patents.match(/class="output-entry patent-entry"/g)||[]).length,8);
 assert.ok(pages.conferences.includes(data.pages.conferences.empty));
 assert.ok(!pages.conferences.includes('class="output-entry conference-entry"'));
-assert.ok(pages.activities.includes(data.pages.activities.newsEmpty));
+const featuredAwards=data.awards.filter(item=>item.visible!==false&&item.featured);
+if(featuredAwards.length) {
+  for(const item of featuredAwards) {
+    assert.ok(pages.activities.includes(`about.html#${item.id}`),`featured award missing from Activities: ${item.id}`);
+    assert.ok(pages.index.includes(`about.html#${item.id}`),`featured award missing from Home: ${item.id}`);
+  }
+} else assert.ok(pages.activities.includes(data.pages.activities.newsEmpty));
 assert.ok(pages.activities.includes(data.pages.activities.galleryEmpty));
 assert.ok(!pages.index.includes('PORTFOLIO / 2026'));
 console.log('Navigation, secondary tabs, migrated records, patent filters, and empty-state content checks passed.');

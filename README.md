@@ -33,6 +33,8 @@ The homepage is `index.html`. Existing `.html` URLs remain in place; `contact.ht
 
 The generated `.pages.yml` preserves the existing record fields. Regenerate it after changing the JSON schema with `node scripts/generate-cms-config.mjs` and commit the result.
 
+Homepage research rows come from **Research → Research Areas** records marked **Feature on homepage**: `core` (interface physics), `platform` (memory), and `future` (explicit long-term direction). A `foundation` record appears as a smaller connected research note. Featured papers come from the Papers selection; featured awards and News & Media records appear under homepage Activities. To change these selections, edit the records in CMS rather than the generated HTML.
+
 ### Add a paper
 
 Open **Publications → Papers → New**. Enter a unique lowercase **Stable URL ID** such as `new-memory-paper`, Title, Authors in publication order, Journal, Year, Publication status, and author role. Enter only verified Volume, Issue, Pages, Article number, publication dates, and DOI values. `†` and `*` can remain in the Authors field. A DOI alone creates a `https://doi.org/` link. Use **Feature on homepage** only for a representative paper.
@@ -45,7 +47,7 @@ The public Papers list and web/PDF CV show only **Accepted, In Press, ASAP, Earl
 - **Publications → Conferences:** Add only presentations with verified conference, title, presenters, year, and any confirmed date, location, and presentation type. The page currently shows an honest empty state because no complete conference record has been supplied.
 - **Research → Projects:** Edit program, funding agency, official program dates, project status, personal role, and participation period separately. Official project dates are not a claim of personal involvement throughout the whole program. Related case studies remain in this group.
 - **About → Education / Experience / Awards & Scholarships:** Update career and recognition records here. The About page uses these collections directly.
-- **Activities → News & Media / Gallery:** Add dated and sourced news or authorized photographs. Both collections are currently empty; the public page does not fabricate events or images. Add image alternative text and captions.
+- **Activities → News & Media / Gallery:** Add dated and sourced news or authorized photographs. These collections are currently empty. The Activities page also draws the two featured, verified awards from **About → Awards & Scholarships**; no news article or event photograph is inferred. Add image alternative text, a date, and a caption for each gallery photograph.
 
 For any collection, **Show on website** hides a record without deleting it. **Display order** sorts records where a date or year does not determine order. Images and the CV PDF upload to `assets/`. Keep image ownership and alt text accurate. Research concept images are labeled as such rather than presented as experimental evidence; see `docs/IMAGE_ASSETS.md`.
 
@@ -78,4 +80,4 @@ On a push to `main`, `.github/workflows/pages.yml` builds, checks, stages, and d
 - `styles.css`, `script.js`: responsive design and interactive filters.
 - `content.js`: read-only backup of the older data model; the current build does not use it.
 
-The original data and verified DOI links were preserved during the navigation and content migration. Unknown DOI values, conference presentations, news, and event photographs were not inferred.
+The original data and verified DOI links were preserved during the navigation and content migration. Unknown DOI values, conference presentations, news articles, and event photographs were not inferred.

@@ -26,7 +26,7 @@ const choices={
   'conferences.presentationType':['Oral','Poster','Invited','Keynote','Other'],
   'news.type':['News','Media Coverage','Press Release','Interview','Announcement'],
   'projects.category':['independent','government','industry'],
-  'research.homeRole':['core','platform','future','none'],
+  'research.homeRole':['core','platform','foundation','future','none'],
   'gallery.category':['Conference','Research','Collaboration','Award'],
 };
 const refTargets={'publications.topics':'topics','publications.featuredProject':'projects','publications.relatedResearch':'research','publications.relatedProjects':'projects','research.papers':'publications','research.selectedPapers':'publications','research.relatedProjects':'projects','research-cases.papers':'publications','research-cases.patents':'patents','projects.caseStudyId':'research-cases','projects.relatedPublications':'publications','projects.relatedPatents':'patents','patents.relatedResearch':'research','patents.relatedProject':'projects','patents.relatedPublication':'publications','gallery.relatedActivity':'news'};

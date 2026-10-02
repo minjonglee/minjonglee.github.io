@@ -5,7 +5,7 @@
   "englishTitle": "Outstanding Graduate Research Achievement, College of Engineering, Korea University",
   "order": 1,
   "visible": true,
-  "featured": false,
+  "featured": true,
   "type": "Award",
   "organization": "고려대학교 공과대학"
 }

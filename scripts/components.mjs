@@ -29,11 +29,7 @@ export function portrait(data, compact = false) {
 }
 
 export function researchDiagram(map) {
-  return `<figure class="research-map" aria-label="${e(map.ariaLabel)}"><div class="map-core"><span>${e(map.coreLabel)}</span><strong>${e(map.coreTitle)}</strong></div><div class="map-platforms">${map.platforms.map(name=>`<div>${e(name).replace(' &amp; ',' &amp;<br>')}</div>`).join('')}</div><div class="map-future"><span>${e(map.futureLabel)}</span><strong>${e(map.futureTitle)}</strong></div></figure>`;
-}
-
-export function trajectory(data) {
-  return `<ol class="trajectory">${data.trajectory.map((s,i)=>`<li class="${s.prospective||i===data.trajectory.length-1?'prospective':''}"><span class="eyebrow">${String(i+1).padStart(2,'0')} · ${e(s.phase)}</span><h3>${e(s.title)}</h3><p>${e(s.detail)}</p></li>`).join('')}</ol>`;
+  return `<figure class="research-map" aria-label="${e(map.ariaLabel)}"><div class="map-core"><span>${e(map.coreLabel)}</span><strong>${e(map.coreTitle)}</strong></div><div class="map-platforms">${map.platforms.map(name=>`<div>${e(name)}</div>`).join('')}${map.foundation?`<p>${e(map.foundation)}</p>`:''}</div><div class="map-future"><span>${e(map.futureLabel)}</span><strong>${e(map.futureTitle)}</strong></div></figure>`;
 }
 
 export function scientificVisual(image, alt, {label:caption='Research figure',className=''} = {}) {
@@ -118,7 +114,7 @@ ${extraHead}
     <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(item=>{const href=item.kind==='cv'?'cv.html':item.href;return `<a${item.kind==='cv'?' class="nav-cv"':''} href="${e(href)}"${activeFile===href?' aria-current="page"':''}>${e(item.label)}</a>`}).join('')}</nav>
   </div></header>
   <main id="main" tabindex="-1">${body}</main>
-  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">${e(data.profile.name.toUpperCase())}</a><p>${e(footer.affiliation)}<br>${e(footer.department)}</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${footer.links.map(item=>textLink(footerHref(item),e(item.label))).join('')}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> ${e(footer.copyrightName)}</span><span>${e(footer.location)}</span><a href="#top">${e(footer.backToTop)}</a></div></div></footer>
+  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">${e(data.profile.name.toUpperCase())}</a><p>${e(footer.affiliation)}<br>${e(footer.department)}</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${footer.links.map(item=>textLink(footerHref(item),e(item.label))).join('')}${data.profile.orcid&&!footer.links.some(item=>item.label==='ORCID')?textLink(data.profile.orcid,'ORCID'):''}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> ${e(footer.copyrightName)}</span><span>${e(footer.location)}</span><a href="#top">${e(footer.backToTop)}</a></div></div></footer>
 </body>
 </html>
 `;

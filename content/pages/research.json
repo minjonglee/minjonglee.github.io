@@ -1,18 +1,15 @@
 {
   "hero": {
     "kicker": "Research",
-    "title": "From interfaces to integrated electronic systems.",
+    "title": "From interface physics toward integrated electronic systems.",
     "description": "My work examines interfaces, defects, ionic dynamics, and charge transport in memory and optoelectronic devices, alongside flexible electronics R&D."
   },
   "map": {
-    "ariaLabel": "Research framework: interface and transport questions inform work across memory and optoelectronic devices; flexible electronics is a parallel research platform. Integrated electronic systems are a long-term direction.",
+    "ariaLabel": "Research framework: interface, defect, and ionic physics inform emerging memory and reliability. Organic and hybrid optoelectronics and flexible electronics are connected foundations. Integrated electronic systems are a long-term direction.",
     "coreLabel": "Core science",
     "coreTitle": "Interfaces · Defects · Ions · Transport",
-    "platforms": [
-      "Memory & reliability",
-      "Optoelectronics & hybrid devices",
-      "Flexible & stretchable electronics"
-    ],
+    "platforms": ["Memory & reliability"],
+    "foundation": "Connected foundations: organic & hybrid optoelectronics · flexible electronics R&D",
     "futureLabel": "Long-term direction",
     "futureTitle": "Integrated electronic systems"
   },

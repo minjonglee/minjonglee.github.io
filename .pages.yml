@@ -1180,6 +1180,7 @@
                 "values": [
                   "core",
                   "platform",
+                  "foundation",
                   "future",
                   "none"
                 ]
@@ -1736,6 +1737,11 @@
                   "label": "Platforms",
                   "type": "string",
                   "list": true
+                },
+                {
+                  "name": "foundation",
+                  "label": "Foundation",
+                  "type": "string"
                 },
                 {
                   "name": "futureLabel",
