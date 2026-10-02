@@ -51,13 +51,11 @@
   const patentButtons = [...document.querySelectorAll('[data-patent-filter]')];
   if (patentButtons.length) {
     const rows = [...document.querySelectorAll('.patent-entry')];
-    const groups = [...document.querySelectorAll('[data-patent-year]')];
     const empty = document.querySelector('#patent-empty');
     patentButtons.forEach(button => button.addEventListener('click', () => {
       const filter = button.dataset.patentFilter;
       patentButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       rows.forEach(row => { row.hidden = filter !== 'all' && row.dataset.patentStatus !== filter; });
-      groups.forEach(group => { group.hidden = ![...group.querySelectorAll('.patent-entry')].some(row => !row.hidden); });
       if (empty) empty.hidden = rows.some(row => !row.hidden);
     }));
   }

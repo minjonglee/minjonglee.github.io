@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {defaultRoot,loadContent} from './content.mjs';
+import {patentRecordDate} from './components.mjs';
+import {conferences} from './pages.mjs';
 
 const data=loadContent();
 const html=name=>fs.readFileSync(path.join(defaultRoot,`${name}.html`),'utf8');
@@ -51,8 +53,20 @@ assert.ok(pages.patents.includes('10-2024-0060762'));
 assert.ok(pages.patents.includes('MIM 커패시터'));
 for(const status of ['all','registered','application']) assert.ok(pages.patents.includes(`data-patent-filter="${status}"`));
 assert.equal((pages.patents.match(/class="output-entry patent-entry"/g)||[]).length,8);
+assert.ok(!pages.patents.includes('class="output-year"')&&!pages.patents.includes('data-patent-year'),'Patents should be one continuous list');
+const patentIds=[...pages.patents.matchAll(/class="output-entry patent-entry" id="([^"]+)"/g)].map(match=>match[1]);
+const expectedPatentIds=[...data.patents].sort((a,b)=>String(patentRecordDate(b)).localeCompare(String(patentRecordDate(a)))||Number(a.order??999)-Number(b.order??999)).map(item=>item.id);
+assert.deepEqual(patentIds,expectedPatentIds,'Patents should be sorted by representative date');
 assert.ok(pages.conferences.includes(data.pages.conferences.empty));
 assert.ok(!pages.conferences.includes('class="output-entry conference-entry"'));
+assert.ok(!pages.conferences.includes('class="output-year"'),'Conferences should not have year headings');
+const conferenceSample=conferences({...data,conferences:[
+  {id:'older',title:'Older presentation',conferenceName:'Older event',date:'2023-06',year:2023,order:1},
+  {id:'recent',title:'Recent presentation',conferenceName:'Recent event',date:'July 2025',year:2025,order:9},
+  {id:'undated',title:'Undated presentation',conferenceName:'Undated event',year:2026,order:0}
+]});
+assert.deepEqual([...conferenceSample.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)].map(match=>match[1]),['recent','older','undated'],'Conferences should sort by date and leave undated records last');
+assert.ok(!conferenceSample.includes('class="output-year"'),'Populated Conferences should remain a continuous list');
 const featuredAwards=data.awards.filter(item=>item.visible!==false&&item.featured);
 if(featuredAwards.length) {
   for(const item of featuredAwards) {

@@ -58,7 +58,6 @@ export function projects(d) {
 export function patents(d) {
   const page=d.pages.patents;
   const ordered=[...d.patents].sort((a,b)=>String(patentRecordDate(b)).localeCompare(String(patentRecordDate(a)))||Number(a.order??999)-Number(b.order??999));
-  const years=[...new Set(ordered.map(p=>String(patentRecordDate(p)).slice(0,4)))];
   const entry=p=>{
     const registered=['Registered','Granted'].includes(p.status);
     const date=patentRecordDate(p).replaceAll('-','.');
@@ -71,15 +70,20 @@ export function patents(d) {
     ].join('');
     return `<article class="output-entry patent-entry" id="${e(p.id)}" data-patent-status="${registered?'registered':'application'}"><span class="output-badge">${e(registered?'Registered':p.status==='Application'?'Application':p.status)}</span><h3 class="output-title" ${/[가-힣]/.test(p.title)?'lang="ko"':''}>${e(p.title)}</h3><p class="output-authors" lang="ko">${e(p.inventors)}</p>${facts?`<dl class="output-facts">${facts}</dl>`:''}${p.territoryNote?`<p class="record-note">${e(p.territoryNote)}</p>`:''}${p.description?`<p class="output-description">${e(p.description)}</p>`:''}${p.externalUrl?textLink(p.externalUrl,'Patent record'):''}</article>`;
   };
-  return `${outputHero('Patents',page.hero.description)}${publicationsTabs('patents.html')}<section class="shell output-section"><div class="patent-filters" role="group" aria-label="Filter patents by status"><button type="button" data-patent-filter="all" aria-pressed="true">All</button><button type="button" data-patent-filter="registered" aria-pressed="false">Registered</button><button type="button" data-patent-filter="application" aria-pressed="false">Application</button></div>${years.map(year=>`<section class="output-year patent-year" data-patent-year><h2>${e(year)}</h2>${ordered.filter(p=>String(patentRecordDate(p)).startsWith(year)).map(entry).join('')}</section>`).join('')}<p class="output-empty" id="patent-empty" hidden>No patents match this filter.</p><p class="record-note">${e(page.intro)}</p></section>`;
+  return `${outputHero('Patents',page.hero.description)}${publicationsTabs('patents.html')}<section class="shell output-section"><div class="patent-filters" role="group" aria-label="Filter patents by status"><button type="button" data-patent-filter="all" aria-pressed="true">All</button><button type="button" data-patent-filter="registered" aria-pressed="false">Registered</button><button type="button" data-patent-filter="application" aria-pressed="false">Application</button></div><div class="output-list patent-list">${ordered.map(entry).join('')}</div><p class="output-empty" id="patent-empty" hidden>No patents match this filter.</p><p class="record-note">${e(page.intro)}</p></section>`;
 }
 
 export function conferences(d) {
   const page=d.pages.conferences;
-  const ordered=[...d.conferences].sort((a,b)=>Number(b.year)-Number(a.year)||String(b.date||'').localeCompare(String(a.date||''))||Number(a.order??999)-Number(b.order??999));
-  const years=[...new Set(ordered.map(item=>item.year))];
+  const dateKey=item=>{
+    const value=String(item.date||'').trim();
+    if(!value) return '';
+    const timestamp=Date.parse(value);
+    return Number.isNaN(timestamp)?value:new Date(timestamp).toISOString().slice(0,10);
+  };
+  const ordered=[...d.conferences].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(a.order??999)-Number(b.order??999));
   const entry=item=>`<article class="output-entry conference-entry" id="${e(item.id)}">${item.title?`<p class="output-source">${e(item.conferenceName)}</p><h3 class="output-title">${e(item.title)}</h3>`:`<h3 class="output-title">${e(item.conferenceName)}</h3>`}${item.authors?`<p class="output-authors">${authors(item.authors)}</p>`:''}<div class="conference-details">${item.presentationType?`<span class="output-badge">${e(item.presentationType)}</span>`:''}${item.date?`<span>${e(item.date)}</span>`:''}${item.location?`<span>${e(item.location)}</span>`:''}</div>${item.description?`<p class="output-description">${e(item.description)}</p>`:''}${item.url?textLink(item.url,'Conference record'):''}</article>`;
-  return `${outputHero(page.hero.title,page.hero.description)}${publicationsTabs('conferences.html')}<section class="shell output-section">${years.length?years.map(year=>`<section class="output-year"><h2>${e(year)}</h2>${ordered.filter(item=>item.year===year).map(entry).join('')}</section>`).join(''):`<p class="output-empty">${e(page.empty)}</p>`}</section>`;
+  return `${outputHero(page.hero.title,page.hero.description)}${publicationsTabs('conferences.html')}<section class="shell output-section">${ordered.length?`<div class="output-list conference-list">${ordered.map(entry).join('')}</div>`:`<p class="output-empty">${e(page.empty)}</p>`}</section>`;
 }
 
 export function about(d) {

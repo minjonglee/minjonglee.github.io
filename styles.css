@@ -213,13 +213,14 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .publication-doi { align-self:start; white-space:nowrap; color:var(--accent); font-size:12px; font-weight:600; text-decoration:none; padding:2px 0; }
 .publication-doi:hover { text-decoration:underline; }
 .publication-empty { padding:36px 0; color:var(--muted); font-size:14px; }
-.output-section { padding-block:48px 78px; }
-.patent-filters { display:flex; flex-wrap:wrap; gap:9px; border-bottom:1px solid var(--line); padding-bottom:25px; }
+.output-section { padding-block:30px 78px; }
+.patent-filters { display:flex; flex-wrap:wrap; gap:9px; border-bottom:1px solid var(--line); padding-bottom:18px; }
 .patent-filters button { border:1px solid var(--line); border-radius:2px; background:var(--white); color:var(--ink); font-size:12px; font-weight:600; min-height:39px; padding:7px 17px; }
 .patent-filters button[aria-pressed='true'] { background:var(--accent); color:var(--white); border-color:var(--accent); }
 .patent-filters button:hover:not([aria-pressed='true']) { border-color:var(--accent); color:var(--accent); }
-.output-year,.publication-year { margin-top:46px; }
-.output-year>h2,.publication-year>h2 { font-size:33px; border-bottom:1px solid var(--line); padding-bottom:15px; }
+.publication-year { margin-top:46px; }
+.publication-year>h2 { font-size:33px; border-bottom:1px solid var(--line); padding-bottom:15px; }
+.patent-list { margin-top:8px; }
 .output-entry { border-bottom:1px solid var(--line); padding:24px 0 26px; min-width:0; }
 .output-source { color:var(--accent); font-size:15px; font-weight:600; line-height:1.5; }
 .output-title { font-family:var(--serif); font-size:23px; line-height:1.25; font-weight:400; overflow-wrap:anywhere; margin:8px 0 7px; }
@@ -351,9 +352,9 @@ dd { margin:0; font-size:14px; color:var(--muted); }
   .research-area { grid-template-columns:1fr; gap:23px; }.research-area-body h3 { font-size:25px; }.project-heading h3 { font-size:27px; }
   .project-group,.project-cases { padding-block:60px; }.project-entry-top { display:block; }.project-period { margin-top:4px; white-space:normal; }.project-entry h3 { font-size:21px; }.project-body { margin-left:0; }.project-facts>div { grid-template-columns:1fr; gap:5px; }
   .section-tabs { gap:20px; min-height:50px; }.section-tabs a { font-size:12px; }
-  .output-section { padding-block:32px 58px; }.output-year { margin-top:36px; }.output-year>h2 { font-size:29px; }
+  .output-section { padding-block:24px 58px; }
   .output-entry { padding-block:21px 23px; }.output-title { font-size:20px; }.output-facts { grid-template-columns:1fr; gap:6px; }.output-facts>div { grid-template-columns:105px minmax(0,1fr); }
-  .patent-filters { gap:7px; padding-bottom:19px; }.patent-filters button { padding-inline:12px; }
+  .patent-filters { gap:7px; padding-bottom:16px; }.patent-filters button { padding-inline:12px; }
   .publications-hero { padding-block:44px 30px; }.publications-hero p { font-size:14px; }
   .publications-section { padding-bottom:52px; }.publication-controls { grid-template-columns:1fr; gap:10px; }.publication-year { margin-top:37px; }.publication-year>h2 { font-size:29px; }
   .publication-item { padding-block:16px 17px; }.publication-item h3 { font-size:19px; }.publication-topline { gap:8px 12px; }.publication-meta { font-size:12px; overflow-wrap:anywhere; }.publication-source { font-size:14px; }
