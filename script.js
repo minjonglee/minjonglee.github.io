@@ -26,29 +26,26 @@
     document.addEventListener('focusin', event => { if (mobile.matches && !event.target.closest('.site-header')) setOpen(false); });
     mobile.addEventListener('change', () => setOpen(false));
   }
-  const controls = document.querySelector('.publication-controls');
+  const search = document.querySelector('#publication-search');
+  const yearFilter = document.querySelector('#publication-year-filter');
   const list = document.querySelector('#publication-list');
   const count = document.querySelector('#publication-count');
   const empty = document.querySelector('#publication-empty');
-  if (controls && list && count) {
-    controls.hidden = false;
-    const buttons = [...controls.querySelectorAll('[data-filter]')];
+  if (search && yearFilter && list && count) {
     const rows = [...list.querySelectorAll('.publication-item')];
-    buttons.forEach(button => button.addEventListener('click', () => {
-      const topic = button.dataset.filter;
-      buttons.forEach(other => {
-        const selected = other === button;
-        other.setAttribute('aria-pressed', String(selected));
-        other.classList.toggle('active', selected);
-      });
+    const update = () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      const year = yearFilter.value;
       let visible = 0;
-      rows.forEach(row => { row.hidden = topic !== 'all' && !row.dataset.topics.split(' ').includes(topic); if (!row.hidden) visible++; });
+      rows.forEach(row => { row.hidden = (year !== 'all' && row.dataset.year !== year) || !row.dataset.search.includes(query); if (!row.hidden) visible++; });
       list.querySelectorAll('[data-year-group]').forEach(group => {
         group.hidden = ![...group.querySelectorAll('.publication-item')].some(row => !row.hidden);
       });
-      count.textContent = `${visible} published ${visible === 1 ? 'paper' : 'papers'}${topic === 'all' ? '' : ' · ' + button.textContent}`;
+      count.textContent = `${visible} ${visible === 1 ? 'record' : 'records'} shown`;
       if (empty) empty.hidden = visible !== 0;
-    }));
+    };
+    search.addEventListener('input', update);
+    yearFilter.addEventListener('change', update);
   }
   const galleryButtons = [...document.querySelectorAll('.gallery-open')];
   const galleryDialog = document.querySelector('#gallery-dialog');

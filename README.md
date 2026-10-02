@@ -19,14 +19,18 @@ Site: <https://minjonglee.github.io/> · Repository: <https://github.com/minjong
 | 연구 분야·설명·그림·홈 노출 | Research & projects → Research areas | `content/research/*.json` |
 | 연구 프로그램·홈 노출 | Research & projects → Projects | `content/projects/*.json` |
 | Projects의 자세한 사례 | Research & projects → Research case studies | `content/research-cases/*.json` |
-| 논문·DOI·이미지·홈 대표 논문 | Research outputs → Publications | `content/publications/*.json` |
+| 논문·서지정보·DOI·이미지·홈 대표 논문 | Research outputs → Publications | `content/publications/*.json` |
 | 특허 | Research outputs → Patents | `content/patents/*.json` |
-| 논문 분류 필터 | Research outputs → Publication topics | `content/topics/*.json` |
+| 논문 연구 주제(향후 분류·연결용) | Research outputs → Publication topics | `content/topics/*.json` |
 | 수상·연구자 프로그램 | About & activities → Awards & programs | `content/awards/*.json` |
 | 학술활동 사진 | About & activities → Gallery photographs | `content/gallery/*.json` |
 | Research, Projects, Publications, Patents, About, Activities, CV 페이지의 안내 문구 | 각 그룹의 “page text” | `content/pages/*.json` |
 
-**논문 추가 예시:** Publications → New → 제목, 저자, 학술지, 연도, 연구 주제 등을 입력 → Save. 게재 논문이면 Publication status를 비워 둡니다. 심사 중 원고라면 `In revision`처럼 상태를 적으면 게재 논문과 별도로 나옵니다. DOI를 확인한 경우에만 넣으세요. DOI가 없으면 Scholar 검색 링크가 생깁니다. `Featured`를 켜면 Home의 대표 연구에 포함되며 `Homepage order`로 순서를 정합니다. `Show on website`를 끄면 항목을 삭제하지 않고 숨길 수 있습니다.
+**논문 추가:** Research outputs → Publications → **Add an entry**에서 Title, Authors, Journal, Publication type/status, Year를 입력합니다. Authors는 논문 순서와 `†`, `*` 표기를 그대로 적습니다. **Stable URL ID**에는 `new-memory-paper`처럼 고유한 영문 소문자·숫자·하이픈을 넣습니다. Volume, Issue, Start/End page 또는 Article number는 확인된 값만 채우고 나머지는 비워 둡니다. DOI만 입력하면 사이트가 `https://doi.org/{DOI}` 링크를 만듭니다. 별도 DOI URL이 있으면 그것을 우선 사용합니다. Save 후 GitHub Actions 배포가 끝나면 새 논문이 자동으로 연도별 목록과 검색에 나타납니다. 파일명 등록이나 코드 수정은 필요 없습니다.
+
+**상태와 표시:** Published는 게재 논문, Accepted/In Press/ASAP/Early View/Online Published는 해당 상태를 명시한 논문으로 표시됩니다. Submitted/Under Review/In Revision은 아래의 Manuscripts 구역으로 분리되어 게재 논문으로 세지 않습니다. Publication date가 있으면 같은 연도 내 최신 날짜가 먼저 나오고, 없으면 Display order로 정렬됩니다. Featured는 Home의 대표 연구에 사용하고, Show on website를 끄면 데이터를 보존한 채 사이트에서 숨깁니다. DOI가 없는 논문에는 Publications 목록의 DOI 버튼이 나오지 않습니다.
+
+기존 21건의 `journal` 원문은 **Original journal and citation (preserved)** 필드에 그대로 남겨 두었습니다. 새 편집용 Journal과 Volume/Issue/Page/Article number는 별도 필드입니다. 새로운 논문은 Original journal and citation을 채울 필요가 없습니다. Publisher, ISSN/eISSN, URL, Keywords, Research Category, Related Research/Projects, Author Notes와 저자 역할 필드는 선택 사항이며, 없는 정보는 화면에 표시하지 않습니다.
 
 **과제·연구·특허 추가:** 해당 컬렉션에서 New → Save. 새 항목의 **Stable URL ID**에는 `new-memory-study`처럼 짧은 영문 소문자·숫자·하이픈을 입력합니다. 이 값이 파일명과 페이지 내 주소가 됩니다. 연구 분야는 Research 페이지에 새 섹션으로 자동 표시됩니다. 연구 분야에서 Home section placement와 Feature on homepage를 설정하면 Home에도 표시됩니다. Projects의 `Featured`는 Home의 Current research 목록에 표시합니다. 특허는 상태를 Registered 또는 Application으로 구분합니다. 목록 순서는 `Display order`의 작은 숫자가 앞입니다. 기존 항목의 Stable URL ID는 북마크를 위해 유지하세요.
 
@@ -52,6 +56,7 @@ Node.js 22 이상으로 저장소에서 실행합니다. `npm install`은 필요
 node scripts/build.mjs
 node scripts/check.mjs
 node scripts/test-cms.mjs
+node scripts/test-publications.mjs
 node scripts/stage-site.mjs
 ```
 
@@ -68,6 +73,7 @@ node scripts/stage-site.mjs
 - `scripts/stage-site.mjs`: GitHub Pages 배포물 준비
 - `scripts/migrate-content.mjs`: 기존 `content.js`의 일회성, 덮어쓰기 방지 마이그레이션 기록
 - `scripts/generate-cms-config.mjs`: 실제 JSON 필드를 포함하는 Pages CMS 편집 스키마 생성
+- `scripts/migrate-publication-metadata.mjs`: 기존 논문 21건의 서지정보 분리 기록(재실행해도 기존 값 유지)
 - `.pages.yml`: Pages CMS 편집 화면과 이미지/PDF 업로드 설정
 - `styles.css`, `script.js`: 기존 디자인과 모바일 메뉴·논문 필터·갤러리·인쇄 동작
 

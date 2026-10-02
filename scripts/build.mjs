@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {layout} from './components.mjs';
+import {layout,isUnpublished} from './components.mjs';
 import * as pages from './pages.mjs';
 import {loadContent} from './content.mjs';
 
@@ -22,7 +22,7 @@ for (const item of data.gallery) {
 }
 for (const item of data.featured) {
   const paper=data.publications.find(p=>p.id===item.paper);
-  if (!paper || paper.status) throw new Error(`Featured paper ${item.paper} needs a published record.`);
+  if (!paper || isUnpublished(paper)) throw new Error(`Featured paper ${item.paper} needs a published record.`);
 }
 const definitions=[['index.html',pages.home],['about.html',pages.about],['research.html',pages.research],['projects.html',pages.projects],['publications.html',pages.publications],['patents.html',pages.patents],['activities.html',pages.activities],['cv.html',pages.cv]];
 for (const [file,render] of definitions) {

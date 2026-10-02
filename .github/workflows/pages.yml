@@ -41,6 +41,8 @@ jobs:
         run: node scripts/check.mjs
       - name: Check CMS content behavior
         run: node scripts/test-cms.mjs
+      - name: Check publication records and metadata
+        run: node scripts/test-publications.mjs
       - name: Stage deployment files
         run: node scripts/stage-site.mjs
       - uses: actions/configure-pages@v5

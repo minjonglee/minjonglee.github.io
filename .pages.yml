@@ -840,7 +840,7 @@
             },
             {
               "name": "status",
-              "label": "Publication or legal status",
+              "label": "Legacy publication status",
               "type": "string"
             },
             {
@@ -881,7 +881,7 @@
             },
             {
               "name": "relatedProjects",
-              "label": "Related Projects",
+              "label": "Related projects",
               "type": "reference",
               "options": {
                 "collection": "projects",
@@ -1059,7 +1059,7 @@
             },
             {
               "name": "status",
-              "label": "Publication or legal status",
+              "label": "Legacy publication status",
               "type": "string"
             },
             {
@@ -1134,7 +1134,7 @@
             },
             {
               "name": "status",
-              "label": "Publication or legal status",
+              "label": "Legacy publication status",
               "type": "string"
             },
             {
@@ -1393,46 +1393,10 @@
           },
           "fields": [
             {
-              "name": "year",
-              "label": "Publication or event year",
-              "type": "number",
-              "required": true
-            },
-            {
-              "name": "type",
-              "label": "Author role",
-              "type": "select",
-              "options": {
-                "values": [
-                  "first",
-                  "co"
-                ]
-              }
-            },
-            {
-              "name": "status",
-              "label": "Publication or legal status",
-              "type": "string",
-              "description": "Leave blank for published work; e.g. In revision for a manuscript."
-            },
-            {
-              "name": "journal",
-              "label": "Journal",
-              "type": "string"
-            },
-            {
               "name": "title",
               "label": "Title",
               "type": "string",
               "required": true
-            },
-            {
-              "name": "id",
-              "label": "Stable URL ID",
-              "type": "string",
-              "required": true,
-              "pattern": "^[a-z0-9-]+$",
-              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "authors",
@@ -1441,23 +1405,159 @@
               "required": true
             },
             {
-              "name": "source",
-              "label": "Source",
+              "name": "journalName",
+              "label": "Journal",
               "type": "string"
             },
             {
-              "name": "image",
-              "label": "Research or article image",
-              "type": "image",
+              "name": "publicationType",
+              "label": "Publication type",
+              "type": "select",
               "options": {
-                "media": "images"
+                "values": [
+                  "Journal Article",
+                  "Review Article",
+                  "Conference Paper",
+                  "Book Chapter",
+                  "Other"
+                ]
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption."
+              "default": "Journal Article"
             },
             {
-              "name": "imageAlt",
-              "label": "Image alternative text",
+              "name": "publicationStatus",
+              "label": "Publication status",
+              "type": "select",
+              "options": {
+                "values": [
+                  "Published",
+                  "Accepted",
+                  "In Press",
+                  "ASAP",
+                  "Early View",
+                  "Online Published",
+                  "Submitted",
+                  "Under Review",
+                  "In Revision"
+                ]
+              },
+              "default": "Published"
+            },
+            {
+              "name": "year",
+              "label": "Publication or event year",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "publicationDate",
+              "label": "Publication date",
+              "type": "date",
+              "default": "",
+              "options": {
+                "format": "yyyy-MM-dd"
+              }
+            },
+            {
+              "name": "onlinePublicationDate",
+              "label": "Online publication date",
+              "type": "date",
+              "default": "",
+              "options": {
+                "format": "yyyy-MM-dd"
+              }
+            },
+            {
+              "name": "volume",
+              "label": "Volume",
               "type": "string"
+            },
+            {
+              "name": "issue",
+              "label": "Issue",
+              "type": "string"
+            },
+            {
+              "name": "startPage",
+              "label": "Start page",
+              "type": "string"
+            },
+            {
+              "name": "endPage",
+              "label": "End page",
+              "type": "string"
+            },
+            {
+              "name": "pages",
+              "label": "Pages",
+              "type": "string"
+            },
+            {
+              "name": "articleNumber",
+              "label": "Article number",
+              "type": "string"
+            },
+            {
+              "name": "eLocationId",
+              "label": "eLocation ID",
+              "type": "string"
+            },
+            {
+              "name": "doi",
+              "label": "DOI",
+              "type": "string",
+              "description": "Enter the DOI only; the site creates https://doi.org/ links automatically."
+            },
+            {
+              "name": "doiUrl",
+              "label": "DOI URL (optional override)",
+              "type": "string"
+            },
+            {
+              "name": "publisherUrl",
+              "label": "Publisher URL",
+              "type": "string"
+            },
+            {
+              "name": "journalUrl",
+              "label": "Journal URL",
+              "type": "string"
+            },
+            {
+              "name": "pdfUrl",
+              "label": "PDF URL",
+              "type": "string"
+            },
+            {
+              "name": "supplementaryUrl",
+              "label": "Supplementary information URL",
+              "type": "string"
+            },
+            {
+              "name": "publisher",
+              "label": "Publisher",
+              "type": "string"
+            },
+            {
+              "name": "issn",
+              "label": "ISSN",
+              "type": "string"
+            },
+            {
+              "name": "eIssn",
+              "label": "eISSN",
+              "type": "string"
+            },
+            {
+              "name": "researchCategory",
+              "label": "Research category",
+              "type": "string"
+            },
+            {
+              "name": "keywords",
+              "label": "Keywords",
+              "type": "string",
+              "list": true
             },
             {
               "name": "topics",
@@ -1471,10 +1571,93 @@
               }
             },
             {
+              "name": "relatedResearch",
+              "label": "Related research",
+              "type": "reference",
+              "options": {
+                "collection": "research",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
+            },
+            {
+              "name": "relatedProjects",
+              "label": "Related projects",
+              "type": "reference",
+              "options": {
+                "collection": "projects",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
+            },
+            {
+              "name": "myAuthorRole",
+              "label": "My author role",
+              "type": "select",
+              "options": {
+                "values": [
+                  "First author",
+                  "Co-first author",
+                  "Co-author",
+                  "Corresponding author",
+                  "Co-corresponding author",
+                  "Other"
+                ]
+              }
+            },
+            {
+              "name": "firstAuthor",
+              "label": "First author",
+              "type": "boolean"
+            },
+            {
+              "name": "coFirstAuthor",
+              "label": "Co-first author",
+              "type": "boolean"
+            },
+            {
+              "name": "correspondingAuthor",
+              "label": "Corresponding author",
+              "type": "boolean"
+            },
+            {
+              "name": "coCorrespondingAuthor",
+              "label": "Co-corresponding author",
+              "type": "boolean"
+            },
+            {
+              "name": "authorNotes",
+              "label": "Author notes",
+              "type": "string"
+            },
+            {
               "name": "featured",
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "order",
+              "label": "Display order",
+              "type": "number",
+              "description": "Lower numbers appear first."
+            },
+            {
+              "name": "id",
+              "label": "Stable URL ID",
+              "type": "string",
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
             },
             {
               "name": "featuredOrder",
@@ -1504,35 +1687,22 @@
               }
             },
             {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
+              "name": "image",
+              "label": "Research or article image",
+              "type": "image",
+              "options": {
+                "media": "images"
+              },
+              "description": "Upload an authorized research image; also fill in the alternative text and caption."
             },
             {
-              "name": "visible",
-              "label": "Show on website",
-              "type": "boolean",
-              "description": "Turn off to hide this item without deleting it."
+              "name": "imageAlt",
+              "label": "Image alternative text",
+              "type": "string"
             },
             {
               "name": "imageCaption",
               "label": "Image Caption",
-              "type": "string"
-            },
-            {
-              "name": "doi",
-              "label": "DOI",
-              "type": "string"
-            },
-            {
-              "name": "doiSource",
-              "label": "Doi Source",
-              "type": "string"
-            },
-            {
-              "name": "externalUrl",
-              "label": "External paper or project URL",
               "type": "string"
             },
             {
@@ -1546,25 +1716,42 @@
               "type": "text"
             },
             {
-              "name": "volume",
-              "label": "Volume",
+              "name": "source",
+              "label": "Source",
               "type": "string"
             },
             {
-              "name": "issue",
-              "label": "Issue",
-              "type": "string"
-            },
-            {
-              "name": "pages",
-              "label": "Pages",
-              "type": "string"
-            },
-            {
-              "name": "keywords",
-              "label": "Keywords",
+              "name": "journal",
+              "label": "Original journal and citation (preserved)",
               "type": "string",
-              "list": true
+              "description": "Original combined citation from the CV. Kept for provenance; enter new journal names above."
+            },
+            {
+              "name": "type",
+              "label": "Legacy author role",
+              "type": "select",
+              "options": {
+                "values": [
+                  "first",
+                  "co"
+                ]
+              }
+            },
+            {
+              "name": "status",
+              "label": "Legacy publication status",
+              "type": "string",
+              "description": "Legacy value kept for existing records. Use Publication status above for new records."
+            },
+            {
+              "name": "externalUrl",
+              "label": "External paper or project URL",
+              "type": "string"
+            },
+            {
+              "name": "doiSource",
+              "label": "Doi Source",
+              "type": "string"
             }
           ]
         },
@@ -1602,7 +1789,7 @@
           "fields": [
             {
               "name": "status",
-              "label": "Publication or legal status",
+              "label": "Legacy publication status",
               "type": "select",
               "options": {
                 "values": [
@@ -1660,7 +1847,7 @@
             },
             {
               "name": "relatedResearch",
-              "label": "Related Research",
+              "label": "Related research",
               "type": "reference",
               "options": {
                 "collection": "research",

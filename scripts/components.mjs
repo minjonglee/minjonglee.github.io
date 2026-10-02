@@ -5,8 +5,11 @@ export const textLink = (href, label, extra = '') => `<a class="text-link" href=
 export const tags = values => `<ul class="tags" aria-label="Topics">${values.map(x => `<li>${e(x)}</li>`).join('')}</ul>`;
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
-export const paperUrl = p => p.doi ? `https://doi.org/${p.doi}` : p.externalUrl || `https://scholar.google.com/scholar?q=${encodeURIComponent(p.title)}`;
-export const paperLink = p => p.status ? '' : textLink(paperUrl(p), p.doi ? 'Paper / DOI' : p.externalUrl ? 'Paper link' : 'Find on Scholar', `aria-label="${e((p.doi||p.externalUrl ? 'Read paper: ' : 'Search Google Scholar for: ') + p.title)}"`);
+export const doiHref = p => p.doiUrl || (p.doi ? `https://doi.org/${String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'')}` : '');
+export const isUnpublished = p => ['Submitted','Under Review','In Revision','In revision'].includes(p.publicationStatus || p.status);
+export const journalName = p => p.journalName || String(p.journal || '').split(' · ')[0];
+export const paperUrl = p => doiHref(p) || p.publisherUrl || p.externalUrl || `https://scholar.google.com/scholar?q=${encodeURIComponent(p.title)}`;
+export const paperLink = p => isUnpublished(p) ? '' : textLink(paperUrl(p), doiHref(p) ? 'Paper / DOI' : p.publisherUrl || p.externalUrl ? 'Paper link' : 'Find on Scholar', `aria-label="${e((doiHref(p)||p.externalUrl ? 'Read paper: ' : 'Search Google Scholar for: ') + p.title)}"`);
 
 export function profiles(data, {cv = true} = {}) {
   const p = data.profile;
@@ -43,22 +46,29 @@ export function formatPeriod(period) {
 export function paperReference(data, id) {
   const p = data.publications.find(x=>x.id===id);
   if (!p) return '';
-  return `<li><a href="publications.html#${e(p.id)}">${e(p.title)}</a><span>${e(p.journal.split(' · ')[0])} · ${p.year}</span></li>`;
+  return `<li><a href="publications.html#${e(p.id)}">${e(p.title)}</a><span>${e(journalName(p))} · ${p.year}</span></li>`;
 }
 
-export function publication(data, p, {showYear = true} = {}) {
-  const topicNames = (p.topics??[]).map(id=>data.topics.find(t=>t.id===id)?.label??id);
-  const titleTag = showYear ? 'h3' : 'h4';
-  return `<article class="publication-item ${showYear?'':'publication-no-year'}" id="${e(p.id)}" data-topics="${(p.topics??[]).join(' ')}">${showYear?`<div class="publication-index"><span>${p.year}</span></div>`:''}
-    <div class="publication-body"><div class="badges">${p.type==='first'?'<span class="badge">First author</span>':''}${!p.status&&data.featured.some(f=>f.paper===p.id)?'<span class="badge badge-outline">Featured</span>':''}${p.status?`<span class="badge badge-outline">${e(p.status)} · not published</span>`:''}</div>
-    <${titleTag}>${e(p.title)}</${titleTag}><p class="authors">${authors(p.authors)}</p><p class="journal">${p.status?`Manuscript in revision · ${p.year}`:`${e(p.journal)} <span>(${p.year})</span>`}</p>${p.summary?`<p>${e(p.summary)}</p>`:''}${tags(topicNames)}</div>
-    <div class="publication-link">${paperLink(p)}</div></article>`;
+export function publication(data, p) {
+  const status=p.publicationStatus || p.status || 'Published';
+  const parts=[];
+  if(p.volume) parts.push(`Vol. ${p.volume}`);
+  if(p.issue) parts.push(`Issue ${p.issue}`);
+  const pageRange=p.startPage&&p.endPage?`${p.startPage}–${p.endPage}`:p.pages;
+  if(pageRange) parts.push(`pp. ${pageRange}`);
+  if(p.articleNumber) parts.push(`Article ${p.articleNumber}`);
+  if(p.eLocationId) parts.push(`eLocation ${p.eLocationId}`);
+  const bibliography=parts.join(' · ');
+  const source=journalName(p) || (isUnpublished(p)?'Manuscript':'Publication');
+  const statusText=status==='Published'?'':` (${status})`;
+  const search=[p.title,p.authors,p.journal,p.journalName,p.year,p.doi,p.doiUrl,p.volume,p.issue,p.pages,p.startPage,p.endPage,p.articleNumber,p.eLocationId,p.researchCategory,...(p.keywords??[])].filter(Boolean).join(' ').toLocaleLowerCase();
+  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-body"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(p.year)}${e(statusText)}</span></p><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}${bibliography?`<p class="publication-bibliography">${e(bibliography)}</p>`:''}</div>${doiHref(p)&&!isUnpublished(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="DOI for ${e(p.title)} (opens in a new tab)">DOI <span aria-hidden="true">↗</span></a>`:''}</article>`;
 }
 
 export function featured(data) {
   return `<div class="featured-grid">${data.featured.slice(0,3).map(f=>{
     const p=data.publications.find(p=>p.id===f.paper);
-    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:p.imageCaption??'Paper figure'})}<div class="featured-copy"><p class="work-source">${e((p.journal??'').split(' · ')[0])} · ${p.year}</p><h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}</div></article>`;
+    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:p.imageCaption??'Paper figure'})}<div class="featured-copy"><p class="work-source">${e(journalName(p))} · ${p.year}</p><h3>${e(f.title)}</h3><p class="work-contribution">${e(f.contribution)}</p><p class="work-paper">${e(p.title)}</p>${paperLink(p)}</div></article>`;
   }).join('')}</div>`;
 }
 

@@ -35,7 +35,8 @@ export function loadContent(contentRoot=path.join(defaultRoot,'content')) {
   const research=collection('research');
   const researchProjects=collection('research-cases');
   const gallery=collection('gallery');
-  const featured=publications.filter(p=>p.featured===true&&!p.status).sort((a,b)=>number(a.featuredOrder)-number(b.featuredOrder)||ordered(a,b)).map(p=>({paper:p.id,project:p.featuredProject,title:p.featuredTitle||p.title,contribution:p.featuredContribution||''}));
+  const unpublished=p=>['Submitted','Under Review','In Revision','In revision'].includes(p.publicationStatus||p.status);
+  const featured=publications.filter(p=>p.featured===true&&!unpublished(p)).sort((a,b)=>number(a.featuredOrder)-number(b.featuredOrder)||ordered(a,b)).map(p=>({paper:p.id,project:p.featuredProject,title:p.featuredTitle||p.title,contribution:p.featuredContribution||''}));
   const data={site,profile,pages,publications,projects,patents,awards,topics,research,researchProjects,gallery,featured,scholar:profile.scholar,notes:site.notes,trajectory:pages.about.trajectory};
   // Compatibility while page templates are moved from the old object shape.
   data.pillars=research.filter(item=>['interfaces','memory','integration'].includes(item.id));

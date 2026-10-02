@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import {defaultRoot,loadContent} from './content.mjs';
+import {doiHref,publication} from './components.mjs';
+
+const context={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(defaultRoot,'content.js'),'utf8'),context);
+const old=context.window.SITE_CONTENT.publications;
+const current=loadContent();
+assert.equal(current.publications.length,old.length,'publication count changed');
+for(const before of old){
+  const after=current.publications.find(p=>p.id===before.id);
+  assert.ok(after,`missing ${before.id}`);
+  for(const key of ['title','authors','journal','year','doi','status','type','image','imageAlt'])
+    if(key in before) assert.deepEqual(after[key],before[key],`${before.id}: ${key} changed`);
+  assert.equal(after.journalName,(before.journal||'').split(' · ')[0]);
+}
+
+const config=JSON.parse(fs.readFileSync(path.join(defaultRoot,'.pages.yml'),'utf8'));
+const editor=config.content.flatMap(group=>group.items).find(item=>item.name==='publications');
+const fields=new Map(editor.fields.map(field=>[field.name,field]));
+for(const key of ['title','authors','journalName','publicationType','publicationStatus','year','publicationDate','onlinePublicationDate','volume','issue','startPage','endPage','pages','articleNumber','eLocationId','doi','doiUrl','publisherUrl','journalUrl','pdfUrl','supplementaryUrl','publisher','issn','eIssn','researchCategory','keywords','topics','relatedResearch','relatedProjects','myAuthorRole','firstAuthor','coFirstAuthor','correspondingAuthor','coCorrespondingAuthor','authorNotes','featured','visible','order','id'])
+  assert.ok(fields.has(key),`CMS missing ${key}`);
+for(const paper of current.publications) for(const key of Object.keys(paper)) assert.ok(fields.has(key),`CMS would omit ${paper.id}.${key}`);
+assert.equal(fields.get('visible').default,true);
+assert.equal(fields.get('publicationDate').default,'');
+assert.equal(fields.get('publicationStatus').default,'Published');
+assert.ok(editor.fields.findIndex(f=>f.name==='title')<editor.fields.findIndex(f=>f.name==='volume'));
+
+const sample={id:'test',title:'Example paper',authors:'A. Researcher, Min Jong Lee*',journalName:'Example Journal',year:2027,publicationStatus:'Published',volume:'38',issue:'12',startPage:'1234',endPage:'1246',doi:'10.1234/example',keywords:['ionic memory']};
+let html=publication(current,sample);
+for(const value of ['Vol. 38','Issue 12','pp. 1234–1246','https://doi.org/10.1234/example','ionic memory']) assert.ok(html.includes(value),`missing ${value}`);
+assert.equal(doiHref({...sample,doiUrl:'https://publisher.example/article'}),'https://publisher.example/article');
+html=publication(current,{...sample,volume:'',issue:'',startPage:'',endPage:'',articleNumber:'e2456789',doi:'',doiUrl:''});
+assert.ok(html.includes('Article e2456789'));
+assert.ok(!html.includes('publication-doi'));
+assert.ok(!html.includes('undefined')&&!html.includes('null'));
+const page=fs.readFileSync(path.join(defaultRoot,'publications.html'),'utf8');
+assert.equal((page.match(/class="publication-item"/g)||[]).length,old.length);
+assert.ok(page.indexOf('>2026</h2>')<page.indexOf('>2025</h2>'));
+assert.ok(page.includes('id="publication-search"')&&page.includes('id="publication-year-filter"'));
+console.log(`Publication records, CMS fields, citation metadata, and ${old.length} rendered rows verified.`);
