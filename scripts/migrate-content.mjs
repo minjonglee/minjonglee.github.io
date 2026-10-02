@@ -121,7 +121,7 @@ write('pages/projects.json',{
 });
 write('pages/publications.json',{
   hero:{kicker:'Publications',title:'Publications.',description:'Selected research contributions followed by the complete publication record, organized by year.'},
-  selectedTitle:'Selected publications',fullTitle:'Full publication list',fullNote:'Chronological by year · first-author work identified in each entry',manuscriptsTitle:'Manuscripts',manuscriptsKicker:'Work in progress',manuscriptsNote:'A manuscript in revision is distinct from an accepted or published article.',bibliographyAfter:'DOI links are provided where verified; other records link to an explicitly labeled Scholar search.',allFilterLabel:'All'
+  selectedTitle:'Selected publications',fullTitle:'Full publication list',fullNote:'Chronological by year · first-author work identified in each entry',bibliographyAfter:'DOI links are provided where verified; other records link to an explicitly labeled Scholar search.',allFilterLabel:'All'
 });
 write('pages/patents.json',{
   hero:{kicker:'Intellectual property',title:'Patents & technology translation.',description:'Registered patents and applications connected to electronic materials and devices.'},intro:'Each record lists its legal status, jurisdictions, inventors, and identifier. For multi-jurisdiction applications, a Korean application number identifies the Korean filing only.',registeredTitle:'Registered patents',applicationsTitle:'Applications'

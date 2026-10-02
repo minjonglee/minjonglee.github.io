@@ -28,7 +28,7 @@ Site: <https://minjonglee.github.io/> · Repository: <https://github.com/minjong
 
 **논문 추가:** Research outputs → Publications → **Add an entry**에서 Title, Authors, Journal, Publication type/status, Year를 입력합니다. Authors는 논문 순서와 `†`, `*` 표기를 그대로 적습니다. **Stable URL ID**에는 `new-memory-paper`처럼 고유한 영문 소문자·숫자·하이픈을 넣습니다. Volume, Issue, Start/End page 또는 Article number는 확인된 값만 채우고 나머지는 비워 둡니다. DOI만 입력하면 사이트가 `https://doi.org/{DOI}` 링크를 만듭니다. 별도 DOI URL이 있으면 그것을 우선 사용합니다. Save 후 GitHub Actions 배포가 끝나면 새 논문이 자동으로 연도별 목록과 검색에 나타납니다. 파일명 등록이나 코드 수정은 필요 없습니다.
 
-**상태와 표시:** Published는 게재 논문, Accepted/In Press/ASAP/Early View/Online Published는 해당 상태를 명시한 논문으로 표시됩니다. Submitted/Under Review/In Revision은 아래의 Manuscripts 구역으로 분리되어 게재 논문으로 세지 않습니다. Publication date가 있으면 같은 연도 내 최신 날짜가 먼저 나오고, 없으면 Display order로 정렬됩니다. Featured는 Home의 대표 연구에 사용하고, Show on website를 끄면 데이터를 보존한 채 사이트에서 숨깁니다. DOI가 없는 논문에는 Publications 목록의 DOI 버튼이 나오지 않습니다.
+**상태와 표시:** Publications 페이지에는 Published, Accepted, In Press, ASAP, Early View, Online Published만 표시됩니다. Manuscript, Submitted, Under Review, In Revision은 CMS에 보존되지만 Publications 페이지에는 나타나지 않습니다. Publication date가 있으면 같은 연도 내 최신 날짜가 먼저 나오고, 없으면 Display order로 정렬됩니다. Featured는 Home의 대표 연구에 사용하고, Show on website를 끄면 데이터를 보존한 채 사이트에서 숨깁니다. DOI가 없는 논문에는 Publications 목록의 DOI 버튼이 나오지 않습니다.
 
 기존 21건의 `journal` 원문은 **Original journal and citation (preserved)** 필드에 그대로 남겨 두었습니다. 새 편집용 Journal과 Volume/Issue/Page/Article number는 별도 필드입니다. 새로운 논문은 Original journal and citation을 채울 필요가 없습니다. Publisher, ISSN/eISSN, URL, Keywords, Research Category, Related Research/Projects, Author Notes와 저자 역할 필드는 선택 사항이며, 없는 정보는 화면에 표시하지 않습니다.
 

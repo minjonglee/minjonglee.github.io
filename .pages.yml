@@ -1436,6 +1436,7 @@
                   "ASAP",
                   "Early View",
                   "Online Published",
+                  "Manuscript",
                   "Submitted",
                   "Under Review",
                   "In Revision"
@@ -2031,21 +2032,6 @@
             {
               "name": "fullNote",
               "label": "Full Note",
-              "type": "string"
-            },
-            {
-              "name": "manuscriptsTitle",
-              "label": "Manuscripts Title",
-              "type": "string"
-            },
-            {
-              "name": "manuscriptsKicker",
-              "label": "Manuscripts Kicker",
-              "type": "string"
-            },
-            {
-              "name": "manuscriptsNote",
-              "label": "Manuscripts Note",
               "type": "string"
             },
             {

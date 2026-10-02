@@ -18,7 +18,7 @@ const booleanKeys=new Set(['visible','featured','showPapers','prospective','firs
 const choices={
   'publications.type':['first','co'],
   'publications.publicationType':['Journal Article','Review Article','Conference Paper','Book Chapter','Other'],
-  'publications.publicationStatus':['Published','Accepted','In Press','ASAP','Early View','Online Published','Submitted','Under Review','In Revision'],
+  'publications.publicationStatus':['Published','Accepted','In Press','ASAP','Early View','Online Published','Manuscript','Submitted','Under Review','In Revision'],
   'publications.myAuthorRole':['First author','Co-first author','Co-author','Corresponding author','Co-corresponding author','Other'],
   'patents.status':['Registered','Application'],
   'projects.category':['independent','government','industry'],

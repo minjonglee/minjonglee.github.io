@@ -6,7 +6,9 @@ export const tags = values => `<ul class="tags" aria-label="Topics">${values.map
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
 export const doiHref = p => p.doiUrl || (p.doi ? `https://doi.org/${String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'')}` : '');
-export const isUnpublished = p => ['Submitted','Under Review','In Revision','In revision'].includes(p.publicationStatus || p.status);
+const publicStatuses=new Set(['Accepted','In Press','ASAP','Early View','Online Published','Published']);
+export const isPublicationVisible = p => publicStatuses.has(p.publicationStatus || p.status || 'Published');
+export const isUnpublished = p => !isPublicationVisible(p);
 export const journalName = p => p.journalName || String(p.journal || '').split(' · ')[0];
 export const paperUrl = p => doiHref(p) || p.publisherUrl || p.externalUrl || `https://scholar.google.com/scholar?q=${encodeURIComponent(p.title)}`;
 export const paperLink = p => isUnpublished(p) ? '' : textLink(paperUrl(p), doiHref(p) ? 'Paper / DOI' : p.publisherUrl || p.externalUrl ? 'Paper link' : 'Find on Scholar', `aria-label="${e((doiHref(p)||p.externalUrl ? 'Read paper: ' : 'Search Google Scholar for: ') + p.title)}"`);
@@ -59,10 +61,11 @@ export function publication(data, p) {
   if(p.articleNumber) parts.push(`Article ${p.articleNumber}`);
   if(p.eLocationId) parts.push(`eLocation ${p.eLocationId}`);
   const bibliography=parts.join(' · ');
-  const source=journalName(p) || (isUnpublished(p)?'Manuscript':'Publication');
+  const source=journalName(p) || 'Publication';
   const statusText=status==='Published'?'':` (${status})`;
-  const search=[p.title,p.authors,p.journal,p.journalName,p.year,p.doi,p.doiUrl,p.volume,p.issue,p.pages,p.startPage,p.endPage,p.articleNumber,p.eLocationId,p.researchCategory,...(p.keywords??[])].filter(Boolean).join(' ').toLocaleLowerCase();
-  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-body"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(p.year)}${e(statusText)}</span></p><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}${bibliography?`<p class="publication-bibliography">${e(bibliography)}</p>`:''}</div>${doiHref(p)&&!isUnpublished(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="DOI for ${e(p.title)} (opens in a new tab)">DOI <span aria-hidden="true">↗</span></a>`:''}</article>`;
+  const meta=[`${p.year}${statusText}`,bibliography].filter(Boolean).join(' · ');
+  const search=[p.title,p.authors,p.journal,p.journalName,p.year,status,p.doi,p.doiUrl,p.volume,p.issue,p.pages,p.startPage,p.endPage,p.articleNumber,p.eLocationId,p.researchCategory,...(p.keywords??[])].filter(Boolean).join(' ').toLocaleLowerCase();
+  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span></p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="DOI for ${e(p.title)} (opens in a new tab)">DOI <span aria-hidden="true">↗</span></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}</article>`;
 }
 
 export function featured(data) {

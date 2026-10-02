@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {defaultRoot,loadContent} from './content.mjs';
-import {doiHref,publication} from './components.mjs';
+import {doiHref,isPublicationVisible,publication} from './components.mjs';
 
 const context={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(defaultRoot,'content.js'),'utf8'),context);
@@ -28,17 +28,34 @@ assert.equal(fields.get('visible').default,true);
 assert.equal(fields.get('publicationDate').default,'');
 assert.equal(fields.get('publicationStatus').default,'Published');
 assert.ok(editor.fields.findIndex(f=>f.name==='title')<editor.fields.findIndex(f=>f.name==='volume'));
+assert.ok(fields.get('publicationStatus').options.values.includes('Manuscript'));
+const pageText=config.content.flatMap(group=>group.items).find(item=>item.name==='publications-page');
+assert.ok(!pageText.fields.some(field=>field.name.startsWith('manuscripts')),'CMS still exposes a manuscript display section');
+
+for(const status of ['Accepted','In Press','ASAP','Early View','Online Published','Published'])
+  assert.ok(isPublicationVisible({publicationStatus:status}),`${status} must be shown`);
+for(const status of ['Manuscript','In Revision','Submitted','Under Review'])
+  assert.ok(!isPublicationVisible({publicationStatus:status}),`${status} must be hidden`);
 
 const sample={id:'test',title:'Example paper',authors:'A. Researcher, Min Jong Lee*',journalName:'Example Journal',year:2027,publicationStatus:'Published',volume:'38',issue:'12',startPage:'1234',endPage:'1246',doi:'10.1234/example',keywords:['ionic memory']};
 let html=publication(current,sample);
 for(const value of ['Vol. 38','Issue 12','pp. 1234–1246','https://doi.org/10.1234/example','ionic memory']) assert.ok(html.includes(value),`missing ${value}`);
+assert.ok(html.indexOf('pp. 1234–1246')<html.indexOf('<h3>'),'bibliographic metadata must precede the title');
+assert.ok(html.indexOf('publication-doi')<html.indexOf('<h3>'),'DOI must align with metadata');
+assert.ok(!html.includes('publication-bibliography'),'separate bibliography line remains');
 assert.equal(doiHref({...sample,doiUrl:'https://publisher.example/article'}),'https://publisher.example/article');
 html=publication(current,{...sample,volume:'',issue:'',startPage:'',endPage:'',articleNumber:'e2456789',doi:'',doiUrl:''});
 assert.ok(html.includes('Article e2456789'));
 assert.ok(!html.includes('publication-doi'));
 assert.ok(!html.includes('undefined')&&!html.includes('null'));
+html=publication(current,{...sample,publicationStatus:'Accepted',volume:'',issue:'',startPage:'',endPage:'',articleNumber:'',doi:'',doiUrl:''});
+assert.ok(html.includes('2027 (Accepted)'));
+assert.ok(!html.includes('Vol.')&&!html.includes('Issue')&&!html.includes('pp. –')&&!html.includes('Article '));
 const page=fs.readFileSync(path.join(defaultRoot,'publications.html'),'utf8');
-assert.equal((page.match(/class="publication-item"/g)||[]).length,old.length);
+const visiblePapers=current.publications.filter(isPublicationVisible);
+assert.equal((page.match(/class="publication-item"/g)||[]).length,visiblePapers.length);
+assert.ok(!page.includes('id="paper-01"')&&!page.includes('Chiral Neuromorphic Memory IC'));
+assert.ok(!page.includes('publication-manuscripts')&&!page.includes('A manuscript in revision'));
 assert.ok(page.indexOf('>2026</h2>')<page.indexOf('>2025</h2>'));
 assert.ok(page.includes('id="publication-search"')&&page.includes('id="publication-year-filter"'));
-console.log(`Publication records, CMS fields, citation metadata, and ${old.length} rendered rows verified.`);
+console.log(`Preserved ${old.length} publication records; verified CMS fields, compact metadata, status filtering, and ${visiblePapers.length} rendered rows.`);
