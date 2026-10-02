@@ -1,0 +1,64 @@
+{
+  "order": 2,
+  "visible": true,
+  "image": "/assets/concept-memory-switching.jpg",
+  "alt": "Concept illustration of ion paths in a layered memory device",
+  "caption": "Concept illustration · not experimental data",
+  "id": "memory",
+  "number": "02",
+  "title": "Adaptive & Reliable Memory Devices",
+  "subtitle": "Resistive, capacitive & emerging memory",
+  "question": "How can interfacial and defect physics be used to understand and control memory variability and reliability?",
+  "summary": "Memory depends on how a device changes state and how well it holds that state. My work links molecular and interfacial control to synaptic devices, optoelectronic memristors, and capacitor platforms.",
+  "motivation": "Variability can limit precision and reliability in memory devices. Understanding the roles of interfaces, defects, and ionic motion can help explain how device states form and change.",
+  "current": "My current focus includes low-power switching, variability, and reliability in memristors. Earlier work also includes MIM capacitors, dielectric and electrode interfaces, leakage control, and thin-film stack integration.",
+  "results": "First-author studies address linear and symmetric artificial synapses and low-power optoelectronic memristors. Collaborative work also investigates the ionic landscape in perovskite memristors.",
+  "methods": [
+    "I–V / C–V measurements",
+    "Pulse measurements",
+    "Trap analysis",
+    "Interface / electrode engineering"
+  ],
+  "future": "Explore retention–endurance–variability trade-offs and the boundary between binary and multilevel operation. Ferroelectric and memcapacitive concepts are future interests, not completed device platforms.",
+  "papers": [
+    "paper-02",
+    "paper-03",
+    "paper-08"
+  ],
+  "status": "Established expertise + current research",
+  "areaType": "Device platform",
+  "displayTitle": "Memory & reliability",
+  "homeRole": "platform",
+  "homeTitle": "Memory & reliability",
+  "homeDescription": "Memristive switching, state variability, and capacitive-device questions.",
+  "featured": true,
+  "paragraphs": [
+    {
+      "label": "",
+      "text": "Variability can limit precision and reliability in memory devices. Understanding the roles of interfaces, defects, and ionic motion can help explain how device states form and change."
+    },
+    {
+      "label": "Published work.",
+      "text": "First-author studies address linear and symmetric artificial synapses and low-power optoelectronic memristors. Collaborative work also investigates the ionic landscape in perovskite memristors."
+    },
+    {
+      "label": "Current research.",
+      "text": "My current focus includes low-power switching, variability, and reliability in memristors. Earlier work also includes MIM capacitors, dielectric and electrode interfaces, leakage control, and thin-film stack integration."
+    },
+    {
+      "label": "Methods.",
+      "text": "I–V / C–V measurements · Pulse measurements · Trap analysis · Interface / electrode engineering"
+    }
+  ],
+  "links": [
+    {
+      "label": "Related project",
+      "href": "projects.html#ionic-dynamics"
+    }
+  ],
+  "showPapers": true,
+  "selectedPapers": [
+    "paper-02",
+    "paper-03"
+  ]
+}

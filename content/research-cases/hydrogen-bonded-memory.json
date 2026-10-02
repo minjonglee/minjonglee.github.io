@@ -1,0 +1,23 @@
+{
+  "id": "hydrogen-bonded-memory",
+  "title": "Molecular control of artificial synapses",
+  "status": "Published work · 2025",
+  "question": "Can molecular interactions make artificial synapses more linear and symmetric?",
+  "role": "First Author",
+  "approach": "Use hydrogen bonding as a molecular design variable to study linear and symmetric synaptic response.",
+  "methods": [
+    "Molecular interactions",
+    "Artificial synaptic devices",
+    "Electrical response"
+  ],
+  "outcome": "Hydrogen-bond-driven control of artificial synapses connects molecular interactions with neuromorphic device behavior.",
+  "papers": [
+    "paper-02"
+  ],
+  "patents": [
+    "patent-06"
+  ],
+  "visible": false,
+  "order": 2,
+  "featured": false
+}

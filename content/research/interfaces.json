@@ -1,0 +1,56 @@
+{
+  "order": 1,
+  "visible": true,
+  "image": "/assets/concept-molecular-interface.jpg",
+  "alt": "Concept illustration of an ordered molecular interface in a thin-film device",
+  "caption": "Concept illustration · not experimental data",
+  "id": "interfaces",
+  "number": "01",
+  "title": "Interfacial & Nonequilibrium Physics",
+  "subtitle": "Molecular interfaces, defects & ionic dynamics",
+  "question": "How do molecular-scale interfaces and defects reshape electronic and ionic energy landscapes?",
+  "summary": "Molecular contacts and local defects set the conditions for transport. I connect interface engineering in optoelectronics with trap control and ionic dynamics in emerging memory.",
+  "motivation": "An electronic device is often governed by a small fraction of its material: the interface, the defect, or the pathway an ion can access. Understanding these local environments offers a route from chemical structure to device function.",
+  "current": "Current work investigates state-formation dynamics and low-frequency noise to study the precision limits of ion-migration-controlled multilevel memristors. This is an active research question, with outcomes still to be established.",
+  "results": "Published work spans SAM-based hole-selective contacts, intermediate-layer-assisted trap reduction, and hydrogen-bond-driven artificial synapses.",
+  "methods": [
+    "Self-assembled monolayers",
+    "Thin-film interface engineering",
+    "Electrical characterization",
+    "Charge-transport / trap analysis"
+  ],
+  "future": "Connect metastable states, stochastic switching, and electrical noise to a more predictive description of ionic memory. RTN-specific analysis and atomistic modeling remain directions to develop.",
+  "papers": [
+    "paper-05",
+    "paper-03",
+    "paper-02"
+  ],
+  "status": "Established expertise + current research",
+  "areaType": "Core science",
+  "displayTitle": "Interfaces · Defects · Ions · Transport",
+  "homeRole": "core",
+  "homeTitle": "Interfaces · Defects · Ions · Transport",
+  "homeDescription": "Common questions of interfaces, transport, and reliability across multiple electronic-device platforms.",
+  "featured": true,
+  "paragraphs": [
+    {
+      "label": "",
+      "text": "An electronic device is often governed by a small fraction of its material: the interface, the defect, or the pathway an ion can access. Understanding these local environments offers a route from chemical structure to device function."
+    },
+    {
+      "label": "Published foundation.",
+      "text": "Published work spans SAM-based hole-selective contacts, intermediate-layer-assisted trap reduction, and hydrogen-bond-driven artificial synapses."
+    },
+    {
+      "label": "Methods.",
+      "text": "Self-assembled monolayers · Thin-film interface engineering · Electrical characterization · Charge-transport / trap analysis"
+    }
+  ],
+  "links": [
+    {
+      "label": "Relevant publications",
+      "href": "publications.html"
+    }
+  ],
+  "showPapers": false
+}

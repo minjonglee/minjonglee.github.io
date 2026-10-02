@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "kicker": "Intellectual property",
+    "title": "Patents & technology translation.",
+    "description": "Registered patents and applications connected to electronic materials and devices."
+  },
+  "intro": "Each record lists its legal status, jurisdictions, inventors, and identifier. For multi-jurisdiction applications, a Korean application number identifies the Korean filing only.",
+  "registeredTitle": "Registered patents",
+  "applicationsTitle": "Applications"
+}

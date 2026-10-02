@@ -1,0 +1,22 @@
+{
+  "id": "ald-electrodes-industry",
+  "category": "industry",
+  "period": "2020.09–2025.09",
+  "title": "TiN 전극 대체를 위한 ALD 기반 초박막 다성분계 전극 개발",
+  "englishTitle": "ALD-based ultrathin multicomponent electrodes as alternatives to TiN",
+  "topics": [
+    "ALD electrodes",
+    "Thin films"
+  ],
+  "sponsor": "Samsung Electronics",
+  "personalRole": "Participating Researcher",
+  "summary": "Ultrathin multicomponent ALD electrodes investigated as alternatives to TiN.",
+  "featured": false,
+  "featuredOrder": 999,
+  "homeCategory": "",
+  "homeDescription": "",
+  "homeAnchor": "ald-electrodes-industry",
+  "caseStudyId": "",
+  "order": 6,
+  "visible": true
+}

@@ -1,0 +1,45 @@
+{
+  "order": 4,
+  "visible": true,
+  "image": "/assets/concept-flexible-circuit.jpg",
+  "alt": "Concept illustration of a curved flexible electronic circuit",
+  "caption": "Concept illustration · not experimental data",
+  "title": "Flexible & Stretchable Electronics",
+  "question": "How can electronic materials and interconnects remain functional under bending and stretching?",
+  "scope": "Research experience includes flexible interconnects, stretchable PCB technologies, and mechanically robust films in deformable electronic systems.",
+  "evidence": "Participation in these programs extends device and materials research to mechanical deformation.",
+  "projects": [
+    "flexible-fpcb",
+    "stretchable-pcb",
+    "stretchable-films"
+  ],
+  "papers": [],
+  "id": "flexible",
+  "areaType": "Device platform",
+  "displayTitle": "Flexible & stretchable electronics",
+  "homeRole": "platform",
+  "homeTitle": "Flexible & stretchable electronics",
+  "homeDescription": "Interconnects, stretchable PCBs, and thin films in government and industry R&D.",
+  "featured": true,
+  "paragraphs": [
+    {
+      "label": "",
+      "text": "Research experience includes flexible interconnects, stretchable PCB technologies, and mechanically robust films in deformable electronic systems."
+    },
+    {
+      "label": "",
+      "text": "These programs extend my device research toward transport and reliability under mechanical deformation."
+    }
+  ],
+  "links": [
+    {
+      "label": "Flexible interconnects",
+      "href": "projects.html#flexible-fpcb"
+    },
+    {
+      "label": "Stretchable PCBs",
+      "href": "projects.html#stretchable-pcb"
+    }
+  ],
+  "showPapers": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ionic-dynamics",
+  "title": "Ionic dynamics & multilevel precision",
+  "status": "Current research · 2026–present",
+  "question": "What limits the precision of multilevel states in ion-migration-controlled memristors?",
+  "role": "Principal Investigator",
+  "approach": "Study state-formation dynamics alongside low-frequency electrical noise to connect state variability with ionic motion.",
+  "methods": [
+    "State-formation dynamics",
+    "Low-frequency noise analysis",
+    "Memristor characterization"
+  ],
+  "outcome": "The project began in September 2026; its scientific results remain in development.",
+  "papers": [],
+  "patents": [],
+  "visible": true,
+  "order": 1,
+  "featured": false
+}

@@ -1,0 +1,24 @@
+{
+  "year": 2023,
+  "type": "first",
+  "journal": "Journal of Alloys and Compounds · 968, 171951",
+  "title": "Atomic layer deposition-processed laminated In2O3:V2O5 nanocompounds: Versatile electrode platforms for high-performance organic photovoltaics and capacitor device",
+  "id": "paper-06",
+  "authors": "Min Jong Lee, Muhammad Ahsan Saeed, Tae Hyuk Kim, Jae Jin Chung, and Jae Won Shim*",
+  "source": "MJL_CV_20260901.docx; updated September 2, 2026",
+  "image": null,
+  "imageAlt": "",
+  "topics": [
+    "oxide",
+    "opto"
+  ],
+  "featured": false,
+  "doi": "10.1016/j.jallcom.2023.171951",
+  "doiSource": "https://api.crossref.org/works/10.1016/j.jallcom.2023.171951",
+  "featuredOrder": 999,
+  "featuredTitle": "",
+  "featuredContribution": "",
+  "featuredProject": "",
+  "order": 6,
+  "visible": true
+}

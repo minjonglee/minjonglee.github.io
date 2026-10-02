@@ -1,0 +1,21 @@
+{
+  "id": "flexible-fpcb",
+  "category": "industry",
+  "period": "2026.01–present",
+  "title": "초고굴곡 FPCB 배선 소재 개발",
+  "englishTitle": "Interconnect materials for highly flexible FPCBs",
+  "topics": [
+    "Flexible interconnects"
+  ],
+  "sponsor": "Samsung Electronics",
+  "personalRole": "Participating Researcher",
+  "summary": "Wiring materials for highly flexible printed circuit boards.",
+  "featured": true,
+  "featuredOrder": 2,
+  "homeCategory": "Industry–academic R&D",
+  "homeDescription": "",
+  "homeAnchor": "flexible-fpcb",
+  "caseStudyId": "",
+  "order": 3,
+  "visible": true
+}

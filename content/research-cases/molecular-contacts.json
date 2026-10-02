@@ -1,0 +1,21 @@
+{
+  "id": "molecular-contacts",
+  "title": "Molecular contacts for organic devices",
+  "status": "Published work · 2024",
+  "question": "How do self-assembled monolayers reshape charge-selective contacts?",
+  "role": "First Author",
+  "approach": "Study SAM-tailored hole-selective contacts across indoor organic photovoltaic and capacitor devices.",
+  "methods": [
+    "Self-assembled monolayers",
+    "Hole-selective interfaces",
+    "Photovoltaic / capacitor devices"
+  ],
+  "outcome": "SAM-based hole-selective contacts connect interface engineering with indoor organic photovoltaics and capacitor devices.",
+  "papers": [
+    "paper-05"
+  ],
+  "patents": [],
+  "visible": false,
+  "order": 4,
+  "featured": false
+}

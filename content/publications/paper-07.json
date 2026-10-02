@@ -1,0 +1,24 @@
+{
+  "year": 2026,
+  "type": "co",
+  "journal": "Small · Early View",
+  "title": "Defect-Healed Perovskite Quantum Dots for Optoelectronic Applications in Indoor Photovoltaics and Photoplethysmography",
+  "id": "paper-07",
+  "authors": "Seon Joong Kim†, Junhyeok Park†, Byung Ku Jung, Ohhyun Kwon, Sang Heon Lee, Hyung Jin Choi, Seongyong Hong, Min Jong Lee, Soong Ju Oh*, and Jae Won Shim*",
+  "source": "MJL_CV_20260901.docx; updated September 2, 2026",
+  "image": null,
+  "imageAlt": "",
+  "doi": "10.1002/smll.74660",
+  "doiSource": "https://api.crossref.org/works/10.1002/smll.74660",
+  "topics": [
+    "interfaces",
+    "opto"
+  ],
+  "featured": false,
+  "featuredOrder": 999,
+  "featuredTitle": "",
+  "featuredContribution": "",
+  "featuredProject": "",
+  "order": 7,
+  "visible": true
+}

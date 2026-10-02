@@ -1,0 +1,24 @@
+{
+  "id": "optoelectronic-memory",
+  "title": "Interface-controlled optoelectronic memory",
+  "status": "Published work · 2025",
+  "question": "How can an intermediate layer improve low-power optoelectronic memory?",
+  "role": "First Author",
+  "approach": "Introduce an intermediate layer to address traps in low-power optoelectronic memristors.",
+  "methods": [
+    "Intermediate-layer engineering",
+    "Trap-density analysis",
+    "Optoelectronic memristors"
+  ],
+  "outcome": "Intermediate-layer engineering reduces trap density in optoelectronic memristors for multifunctional systems.",
+  "papers": [
+    "paper-03"
+  ],
+  "patents": [
+    "patent-02",
+    "patent-03"
+  ],
+  "visible": false,
+  "order": 3,
+  "featured": false
+}

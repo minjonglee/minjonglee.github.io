@@ -1,0 +1,21 @@
+{
+  "id": "infrared-gas-sensing",
+  "category": "government",
+  "period": "2024.04–present",
+  "title": "스마트 주거 환경을 위한 저전력 다종 복합 유해가스 측정용 적외선 가스센서 기술 개발",
+  "englishTitle": "Low-power infrared gas-sensing technology for smart homes",
+  "topics": [
+    "Infrared sensing"
+  ],
+  "sponsor": "K-Sensor R&D · Ministry of Trade, Industry and Energy",
+  "personalRole": "Participating Researcher",
+  "summary": "Low-power infrared sensing of multiple hazardous gases in residential settings.",
+  "featured": false,
+  "featuredOrder": 999,
+  "homeCategory": "",
+  "homeDescription": "",
+  "homeAnchor": "infrared-gas-sensing",
+  "caseStudyId": "",
+  "order": 4,
+  "visible": true
+}

@@ -1,0 +1,53 @@
+{
+  "order": 5,
+  "visible": true,
+  "id": "integration",
+  "number": "03",
+  "title": "Integrated Electronic Systems",
+  "subtitle": "Low-temperature electronics, heterogeneous integration & device–system co-design",
+  "question": "How can emerging thin-film and electronic-device platforms be integrated into scalable, multifunctional electronic systems?",
+  "summary": "ALD oxide electrodes, thin-film processing, and device characterization form an experimental foundation. I aim to connect device platforms through low-temperature electronics and heterogeneous integration.",
+  "motivation": "A useful device must eventually operate within the thermal, electrical, and variability constraints of a larger system. Linking these constraints back to materials choices is a long-term research objective.",
+  "current": "Established work includes ALD-processed In₂O₃:V₂O₅ laminated electrodes for photovoltaic and capacitor devices. Thin-film process integration and electrical measurements provide a foundation for examining device nonidealities.",
+  "results": "The 2023 first-author electrode study demonstrates a shared oxide platform for two device classes. Industry–academic R&D also includes ALD-based electrode development.",
+  "methods": [
+    "Atomic layer deposition",
+    "Thin-film device processing",
+    "I–V / C–V / pulse testing",
+    "Physics-guided device analysis"
+  ],
+  "future": "Possible directions include low-temperature oxide electronics, heterogeneous and 3D integration, integrated memory and optoelectronics, and device–system co-design. These are research aims, not completed platforms.",
+  "papers": [
+    "paper-06",
+    "paper-04"
+  ],
+  "status": "Established foundations → emerging directions",
+  "areaType": "Long-term direction",
+  "displayTitle": "Integrated electronic systems",
+  "homeRole": "future",
+  "homeTitle": "Integrated electronic systems",
+  "homeDescription": "Low-temperature electronics · Heterogeneous integration · 3D integration · Device–system co-design",
+  "featured": true,
+  "paragraphs": [
+    {
+      "label": "Existing foundation.",
+      "text": "Established work includes ALD-processed In₂O₃:V₂O₅ laminated electrodes for photovoltaic and capacitor devices. Thin-film process integration and electrical measurements provide a foundation for examining device nonidealities."
+    },
+    {
+      "label": "Possible directions.",
+      "text": "Low-temperature oxide electronics, heterogeneous and 3D integration, device–system co-design, and integrated memory, sensing, and optoelectronics."
+    }
+  ],
+  "links": [
+    {
+      "label": "Related program",
+      "href": "projects.html#ald-electrodes-industry"
+    },
+    {
+      "label": "Foundation paper",
+      "href": "publications.html#paper-06"
+    }
+  ],
+  "showPapers": false,
+  "prospective": true
+}

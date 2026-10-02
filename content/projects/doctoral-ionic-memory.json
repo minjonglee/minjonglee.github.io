@@ -1,0 +1,21 @@
+{
+  "id": "doctoral-ionic-memory",
+  "category": "independent",
+  "period": "2026.09–present",
+  "title": "상태 형성 동역학 및 저주파 잡음 해석 기반 이온 이동 제어형 멤리스터의 멀티 레벨 정밀도 한계 규명",
+  "englishTitle": "Multilevel precision limits in ion-migration-controlled memristors",
+  "topics": [
+    "Ionic memory",
+    "Device variability"
+  ],
+  "sponsor": "Doctoral Research Support Program · Ministry of Education",
+  "personalRole": "Principal Investigator",
+  "featured": true,
+  "featuredOrder": 1,
+  "homeCategory": "Independent research",
+  "homeDescription": "State formation and low-frequency noise in ion-migration-controlled multilevel memristors.",
+  "homeAnchor": "ionic-dynamics",
+  "caseStudyId": "ionic-dynamics",
+  "order": 1,
+  "visible": true
+}

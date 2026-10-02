@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "kicker": "Projects",
+    "title": "Research programs.",
+    "description": "Independent doctoral research and participation in government-funded and industry–academic R&D programs."
+  },
+  "groups": [
+    {
+      "id": "independent",
+      "title": "01 · Independent research",
+      "description": ""
+    },
+    {
+      "id": "government",
+      "title": "02 · Government-funded R&D programs",
+      "description": "Participation across flexible electronics, sensing, displays, and photovoltaics."
+    },
+    {
+      "id": "industry",
+      "title": "03 · Industry–academic R&D programs",
+      "description": "Materials and device work with Samsung Electronics."
+    }
+  ],
+  "note": "Dates above are official program periods; they do not indicate the full length of individual participation.",
+  "outputsLabel": "Research outputs from these and related studies → Publications",
+  "outputsUrl": "publications.html"
+}

@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "kicker": "Publications",
+    "title": "Publications.",
+    "description": "Selected research contributions followed by the complete publication record, organized by year."
+  },
+  "selectedTitle": "Selected publications",
+  "fullTitle": "Full publication list",
+  "fullNote": "Chronological by year · first-author work identified in each entry",
+  "manuscriptsTitle": "Manuscripts",
+  "manuscriptsKicker": "Work in progress",
+  "manuscriptsNote": "A manuscript in revision is distinct from an accepted or published article.",
+  "bibliographyAfter": "DOI links are provided where verified; other records link to an explicitly labeled Scholar search.",
+  "allFilterLabel": "All"
+}

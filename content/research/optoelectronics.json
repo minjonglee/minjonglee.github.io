@@ -1,0 +1,52 @@
+{
+  "order": 3,
+  "visible": true,
+  "image": "/assets/concept-optoelectronic-stack.jpg",
+  "alt": "Concept illustration of a hybrid optoelectronic thin-film stack receiving light",
+  "caption": "Concept illustration · not experimental data",
+  "id": "optoelectronics",
+  "title": "Organic & Hybrid Optoelectronics",
+  "foundationText": "Organic photovoltaics, photodetectors, transparent electrodes, and charge-selective molecular interfaces are a foundation of my research. They provide a connected platform for studying how contacts and traps shape transport, with future possibilities in optoelectronic memory and sensory hardware.",
+  "papers": [
+    "paper-05",
+    "paper-06",
+    "paper-14",
+    "paper-19"
+  ],
+  "areaType": "Device platform",
+  "displayTitle": "Optoelectronics & hybrid devices",
+  "homeRole": "platform",
+  "homeTitle": "Optoelectronics & hybrid devices",
+  "homeDescription": "Molecular contacts, photovoltaic devices, and photodetectors.",
+  "featured": true,
+  "question": "How do contacts and traps shape light conversion and detection?",
+  "paragraphs": [
+    {
+      "label": "",
+      "text": "Organic and hybrid devices provide a continuing platform for examining molecular contacts, thin-film electrodes, and charge-selective interfaces."
+    },
+    {
+      "label": "Published work.",
+      "text": "First-author papers address self-assembled contacts and ALD oxide electrodes; collaborative work includes photodetectors and hybrid materials."
+    },
+    {
+      "label": "Methods.",
+      "text": "SAM functionalization · ALD thin films · Interface energetics · Electrical / optical characterization."
+    },
+    {
+      "label": "Platforms.",
+      "text": "Organic photovoltaics · Photodetectors · Capacitive devices."
+    }
+  ],
+  "links": [
+    {
+      "label": "Related paper",
+      "href": "publications.html#paper-05"
+    }
+  ],
+  "showPapers": true,
+  "selectedPapers": [
+    "paper-05",
+    "paper-06"
+  ]
+}

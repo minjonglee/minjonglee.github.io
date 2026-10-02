@@ -1,0 +1,22 @@
+{
+  "id": "photonic-skin",
+  "category": "government",
+  "period": "2026.07–present",
+  "title": "초경량 비행향 Physical AI를 위한 Photonic Skin 연구실",
+  "englishTitle": "Photonic skin for ultralight aerial Physical AI",
+  "topics": [
+    "Photonic skin",
+    "Sensing"
+  ],
+  "sponsor": "Basic Research Laboratory · MSIT",
+  "personalRole": "Participating Researcher",
+  "summary": "Photonic skin research for ultralight aerial Physical AI.",
+  "featured": true,
+  "featuredOrder": 3,
+  "homeCategory": "Government-funded R&D",
+  "homeDescription": "",
+  "homeAnchor": "photonic-skin",
+  "caseStudyId": "",
+  "order": 2,
+  "visible": true
+}

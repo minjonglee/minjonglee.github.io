@@ -1,0 +1,25 @@
+{
+  "year": 2025,
+  "type": "first",
+  "journal": "Advanced Materials · 37(45), e11728",
+  "title": "Linear and Symmetric Artificial Synapses Driven by Hydrogen Bonding for Accurate and Reliable Neuromorphic Computing",
+  "id": "paper-02",
+  "authors": "Min Jong Lee, Sang Heon Lee, Dong Gyu Lee, Tae Hyuk Kim, Yubhin Cho, Gyeong Min Lee, Sung Su Yoon, Seon Joong Kim, Hyungju Ahn, Tae Kyung Lee*, and Jae Won Shim*",
+  "source": "MJL_CV_20260901.docx; updated September 2, 2026",
+  "image": "/assets/concept-memory-switching.jpg",
+  "imageAlt": "Concept illustration of a layered memristive device with blue ion pathways; not an experimental figure",
+  "imageCaption": "Concept illustration · not a paper figure",
+  "doi": "10.1002/adma.202511728",
+  "doiSource": "https://api.crossref.org/works/10.1002/adma.202511728",
+  "topics": [
+    "memory",
+    "interfaces"
+  ],
+  "featured": true,
+  "featuredOrder": 1,
+  "featuredTitle": "Molecular control of synaptic response",
+  "featuredContribution": "Hydrogen-bond-driven artificial synapses improve linearity and symmetry for neuromorphic computing.",
+  "featuredProject": "hydrogen-bonded-memory",
+  "order": 2,
+  "visible": true
+}

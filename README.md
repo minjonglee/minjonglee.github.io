@@ -1,171 +1,78 @@
-# Min Jong Lee — Academic Research Portfolio
+# Min Jong Lee — academic website
 
-작업 폴더: `C:\Users\User\Downloads\minjonglee.github.io`
+Site: <https://minjonglee.github.io/> · Repository: <https://github.com/minjonglee/minjonglee.github.io>
 
-배포 주소: <https://minjonglee.github.io/>
+현재 디자인은 HTML/CSS/JavaScript 정적 사이트입니다. 내용은 `content/`의 JSON에서 읽어 빌드합니다. [Pages CMS](https://pagescms.org/) 편집 화면은 저장소 루트의 `.pages.yml`을 사용합니다. 별도 npm 패키지나 웹 프레임워크는 필요하지 않습니다.
 
-**Interface and device physics for emerging electronics**를 중심으로 구성한 개인 연구 포트폴리오입니다. HTML/CSS/JavaScript 정적 사이트이며, 상단 메뉴는 Home, About, Research, Projects, Publications, Patents, Activities, CV입니다. 운영용 프레임워크·외부 폰트·추적 스크립트·npm 의존성이 없습니다.
+## Pages CMS에서 편집하기
 
-## 로컬에서 보기
+1. <https://pagescms.org/>에서 GitHub 계정으로 로그인하고 `minjonglee/minjonglee.github.io` 저장소에 Pages CMS GitHub App 접근을 허용합니다.
+2. 편집할 저장소와 `main` 브랜치를 선택합니다. 저장소가 보이지 않으면 GitHub App의 Repository access 설정에서 이 저장소를 추가합니다.
+3. 왼쪽 메뉴에서 항목을 열어 수정하거나 **New**를 눌러 추가하고 **Save**합니다. Pages CMS가 JSON 변경사항을 GitHub에 커밋합니다.
+4. 저장소의 **Actions → Build and deploy GitHub Pages**가 성공하면 공개 사이트를 새로고침합니다. 배포까지 수 분 걸릴 수 있습니다.
 
-`index.html`을 더블클릭해도 본문과 메뉴를 사용할 수 있습니다. 실제 배포와 비슷하게 확인하려면 이 폴더에서 다음을 실행하세요.
-
-```powershell
-python -m http.server 8765 --bind 127.0.0.1
-```
-
-브라우저에서 <http://127.0.0.1:8765/>를 엽니다. 종료는 터미널에서 `Ctrl+C`입니다.
-
-## 파일 역할
-
-| 파일 | 역할 |
-|---|---|
-| `index.html` | 메인: 소개, 연구 구조, 대표 논문 세 편, 진행 중 연구 세 건 |
-| `research.html` | 공통 물리학 질문, 세 장치 플랫폼, 근거와 방법, 별도로 구분한 미래 방향 |
-| `projects.html` | 독립 연구·정부 R&D·산학 R&D 프로그램의 기록 |
-| `publications.html` | 대표 논문과 연도별 전체 논문 목록, 주제별 필터, 논문 링크 |
-| `patents.html` | 등록·출원 상태를 구분한 특허 기록 |
-| `about.html` | 소개, 연구 환경, 학력, 대표 수상; 증명사진은 이 페이지에서만 표시 |
-| `activities.html` | 학술 활동·수상·사진 갤러리; 사진이 없을 때는 표시용 자리표시자 |
-| `cv.html`, `assets/min-jong-lee-cv.pdf` | 웹 CV와 바로 다운로드하는 공개용 PDF |
-| `contact.html`, `recognition.html` | 이전 주소를 푸터·About으로 연결하는 호환 페이지 |
-| `content.js` | 프로필·연구·논문·특허·과제·수상·사진의 편집 원본 |
-| `scripts/pages.mjs` | 각 페이지의 구조·고정 문구 |
-| `scripts/components.mjs` | 공통 헤더·푸터·메타데이터·목록·시각 요소 |
-| `scripts/build.mjs` | 원본을 실제 HTML 파일과 sitemap으로 변환 |
-| `scripts/check.mjs` | 내부 링크·앵커·이미지 속성·기본 메타데이터 검사 |
-| `styles.css`, `script.js` | 디자인과 메뉴·필터·갤러리 확대 보기·인쇄 동작 |
-| `scripts/build_cv.py` | 같은 데이터에서 공개용 PDF를 다시 만드는 선택 도구 |
-| `assets/social-preview.svg`, `.png` | 공유 미리보기 이미지의 편집 원본과 실제 배포 이미지 |
-| `docs/AUDIT.md`, `docs/QA.md` | 개편 전 점검, 내용 판단 기준, 검수 결과 |
-
-HTML 파일은 이미 생성되어 있어 **보기와 배포에 Node/Python이 필요하지 않습니다.** 내용을 수정해 전체 페이지를 갱신할 때만 아래 생성 명령을 사용합니다. 공통 헤더와 논문을 여러 HTML 파일에서 따로 고치지 않아도 됩니다.
-
-## 내용 바꾸기
-
-1. `content.js`에서 해당 항목을 수정합니다.
-2. 페이지 구조·고정 문구는 `scripts/pages.mjs`, 공통 메뉴는 `scripts/components.mjs`를 수정합니다.
-3. Node.js 20 이상이 설치된 환경에서 실행합니다. `npm install`은 필요하지 않습니다.
-
-```powershell
-node scripts/build.mjs
-node scripts/check.mjs
-```
-
-4. 로컬 미리보기에서 변경된 페이지를 확인합니다.
-
-직접 생성된 HTML을 고치면 다음 `build`에서 덮어씁니다. CSS/브라우저 JS를 수정한 경우에는 HTML 재생성 없이 새로고침하면 됩니다.
-
-### 프로필·연락처
-
-`profile`에서 이름·이메일·학력·`bio`(About 소개)·`vision`(About 연구 비전)을 편집합니다. `orcid`, `linkedin`은 정확한 주소를 넣으면 About에 나타납니다. 현재는 확인되지 않아 `null`이며 임의의 계정을 연결하지 않았습니다.
-
-### 논문
-
-`publications`에 다음 형태로 추가합니다. `id`는 고유해야 하며 외부에서 링크할 수 있으므로 게시한 뒤에는 유지하는 것이 좋습니다.
-
-```js
-{
-  "id": "paper-22",
-  "year": 2026,
-  "type": "co",
-  "title": "실제 논문 제목",
-  "authors": "실제 저자 목록",
-  "journal": "실제 학술지 · 권(호), 페이지 또는 논문 번호",
-  "topics": ["memory", "interfaces"],
-  "doi": "검증한 DOI만 입력",
-  "image": null,
-  "imageAlt": ""
-}
-```
-
-주제 ID: `memory`, `interfaces`, `opto`, `flexible`, `oxide`. 주제는 여러 개 지정할 수 있습니다. 게재 논문이 없는 주제는 필터에 나타나지 않습니다. 본인의 제1저자 역할이 확인된 경우에만 `type: "first"`를 사용합니다. `co`는 일반 공동저자를 뜻하며 공동제1저자 배지가 아닙니다.
-
-DOI를 모르면 해당 필드를 생략합니다. 이 경우 `Find on Scholar`로 표시합니다. 심사 중 원고에는 `status: "In revision"` 등을 넣으면 게재 논문과 구분되고 출판 링크를 만들지 않습니다. 상태가 바뀌면 CV와 함께 갱신하세요.
-
-홈 대표 연구는 `featured` 배열의 논문 세 편만 표시합니다. `paper`의 ID와 짧은 연구 주제·기여 문장을 수정하세요. 현재 세 편의 이미지는 **논문 원본이 아닌 콘셉트 일러스트**입니다. 사용 허가를 받은 실제 연구 그림이 생기면 해당 논문의 `image`, `imageAlt`, `imageCaption`을 함께 바꾸세요. 수치 결과를 새로 넣을 때는 실제 논문과 대조합니다.
-
-### 연구와 과제
-
-`pillars`의 `current`, `results`, `methods`, `future`를 구분해 편집합니다. 계획은 `future`에 두고 실제 결과가 생겼을 때 옮깁니다. `researchProjects`는 논문과 연결된 연구 사례 데이터이며 현재 Projects에는 독립 박사과제 사례만 표시됩니다. `projects`는 연구 프로그램 목록입니다. 과제의 `category`는 `independent`, `government`, `industry` 중 하나입니다. 과제의 `period`는 공식 **프로그램 수행 기간**이며 개인 참여 기간이 아닙니다. 개인 참여 기간을 확인하면 해당 과제에 `"personalParticipationPeriod": "2023.03–2024.12"`처럼 추가할 수 있습니다. 정부·산학 과제의 `summary`는 Projects에 표시되는 한 줄 설명입니다. 사용자 확인에 따라 독립 박사과제는 `Principal Investigator`, 나머지 정부·산학 프로그램은 `Participating Researcher`로 표시합니다. 역할이 바뀌면 확인 후 `personalRole`을 수정하세요. 홈의 진행 중 연구 세 건은 `scripts/pages.mjs`의 `previews` 배열에서 선택합니다.
-
-### 특허
-
-`patents`의 `status`, `jurisdiction`, `number`, `date`, `inventors`를 원문과 대조해 수정합니다. `numberLabel`이 있는 항목은 번호의 출원국을 명시합니다. 예를 들어 `10-2024-0088513`은 한국 출원번호이며, `jurisdiction`에는 사용자 확인에 따른 한국·미국·대만 출원국을 표시합니다. `10-2024-0060762`도 한국 출원번호이며 한국·미국·중국·대만 출원국을 표시합니다. 다른 국가의 출원번호를 한국 번호로 대신 표기하지 마세요. 주제 연결은 특허 패밀리나 기술이전 실적을 의미하지 않습니다.
-
-## 사진과 연구 그림 넣기
-
-제공받은 인물 사진은 `assets/min-jong-lee-portrait.jpg`에 적용되어 있으며 About에서만 사용합니다. 홈·Research·대표 논문의 빈 이미지 영역에는 첨부 이미지의 소재와 색감을 참고해 만든 **고해상도 콘셉트 일러스트 6장**을 넣었습니다. 실제 측정 사진·논문 그림·데이터가 아니며, 사이트에도 그 사실을 캡션으로 표시합니다. 이미지 생성에는 내장 imagegen을 사용했습니다. Activities의 행사 사진은 실제 원본을 받을 때까지 자리표시자로 남습니다.
-
-| 필요한 자료 | 데이터 위치 | 권장 형식 |
+| 수정할 내용 | CMS 메뉴 | 저장 위치 |
 |---|---|---|
-| 인물 사진 교체(선택) | `profile.portrait`, `profile.portraitAlt` | 현재 사진 적용 완료; 고해상도 원본이 있으면 교체 가능 |
-| 홈 대표 이미지 | `profile.heroImage`, `heroImageAlt`, `heroImageCaption` | 현재 콘셉트 이미지; 실제 현미경·소자 사진으로 교체 가능, 가로 4:3 권장 |
-| 연구 분야별 그림 | `researchFigures`의 분야별 `image`, `alt`, `caption` | 현재 콘셉트 이미지 4장; 실제 연구 그림으로 교체 가능 |
-| 대표 논문 그림 3장 | 해당 `publications[].image`, `imageAlt`, `imageCaption` | 현재 콘셉트 이미지 재사용; 논문 원본으로 교체 시 권리와 출처 확인 |
-| 학회·연구방문·연구실 사진 | `gallery[].image`, `alt`, `caption` | 가로 4:3, 900×675px 이상, WebP/JPEG |
+| 첫 화면 제목·문구·버튼·섹션 이름 | Home & profile → Home page | `content/pages/home.json` |
+| 이름·직함·사진·학력·이메일·CV·Scholar 등 | Home & profile → Profile & contact | `content/profile.json` |
+| 상단 메뉴·푸터·SEO·공유 이미지 | Home & profile → Site settings, menu & footer | `content/site.json` |
+| 연구 분야·설명·그림·홈 노출 | Research & projects → Research areas | `content/research/*.json` |
+| 연구 프로그램·홈 노출 | Research & projects → Projects | `content/projects/*.json` |
+| Projects의 자세한 사례 | Research & projects → Research case studies | `content/research-cases/*.json` |
+| 논문·DOI·이미지·홈 대표 논문 | Research outputs → Publications | `content/publications/*.json` |
+| 특허 | Research outputs → Patents | `content/patents/*.json` |
+| 논문 분류 필터 | Research outputs → Publication topics | `content/topics/*.json` |
+| 수상·연구자 프로그램 | About & activities → Awards & programs | `content/awards/*.json` |
+| 학술활동 사진 | About & activities → Gallery photographs | `content/gallery/*.json` |
+| Research, Projects, Publications, Patents, About, Activities, CV 페이지의 안내 문구 | 각 그룹의 “page text” | `content/pages/*.json` |
 
-갤러리 사진을 추가할 때는 `content.js`의 `gallery` 배열에 다음 객체를 넣습니다. 실제 확인된 행사 정보만 적고, 분류는 `Conference`, `Research`, `Collaboration`, `Award` 중 하나를 권장합니다.
+**논문 추가 예시:** Publications → New → 제목, 저자, 학술지, 연도, 연구 주제 등을 입력 → Save. 게재 논문이면 Publication status를 비워 둡니다. 심사 중 원고라면 `In revision`처럼 상태를 적으면 게재 논문과 별도로 나옵니다. DOI를 확인한 경우에만 넣으세요. DOI가 없으면 Scholar 검색 링크가 생깁니다. `Featured`를 켜면 Home의 대표 연구에 포함되며 `Homepage order`로 순서를 정합니다. `Show on website`를 끄면 항목을 삭제하지 않고 숨길 수 있습니다.
 
-```js
-{
-  "image": "assets/conference-photo.webp",
-  "title": "확인된 행사·활동명",
-  "category": "Conference",
-  "year": "2026",
-  "location": "확인된 장소",
-  "caption": "실제로 발표하거나 참여한 내용 한 문장",
-  "alt": "사진의 내용과 주요 인물을 설명하는 문장"
-}
-```
+**과제·연구·특허 추가:** 해당 컬렉션에서 New → Save. 연구 분야는 Research 페이지에 새 섹션으로 자동 표시됩니다. 연구 분야에서 Home section placement와 Feature on homepage를 설정하면 Home에도 표시됩니다. Projects의 `Featured`는 Home의 Current research 목록에 표시합니다. 특허는 상태를 Registered 또는 Application으로 구분합니다. 목록 순서는 `Display order`의 작은 숫자가 앞입니다. 기존 항목의 Stable URL ID와 파일명은 기존 북마크를 위해 유지하세요.
 
-사진을 넣으면 Activities에 캡션과 키보드로 조작 가능한 확대 보기가 자동으로 나타납니다. 사진이 없으면 행사 참석을 주장하지 않는 자리표시자만 보입니다.
+**연결 항목:** 논문 주제, 연구 분야의 관련 논문, 연구 사례의 관련 논문·특허는 CMS 참조 필드에서 선택할 수 있습니다. Projects의 `Detailed research case ID`는 별도 사례와 연결합니다. 페이지 내부 주소를 직접 입력하는 버튼은 `.html#anchor` 형태를 사용합니다.
 
-파일은 `assets/`에 넣고 예를 들어 `"portrait": "assets/portrait.webp"`로 지정합니다. 대체텍스트는 사진의 인물·행사 또는 연구 그림의 과학적 내용을 설명해야 합니다. 이미지 경로만 있고 대체텍스트가 없으면 생성기가 오류를 내도록 했습니다. 현재 인물 사진은 원본의 3:4 비율로 표시하고, 홈·연구 그림은 4:3 전체를 보여줍니다. 대표 논문 이미지는 8:5 프레임에 맞춰 가장자리만 잘라 표시합니다. 다른 비율의 인물 사진으로 교체할 때는 `styles.css`의 `.portrait` 비율과 `scripts/components.mjs`의 이미지 너비·높이도 함께 수정하세요. 원본 파일명에 공백을 넣지 않는 편이 편리합니다.
+**사진:** 이미지 필드에서 업로드하면 `assets/`에 저장됩니다. Alternative text와 캡션을 함께 적으세요. CV PDF는 Profile의 `CV PDF file`에서 업로드하거나 교체합니다. 기존 원본은 유지했고, 연구 콘셉트 이미지는 실험 데이터가 아님을 캡션에 표시했습니다. 실제 행사 사진이 없으면 Activities에는 자리표시자가 나옵니다.
 
-새로 넣는 사진은 용량을 최적화하세요. 홈 대표 이미지는 우선 로딩하고 나머지 연구·갤러리 이미지는 지연 로딩합니다. 행사 이름·날짜가 확인되면 `gallery`의 제목과 캡션도 함께 바꿉니다. 이번 콘셉트 이미지의 원본·용도·생성 프롬프트는 `docs/IMAGE_ASSETS.md`에 기록했습니다.
+> Pages CMS는 GitHub 저장소에 커밋할 권한이 필요합니다. 첫 로그인과 GitHub App 접근 허용은 저장소 소유자가 수행해야 합니다. `.pages.yml`은 JSON 문법으로 작성된 유효한 YAML 1.2 파일이며 `node scripts/generate-cms-config.mjs`로 재생성할 수 있습니다.
 
-## 공개용 CV
+## 자동 빌드와 배포
 
-상단 `CV`는 `assets/min-jong-lee-cv.pdf`를 바로 내려받습니다. 공개 버전에서 전화번호와 상세 우편주소를 제외했습니다. 논문·특허 등 기존 기록의 기준은 **2026년 9월 2일 업데이트 CV**이며, 학력과 연구 프로그램의 개인 역할은 **2026년 9월 27일 사용자 제공 정보**를 반영했습니다. 한국어 과제·수상명은 원문과 설명용 영어 번역을 함께 보존했습니다.
+`.github/workflows/pages.yml`은 `main`의 CMS 데이터·자산·코드 변경을 감지합니다. Node 22로 페이지를 생성하고 내부 링크·이미지 속성 및 CMS 항목 동작을 검사한 후 `.site/`에 공개 파일만 모아 GitHub Pages에 배포합니다. `content/`의 JSON이나 `content.js`는 공개 배포물에 포함하지 않습니다. 기존 `index.html` 등은 저장소에 남아 있어 기존 URL과 로컬 파일 미리보기를 유지합니다.
 
-데이터를 바꾼 뒤 PDF도 갱신하려면 Python + ReportLab을 사용합니다. 사이트 운영에는 이 도구가 필요하지 않습니다.
+**한 번만 설정:** GitHub 저장소 → Settings → Pages → Build and deployment → Source를 **GitHub Actions**로 지정합니다. 이후 CMS Save가 `main`에 커밋되면 자동 배포됩니다. [GitHub Pages 공식 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-```powershell
-python -m pip install reportlab
-python scripts/build_cv.py
-```
+`content.js`는 이전 데이터의 읽기 전용 백업입니다. 새 빌드는 이를 사용하지 않습니다. 새 항목은 파일명을 등록하지 않아도 각 컬렉션 디렉터리를 자동으로 읽습니다. 생성된 HTML을 직접 수정하면 다음 빌드 때 덮어씁니다.
 
-기본 글꼴은 Windows의 맑은 고딕입니다. 다른 환경에서는 한글을 지원하는 TrueType 글꼴을 지정합니다.
+## 로컬 확인
 
-```text
-python scripts/build_cv.py --font-regular /path/to/regular.ttf --font-bold /path/to/bold.ttf
-```
-
-또는 `cv.html`을 열어 **Print CV → PDF로 저장**하고 위 PDF 파일을 교체할 수 있습니다. 저장 후 제목이 페이지 아래에 홀로 남지 않는지, 한글과 논문 목록이 잘리지 않는지 확인하세요. 논문 페이지의 인쇄 버튼은 현재 필터와 관계없이 전체 논문 목록을 출력합니다.
-
-## GitHub Pages에 반영
-
-현재 저장소는 `minjonglee/minjonglee.github.io`, 브랜치는 `main`입니다. 수정한 내용을 배포하려면 변경 파일을 커밋하고 푸시합니다.
+Node.js 22 이상으로 저장소에서 실행합니다. `npm install`은 필요하지 않습니다.
 
 ```powershell
 node scripts/build.mjs
 node scripts/check.mjs
-git status
-git add .
-git commit -m "Redesign academic research portfolio"
-git push origin main
+node scripts/test-cms.mjs
+node scripts/stage-site.mjs
 ```
 
-GitHub 저장소 **Settings → Pages → Build and deployment → Source → Deploy from a branch**에서 `main`과 `/ (root)`를 지정합니다. 생성된 HTML을 저장소에 포함하므로 GitHub 서버에서 Node/Python 빌드를 실행할 필요가 없습니다. `.nojekyll`은 그대로 유지하세요. 배포 상태는 저장소 Actions에서 확인합니다. [GitHub 공식 배포 소스 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+`node scripts/test-cms.mjs`는 임시 복사본에서 논문·연구 분야·과제·특허 추가, 논문 수정·삭제, 노출·대표 선택 및 이미지 경로 반영을 확인합니다. 실제 Pages CMS 로그인/업로드 UI와 GitHub Actions 실행은 GitHub 연결 후 확인해야 합니다. 로컬 웹 미리보기는 `node scripts/serve.mjs` 후 <http://127.0.0.1:8765/>에서 봅니다. 종료는 `Ctrl+C`입니다.
 
+## 파일 구조와 데이터 보존
 
-## 아직 필요한 정보
+- `content/site.json`, `content/profile.json`, `content/pages/*.json`: 전역 정보와 페이지 문구
+- `content/publications/`, `projects/`, `patents/`, `awards/`, `topics/`, `research/`, `research-cases/`, `gallery/`: 항목별 JSON 컬렉션
+- `scripts/content.mjs`: CMS JSON 로딩, 표시 여부·순서 처리
+- `scripts/pages.mjs`, `scripts/components.mjs`: 현재 디자인의 HTML 템플릿
+- `scripts/build.mjs`: 정적 HTML과 sitemap 생성
+- `scripts/check.mjs`, `scripts/test-cms.mjs`: 링크·동작 검사
+- `scripts/stage-site.mjs`: GitHub Pages 배포물 준비
+- `scripts/migrate-content.mjs`: 기존 `content.js`의 일회성, 덮어쓰기 방지 마이그레이션 기록
+- `scripts/generate-cms-config.mjs`: 실제 JSON 필드를 포함하는 Pages CMS 편집 스키마 생성
+- `.pages.yml`: Pages CMS 편집 화면과 이미지/PDF 업로드 설정
+- `styles.css`, `script.js`: 기존 디자인과 모바일 메뉴·논문 필터·갤러리·인쇄 동작
 
-- 재사용 권한을 확인한 실제 홈·연구·논문 그림과 학술활동 사진·행사명·날짜가 필요합니다. 인물 사진은 About에 적용했습니다.
-- 본인의 정확한 ORCID·LinkedIn 주소.
-- 학회 발표·초청 강연·연구방문 세부 기록.
-- 원고의 최신 심사 상태, 이후 추가된 실적, 특허 상태 변경.
-- 나머지 DOI와 박사과제 외 프로그램의 확인된 개인 참여 기간·성과가 있으면 추가할 수 있습니다.
+기존 `publications.html`, `projects.html`, `patents.html` 등의 URL은 유지됩니다. `contact.html`과 `recognition.html`도 이전 링크를 위한 이동 페이지로 유지됩니다. 초기 마이그레이션은 논문 21건, 과제 9건, 특허 8건, 수상 6건, 연구 사례 5건, 연구 분야 5건, 주제 5건을 옮겼습니다. 원본 `content.js`는 비교와 복구를 위해 보관했습니다.
 
-논문 상태와 프로젝트 기간은 근거 없이 변경하지 않았습니다. 특허 `10-2024-0088513`, `10-2024-0060762`의 출원국과 후자의 상세 명칭은 2026년 9월 27일 사용자 정정을 반영했습니다. 연구소·대학·기업 지원 목표를 현재 소속이나 협업 실적으로 표시하지 않습니다.
+공개용 PDF는 CMS에서 직접 교체하는 방식입니다. 원하면 `scripts/build_cv.py`로 현재 JSON에서 새 PDF를 생성할 수 있지만 ReportLab과 한글 글꼴이 필요하며 GitHub Actions의 필수 단계는 아닙니다. 웹 CV인 `cv.html`은 매번 자동 갱신됩니다. PDF를 바꾸지 않으면 기존 파일이 그대로 다운로드됩니다.
+
+미확인 DOI·개인 프로필 URL·행사 사진·특허 진행 상태는 추정해 채우지 않았습니다. 특허 `10-2024-0088513`과 `10-2024-0060762`의 출원국 표기는 기존 확인된 내용을 유지합니다. 이미지 출처와 콘셉트 이미지에 대한 내용은 `docs/IMAGE_ASSETS.md`를 참고하세요.

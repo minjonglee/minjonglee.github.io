@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "line1": "Interface & device physics",
+    "line2Prefix": "for ",
+    "accent": "emerging electronics.",
+    "deck": "I study interfaces, defects, ionic motion, and charge transport in emerging electronic devices. My research spans memory, optoelectronic, and flexible electronic platforms.",
+    "focusCurrentLabel": "Current focus",
+    "focusCurrent": "Emerging memory · Device reliability",
+    "focusFutureLabel": "Long-term direction",
+    "focusFuture": "Integrated electronic systems",
+    "affiliation": "Integrated M.S.–Ph.D. researcher · Electrical Engineering, Korea University",
+    "actions": [
+      {
+        "label": "Research",
+        "href": "research.html",
+        "arrow": "→"
+      },
+      {
+        "label": "Selected work",
+        "href": "#featured",
+        "arrow": "→"
+      },
+      {
+        "label": "CV",
+        "href": "",
+        "kind": "cv",
+        "arrow": "↓"
+      }
+    ]
+  },
+  "research": {
+    "title": "Research",
+    "moreLabel": "Research in depth",
+    "coreLabel": "Core science",
+    "futureLabel": "Long-term direction"
+  },
+  "featured": {
+    "title": "Featured work",
+    "moreLabel": "All publications"
+  },
+  "current": {
+    "title": "Current research",
+    "moreLabel": "View all projects"
+  },
+  "about": {
+    "title": "About",
+    "text": "Min Jong Lee is an integrated M.S.–Ph.D. researcher in electrical engineering at Korea University. His first-author work connects molecular interfaces, optoelectronic devices, and emerging memory.",
+    "links": [
+      {
+        "label": "More about Min Jong Lee",
+        "href": "about.html"
+      },
+      {
+        "label": "Research activities",
+        "href": "activities.html"
+      }
+    ]
+  }
+}

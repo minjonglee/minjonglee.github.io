@@ -1,0 +1,21 @@
+{
+  "id": "low-light-photovoltaics",
+  "category": "government",
+  "period": "2022.03–present",
+  "title": "전일 동작 광전지 개발을 위한 약광 발전 한계 돌파 연구",
+  "englishTitle": "Overcoming low-light power-generation limits in photovoltaics",
+  "topics": [
+    "Low-light photovoltaics"
+  ],
+  "sponsor": "Mid-career Researcher Program · MSIT",
+  "personalRole": "Participating Researcher",
+  "summary": "Photovoltaic operation under low-light conditions.",
+  "featured": false,
+  "featuredOrder": 999,
+  "homeCategory": "",
+  "homeDescription": "",
+  "homeAnchor": "low-light-photovoltaics",
+  "caseStudyId": "",
+  "order": 5,
+  "visible": true
+}

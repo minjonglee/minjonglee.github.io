@@ -1,0 +1,21 @@
+{
+  "id": "oxide-electrodes",
+  "title": "ALD oxide electrode platforms",
+  "status": "Published work · 2023",
+  "question": "Can ALD-grown oxide electrodes serve both photovoltaics and capacitors?",
+  "role": "First Author",
+  "approach": "Process laminated In₂O₃:V₂O₅ nanocompounds by ALD and examine their use as electrodes in different device architectures.",
+  "methods": [
+    "Atomic layer deposition",
+    "Laminated oxide films",
+    "Electrode integration"
+  ],
+  "outcome": "Laminated In₂O₃:V₂O₅ nanocompounds establish an electrode platform spanning organic photovoltaics and capacitor devices.",
+  "papers": [
+    "paper-06"
+  ],
+  "patents": [],
+  "visible": false,
+  "order": 5,
+  "featured": false
+}

@@ -1,0 +1,24 @@
+{
+  "year": 2026,
+  "type": "co",
+  "journal": "Chemical Engineering Journal · 527, 171902",
+  "title": "Molecular Spacer Engineering of Carbazole–Phosphonic Acid SAMs: Probing Interfacial Energetics in Low-Light Organic Optoelectronic Devices",
+  "id": "paper-11",
+  "authors": "Hee Chun Kim,† Ji Hyeon Lee,† Tae Hyuk Kim, Min Jong Lee, Eun Soo Shim, Seunghwan Bae, Hyungju Ahn, Han Jung Park, Nak-Seung Patrick Hyun, Jea Woong Jo,* and Jae Won Shim*",
+  "source": "MJL_CV_20260901.docx; updated September 2, 2026",
+  "image": null,
+  "imageAlt": "",
+  "doi": "10.1016/j.cej.2025.171902",
+  "doiSource": "https://api.crossref.org/works/10.1016/j.cej.2025.171902",
+  "topics": [
+    "interfaces",
+    "opto"
+  ],
+  "featured": false,
+  "featuredOrder": 999,
+  "featuredTitle": "",
+  "featuredContribution": "",
+  "featuredProject": "",
+  "order": 11,
+  "visible": true
+}

@@ -1,0 +1,130 @@
+{
+  "siteTitle": "Min Jong Lee · Electronic Device Research",
+  "baseUrl": "https://minjonglee.github.io/",
+  "themeColor": "#fafaf8",
+  "favicon": "favicon.svg",
+  "socialPreview": "/assets/social-preview.png",
+  "socialPreviewAlt": "Min Jong Lee — Interface and device physics for emerging electronics",
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "index.html",
+      "order": 1,
+      "visible": true
+    },
+    {
+      "label": "About",
+      "href": "about.html",
+      "order": 2,
+      "visible": true
+    },
+    {
+      "label": "Research",
+      "href": "research.html",
+      "order": 3,
+      "visible": true
+    },
+    {
+      "label": "Projects",
+      "href": "projects.html",
+      "order": 4,
+      "visible": true
+    },
+    {
+      "label": "Publications",
+      "href": "publications.html",
+      "order": 5,
+      "visible": true
+    },
+    {
+      "label": "Patents",
+      "href": "patents.html",
+      "order": 6,
+      "visible": true
+    },
+    {
+      "label": "Activities",
+      "href": "activities.html",
+      "order": 7,
+      "visible": true
+    },
+    {
+      "label": "CV",
+      "href": "",
+      "kind": "cv",
+      "order": 8,
+      "visible": true
+    }
+  ],
+  "footer": {
+    "affiliation": "Korea University",
+    "department": "School of Electrical Engineering",
+    "location": "Seoul, Republic of Korea",
+    "copyrightName": "Min Jong Lee",
+    "backToTop": "Back to top ↑",
+    "links": [
+      {
+        "label": "Google Scholar",
+        "kind": "scholar"
+      },
+      {
+        "label": "AEEL",
+        "kind": "lab"
+      },
+      {
+        "label": "Activities",
+        "href": "activities.html"
+      },
+      {
+        "label": "CV",
+        "kind": "cv"
+      }
+    ]
+  },
+  "notes": {
+    "bibliography": "Manuscript status is shown separately from published work.",
+    "authors": "† denotes equal contribution; * denotes corresponding authors. Role badges refer to Min Jong Lee only."
+  },
+  "seoPages": [
+    {
+      "file": "index.html",
+      "title": "Interface & Device Physics for Emerging Electronics",
+      "description": "Min Jong Lee studies interfaces, defects, ionic motion, and charge transport in emerging electronic devices, spanning memory, optoelectronic, and flexible electronic platforms."
+    },
+    {
+      "file": "about.html",
+      "title": "About",
+      "description": "Min Jong Lee is an integrated M.S.–Ph.D. researcher in electronic devices, materials, and interface physics at Korea University."
+    },
+    {
+      "file": "research.html",
+      "title": "Research",
+      "description": "Interface and device physics across memory, optoelectronic, and flexible platforms, with integrated electronic systems as a long-term direction."
+    },
+    {
+      "file": "projects.html",
+      "title": "Projects",
+      "description": "Independent doctoral research and participation in government-funded and industry–academic R&D programs."
+    },
+    {
+      "file": "publications.html",
+      "title": "Publications",
+      "description": "Publications by Min Jong Lee in memory, interface science, thin-film electronics, organic and hybrid optoelectronics."
+    },
+    {
+      "file": "patents.html",
+      "title": "Patents & Technology Translation",
+      "description": "Registered patents and applications in memory, interfaces, semiconductor devices, and optoelectronics."
+    },
+    {
+      "file": "activities.html",
+      "title": "Activities",
+      "description": "Academic recognition and a growing archive of research and conference photographs from Min Jong Lee."
+    },
+    {
+      "file": "cv.html",
+      "title": "Curriculum Vitae",
+      "description": "Public academic CV of Min Jong Lee, including education, publications, patents, projects, and recognition."
+    }
+  ]
+}

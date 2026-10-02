@@ -1,0 +1,22 @@
+{
+  "year": 2026,
+  "type": "first",
+  "status": "In revision",
+  "journal": "",
+  "title": "Chiral Neuromorphic Memory IC",
+  "id": "paper-01",
+  "authors": "Min Jong Lee, Hyoungwook Cho, Hyung-Min Lee*, and Jae Won Shim*, et al.",
+  "source": "MJL_CV_20260901.docx; updated September 2, 2026",
+  "image": null,
+  "imageAlt": "",
+  "topics": [
+    "memory"
+  ],
+  "featured": false,
+  "featuredOrder": 999,
+  "featuredTitle": "",
+  "featuredContribution": "",
+  "featuredProject": "",
+  "order": 1,
+  "visible": true
+}

@@ -13,7 +13,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether, CondPageBreak
 
 ROOT = Path(__file__).resolve().parents[1]
-parser = argparse.ArgumentParser(description='Export the public CV from content.js')
+parser = argparse.ArgumentParser(description='Export the public CV from Pages CMS JSON content')
 parser.add_argument('--font-regular', default=os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts', 'malgun.ttf'))
 parser.add_argument('--font-bold', default=os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts', 'malgunbd.ttf'))
 args = parser.parse_args()
@@ -23,8 +23,17 @@ for p in [args.font_regular, args.font_bold]:
 pdfmetrics.registerFont(TTFont('CV', args.font_regular))
 pdfmetrics.registerFont(TTFont('CV-Bold', args.font_bold))
 pdfmetrics.registerFontFamily('CV', normal='CV', bold='CV-Bold', italic='CV', boldItalic='CV-Bold')
-source = (ROOT/'content.js').read_text(encoding='utf-8')
-data = json.loads(source.split('window.SITE_CONTENT =', 1)[1].strip().removesuffix(';'))
+def collection(name):
+    records = [json.loads(file.read_text(encoding='utf-8')) for file in (ROOT/'content'/name).glob('*.json')]
+    return sorted([record for record in records if record.get('visible', True)], key=lambda record: (record.get('order', 999), record.get('id', '')))
+data = {
+    'profile': json.loads((ROOT/'content'/'profile.json').read_text(encoding='utf-8')),
+    'publications': collection('publications'),
+    'patents': collection('patents'),
+    'projects': collection('projects'),
+    'awards': collection('awards'),
+}
+data['scholar'] = data['profile']['scholar']
 ink=colors.HexColor('#232420')
 muted=colors.HexColor('#62635c')
 styles = {

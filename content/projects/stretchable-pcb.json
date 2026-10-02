@@ -1,0 +1,21 @@
+{
+  "id": "stretchable-pcb",
+  "category": "industry",
+  "period": "2024.08–2024.11",
+  "title": "Liquid Metal Particle활용 Stretchable PCB 제작",
+  "englishTitle": "Stretchable PCBs using liquid metal particles",
+  "topics": [
+    "Stretchable PCBs"
+  ],
+  "sponsor": "Samsung Electronics",
+  "personalRole": "Participating Researcher",
+  "summary": "Liquid-metal-particle approaches to stretchable PCB fabrication.",
+  "featured": false,
+  "featuredOrder": 999,
+  "homeCategory": "",
+  "homeDescription": "",
+  "homeAnchor": "stretchable-pcb",
+  "caseStudyId": "",
+  "order": 9,
+  "visible": true
+}

@@ -1,0 +1,51 @@
+{
+  "field": "Electronic Devices · Materials · Interface Physics",
+  "positionLines": [
+    "Integrated M.S.–Ph.D. Researcher",
+    "School of Electrical Engineering",
+    "Korea University"
+  ],
+  "biographyTitle": "Biography",
+  "biographyExtra": "My research experience also includes flexible interconnects, stretchable PCB technologies, and durable thin-film systems through government-funded and industry–academic R&D programs.",
+  "visionTitle": "Research vision",
+  "visionLinkLabel": "Explore research",
+  "journeyTitle": "Research journey",
+  "journeyIntro": "Organic and hybrid devices led to molecular interfaces, defect and ionic physics, and emerging memory. Flexible-device programs broaden this work; integrated electronic systems form a long-term direction.",
+  "trajectory": [
+    {
+      "title": "Organic & hybrid electronics",
+      "detail": "Photovoltaics · Photodetectors · Thin-film devices",
+      "phase": "Foundation"
+    },
+    {
+      "title": "Interface engineering",
+      "detail": "Molecular contacts · Energetics · Charge transport",
+      "phase": "Established expertise"
+    },
+    {
+      "title": "Defects & ionic dynamics",
+      "detail": "Traps · State dynamics · Electrical noise",
+      "phase": "Current scientific focus"
+    },
+    {
+      "title": "Emerging memory & reliability",
+      "detail": "Memristive · Synaptic · Multilevel devices",
+      "phase": "Current device focus"
+    },
+    {
+      "title": "Integrated electronic systems",
+      "detail": "Low-temperature electronics · Heterogeneous integration · 3D integration · Device–system co-design",
+      "phase": "Long-term direction"
+    }
+  ],
+  "environmentTitle": "Current research environment",
+  "independence": "Principal Investigator, Doctoral Research Support Program · Ministry of Education · since September 2026",
+  "independentLinkLabel": "Independent research",
+  "labLinkLabel": "Visit AEEL",
+  "educationTitle": "Education",
+  "recognitionTitle": "Selected awards & recognition",
+  "recognitionLinkLabel": "All activities",
+  "activitiesTitle": "Research & academic life",
+  "activitiesIntro": "A record of academic activities, recognition, and research photographs as they become available.",
+  "activitiesLinkLabel": "View Activities & Gallery"
+}
