@@ -6,7 +6,7 @@ Site: <https://minjonglee.github.io/> · Repository: <https://github.com/minjong
 
 ## Pages CMS에서 편집하기
 
-1. <https://pagescms.org/>에서 GitHub 계정으로 로그인하고 `minjonglee/minjonglee.github.io` 저장소에 Pages CMS GitHub App 접근을 허용합니다.
+1. <https://app.pagescms.org/>에서 GitHub 계정으로 로그인하고 `minjonglee/minjonglee.github.io` 저장소에 Pages CMS GitHub App 접근을 허용합니다.
 2. 편집할 저장소와 `main` 브랜치를 선택합니다. 저장소가 보이지 않으면 GitHub App의 Repository access 설정에서 이 저장소를 추가합니다.
 3. 왼쪽 메뉴에서 항목을 열어 수정하거나 **New**를 눌러 추가하고 **Save**합니다. Pages CMS가 JSON 변경사항을 GitHub에 커밋합니다.
 4. 저장소의 **Actions → Build and deploy GitHub Pages**가 성공하면 공개 사이트를 새로고침합니다. 배포까지 수 분 걸릴 수 있습니다.
