@@ -7,7 +7,7 @@
     "focusCurrentLabel": "Current focus",
     "focusCurrent": "Emerging memory · Device reliability",
     "focusFutureLabel": "Long-term direction",
-    "focusFuture": "Integrated electronic systems",
+    "focusFuture": "Toward integrated electronic systems",
     "affiliation": "Integrated M.S.–Ph.D. researcher · Electrical Engineering, Korea University",
     "actions": [
       {
@@ -43,8 +43,7 @@
   "activities": {
     "visible": true,
     "title": "Activities",
-    "moreLabel": "News & gallery",
-    "empty": "Verified news and research photographs will appear here as they become available."
+    "moreLabel": "All activities"
   },
   "current": {
     "title": "Current research",

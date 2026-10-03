@@ -2,20 +2,12 @@
   "hero": {
     "kicker": "Activities",
     "title": "Activities",
-    "description": "News, media coverage, and a visual record of academic work."
+    "description": "Awards, research news, and academic activities."
   },
-  "newsIntro": "Selected announcements, awards, and coverage, listed by date.",
-  "newsEmpty": "No verified news or media records have been added yet.",
+  "newsTitle": "Selected activities",
+  "newsIntro": "",
   "recognitionTitle": "Awards & academic recognition",
   "fellowshipsTitle": "Scholarships & researcher programs",
   "galleryTitle": "Gallery",
-  "galleryIntro": "Conference, laboratory, collaboration, and academic-event photographs will be added as verified images become available.",
-  "galleryPlaceholders": [
-    "CONFERENCE PHOTO",
-    "LAB PHOTO",
-    "POSTER PRESENTATION",
-    "AWARD PHOTO",
-    "RESEARCH VISIT PHOTO"
-  ],
-  "galleryEmpty": "Event photographs and captions will appear here when supplied."
+  "galleryIntro": "Research and academic events in photographs."
 }

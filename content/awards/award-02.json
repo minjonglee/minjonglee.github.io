@@ -7,5 +7,6 @@
   "visible": true,
   "featured": true,
   "type": "Award",
-  "organization": "삼성전자"
+  "organization": "삼성전자",
+  "englishOrganization": "Samsung Electronics"
 }

@@ -375,11 +375,6 @@
                   "name": "moreLabel",
                   "label": "More Label",
                   "type": "string"
-                },
-                {
-                  "name": "empty",
-                  "label": "Empty",
-                  "type": "string"
                 }
               ]
             },
@@ -942,6 +937,11 @@
               "type": "string"
             },
             {
+              "name": "englishOrganization",
+              "label": "English organization (display)",
+              "type": "string"
+            },
+            {
               "name": "date",
               "label": "Date",
               "type": "string"
@@ -954,7 +954,8 @@
             {
               "name": "url",
               "label": "External URL",
-              "type": "string"
+              "type": "string",
+              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
             }
           ]
         },
@@ -1502,7 +1503,8 @@
             {
               "name": "summary",
               "label": "Summary",
-              "type": "text"
+              "type": "text",
+              "description": "Optional. Include only information beyond the project title; leave blank rather than repeat it."
             },
             {
               "name": "featured",
@@ -1604,7 +1606,8 @@
             {
               "name": "description",
               "label": "Description",
-              "type": "text"
+              "type": "text",
+              "description": "Optional. Include only information beyond the project title; leave blank rather than repeat it."
             },
             {
               "name": "researchCategory",
@@ -2988,7 +2991,7 @@
             },
             {
               "name": "type",
-              "label": "Type",
+              "label": "Category",
               "type": "select",
               "options": {
                 "values": [
@@ -2998,17 +3001,19 @@
                   "Journal cover",
                   "Research highlight",
                   "Video",
+                  "YouTube",
                   "Conference",
                   "Academic activity",
                   "Press Release",
                   "Interview",
                   "Announcement"
                 ]
-              }
+              },
+              "required": true
             },
             {
               "name": "source",
-              "label": "Source",
+              "label": "Source / organization",
               "type": "string"
             },
             {
@@ -3019,11 +3024,12 @@
             {
               "name": "url",
               "label": "External URL",
-              "type": "string"
+              "type": "string",
+              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
             },
             {
               "name": "thumbnail",
-              "label": "Thumbnail",
+              "label": "Activity image",
               "type": "image",
               "options": {
                 "media": "images"
@@ -3032,13 +3038,13 @@
             },
             {
               "name": "thumbnailAlt",
-              "label": "Thumbnail alternative text",
+              "label": "Activity image alternative text",
               "type": "string",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
               "name": "thumbnailCaption",
-              "label": "Thumbnail caption",
+              "label": "Activity image caption",
               "type": "string"
             },
             {
@@ -3193,7 +3199,8 @@
             {
               "name": "url",
               "label": "External URL",
-              "type": "string"
+              "type": "string",
+              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
             },
             {
               "name": "relatedActivity",
@@ -3257,13 +3264,13 @@
               ]
             },
             {
-              "name": "newsIntro",
-              "label": "News Intro",
+              "name": "newsTitle",
+              "label": "Activities list heading",
               "type": "string"
             },
             {
-              "name": "newsEmpty",
-              "label": "News Empty",
+              "name": "newsIntro",
+              "label": "News Intro",
               "type": "string"
             },
             {
@@ -3284,17 +3291,6 @@
             {
               "name": "galleryIntro",
               "label": "Gallery Intro",
-              "type": "text"
-            },
-            {
-              "name": "galleryPlaceholders",
-              "label": "Gallery Placeholders",
-              "type": "string",
-              "list": true
-            },
-            {
-              "name": "galleryEmpty",
-              "label": "Gallery Empty",
               "type": "text"
             }
           ]

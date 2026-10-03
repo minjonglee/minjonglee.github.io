@@ -11,6 +11,7 @@ const title=key=>key.replace(/([a-z])([A-Z])/g,'$1 $2').replace(/\b\w/g,c=>c.toU
 const labels={
   id:'Stable URL ID',visible:'Show on website',featured:'Feature on homepage',featuredOrder:'Homepage order',order:'Display order',image:'Research or article image',alt:'Image alternative text',imageAlt:'Image alternative text',caption:'Image caption',imageCaption:'Image caption',imagePosition:'Image crop focus',heroImagePosition:'Home hero crop focus',thumbnailPosition:'Thumbnail crop focus',thumbnailCaption:'Thumbnail caption',whatIControl:'What I control',whatIMeasure:'What I measure',whyItMatters:'Why it matters',existingFoundation:'Existing research foundation',futureDirections:'Future research directions',caseStudiesVisible:'Show research case studies',heroImage:'Home hero image',heroImageAlt:'Home hero image alternative text',portrait:'Profile portrait',portraitAlt:'Portrait alternative text',cv:'CV PDF file',doi:'DOI',doiUrl:'DOI URL (optional override)',publisherUrl:'Publisher URL',journalUrl:'Journal URL',pdfUrl:'PDF URL',supplementaryUrl:'Supplementary information URL',journalName:'Journal',publicationType:'Publication type',publicationStatus:'Publication status',publicationDate:'Publication date',onlinePublicationDate:'Online publication date',volume:'Volume',issue:'Issue',startPage:'Start page',endPage:'End page',pages:'Pages',articleNumber:'Article number',eLocationId:'eLocation ID',publisher:'Publisher',issn:'ISSN',eIssn:'EISSN',researchCategory:'Research category',relatedResearch:'Related research',relatedProjects:'Related projects',myAuthorRole:'My author role',firstAuthor:'First author',coFirstAuthor:'Co-first author',correspondingAuthor:'Corresponding author',coCorrespondingAuthor:'Co-corresponding author',authorNotes:'Author notes',orcid:'ORCID URL',researchGate:'ResearchGate URL',labUrl:'Laboratory URL',advisorUrl:'Advisor URL',externalUrl:'External paper or project URL',year:'Year',type:'Type',status:'Status',journal:'Original journal and citation (preserved)',papers:'Related publication IDs',patents:'Related patent IDs',selectedPapers:'Selected publication IDs',caseStudyId:'Detailed research case ID',homeRole:'Home section placement',homeTitle:'Home research title',homeDescription:'Home research description',homeAnchor:'Project page anchor',featuredContribution:'Featured contribution',featuredTitle:'Featured work title',featuredProject:'Related featured project ID',seoPages:'Page SEO',siteTitle:'Website title',socialPreview:'Social preview image',socialPreviewAlt:'Social preview image alternative text',location:'Location',personalRole:'My role',personalParticipationPeriod:'My participation period',territoryNote:'Patent territory note',numberLabel:'Number label',englishTitle:'English title',shortTitle:'Short title (optional)',periodDisplay:'Period display override (optional)',number:'Patent number',date:'Date',jurisdiction:'Jurisdictions',authors:'Authors / presenters',inventors:'Inventors',paper:'Publication ID',github:'GitHub URL',scholar:'Google Scholar URL',topics:'Research topics',methods:'Methods',approach:'Scientific approach',outcome:'Finding or current status',prospective:'Future direction (not completed)',country:'Primary country',applicationNumber:'Application number',registrationNumber:'Registration number',applicationDate:'Application date',registrationDate:'Registration date',assignee:'Assignee',program:'Program',fundingAgency:'Funding agency',startDate:'Start date (YYYY-MM)',endDate:'End date (YYYY-MM)',organization:'Organization',department:'Department',conferenceName:'Conference name',presentationType:'Presentation type',shortDescription:'Short description',thumbnail:'Thumbnail',thumbnailAlt:'Thumbnail alternative text',relatedActivity:'Related activity ID',url:'External URL'
 };
+Object.assign(labels,{englishOrganization:'English organization (display)',newsTitle:'Activities list heading'});
 const longText=new Set(['description','summary','abstract','bio','vision','motivation','current','results','future','question','scope','outcome','approach','foundationText','homeDescription','featuredContribution','researchInterests','sourceNote','territoryNote','biographyExtra','journeyIntro','galleryIntro','galleryEmpty','intro','independence','note','bibliographyAfter']);
 const imageKeys=new Set(['image','heroImage','portrait','socialPreview','ogImage','thumbnail']);
 const numberKeys=new Set(['order','featuredOrder','year']);
@@ -24,7 +25,7 @@ const choices={
   'projects.status':['Ongoing','Completed'],
   'awards.type':['Award','Scholarship','Honor','Fellowship'],
   'conferences.presentationType':['Oral','Poster','Invited','Keynote','Other'],
-  'news.type':['Award','News','Media','Journal cover','Research highlight','Video','Conference','Academic activity','Press Release','Interview','Announcement'],
+  'news.type':['Award','News','Media','Journal cover','Research highlight','Video','YouTube','Conference','Academic activity','Press Release','Interview','Announcement'],
   'projects.category':['independent','government','industry'],
   'research.homeRole':['core','platform','foundation','future','none'],
   'gallery.category':['Conference','Research','Collaboration','Award'],
@@ -41,7 +42,7 @@ const additional={
   research:{image:'',alt:'',caption:'',imagePosition:'center',whatIControl:'',whatIMeasure:'',whyItMatters:'',existingFoundation:'',futureDirections:'',keywords:[],relatedProjects:[]},
   gallery:{id:'',title:'',category:'',image:'',alt:'',caption:'',imagePosition:'center',location:'',year:'',date:'',url:'',relatedActivity:'',order:1,visible:true,featured:false},
   topics:{visible:true,featured:false},
-  awards:{type:'',organization:'',date:'',description:'',url:'',featured:false},
+  awards:{type:'',organization:'',englishOrganization:'',date:'',description:'',url:'',featured:false},
   'research-cases':{hypothesis:'',featured:false}
 };
 
@@ -60,6 +61,13 @@ function fields(value,scope){
   return Object.entries(value).map(([key,item])=>{
     const qualified=`${scope}.${key}`;
     const field={name:key,label:labels[key]||title(key)};
+    if(scope==='news') {
+      if(key==='type') field.label='Category';
+      if(key==='source') field.label='Source / organization';
+      if(key==='thumbnail') field.label='Activity image';
+      if(key==='thumbnailAlt') field.label='Activity image alternative text';
+      if(key==='thumbnailCaption') field.label='Activity image caption';
+    }
     if(key==='id') {field.type='string';field.required=true;field.pattern='^[a-z0-9-]+$';field.description='Short English key for links, e.g. new-memory-study. Keep existing keys unchanged.';return field;}
     if(refTargets[qualified]) {field.type='reference';field.options={collection:refTargets[qualified],multiple:Array.isArray(item),value:'{fields.id}',label:'{primary}'};return field;}
     if(choices[qualified]) {field.type='select';field.options={values:choices[qualified]};if(key==='publicationType') field.default='Journal Article';if(key==='publicationStatus') field.default='Published';if(qualified==='projects.status') field.default='Ongoing';return field;}
@@ -77,6 +85,8 @@ function fields(value,scope){
     else if(longText.has(key)||typeof item==='string'&&item.length>125) field.type='text';
     else field.type='string';
     if(key==='visible') field.description='Turn off to hide this item without deleting it.';
+    if(key==='url'&&['news','awards','gallery'].includes(scope)) field.description='Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created.';
+    if(scope==='projects'&&['description','summary'].includes(key)) field.description='Optional. Include only information beyond the project title; leave blank rather than repeat it.';
     if(key==='featured') field.description='Show this item in a featured area on the home page.';
     if(key==='order'||key==='featuredOrder') field.description='Lower numbers appear first.';
     if(['image','heroImage','thumbnail'].includes(key)) {
@@ -102,7 +112,7 @@ const collection=(name,label,primary)=>{
     const ai=publicationFieldOrder.indexOf(a.name),bi=publicationFieldOrder.indexOf(b.name);
     return (ai<0?999:ai)-(bi<0?999:bi);
   });
-  for(const key of [primary,...({publications:['authors','year'],projects:['program','fundingAgency','personalRole','startDate','status'],patents:['status'],conferences:['conferenceName','year'],gallery:['image','alt'],news:['date'],education:['degree','school']}[name]??[])]){
+  for(const key of [primary,...({publications:['authors','year'],projects:['program','fundingAgency','personalRole','startDate','status'],patents:['status'],conferences:['conferenceName','year'],gallery:['image','alt'],news:['date','type'],education:['degree','school']}[name]??[])]){
     const field=schema.find(item=>item.name===key);
     if(field) field.required=true;
   }

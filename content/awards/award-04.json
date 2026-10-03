@@ -7,5 +7,6 @@
   "visible": true,
   "featured": false,
   "type": "Honor",
-  "organization": "BK21"
+  "organization": "BK21",
+  "englishOrganization": "BK21"
 }

@@ -4,7 +4,7 @@
     "title": "Patents & technology translation.",
     "description": "Registered patents and applications connected to electronic materials and devices."
   },
-  "intro": "Each record lists its legal status, jurisdictions, inventors, and identifier. For multi-jurisdiction applications, a Korean application number identifies the Korean filing only.",
+  "intro": "Patent family lists the jurisdictions; Shown filing identifies the specific application number displayed.",
   "registeredTitle": "Registered patents",
   "applicationsTitle": "Applications"
 }

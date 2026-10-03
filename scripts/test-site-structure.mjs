@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {defaultRoot,loadContent} from './content.mjs';
 import {patentRecordDate} from './components.mjs';
-import {about,conferences,home,projects} from './pages.mjs';
+import {about,activities,conferences,home,projects} from './pages.mjs';
 
 const data=loadContent();
 const html=name=>fs.readFileSync(path.join(defaultRoot,`${name}.html`),'utf8');
@@ -35,6 +35,7 @@ for(const item of data.education) assert.ok(pages.about.includes(item.degree),`e
 assert.ok(!pages.about.includes('id="experience"'),'Duplicate current position should be omitted from About');
 for(const item of data.awards) assert.ok(pages.about.includes(item.title),`honor missing: ${item.id}`);
 for(const item of data.awards) assert.ok(pages.about.includes(`<h3>${item.englishTitle}</h3>`),`English honor title should lead: ${item.id}`);
+for(const item of data.awards) assert.ok(pages.about.includes(`${item.englishOrganization} · ${item.type}`),`English honor organization should appear first: ${item.id}`);
 assert.ok(!pages.about.includes('class="award-year"'),'About should list honors without year headings');
 for(const item of data.awards) assert.ok(pages.about.includes(`class="award-entry" id="${item.id}"`),`honor should remain directly linkable: ${item.id}`);
 assert.ok(pages.about.indexOf('id="education"')<pages.about.indexOf('id="recognition"'),'About section order is incorrect');
@@ -47,6 +48,10 @@ for(const item of data.projects) {
   const html=section==='ongoing'?pages.projects.split('id="ongoing"')[1].split('id="completed"')[0]:pages.projects.split('id="completed"')[1];
   assert.ok(html.includes(`id="${item.id}"`),`project in wrong status section: ${item.id}`);
 }
+for(const id of ['photonic-skin','flexible-fpcb','ald-electrodes-industry']) {
+  const entry=pages.projects.split(`id="${id}"`)[1].split('</article>')[0];
+  assert.ok(!entry.includes('project-summary'),`title-repeating project summary remains: ${id}`);
+}
 for(const item of data.patents) {
   assert.ok(pages.patents.includes(`id="${item.id}"`),`patent missing: ${item.id}`);
   assert.ok(item.applicationNumber||item.registrationNumber,`patent identifier missing: ${item.id}`);
@@ -54,6 +59,7 @@ for(const item of data.patents) {
 }
 assert.ok(pages.patents.includes('10-2024-0060762'));
 assert.ok(pages.patents.includes('MIM 커패시터'));
+assert.ok(pages.patents.includes('<dt>Patent family</dt><dd>US · CN · TW</dd>')&&pages.patents.includes('<dt>Shown filing</dt><dd>US 19/002,282</dd>'),'Patent family and shown filing need distinct labels and consistent number display');
 for(const status of ['all','registered','application']) assert.ok(pages.patents.includes(`data-patent-filter="${status}"`));
 assert.equal((pages.patents.match(/class="output-entry patent-entry"/g)||[]).length,8);
 assert.ok(!pages.patents.includes('class="output-year"')&&!pages.patents.includes('data-patent-year'),'Patents should be one continuous list');
@@ -72,10 +78,17 @@ assert.ok(!conferenceSample.includes('class="output-year"'),'Populated Conferenc
 const featuredAwards=data.awards.filter(item=>item.visible!==false&&item.featured);
 if(featuredAwards.length) {
   for(const item of featuredAwards) {
-    assert.ok(pages.activities.includes(`about.html#${item.id}`),`featured award missing from Activities: ${item.id}`);
-    assert.ok(pages.index.includes(`about.html#${item.id}`),`featured award missing from Home: ${item.id}`);
+    assert.ok(pages.activities.includes(item.englishTitle)&&pages.index.includes(item.englishTitle),`featured award missing: ${item.id}`);
+    assert.ok(!pages.activities.includes(`href="about.html#${item.id}"`)&&!pages.index.includes(`href="about.html#${item.id}"`),`unlinked award should not fall back to About: ${item.id}`);
   }
-} else assert.ok(pages.activities.includes(data.pages.activities.newsEmpty));
+}
+const linkedActivity={id:'test-linked',title:'Linked activity',date:'2027-01-01',type:'News',url:'https://example.org/article',visible:true,featured:true};
+const staticActivity={id:'test-static',title:'Static activity',date:'2027-01-02',type:'Media',url:'#',visible:true,featured:true};
+const activityData={...data,news:[linkedActivity,staticActivity]};
+for(const output of [home(activityData),activities(activityData)]) {
+  assert.ok(output.includes('<a href="https://example.org/article">Linked activity</a>'),'real activity URL should be clickable');
+  assert.ok(output.includes('<h3>Static activity</h3>')&&!output.includes('href="#"'),'missing/dummy activity URL should remain static');
+}
 assert.ok(!pages.activities.includes('id="gallery"'),'Gallery should be hidden until an image is provided');
 assert.equal((pages.index.match(/class="featured-work"/g)||[]).length,3,'Home should show three featured papers');
 const featuredHtml=pages.index.split('id="featured"')[1].split('</section>')[0];
@@ -86,6 +99,7 @@ assert.ok(!pages.index.includes('ADD VERIFIED RESEARCH FIGURE'),'Missing feature
 const memorySection=pages.research.split('id="memory"')[1].split('</section>')[0];
 assert.ok(memorySection.indexOf('paper-22')<memorySection.indexOf('paper-02'),'Accepted memory paper should lead representative work');
 assert.ok(pages.research.includes('Toward integrated electronic systems'),'Integration must be marked as a future direction');
+assert.ok(pages.index.includes('Toward integrated electronic systems'),'Home long-term direction should match Research');
 assert.ok(!pages.index.includes('PORTFOLIO / 2026'));
 const hiddenFeatured=home({...data,pages:{...data.pages,home:{...data.pages.home,featured:{...data.pages.home.featured,visible:false}}}});
 assert.ok(!hiddenFeatured.includes('id="featured"')&&!hiddenFeatured.includes('href="#featured"'),'Hidden featured section should not leave a dead hero link');

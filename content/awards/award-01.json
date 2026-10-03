@@ -7,5 +7,6 @@
   "visible": true,
   "featured": true,
   "type": "Award",
-  "organization": "고려대학교 공과대학"
+  "organization": "고려대학교 공과대학",
+  "englishOrganization": "College of Engineering, Korea University"
 }

@@ -40,6 +40,11 @@ const editorFields=name=>editors.find(item=>item.name===name).fields;
 for(const [name,keys] of Object.entries({research:['image','alt','caption','imagePosition','whatIControl','whatIMeasure','whyItMatters'],publications:['image','imageAlt','imageCaption','imagePosition'],projects:['image','imageAlt','imageCaption','imagePosition'],news:['thumbnail','thumbnailAlt','thumbnailCaption','thumbnailPosition','type'],gallery:['image','alt','caption','imagePosition','date','category','url']}))
   for(const key of keys) assert.ok(editorFields(name).some(field=>field.name===key),`${name} image/content editor missing ${key}`);
 assert.ok(editorFields('news').find(field=>field.name==='type').options.values.includes('Video'),'Activities need a video category');
+assert.equal(editorFields('news').find(field=>field.name==='type').label,'Category');
+assert.equal(editorFields('news').find(field=>field.name==='type').required,true);
+for(const name of ['news','awards','gallery']) assert.notEqual(editorFields(name).find(field=>field.name==='url').required,true,`${name} URL must be optional`);
+assert.ok(editorFields('awards').some(field=>field.name==='englishOrganization'),'English award organization must remain CMS-editable');
+for(const key of ['description','summary']) assert.notEqual(projectFields.find(field=>field.name===key)?.required,true,`project ${key} must be optional`);
 assert.ok(editorFields('profile').some(field=>field.name==='heroImagePosition'),'Home hero crop focus missing');
 const researchHero=editorFields('research-page').find(field=>field.name==='hero').fields;
 for(const key of ['image','alt','caption','imagePosition']) assert.ok(researchHero.some(field=>field.name===key),`Research hero editor missing ${key}`);
@@ -80,6 +85,10 @@ try{
   assert.ok(html.projects.includes('project-science')&&html.projects.includes('object-position:right'),'Project image should follow CMS fields');
   assert.ok(html.activities.includes('id="gallery"')&&html.activities.includes('CMS test gallery')&&html.activities.includes('https://example.com/gallery'),'Gallery should appear from CMS data');
   assert.ok(html.activities.includes('CMS test activity caption')&&html.activities.includes('object-position:right'),'Activities should render CMS thumbnail caption and crop focus');
+  assert.ok(html.activities.includes('<h3>CMS test news</h3>')&&html.index.includes('<h3>CMS test news</h3>'),'Activity with no URL should stay static in both locations');
+  const linkedNews=JSON.parse(fs.readFileSync(path.join(content,'news','cms-test-news.json'),'utf8'));
+  linkedNews.url='https://example.org/article';write('news','cms-test-news',linkedNews);html=build();
+  assert.ok(html.activities.includes('<a href="https://example.org/article">CMS test news</a>')&&html.index.includes('<a href="https://example.org/article">CMS test news</a>'),'A CMS URL should activate both activity links');
   assert.ok(html.publications.includes('href="conferences.html"'),'Conferences tab should reappear when CMS has a record');
   assert.ok(html.projects.split('id="ongoing"')[1].split('id="completed"')[0].includes('CMS 신규 과제'),'minimal project should appear among ongoing projects');
   assert.ok(html.projects.includes('2027.01 – Present'),'project period should derive from CMS dates');

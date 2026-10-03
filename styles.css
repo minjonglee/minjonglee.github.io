@@ -71,7 +71,7 @@ main:focus { outline:none; }
 .hero-focus { display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:690px; margin-top:30px; }
 .hero-focus>div { border-top:1px solid var(--line); padding-top:13px; }
 .hero-focus dt { color:var(--muted); font-size:11px; }
-.hero-focus dd { margin:5px 0 0; font-family:var(--serif); font-size:18px; line-height:1.35; }
+.hero-focus dd { margin:5px 0 0; font-family:var(--serif); font-size:18px; line-height:1.35; overflow-wrap:anywhere; }
 .home-affiliation { font-size:13px; color:var(--muted); margin-top:25px; }
 .home-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px 31px; margin-top:29px; }
 .home-actions .text-link { font-size:14px; }
@@ -107,7 +107,8 @@ main:focus { outline:none; }
 .home-activity-list { border-top:1px solid var(--ink); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; }
 .home-activity-list article { padding-top:20px; }
 .home-activity-list article p,.home-activity-empty { color:var(--muted); font-size:13px; }
-.home-activity-list h3 { font-family:var(--serif); font-size:23px; font-weight:400; margin-top:8px; }
+.activity-category { display:inline-block; border:1px solid var(--line); color:var(--accent); font-size:10px; font-weight:600; line-height:1.4; letter-spacing:.02em; padding:2px 6px; margin-right:9px; vertical-align:baseline; }
+.home-activity-list h3 { font-family:var(--serif); font-size:23px; font-weight:400; margin-top:8px; overflow-wrap:anywhere; }
 .home-activity-list h3 a { text-decoration:none; }
 .portrait { aspect-ratio:3/4; width:100%; max-width:354px; }
 .portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
@@ -141,7 +142,7 @@ main:focus { outline:none; }
 .research-area { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.2fr); gap:85px; border-bottom:1px solid var(--line); }
 .research-area-heading h2 { font-size:clamp(32px,3vw,42px); }
 .research-area-heading .scientific-visual { margin-top:28px; }
-.research-area-heading .scientific-visual img { aspect-ratio:4/3; object-fit:cover; }
+.research-area-heading .scientific-visual img { aspect-ratio:4/3; object-fit:contain; }
 .research-area-body { max-width:720px; }
 .research-area-body h3 { font-family:var(--serif); font-size:28px; font-weight:400; line-height:1.4; margin-bottom:23px; }
 .research-question-label { color:var(--accent); font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; margin-bottom:7px; }
@@ -231,8 +232,11 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .patent-entry .output-title { margin:0 0 6px; }
 .patent-original { color:var(--muted); font-size:12px; line-height:1.6; margin-bottom:5px; overflow-wrap:anywhere; word-break:keep-all; }
 .patent-metadata { color:var(--accent); font-size:12px; font-weight:600; line-height:1.6; margin-top:9px; overflow-wrap:anywhere; }
-.patent-family,.patent-extra { color:var(--muted); font-size:11px; line-height:1.65; margin-top:5px; }
-.patent-family span { color:var(--ink); font-weight:600; margin-left:12px; }.patent-family span:first-child { margin-left:0; }
+.patent-family { display:flex; flex-wrap:wrap; gap:7px 24px; color:var(--muted); font-size:11px; line-height:1.55; margin-top:9px; }
+.patent-family>div { display:flex; flex-wrap:wrap; gap:4px 8px; min-width:0; }
+.patent-family dt { color:var(--ink); font-weight:600; }
+.patent-family dd { overflow-wrap:anywhere; }
+.patent-extra { color:var(--muted); font-size:11px; line-height:1.65; margin-top:5px; }
 .output-empty { color:var(--muted); font-size:14px; padding:35px 0; }
 .conference-details { display:flex; flex-wrap:wrap; align-items:center; gap:8px 17px; color:var(--muted); font-size:12px; margin-top:13px; }
 
@@ -284,7 +288,7 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .news-item img { width:100%; aspect-ratio:8/5; object-fit:cover; }
 .news-item figcaption { color:var(--muted); font-size:11px; line-height:1.5; margin-top:7px; }
 .news-meta { color:var(--accent); font-size:11px; font-weight:600; }
-.news-item h3 { font-family:var(--serif); font-size:23px; font-weight:400; margin-top:5px; }
+.news-item h3 { font-family:var(--serif); font-size:23px; font-weight:400; margin-top:5px; overflow-wrap:anywhere; }
 .news-item h3 a { text-decoration:none; }
 .news-item>div>p:last-child:not(.news-meta) { color:var(--muted); font-size:13px; margin-top:8px; }
 .activities-gallery .section-intro { margin:12px 0 0; }
