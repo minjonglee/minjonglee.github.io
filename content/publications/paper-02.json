@@ -16,7 +16,7 @@
     "interfaces"
   ],
   "featured": true,
-  "featuredOrder": 1,
+  "featuredOrder": 2,
   "featuredTitle": "Molecular control of synaptic response",
   "featuredContribution": "Hydrogen-bond-driven artificial synapses improve linearity and symmetry for neuromorphic computing.",
   "featuredProject": "hydrogen-bonded-memory",

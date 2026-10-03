@@ -16,6 +16,7 @@
   "heroImage": "/assets/concept-device-layers.jpg",
   "heroImageAlt": "Concept illustration of a layered electronic device and its interface",
   "heroImageCaption": "Concept illustration",
+  "heroImagePosition": "center",
   "cv": "/assets/min-jong-lee-cv.pdf",
   "updated": "October 3, 2026",
   "bio": "My research began with organic and hybrid optoelectronics, where molecular contacts, thin-film electrodes, and interfacial defects affect charge transport. My first-author work has progressed from photovoltaic and capacitor devices to optoelectronic memory and artificial synapses, expanding my research from interface engineering toward emerging memory.",

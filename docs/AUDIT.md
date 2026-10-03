@@ -1,5 +1,7 @@
 # Repository audit and redesign decisions
 
+This is a historical audit from September 2026. For the current site architecture and Pages CMS workflow, see `README.md`.
+
 Audit performed before implementation, September 25, 2026.
 
 ## Original site

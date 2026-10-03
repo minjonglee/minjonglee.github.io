@@ -9,6 +9,9 @@
   "title": "Interfacial & Nonequilibrium Physics",
   "subtitle": "Molecular interfaces, defects & ionic dynamics",
   "question": "How do molecular-scale interfaces and defects reshape electronic and ionic energy landscapes?",
+  "whatIControl": "Molecular contacts · thin-film interfaces · defect environments",
+  "whatIMeasure": "Charge transport · trap behavior · state-formation dynamics",
+  "whyItMatters": "Interfacial physics links material chemistry to device behavior and reliability.",
   "summary": "Molecular contacts and local defects set the conditions for transport. I connect interface engineering in optoelectronics with trap control and ionic dynamics in emerging memory.",
   "motivation": "An electronic device is often governed by a small fraction of its material: the interface, the defect, or the pathway an ion can access. Understanding these local environments offers a route from chemical structure to device function.",
   "current": "Current work investigates state-formation dynamics and low-frequency noise to study the precision limits of ion-migration-controlled multilevel memristors. This is an active research question, with outcomes still to be established.",
@@ -52,5 +55,9 @@
       "href": "publications.html"
     }
   ],
-  "showPapers": false
+  "showPapers": true,
+  "selectedPapers": [
+    "paper-05",
+    "paper-03"
+  ]
 }

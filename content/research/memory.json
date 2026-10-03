@@ -9,6 +9,9 @@
   "title": "Adaptive & Reliable Memory Devices",
   "subtitle": "Resistive, capacitive & emerging memory",
   "question": "How can interfacial and defect physics be used to understand and control memory variability and reliability?",
+  "whatIControl": "Interface chemistry · defect landscape · ionic pathways",
+  "whatIMeasure": "DC and pulse switching · low-frequency noise · retention · endurance · variability",
+  "whyItMatters": "Precision and reliability in multilevel memory and analog synaptic states.",
   "summary": "Memory depends on how a device changes state and how well it holds that state. My work links molecular and interfacial control to synaptic devices, optoelectronic memristors, and capacitor platforms.",
   "motivation": "Variability can limit precision and reliability in memory devices. Understanding the roles of interfaces, defects, and ionic motion can help explain how device states form and change.",
   "current": "My current focus includes low-power switching, variability, and reliability in memristors. Earlier work also includes MIM capacitors, dielectric and electrode interfaces, leakage control, and thin-film stack integration.",
@@ -58,6 +61,7 @@
   ],
   "showPapers": true,
   "selectedPapers": [
+    "paper-22",
     "paper-02",
     "paper-03"
   ]

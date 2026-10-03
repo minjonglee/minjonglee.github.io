@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {defaultRoot,loadContent} from './content.mjs';
 import {patentRecordDate} from './components.mjs';
-import {conferences} from './pages.mjs';
+import {about,conferences,home,projects} from './pages.mjs';
 
 const data=loadContent();
 const html=name=>fs.readFileSync(path.join(defaultRoot,`${name}.html`),'utf8');
@@ -17,12 +17,14 @@ for(const [name,page] of Object.entries(pages)) {
   assert.equal((nav.match(/<a\b/g)||[]).length,5,`${name}: unexpected primary navigation item`);
   assert.ok(page.includes('id="contact"'),`${name}: footer contact missing`);
 }
-for(const [name,links] of [['research',['research.html','projects.html']],['projects',['research.html','projects.html']],['publications',['publications.html','patents.html','conferences.html']],['patents',['publications.html','patents.html','conferences.html']],['conferences',['publications.html','patents.html','conferences.html']]]) {
+for(const [name,links] of [['research',['research.html','projects.html']],['projects',['research.html','projects.html']],['publications',['publications.html','patents.html']],['patents',['publications.html','patents.html']]]) {
   const tabs=pages[name].match(/<nav class="section-tabs shell"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
   assert.ok(tabs,`${name}: secondary tabs missing`);
   for(const href of links) assert.ok(tabs.includes(`href="${href}"`),`${name}: ${href} tab missing`);
   assert.ok(tabs.includes(`href="${name}.html" aria-current="page"`),`${name}: current tab not marked`);
 }
+assert.ok(!pages.publications.includes('href="conferences.html"')&&!pages.patents.includes('href="conferences.html"'),'Empty Conferences tab should be hidden');
+assert.ok(pages.conferences.includes('http-equiv="refresh"')&&pages.conferences.includes('url=publications.html'),'Empty Conferences URL should redirect to Publications');
 assert.equal(data.education.length,2);
 assert.equal(data.experience.length,1);
 assert.equal(data.awards.length,6);
@@ -30,11 +32,12 @@ assert.equal(data.projects.length,9);
 assert.equal(new Set(data.projects.map(item=>item.title.trim().toLocaleLowerCase())).size,data.projects.length,'duplicate project titles');
 assert.equal(data.patents.length,8);
 for(const item of data.education) assert.ok(pages.about.includes(item.degree),`education missing: ${item.id}`);
-for(const item of data.experience) assert.ok(pages.about.includes(item.title),`experience missing: ${item.id}`);
+assert.ok(!pages.about.includes('id="experience"'),'Duplicate current position should be omitted from About');
 for(const item of data.awards) assert.ok(pages.about.includes(item.title),`honor missing: ${item.id}`);
+for(const item of data.awards) assert.ok(pages.about.includes(`<h3>${item.englishTitle}</h3>`),`English honor title should lead: ${item.id}`);
 assert.ok(!pages.about.includes('class="award-year"'),'About should list honors without year headings');
 for(const item of data.awards) assert.ok(pages.about.includes(`class="award-entry" id="${item.id}"`),`honor should remain directly linkable: ${item.id}`);
-assert.ok(pages.about.indexOf('id="education"')<pages.about.indexOf('id="experience"')&&pages.about.indexOf('id="experience"')<pages.about.indexOf('id="recognition"'),'About section order is incorrect');
+assert.ok(pages.about.indexOf('id="education"')<pages.about.indexOf('id="recognition"'),'About section order is incorrect');
 const sortedAwards=[...data.awards].sort((a,b)=>Number(b.year)-Number(a.year)||Number(a.order??999)-Number(b.order??999));
 assert.deepEqual([...pages.about.matchAll(/class="award-entry" id="([^"]+)"/g)].map(match=>match[1]),sortedAwards.map(item=>item.id),'About honors order is incorrect');
 for(const item of data.projects) assert.ok(pages.projects.includes(`id="${item.id}"`)||pages.projects.includes(item.title),`project missing: ${item.id}`);
@@ -57,7 +60,6 @@ assert.ok(!pages.patents.includes('class="output-year"')&&!pages.patents.include
 const patentIds=[...pages.patents.matchAll(/class="output-entry patent-entry" id="([^"]+)"/g)].map(match=>match[1]);
 const expectedPatentIds=[...data.patents].sort((a,b)=>String(patentRecordDate(b)).localeCompare(String(patentRecordDate(a)))||Number(a.order??999)-Number(b.order??999)).map(item=>item.id);
 assert.deepEqual(patentIds,expectedPatentIds,'Patents should be sorted by representative date');
-assert.ok(pages.conferences.includes(data.pages.conferences.empty));
 assert.ok(!pages.conferences.includes('class="output-entry conference-entry"'));
 assert.ok(!pages.conferences.includes('class="output-year"'),'Conferences should not have year headings');
 const conferenceSample=conferences({...data,conferences:[
@@ -74,6 +76,19 @@ if(featuredAwards.length) {
     assert.ok(pages.index.includes(`about.html#${item.id}`),`featured award missing from Home: ${item.id}`);
   }
 } else assert.ok(pages.activities.includes(data.pages.activities.newsEmpty));
-assert.ok(pages.activities.includes(data.pages.activities.galleryEmpty));
+assert.ok(!pages.activities.includes('id="gallery"'),'Gallery should be hidden until an image is provided');
+assert.equal((pages.index.match(/class="featured-work"/g)||[]).length,3,'Home should show three featured papers');
+const featuredHtml=pages.index.split('id="featured"')[1].split('</section>')[0];
+const featuredTitles=['paper-22','paper-02','paper-03'].map(id=>data.publications.find(item=>item.id===id).title);
+for(const title of featuredTitles) assert.ok(featuredHtml.includes(title),`featured paper missing: ${title}`);
+assert.ok(featuredTitles.every((title,index)=>index===0||featuredHtml.indexOf(featuredTitles[index-1])<featuredHtml.indexOf(title)),'Featured papers should follow the requested order');
+assert.ok(!pages.index.includes('ADD VERIFIED RESEARCH FIGURE'),'Missing featured image should not produce a placeholder');
+const memorySection=pages.research.split('id="memory"')[1].split('</section>')[0];
+assert.ok(memorySection.indexOf('paper-22')<memorySection.indexOf('paper-02'),'Accepted memory paper should lead representative work');
+assert.ok(pages.research.includes('Toward integrated electronic systems'),'Integration must be marked as a future direction');
 assert.ok(!pages.index.includes('PORTFOLIO / 2026'));
+const hiddenFeatured=home({...data,pages:{...data.pages,home:{...data.pages.home,featured:{...data.pages.home.featured,visible:false}}}});
+assert.ok(!hiddenFeatured.includes('id="featured"')&&!hiddenFeatured.includes('href="#featured"'),'Hidden featured section should not leave a dead hero link');
+assert.ok(!projects({...data,projects:data.projects.filter(item=>item.status==='Ongoing')}).includes('id="completed"'),'Empty project groups should be omitted');
+assert.ok(!about({...data,awards:[]}).includes('id="recognition"'),'Empty honors section should be omitted');
 console.log('Navigation, secondary tabs, migrated records, patent filters, and empty-state content checks passed.');

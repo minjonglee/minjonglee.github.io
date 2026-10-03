@@ -7,6 +7,7 @@
   "ongoingTitle": "Ongoing Projects",
   "completedTitle": "Completed Projects",
   "caseStudiesTitle": "Research case studies",
+  "caseStudiesVisible": true,
   "emptyOngoing": "No ongoing projects are listed.",
   "emptyCompleted": "No completed projects are listed.",
   "note": "Dates above are official program periods; they do not indicate the full length of individual participation.",

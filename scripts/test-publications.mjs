@@ -63,6 +63,9 @@ assert.equal(current.publications.find(p=>p.id==='paper-22').publicationStatus,'
 assert.equal(current.publications.find(p=>p.id==='paper-07').articleNumber,'e74660');
 assert.equal((page.match(/class="publication-item"/g)||[]).length,visiblePapers.length);
 assert.ok(!page.includes('id="paper-01"')&&!page.includes('Chiral Neuromorphic Memory IC'));
+const acceptedRow=page.split('id="paper-22"')[1].split('</article>')[0];
+assert.ok(acceptedRow.includes('Accepted')&&!acceptedRow.includes('class="publication-doi"'),'Accepted paper needs status without an invented DOI link');
+assert.ok(acceptedRow.includes('publication-author-role')&&acceptedRow.includes('<strong>Min Jong Lee</strong>'),'First author and name should be visible');
 assert.ok(!page.includes('publication-manuscripts')&&!page.includes('A manuscript in revision'));
 assert.ok(page.indexOf('>2026</h2>')<page.indexOf('>2025</h2>'));
 assert.ok(page.includes('id="publication-search"')&&page.includes('id="publication-year-filter"'));

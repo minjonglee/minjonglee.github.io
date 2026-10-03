@@ -1,5 +1,7 @@
 # Validation record
 
+This is a historical validation record from September 2026. For the current Pages CMS build and test commands, see `README.md`.
+
 September 27, 2026. Local static server; Microsoft Edge Chromium via Playwright.
 
 ## Final site-wide pass

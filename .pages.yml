@@ -301,6 +301,13 @@
               "type": "object",
               "fields": [
                 {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
+                {
                   "name": "title",
                   "label": "Title",
                   "type": "string"
@@ -328,6 +335,13 @@
               "type": "object",
               "fields": [
                 {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
+                {
                   "name": "title",
                   "label": "Title",
                   "type": "string"
@@ -345,6 +359,13 @@
               "label": "Activities",
               "type": "object",
               "fields": [
+                {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
                 {
                   "name": "title",
                   "label": "Title",
@@ -551,17 +572,34 @@
               "options": {
                 "media": "images"
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption."
+              "description": "Upload an image you may publish. Recommended: 1600 × 1200 px (4:3). Fill in alternative text; caption and crop position are optional."
             },
             {
               "name": "heroImageAlt",
               "label": "Home hero image alternative text",
-              "type": "string"
+              "type": "string",
+              "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
               "name": "heroImageCaption",
               "label": "Hero Image Caption",
               "type": "string"
+            },
+            {
+              "name": "heroImagePosition",
+              "label": "Home hero crop focus",
+              "type": "select",
+              "options": {
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              },
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             },
             {
               "name": "cv",
@@ -1104,12 +1142,13 @@
               "options": {
                 "media": "images"
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption."
+              "description": "Upload an image you may publish. Recommended: 1200 × 900 px (4:3). Fill in alternative text; caption and crop position are optional."
             },
             {
               "name": "alt",
               "label": "Image alternative text",
-              "type": "string"
+              "type": "string",
+              "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
               "name": "caption",
@@ -1125,6 +1164,21 @@
               "name": "question",
               "label": "Question",
               "type": "text"
+            },
+            {
+              "name": "whatIControl",
+              "label": "What I control",
+              "type": "string"
+            },
+            {
+              "name": "whatIMeasure",
+              "label": "What I measure",
+              "type": "string"
+            },
+            {
+              "name": "whyItMatters",
+              "label": "Why it matters",
+              "type": "string"
             },
             {
               "name": "scope",
@@ -1258,6 +1312,16 @@
               "type": "string"
             },
             {
+              "name": "existingFoundation",
+              "label": "Existing research foundation",
+              "type": "string"
+            },
+            {
+              "name": "futureDirections",
+              "label": "Future research directions",
+              "type": "string"
+            },
+            {
               "name": "summary",
               "label": "Summary",
               "type": "text"
@@ -1315,13 +1379,20 @@
               "type": "text"
             },
             {
-              "name": "heroImage",
-              "label": "Home hero image",
-              "type": "image",
+              "name": "imagePosition",
+              "label": "Image crop focus",
+              "type": "select",
               "options": {
-                "media": "images"
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption."
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             },
             {
               "name": "keywords",
@@ -1558,12 +1629,34 @@
               "options": {
                 "media": "images"
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption."
+              "description": "Upload an image you may publish. Recommended: 1600 × 900 px (16:9). Fill in alternative text; caption and crop position are optional."
             },
             {
               "name": "imageAlt",
               "label": "Image alternative text",
+              "type": "string",
+              "description": "Describe the image for readers who cannot see it. Required when an image is present."
+            },
+            {
+              "name": "imageCaption",
+              "label": "Image caption",
               "type": "string"
+            },
+            {
+              "name": "imagePosition",
+              "label": "Image crop focus",
+              "type": "select",
+              "options": {
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              },
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             },
             {
               "name": "externalUrl",
@@ -1716,6 +1809,11 @@
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "hypothesis",
+              "label": "Hypothesis",
+              "type": "string"
             }
           ]
         },
@@ -1745,6 +1843,42 @@
                   "name": "description",
                   "label": "Description",
                   "type": "text"
+                },
+                {
+                  "name": "image",
+                  "label": "Research or article image",
+                  "type": "image",
+                  "options": {
+                    "media": "images"
+                  },
+                  "description": "Upload an image you may publish. Recommended: 1600 × 900 px (16:9). Fill in alternative text; caption and crop position are optional."
+                },
+                {
+                  "name": "alt",
+                  "label": "Image alternative text",
+                  "type": "string",
+                  "description": "Describe the image for readers who cannot see it. Required when an image is present."
+                },
+                {
+                  "name": "caption",
+                  "label": "Image caption",
+                  "type": "string"
+                },
+                {
+                  "name": "imagePosition",
+                  "label": "Image crop focus",
+                  "type": "select",
+                  "options": {
+                    "values": [
+                      "center",
+                      "top",
+                      "bottom",
+                      "left",
+                      "right"
+                    ]
+                  },
+                  "default": "center",
+                  "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
                 }
               ]
             },
@@ -1753,6 +1887,13 @@
               "label": "Map",
               "type": "object",
               "fields": [
+                {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
                 {
                   "name": "ariaLabel",
                   "label": "Aria Label",
@@ -1841,6 +1982,11 @@
               "name": "caseStudiesTitle",
               "label": "Case Studies Title",
               "type": "string"
+            },
+            {
+              "name": "caseStudiesVisible",
+              "label": "Show research case studies",
+              "type": "boolean"
             },
             {
               "name": "emptyOngoing",
@@ -2277,16 +2423,17 @@
               "options": {
                 "media": "images"
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption."
+              "description": "Upload an image you may publish. Recommended: 1600 × 1000 px (8:5). Fill in alternative text; caption and crop position are optional."
             },
             {
               "name": "imageAlt",
               "label": "Image alternative text",
-              "type": "string"
+              "type": "string",
+              "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
               "name": "imageCaption",
-              "label": "Image Caption",
+              "label": "Image caption",
               "type": "string"
             },
             {
@@ -2330,6 +2477,22 @@
               "name": "doiSource",
               "label": "Doi Source",
               "type": "string"
+            },
+            {
+              "name": "imagePosition",
+              "label": "Image crop focus",
+              "type": "select",
+              "options": {
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              },
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             }
           ]
         },
@@ -2829,8 +2992,14 @@
               "type": "select",
               "options": {
                 "values": [
+                  "Award",
                   "News",
-                  "Media Coverage",
+                  "Media",
+                  "Journal cover",
+                  "Research highlight",
+                  "Video",
+                  "Conference",
+                  "Academic activity",
                   "Press Release",
                   "Interview",
                   "Announcement"
@@ -2858,12 +3027,35 @@
               "type": "image",
               "options": {
                 "media": "images"
-              }
+              },
+              "description": "Upload an image you may publish. Recommended: 1600 × 1000 px (8:5). Fill in alternative text; caption and crop position are optional."
             },
             {
               "name": "thumbnailAlt",
               "label": "Thumbnail alternative text",
+              "type": "string",
+              "description": "Describe the image for readers who cannot see it. Required when an image is present."
+            },
+            {
+              "name": "thumbnailCaption",
+              "label": "Thumbnail caption",
               "type": "string"
+            },
+            {
+              "name": "thumbnailPosition",
+              "label": "Thumbnail crop focus",
+              "type": "select",
+              "options": {
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              },
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             },
             {
               "name": "featured",
@@ -2952,19 +3144,36 @@
               "options": {
                 "media": "images"
               },
-              "description": "Upload an authorized research image; also fill in the alternative text and caption.",
+              "description": "Upload an image you may publish. Recommended: 1200 × 900 px (4:3). Fill in alternative text; caption and crop position are optional.",
               "required": true
             },
             {
               "name": "alt",
               "label": "Image alternative text",
               "type": "string",
+              "description": "Describe the image for readers who cannot see it. Required when an image is present.",
               "required": true
             },
             {
               "name": "caption",
               "label": "Image caption",
               "type": "string"
+            },
+            {
+              "name": "imagePosition",
+              "label": "Image crop focus",
+              "type": "select",
+              "options": {
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              },
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             },
             {
               "name": "location",
@@ -2979,6 +3188,11 @@
             {
               "name": "date",
               "label": "Date",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "label": "External URL",
               "type": "string"
             },
             {

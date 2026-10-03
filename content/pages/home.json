@@ -3,7 +3,7 @@
     "line1": "Interface & device physics",
     "line2Prefix": "for ",
     "accent": "emerging electronics.",
-    "deck": "I study interfaces, defects, ionic motion, and charge transport in emerging electronic devices. My research spans memory, optoelectronic, and flexible electronic platforms.",
+    "deck": "I study how interfaces, defects, and ionic dynamics govern charge transport, state formation, and reliability in emerging electronic devices. My work spans memristive electronics, optoelectronic devices, and flexible electronic platforms.",
     "focusCurrentLabel": "Current focus",
     "focusCurrent": "Emerging memory · Device reliability",
     "focusFutureLabel": "Long-term direction",
@@ -29,16 +29,19 @@
     ]
   },
   "research": {
+    "visible": true,
     "title": "Research",
     "moreLabel": "Research in depth",
     "coreLabel": "Core science",
     "futureLabel": "Long-term direction"
   },
   "featured": {
+    "visible": true,
     "title": "Featured work",
     "moreLabel": "All publications"
   },
   "activities": {
+    "visible": true,
     "title": "Activities",
     "moreLabel": "News & gallery",
     "empty": "Verified news and research photographs will appear here as they become available."

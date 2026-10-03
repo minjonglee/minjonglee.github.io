@@ -5,7 +5,7 @@ The six `assets/concept-*.jpg` images were generated with the built-in imagegen 
 | Asset | Current use | Prompt subject |
 |---|---|---|
 | `concept-device-layers.jpg` | Home hero | Layered emerging electronic device with electrode, functional layer, thin interface, substrate, and restrained blue charge motifs |
-| `concept-molecular-interface.jpg` | Research: interfaces; featured paper on molecular contacts | Ordered molecular self-assembled interface between a thin contact and organic/hybrid semiconductor |
+| `concept-molecular-interface.jpg` | Research: interfaces | Ordered molecular self-assembled interface between a thin contact and organic/hybrid semiconductor |
 | `concept-memory-switching.jpg` | Research: memory; featured paper on synaptic response | Layered memristive device with subtle ion pathways and defect sites |
 | `concept-trap-engineered-memory.jpg` | Featured paper on trap reduction | Optoelectronic memristor stack with an ultra-thin intermediate layer, incident light, and subtle charge/defect motifs |
 | `concept-optoelectronic-stack.jpg` | Research: optoelectronics | Hybrid optoelectronic thin-film stack receiving soft incident light |
@@ -17,8 +17,8 @@ All six prompts requested a high-resolution 4:3 editorial scientific concept ill
 
 ## Replacing an illustration with verified research imagery
 
-1. Add the image to `assets/` after checking publication/reuse rights.
-2. In `content.js`, update the relevant `image`, `imageAlt`, and `imageCaption`. The same asset may be used in more than one section. Use a caption that accurately describes the actual source; remove “Concept illustration” when it no longer applies.
-3. Run `node scripts/build.mjs` and `node scripts/check.mjs`.
+1. In Pages CMS, open **About → Profile** for the Home hero, **Research → Research page text** for the Research hero, or the relevant Research Area or Publication record for other figures. Upload a cleared image. The same asset may be used in more than one record.
+2. Add alternative text, an accurate optional caption, and adjust the crop focus if needed. Remove “Concept illustration” from the caption when the image is an actual research figure.
+3. Pages CMS commits the content change; GitHub Pages rebuilds the site. For local edits, run `node scripts/build.mjs` and `node scripts/check.mjs`.
 
 The Activities gallery is reserved for authentic event photographs with verified captions and remains empty.

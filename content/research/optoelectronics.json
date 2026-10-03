@@ -20,6 +20,9 @@
   "homeDescription": "Molecular contacts, photovoltaic devices, and photodetectors.",
   "featured": true,
   "question": "How do contacts and traps shape light conversion and detection?",
+  "whatIControl": "Self-assembled contacts · thin-film electrodes · charge-selective interfaces",
+  "whatIMeasure": "Interface energetics · charge transport · optoelectronic response",
+  "whyItMatters": "More efficient and stable light conversion and detection in organic and hybrid devices.",
   "paragraphs": [
     {
       "label": "",

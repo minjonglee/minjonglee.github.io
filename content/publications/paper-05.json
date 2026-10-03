@@ -13,7 +13,7 @@
     "interfaces",
     "opto"
   ],
-  "featured": true,
+  "featured": false,
   "doi": "10.1016/j.cej.2023.148481",
   "doiSource": "https://api.crossref.org/works/10.1016/j.cej.2023.148481",
   "featuredOrder": 3,
