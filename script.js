@@ -83,7 +83,7 @@
     const openHashEntry = () => {
       const id = decodeURIComponent(location.hash.slice(1));
       const entry = id && document.getElementById(id);
-      if (entry?.matches('details.activity-entry')) {
+      if (entry && entry.matches('details.activity-entry')) {
         activityButtons[0].click();
         entry.open = true;
       }
