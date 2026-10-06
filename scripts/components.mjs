@@ -105,7 +105,7 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="${e(site.favicon)}">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <script src="script.js?v=20261007-gallery" defer></script>
   <script type="application/ld+json">${JSON.stringify(person).replaceAll('<','\\u003c')}</script>
 ${extraHead}
 </head>

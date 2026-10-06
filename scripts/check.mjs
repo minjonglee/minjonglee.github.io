@@ -21,7 +21,8 @@ for(const [file,html] of documents) {
     const target=match[1];
     if(!target||target==='#'||/^javascript:/i.test(target)) {errors.push(`${file}: empty or dummy link ${target}`);continue;}
     if(/^(https?:|mailto:|data:)/.test(target)) continue;
-    const [pathname,hash]=target.split('#');
+    const [pathAndQuery,hash]=target.split('#');
+    const pathname=pathAndQuery.split('?')[0];
     const destination=pathname||file;
     const absolute=path.resolve(root,destination);
     checkedLinks++;
