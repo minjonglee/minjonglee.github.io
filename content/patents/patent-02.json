@@ -9,6 +9,8 @@
     "OPTOELECTRONICS"
   ],
   "englishTitle": "Multifunctional low-power optoelectronic memristors",
+  "familyId": "optoelectronic-memristor",
+  "familyTitle": "Multifunctional low-power optoelectronic memristors",
   "relatedResearch": "memory",
   "order": 2,
   "visible": true,

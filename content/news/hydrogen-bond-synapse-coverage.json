@@ -1,0 +1,30 @@
+{
+  "id": "hydrogen-bond-synapse-coverage",
+  "title": "Media coverage of hydrogen-bond-engineered artificial synapses",
+  "date": "2025-10-17",
+  "type": "Media",
+  "shortDescription": "Coverage of a first-author study linking hydrogen-bond interface engineering with linear and symmetric artificial synaptic response.",
+  "detailText": "The related research was published in Advanced Materials. Open the individual reports below to read the coverage compiled by the laboratory.",
+  "sourceUrl": "https://shimgrp.korea.ac.kr/notices/%ec%96%b8%eb%a1%a0-%eb%b3%b4%eb%8f%84-%ec%8b%ac%ec%9e%ac%ec%9b%90-%ea%b5%90%ec%88%98%eb%8b%98-%eb%87%8c%ec%b2%98%eb%9f%bc-%ed%95%99%ec%8a%b5%ed%95%98%eb%8a%94-%ec%88%98%ec%86%8c%ea%b2%b0%ed%95%a9/",
+  "relatedPublicationId": "paper-02",
+  "thumbnail": "/assets/schematics/featured-hydrogen-synapse.svg",
+  "thumbnailAlt": "Conceptual hydrogen-bond interface schematic for artificial synapses",
+  "images": [],
+  "mediaLinks": [
+    {"outlet": "Newsis", "url": "https://n.news.naver.com/mnews/article/003/0013541442?sid=102"},
+    {"outlet": "E-Donga", "url": "https://edu.donga.com/news/articleView.html?idxno=96716"},
+    {"outlet": "University Journal", "url": "https://dhnews.co.kr/news/view/1065593239515171"},
+    {"outlet": "Veritas Alpha", "url": "https://www.veritas-a.com/news/articleView.html?idxno=577125"},
+    {"outlet": "Smart Economy", "url": "https://www.dailysmart.co.kr/news/articleView.html?idxno=114664"},
+    {"outlet": "Enews Today", "url": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2341480"},
+    {"outlet": "Industry News", "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=72884"},
+    {"outlet": "Digital Chosun", "url": "https://digitalchosun.dizzo.com/site/data/html_dir/2025/10/17/2025101780163.html"},
+    {"outlet": "NewsTNT", "url": "https://www.newstnt.com/news/articleView.html?idxno=543538"},
+    {"outlet": "Kyosu Newspaper", "url": "https://www.kyosu.net/news/articleView.html?idxno=146505"},
+    {"outlet": "Maeil Ilbo", "url": "https://www.m-i.kr/news/articleView.html?idxno=1292695"},
+    {"outlet": "Lecturer News", "url": "https://www.lecturernews.com/news/articleView.html?idxno=189081"},
+    {"outlet": "Korea University", "url": "https://www.korea.ac.kr/ko/552/subview.do?enc=Zm5jdDF8QEB8JTJGa3VzdG9yeSUyRmtvJTJGYXJ0Y2xWaWV3LmRvJTNGYXJ0Y2xTZXElM0QyODA3NyUyNg%3D%3D"}
+  ],
+  "featured": true,
+  "visible": true
+}

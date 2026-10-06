@@ -1,9 +1,9 @@
 {
   "order": 1,
   "visible": true,
-  "image": "/assets/concept-molecular-interface.jpg",
-  "alt": "Concept illustration of an ordered molecular interface in a thin-film device",
-  "caption": "Concept illustration · not experimental data",
+  "image": "/assets/schematics/research-interfaces.svg",
+  "alt": "Conceptual thin-film interface with marked defects and ionic transport pathways; not experimental data",
+  "caption": "Conceptual schematic",
   "id": "interfaces",
   "number": "01",
   "title": "Interfacial & Nonequilibrium Physics",

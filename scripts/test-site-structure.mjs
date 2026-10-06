@@ -59,14 +59,16 @@ for(const item of data.patents) {
 }
 assert.ok(pages.patents.includes('10-2024-0060762'));
 assert.ok(pages.patents.includes('MIM 커패시터'));
-assert.ok(pages.patents.includes('<dt>Patent family</dt><dd>US · CN · TW</dd>')&&pages.patents.includes('<dt>Shown filing</dt><dd>US 19/002,282</dd>'),'Patent family and shown filing need distinct labels and consistent number display');
+assert.ok(pages.patents.includes('Also listed in CN · TW; filing details are not shown.')&&pages.patents.includes('Application No. 19/002,282'),'Unverified additional filings must stay distinct from the shown patent number');
 for(const status of ['all','registered','application']) assert.ok(pages.patents.includes(`data-patent-filter="${status}"`));
-assert.equal((pages.patents.match(/class="output-entry patent-entry"/g)||[]).length,8);
+assert.ok(pages.patents.includes('id="patent-search"'));
+assert.equal((pages.patents.match(/class="output-entry patent-family-entry"/g)||[]).length,6);
+assert.equal((pages.patents.match(/class="patent-filing" id="patent-/g)||[]).length,8);
 assert.ok(!pages.patents.includes('class="output-year"')&&!pages.patents.includes('data-patent-year'),'Patents should be one continuous list');
-const patentIds=[...pages.patents.matchAll(/class="output-entry patent-entry" id="([^"]+)"/g)].map(match=>match[1]);
-const expectedPatentIds=[...data.patents].sort(bySortDateDesc).map(item=>item.id);
-assert.deepEqual(patentIds,expectedPatentIds,'Patents should be sorted by sortDate');
-assert.deepEqual(patentIds,['patent-01','patent-02','patent-03','patent-04','patent-06','patent-05','patent-07','patent-08'],'Patent migration should preserve the visible order');
+const patentIds=[...pages.patents.matchAll(/class="patent-filing" id="([^"]+)"/g)].map(match=>match[1]);
+assert.deepEqual(patentIds,['patent-01','patent-02','patent-03','patent-04','patent-06','patent-05','patent-07','patent-08'],'Patents should retain descending sort dates within confirmed families');
+assert.equal((pages.patents.match(/>Multifunctional low-power optoelectronic memristors<\/h3>/g)||[]).length,1,'Confirmed KR and US filings should share one family heading');
+assert.equal((pages.patents.match(/>Method of manufacturing semiconductor memory devices<\/h3>/g)||[]).length,1,'Confirmed KR and US memory filings should share one family heading');
 assert.ok(!pages.conferences.includes('class="output-entry conference-entry"'));
 assert.ok(!pages.conferences.includes('class="output-year"'),'Conferences should not have year headings');
 const conferenceSample=conferences({...data,conferences:[
@@ -76,20 +78,19 @@ const conferenceSample=conferences({...data,conferences:[
 ]});
 assert.deepEqual([...conferenceSample.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)].map(match=>match[1]),['newest','recent','older'],'Conferences should sort by sortDate, independent of order');
 assert.ok(!conferenceSample.includes('class="output-year"'),'Populated Conferences should remain a continuous list');
-const featuredAwards=data.awards.filter(item=>item.visible!==false&&item.featured);
-if(featuredAwards.length) {
-  for(const item of featuredAwards) {
-    assert.ok(pages.activities.includes(item.englishTitle)&&pages.index.includes(item.englishTitle),`featured award missing: ${item.id}`);
-    assert.ok(!pages.activities.includes(`href="about.html#${item.id}"`)&&!pages.index.includes(`href="about.html#${item.id}"`),`unlinked award should not fall back to About: ${item.id}`);
-  }
-}
+assert.ok(pages.activities.includes('Activity archive')&&!pages.activities.includes('Selected activities'));
+for(const filter of ['all','awards','research','media']) assert.ok(pages.activities.includes(`data-activity-filter="${filter}"`));
+assert.equal((pages.activities.match(/class="activity-entry"/g)||[]).length,8,'Six verified awards and two media records should appear without duplicate award cards');
+assert.ok(pages.activities.includes('13 coverage links')&&pages.activities.includes('12 coverage links'));
+assert.ok(pages.activities.includes('https://n.news.naver.com/mnews/article/003/0013541442?sid=102'));
+assert.ok(pages.activities.includes('https://www.youtube.com/watch?v=t0I_C4Qzbdk'));
+assert.ok(!pages.activities.includes('shimgrp.korea.ac.kr/notices/'),'Source laboratory links should not appear on the public page');
+assert.ok(pages.index.includes('Outstanding Graduate Research Achievement')&&pages.activities.includes('Outstanding Graduate Research Achievement'));
 const linkedActivity={id:'test-linked',title:'Linked activity',date:'2027-01-01',type:'News',url:'https://example.org/article',visible:true,featured:true};
 const staticActivity={id:'test-static',title:'Static activity',date:'2027-01-02',type:'Media',url:'#',visible:true,featured:true};
 const activityData={...data,news:[linkedActivity,staticActivity]};
-for(const output of [home(activityData),activities(activityData)]) {
-  assert.ok(output.includes('<a href="https://example.org/article">Linked activity</a>'),'real activity URL should be clickable');
-  assert.ok(output.includes('<h3>Static activity</h3>')&&!output.includes('href="#"'),'missing/dummy activity URL should remain static');
-}
+assert.ok(home(activityData).includes('href="activities.html#test-linked"'),'Home activity links should open internal details');
+assert.ok(activities(activityData).includes('href="https://example.org/article"')&&!activities(activityData).includes('href="#"'),'Real external links should appear only inside activity details');
 assert.ok(!pages.activities.includes('id="gallery"'),'Gallery should be hidden until an image is provided');
 assert.equal((pages.index.match(/class="featured-work"/g)||[]).length,3,'Home should show three featured papers');
 const featuredHtml=pages.index.split('id="featured"')[1].split('</section>')[0];
@@ -97,10 +98,16 @@ const featuredTitles=['paper-22','paper-02','paper-03'].map(id=>data.publication
 for(const title of featuredTitles) assert.ok(featuredHtml.includes(title),`featured paper missing: ${title}`);
 assert.ok(featuredTitles.every((title,index)=>index===0||featuredHtml.indexOf(featuredTitles[index-1])<featuredHtml.indexOf(title)),'Featured papers should follow the requested order');
 assert.ok(!pages.index.includes('ADD VERIFIED RESEARCH FIGURE'),'Missing featured image should not produce a placeholder');
+for(const file of ['featured-chiral-synapse.svg','featured-hydrogen-synapse.svg','featured-opto-memory.svg']) assert.ok(featuredHtml.includes(file),`Featured Work needs its distinct ${file} schematic`);
 const memorySection=pages.research.split('id="memory"')[1].split('</section>')[0];
 assert.ok(memorySection.indexOf('paper-22')<memorySection.indexOf('paper-02'),'Accepted memory paper should lead representative work');
 assert.ok(pages.research.includes('Toward integrated electronic systems'),'Integration must be marked as a future direction');
 assert.ok(pages.index.includes('Toward integrated electronic systems'),'Home long-term direction should match Research');
+assert.ok(pages.research.indexOf('Core research')<pages.research.indexOf('Research foundations')&&pages.research.indexOf('Research foundations')<pages.research.indexOf('Future direction'),'Research hierarchy should progress from core to foundations to future');
+assert.ok(pages.projects.includes('class="project-case-inline"')&&!pages.projects.includes('class="section shell project-cases"'),'A single case study should be inside its related project');
+const biography=pages.about.match(/<div class="about-biography">([\s\S]*?)<\/div>/)?.[1]||'';
+assert.equal((biography.match(/<p>/g)||[]).length,2,'Biography should have two paragraphs');
+for(const file of ['featured-hydrogen-synapse.svg','featured-opto-memory.svg']) assert.ok(pages.activities.includes(file),`Media thumbnail missing: ${file}`);
 assert.ok(!pages.index.includes('PORTFOLIO / 2026'));
 const hiddenFeatured=home({...data,pages:{...data.pages,home:{...data.pages.home,featured:{...data.pages.home.featured,visible:false}}}});
 assert.ok(!hiddenFeatured.includes('id="featured"')&&!hiddenFeatured.includes('href="#featured"'),'Hidden featured section should not leave a dead hero link');

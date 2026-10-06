@@ -1,9 +1,9 @@
 {
   "order": 2,
   "visible": true,
-  "image": "/assets/concept-memory-switching.jpg",
-  "alt": "Concept illustration of ion paths in a layered memory device",
-  "caption": "Concept illustration · not experimental data",
+  "image": "/assets/schematics/research-memory.svg",
+  "alt": "Conceptual memory device states and resolvable analog levels; not experimental data",
+  "caption": "Conceptual schematic",
   "id": "memory",
   "number": "02",
   "title": "Adaptive & Reliable Memory Devices",

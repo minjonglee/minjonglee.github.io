@@ -22,7 +22,7 @@ export function loadContent(contentRoot=path.join(defaultRoot,'content')) {
     return fs.readdirSync(dir).filter(file=>file.endsWith('.json')).map(file=>{
       const item=normalize(read(path.join(dir,file)));
       return {...item,id:item.id||path.basename(file,'.json')};
-    }).filter(item=>item.visible!==false).sort(['publications','patents','conferences'].includes(name)?bySortDateDesc:ordered);
+    }).filter(item=>item.visible!==false).sort(['publications','patents','conferences'].includes(name)?bySortDateDesc:name==='news'?(a,b)=>String(b.date||'').localeCompare(String(a.date||''))||a.id.localeCompare(b.id):ordered);
   };
   const site=single('site.json');
   site.seo=Object.fromEntries((site.seoPages??[]).map(entry=>[entry.file,entry]));

@@ -2,10 +2,10 @@
   "hero": {
     "kicker": "Activities",
     "title": "Activities",
-    "description": "Awards, research news, and academic activities."
+    "description": "A chronological archive of awards, research highlights, and media coverage."
   },
-  "newsTitle": "Selected activities",
-  "newsIntro": "",
+  "newsTitle": "Activity archive",
+  "newsIntro": "Awards, research milestones, and coverage of published work.",
   "recognitionTitle": "Awards & academic recognition",
   "fellowshipsTitle": "Scholarships & researcher programs",
   "galleryTitle": "Gallery",

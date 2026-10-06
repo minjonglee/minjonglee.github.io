@@ -16,7 +16,7 @@ for(const before of old){
     assert.ok(!isPublicationVisible(before),`missing published legacy paper ${before.id}`);
     continue;
   }
-  for(const key of ['title','authors','journal','year','doi','status','type','image','imageAlt'])
+  for(const key of ['title','authors','journal','year','doi','status','type'])
     if(key in before) assert.deepEqual(after[key],before[key],`${before.id}: ${key} changed`);
   assert.equal(after.journalName,(before.journal||'').split(' · ')[0]);
 }

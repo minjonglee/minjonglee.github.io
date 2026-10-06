@@ -9,9 +9,9 @@ This is a static HTML, CSS, and JavaScript site. The editable source is JSON in 
 | Main menu | Page | Contents |
 |---|---|---|
 | About | `about.html` | Portrait, biography, education, and honors; distinct experience appears when added |
-| Research | `research.html` | Research overview; **Projects** tab opens `projects.html` |
+| Research | `research.html` | Core interface and memory work, connected foundations, future direction; **Projects** tab opens `projects.html` |
 | Publications | `publications.html` | **Papers** and **Patents**; **Conferences** appears when a verified record exists |
-| Activities | `activities.html` | Awards and News & Media; Gallery appears when a photograph is added |
+| Activities | `activities.html` | Date-sorted awards, research highlights, and media archive; Gallery appears when a cleared photograph is added |
 | CV | `cv.html` | Public web CV and PDF download |
 
 The homepage is `index.html`. Existing `.html` URLs remain in place; `contact.html` and `recognition.html` redirect old links. While Conferences has no records, `conferences.html` redirects to Papers and is omitted from the tabs and sitemap. The site logo links home. The footer contains contact details.
@@ -35,7 +35,7 @@ The generated `.pages.yml` preserves the existing record fields. Regenerate it a
 
 Homepage research rows come from **Research → Research Areas** records marked **Feature on homepage**: `core` (interface physics), `platform` (memory), and `future` (explicit long-term direction). A `foundation` record appears as a smaller connected research note. Featured papers come from the Papers selection; featured awards and News & Media records appear under homepage Activities. To change these selections, edit the records in CMS rather than the generated HTML.
 
-The Home page editor has visibility switches for Research, Featured Work, and Activities. The Research page editor can hide the research map; each Research Area has its own **Show on website** switch. The Projects page editor can hide case studies. Sections with no featured papers, news/awards, gallery photographs, or conference presentations are omitted automatically.
+The Home page editor has visibility switches for Research, Featured Work, and Activities. The Research page editor can hide the core research progression; each Research Area has its own **Show on website** switch. The Projects page editor can hide case studies. A single case study expands within its related project; two or more appear in a separate section. Sections with no featured papers, activities, gallery photographs, or conference presentations are omitted automatically.
 
 ### Replace images in Pages CMS
 
@@ -45,10 +45,12 @@ Upload to the relevant image field, fill in its alternative text, and optionally
 |---|---|---|
 | Home hero | **About → Profile**: Home hero image, alternative text, caption, crop focus | 1600 × 1200 px (4:3) |
 | Research page hero | **Research → Research page text → Hero**: image, alt, caption, crop focus | 1600 × 900 px (16:9) |
-| Memory, interfaces, optoelectronics, flexible, or new area | **Research → Research Areas**: image, alt, caption, crop focus | 1200 × 900 px (4:3) |
-| Featured Work | **Publications → Papers**: image, image alt, image caption, crop focus; set **Feature on homepage** and Homepage order | 1600 × 1000 px (8:5) |
+| Memory, interfaces, optoelectronics, flexible, integration, or new area | **Research → Research Areas**: image, alt, caption, crop focus | 1200 × 750 px (8:5) |
+| Featured Work | **Publications → Papers**: image, image alt, image caption, crop focus; set **Feature on homepage** and Homepage order | 1200 × 750 px (8:5) |
 | Project | **Research → Projects**: image, image alt, image caption, crop focus | 1600 × 900 px (16:9) |
-| Activity and Gallery | **Activities → News & Media**: thumbnail, alt, optional caption, crop focus; **Gallery**: image, alt, caption, crop focus, date, category, URL | 1600 × 1000 px (news); 1200 × 900 px (gallery) |
+| Activity and Gallery | **Activities → News & Media**: optional thumbnail, alt, crop focus, detail images and captions; **Gallery**: image, alt, caption, crop focus, date, category, URL | 1600 × 1000 px (activity); 1200 × 900 px (gallery) |
+
+The Home hero retains one labeled concept image. Featured Work and Research use distinct, editable SVG schematics in `assets/schematics/`. These explain published concepts and are explicitly labeled as conceptual; they contain no measurement plots or invented experimental results. See `docs/IMAGE_ASSETS.md`.
 
 ### Add a paper
 
@@ -58,13 +60,15 @@ The public Papers list and web/PDF CV show only **Accepted, In Press, ASAP, Earl
 
 ### Add other records
 
-- **Publications → Patents:** Enter the original title, inventors, status, primary country, applicable jurisdictions, application or registration number, and relevant legal date. **Sort date** starts with today and controls the list position; set it to the appropriate filing or registration date when adding an older patent. Select **Registered** or **Application** for the public status filter. Patents appear in one newest-first list, without year headings. Keep the existing Stable URL ID so links continue to work. Patent `10-2024-0060762` uses the detailed Korean MIM capacitor title confirmed by the site owner.
+- **Publications → Patents:** Enter the original title, inventors, status, primary country, applicable jurisdictions, application or registration number, and relevant legal date. **Sort date** starts with today and controls the list position; set it to the appropriate filing or registration date when adding an older patent. Assign the same **Patent family ID** and optional family title only when separate filings are confirmed to cover one invention. The public page groups those filings, while **Registered**, **Application**, and search filter the individual filings. Unverified jurisdictions are described separately without inventing a filing number. Keep the Stable URL ID for existing links. Patent `10-2024-0060762` uses the detailed Korean MIM capacitor title confirmed by the site owner.
 - **Publications → Conferences:** Add only presentations with verified conference, title, presenters, year, and any confirmed date, location, and presentation type. **Sort date** controls the newest-first list independently of the displayed conference date. Set it to the conference date when known; for an older record without a confirmed date, choose an internal ordering date. The tab and page become available automatically with the first record.
-- **Research → Projects:** Choose **New** and enter a stable URL ID, original project title, program, funding agency, personal role, start date (`YYYY-MM`), and status. An end date is optional. The public page automatically places **Ongoing** and **Completed** records in separate lists and sorts them by start or end date; changing only the status moves the record. An English title, if supplied, appears first; the official Korean title remains below it. Short title, period display override, description, related research/publications, image, and external URL are optional. Leave Description and Summary empty if they only restate the title. Official project dates are not a claim of personal involvement throughout the whole program; use **My participation period** when it is known.
+- **Research → Projects:** Choose **New** and enter a stable URL ID, original project title, program, funding agency, personal role, start date (`YYYY-MM`), and status. An end date is optional. The public page places **Ongoing** and **Completed** records in separate lists and sorts them by start or end date; changing only the status moves the record. An English title, if supplied, appears first; the official Korean title remains below it. **My contribution** is an optional technical-role field and appears only when filled with verified work. Short title, period display override, description, related research/publications, image, and external URL are optional. Leave Description and Summary empty if they only restate the title. Official project dates are not a claim of personal involvement throughout the whole program; use **My participation period** when it is known.
 - **About → Education / Experience / Awards & Scholarships:** Update career and recognition records here. The current researcher position is already in the profile and education, so its duplicate Experience entry is retained in CMS but hidden on About. New distinct experience entries appear automatically. Honors form one newest-first list with English titles and English organization first; the official Korean title remains below. The Korean organization field is preserved separately.
-- **Activities → News & Media / Gallery:** Choose a **Category** such as Award, News, Media, Journal cover, Research highlight, Video, Conference, or Academic activity. Set title, date, short description, optional image/caption, and optional source or organization. Add a real article or detail URL only when one exists; otherwise the title stays plain text on Home and Activities. The two existing featured awards have no URL, so they display without a link. Gallery appears only when it contains an image; its caption, date, category, and optional link are editable in CMS.
+- **Activities → News & Media / Gallery:** This collection powers the chronological activity archive; its CMS list sorts by Date descending. Choose a **Category** such as Award, Media, or Research highlight. Enter a title, real date, short description, and optional detail text. Add cleared **Detail images** with alt text and captions when available. For media coverage, add each **Outlet name** and article URL under **Media coverage links**; the card shows only a link count, and readers can expand it to see every outlet link. **Source page** is an editor-only provenance field and never appears publicly. Use **Related award ID** when an activity also exists under Awards & Scholarships so the archive does not duplicate it. **Show on website** hides an entry without deleting it. The Gallery section appears only when a photograph is supplied.
 
-For any collection, **Show on website** hides a record without deleting it. Papers, Patents, and Conferences use **Sort date** newest-first; adding one does not require renumbering existing records. Their older `order` values may remain in JSON for provenance but no longer control the site. Other collections still use **Display order** where appropriate. Images and the CV PDF upload to `assets/`. Keep image ownership and alt text accurate. Research concept images are labeled as such rather than presented as experimental evidence; see `docs/IMAGE_ASSETS.md`.
+The four source-based Activities records include two awards and two research coverage posts. Their 13 and 12 individual coverage links were transcribed from the laboratory notices. Laboratory photographs were not copied because reuse rights could not be verified; upload originals or cleared copies in CMS to add card thumbnails or detail galleries.
+
+For any collection, **Show on website** hides a record without deleting it. Papers, Patents, and Conferences use **Sort date** newest-first; Activities use their Date. Adding one does not require renumbering existing records. Older `order` values may remain in JSON for provenance but no longer control these lists. Other collections still use **Display order** where appropriate. Images and the CV PDF upload to `assets/`. Keep image ownership and alt text accurate; see `docs/IMAGE_ASSETS.md`.
 
 ## Build and check locally
 
@@ -72,6 +76,7 @@ Install Node.js 22 or later, then run in this repository:
 
 ```powershell
 node scripts/generate-cms-config.mjs
+node scripts/generate-schematics.mjs
 node scripts/build.mjs
 node scripts/check.mjs
 node scripts/test-cms.mjs

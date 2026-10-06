@@ -983,11 +983,6 @@
               "type": "string"
             },
             {
-              "name": "biographyExtra",
-              "label": "Biography Extra",
-              "type": "text"
-            },
-            {
               "name": "visionTitle",
               "label": "Vision Title",
               "type": "string"
@@ -1143,7 +1138,7 @@
               "options": {
                 "media": "images"
               },
-              "description": "Upload an image you may publish. Recommended: 1200 × 900 px (4:3). Fill in alternative text; caption and crop position are optional."
+              "description": "Upload an image you may publish. Recommended: 1200 × 750 px (8:5). Fill in alternative text; caption and crop position are optional."
             },
             {
               "name": "alt",
@@ -1592,6 +1587,12 @@
               },
               "default": "Ongoing",
               "required": true
+            },
+            {
+              "name": "myContribution",
+              "label": "My contribution",
+              "type": "text",
+              "description": "Describe only your verified technical work on this project. Leave blank when it is not documented."
             },
             {
               "name": "shortTitle",
@@ -2435,7 +2436,7 @@
             {
               "name": "imageAlt",
               "label": "Image alternative text",
-              "type": "string",
+              "type": "text",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
@@ -2633,6 +2634,18 @@
               "name": "registrationDate",
               "label": "Registration date",
               "type": "string"
+            },
+            {
+              "name": "familyId",
+              "label": "Patent family ID",
+              "type": "string",
+              "description": "Use the same stable key only for filings confirmed to belong to one invention; leave blank for a single filing."
+            },
+            {
+              "name": "familyTitle",
+              "label": "Patent family display title",
+              "type": "string",
+              "description": "Optional English title shared by confirmed filings in this patent family."
             },
             {
               "name": "applicationNumber",
@@ -2963,16 +2976,17 @@
             "primary": "title",
             "fields": [
               "title",
-              "order",
+              "date",
+              "type",
               "visible"
             ],
             "sort": [
-              "order",
+              "date",
               "title"
             ],
             "default": {
-              "sort": "order",
-              "order": "asc"
+              "sort": "date",
+              "order": "desc"
             }
           },
           "operations": {
@@ -2998,7 +3012,10 @@
             {
               "name": "date",
               "label": "Date",
-              "type": "string",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
               "required": true
             },
             {
@@ -3024,20 +3041,25 @@
               "required": true
             },
             {
-              "name": "source",
-              "label": "Source / organization",
-              "type": "string"
-            },
-            {
               "name": "shortDescription",
               "label": "Short description",
-              "type": "string"
+              "type": "text"
             },
             {
-              "name": "url",
-              "label": "External URL",
-              "type": "string",
-              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
+              "name": "detailText",
+              "label": "Detail text",
+              "type": "text"
+            },
+            {
+              "name": "sourceUrl",
+              "label": "Source page (internal reference)",
+              "description": "Provenance for editors only. This laboratory page is not linked on the public site.",
+              "type": "text"
+            },
+            {
+              "name": "relatedPublicationId",
+              "label": "Related Publication Id",
+              "type": "string"
             },
             {
               "name": "thumbnail",
@@ -3053,6 +3075,86 @@
               "label": "Activity image alternative text",
               "type": "string",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
+            },
+            {
+              "name": "images",
+              "label": "Detail images",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "image",
+                  "label": "Research or article image",
+                  "type": "image",
+                  "options": {
+                    "media": "images"
+                  },
+                  "description": "Upload an image you may publish. Recommended: 1600 × 1000 px (8:5). Fill in alternative text; caption and crop position are optional."
+                },
+                {
+                  "name": "alt",
+                  "label": "Image alternative text",
+                  "type": "string",
+                  "description": "Describe the image for readers who cannot see it. Required when an image is present."
+                },
+                {
+                  "name": "caption",
+                  "label": "Image caption",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "mediaLinks",
+              "label": "Media coverage links",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "outlet",
+                  "label": "Outlet name",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "label": "External URL",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "featured",
+              "label": "Feature on homepage",
+              "type": "boolean",
+              "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "visible",
+              "label": "Show on website",
+              "type": "boolean",
+              "description": "Turn off to hide this item without deleting it.",
+              "default": true
+            },
+            {
+              "name": "source",
+              "label": "Source / organization",
+              "type": "string"
+            },
+            {
+              "name": "relatedAwardId",
+              "label": "Related award ID",
+              "description": "Optional existing Awards & Scholarships record ID; avoids showing the same award twice in Activities.",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "label": "External URL",
+              "type": "string",
+              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
             },
             {
               "name": "thumbnailCaption",
@@ -3074,25 +3176,6 @@
               },
               "default": "center",
               "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
-            },
-            {
-              "name": "featured",
-              "label": "Feature on homepage",
-              "type": "boolean",
-              "description": "Show this item in a featured area on the home page."
-            },
-            {
-              "name": "visible",
-              "label": "Show on website",
-              "type": "boolean",
-              "description": "Turn off to hide this item without deleting it.",
-              "default": true
-            },
-            {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
             }
           ]
         },

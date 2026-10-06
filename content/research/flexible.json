@@ -1,9 +1,9 @@
 {
   "order": 4,
   "visible": true,
-  "image": "/assets/concept-flexible-circuit.jpg",
-  "alt": "Concept illustration of a curved flexible electronic circuit",
-  "caption": "Concept illustration · not experimental data",
+  "image": "/assets/schematics/research-flexible.svg",
+  "alt": "Conceptual flexible interconnect bending while maintaining an electrical path; not experimental data",
+  "caption": "Conceptual schematic",
   "title": "Flexible & Stretchable Electronics",
   "question": "How can electronic materials and interconnects remain functional under bending and stretching?",
   "whatIControl": "Interconnect materials · stretchable films · process design",

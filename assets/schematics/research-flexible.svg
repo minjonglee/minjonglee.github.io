@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="FLEXIBLE ELECTRONICS">
+<rect width="1200" height="750" fill="#f8f8f5"/>
+<path d="M44 64H1156M44 674H1156" stroke="#cdd5d9" stroke-width="2"/>
+<text x="48" y="42" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2" fill="#15314c">FLEXIBLE ELECTRONICS</text>
+<text x="1152" y="42" text-anchor="end" font-family="Arial,sans-serif" font-size="16" fill="#667a87">Interconnect · deformation</text>
+
+<path d="M110 460c150-136 296-136 443 0s294 136 537 0" fill="none" stroke="#dce6e9" stroke-width="106" stroke-linecap="round"/>
+<path d="M110 460c150-136 296-136 443 0s294 136 537 0" fill="none" stroke="#52708a" stroke-width="25" stroke-linecap="round"/>
+<path d="M110 460c150-136 296-136 443 0s294 136 537 0" fill="none" stroke="#b6cbd4" stroke-width="4" stroke-dasharray="18 16"/>
+<g fill="#15314c"><circle cx="208" cy="393" r="22"/><circle cx="551" cy="461" r="22"/><circle cx="920" cy="495" r="22"/></g>
+<path d="M406 244c88-36 189-17 246 42" fill="none" stroke="#9c4050" stroke-width="3"/><path d="m636 271 18 16-23 6" fill="none" stroke="#9c4050" stroke-width="3"/>
+<text x="545" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#15314c">bending</text>
+<text x="602" y="630" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" fill="#15314c">Electrical continuity under mechanical strain</text>
+<text x="48" y="711" font-family="Arial,sans-serif" font-size="15" fill="#667a87">Conceptual schematic · no experimental data</text>
+</svg>

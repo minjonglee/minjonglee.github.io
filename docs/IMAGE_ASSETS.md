@@ -1,24 +1,28 @@
 # Research image assets
 
-The six `assets/concept-*.jpg` images were generated with the built-in imagegen tool on September 27, 2026, then encoded as quality-92 JPEGs for the website while preserving their 1448×1086 resolution. The user-supplied composite image was a **visual reference** for scientific subject matter and a restrained blue/white palette. It was not used as evidence. These assets are conceptual illustrations, **not experimental microscopy, measurement data, device schematics, or figures from the cited papers**. The pages label them accordingly.
+The Home hero uses `assets/concept-device-layers.jpg`, a concept illustration generated in September 2026 from a user-provided visual reference. It is not experimental microscopy, measured data, or a figure from a paper. The other older `assets/concept-*.jpg` files remain in the repository for reference but are no longer reused across Featured Work and Research.
 
-| Asset | Current use | Prompt subject |
+## Paper-specific and research schematics
+
+`node scripts/generate-schematics.mjs` creates eight local, code-native SVGs under `assets/schematics/`. They share a restrained editorial style and label themselves **Conceptual schematic · no experimental data**. Each image field remains independently replaceable in Pages CMS.
+
+| Asset | Use | Scientific basis |
 |---|---|---|
-| `concept-device-layers.jpg` | Home hero | Layered emerging electronic device with electrode, functional layer, thin interface, substrate, and restrained blue charge motifs |
-| `concept-molecular-interface.jpg` | Research: interfaces | Ordered molecular self-assembled interface between a thin contact and organic/hybrid semiconductor |
-| `concept-memory-switching.jpg` | Research: memory; featured paper on synaptic response | Layered memristive device with subtle ion pathways and defect sites |
-| `concept-trap-engineered-memory.jpg` | Featured paper on trap reduction | Optoelectronic memristor stack with an ultra-thin intermediate layer, incident light, and subtle charge/defect motifs |
-| `concept-optoelectronic-stack.jpg` | Research: optoelectronics | Hybrid optoelectronic thin-film stack receiving soft incident light |
-| `concept-flexible-circuit.jpg` | Research: flexible electronics | Curved flexible circuit with thin conductive traces and layered materials |
+| `featured-chiral-synapse.svg` | Accepted chiral-perovskite synapse paper | Helicity and analog conductance states are stated in the paper title; the image does not assert a device stack or measured response. |
+| `featured-hydrogen-synapse.svg` | Hydrogen-bond artificial synapse paper | PVA–CsPbI₃ interface and FTO / hybrid / PMMA / Ag stack described by the published paper. |
+| `featured-opto-memory.svg` | Low-power optoelectronic memristor paper | TiO₂ interlayer, trap control, optical input, and memory are described in the published abstract. |
+| `research-interfaces.svg` | Core interface physics | Abstracted contacts, defects, ions, and transport paths. |
+| `research-memory.svg` | Core memory and reliability | Abstracted state formation and resolvable analog levels; no performance curve. |
+| `research-optoelectronics.svg` | Optoelectronics foundation | Light input, charge-selective interface, and carrier extraction. |
+| `research-flexible.svg` | Flexible electronics foundation | Bending and continuity of an interconnect. |
+| `research-integration.svg` | Future direction | Dotted progression from device to array to system, explicitly prospective. |
 
-## Generation prompt set
+The published-paper concepts were cross-checked against the [Advanced Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511728) and [Advanced Functional Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202421080). The accepted chiral paper has no verified public abstract in this repository, so its schematic stays at the level of its confirmed title.
 
-All six prompts requested a high-resolution 4:3 editorial scientific concept illustration for an academic electrical-engineering website. They used the supplied collage **only as a visual reference** and asked for a quiet scientific-magazine style, pale neutral background, near-black/slate materials, restrained cobalt-blue accent, fine material texture, and generous negative space. Each prompt specified the subject in the table above. They explicitly prohibited copied text or layout, typography, labels, logos, scale bars, rulers, axes, charts, annotation, montage, borders, neon effects, and claims of experimental or published origin.
+## Activity photographs
 
-## Replacing an illustration with verified research imagery
+The laboratory notices include award photographs, but their reuse rights are not documented in this repository. They were not copied or hotlinked. The two media entries use the local, paper-specific conceptual schematics as thumbnails; the award entries remain text-led until the owner uploads originals or cleared copies through Pages CMS, with accurate alternative text and captions.
 
-1. In Pages CMS, open **About → Profile** for the Home hero, **Research → Research page text** for the Research hero, or the relevant Research Area or Publication record for other figures. Upload a cleared image. The same asset may be used in more than one record.
-2. Add alternative text, an accurate optional caption, and adjust the crop focus if needed. Remove “Concept illustration” from the caption when the image is an actual research figure.
-3. Pages CMS commits the content change; GitHub Pages rebuilds the site. For local edits, run `node scripts/build.mjs` and `node scripts/check.mjs`.
+## Replacing a schematic
 
-The Activities gallery is reserved for authentic event photographs with verified captions and remains empty.
+In Pages CMS, open **About → Profile** for the Home hero, **Research → Research Areas** for a topic image, or **Publications → Papers** for a Featured Work image. Upload a cleared image, add meaningful alt text, and describe the image accurately in the caption. Remove the conceptual label only when the replacement is a genuine research figure. For local edits, run `node scripts/build.mjs` and `node scripts/check.mjs`.

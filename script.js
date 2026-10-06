@@ -50,14 +50,46 @@
   }
   const patentButtons = [...document.querySelectorAll('[data-patent-filter]')];
   if (patentButtons.length) {
-    const rows = [...document.querySelectorAll('.patent-entry')];
+    const search = document.querySelector('#patent-search');
+    const families = [...document.querySelectorAll('.patent-family-entry')];
     const empty = document.querySelector('#patent-empty');
+    const update = () => {
+      const filter = patentButtons.find(button => button.getAttribute('aria-pressed') === 'true')?.dataset.patentFilter || 'all';
+      const query = search?.value.trim().toLocaleLowerCase() || '';
+      for (const family of families) {
+        const matches = family.dataset.patentSearch.includes(query);
+        const filings = [...family.querySelectorAll('.patent-filing')];
+        filings.forEach(filing => { filing.hidden = !matches || filter !== 'all' && filing.dataset.patentStatus !== filter; });
+        family.hidden = !filings.some(filing => !filing.hidden);
+      }
+      if (empty) empty.hidden = families.some(family => !family.hidden);
+    };
     patentButtons.forEach(button => button.addEventListener('click', () => {
-      const filter = button.dataset.patentFilter;
       patentButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      rows.forEach(row => { row.hidden = filter !== 'all' && row.dataset.patentStatus !== filter; });
-      if (empty) empty.hidden = rows.some(row => !row.hidden);
+      update();
     }));
+    search?.addEventListener('input', update);
+  }
+  const activityButtons = [...document.querySelectorAll('[data-activity-filter]')];
+  if (activityButtons.length) {
+    const entries = [...document.querySelectorAll('.activity-entry')];
+    const empty = document.querySelector('#activity-empty');
+    activityButtons.forEach(button => button.addEventListener('click', () => {
+      const category = button.dataset.activityFilter;
+      activityButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      entries.forEach(entry => { entry.hidden = category !== 'all' && entry.dataset.activityCategory !== category; });
+      if (empty) empty.hidden = entries.some(entry => !entry.hidden);
+    }));
+    const openHashEntry = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const entry = id && document.getElementById(id);
+      if (entry?.matches('details.activity-entry')) {
+        activityButtons[0].click();
+        entry.open = true;
+      }
+    };
+    openHashEntry();
+    window.addEventListener('hashchange', openHashEntry);
   }
   const galleryButtons = [...document.querySelectorAll('.gallery-open')];
   const galleryDialog = document.querySelector('#gallery-dialog');

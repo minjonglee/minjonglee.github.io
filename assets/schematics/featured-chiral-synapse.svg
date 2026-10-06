@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="CHIRAL PEROVSKITE SYNAPSE">
+<rect width="1200" height="750" fill="#f8f8f5"/>
+<path d="M44 64H1156M44 674H1156" stroke="#cdd5d9" stroke-width="2"/>
+<text x="48" y="42" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2" fill="#15314c">CHIRAL PEROVSKITE SYNAPSE</text>
+<text x="1152" y="42" text-anchor="end" font-family="Arial,sans-serif" font-size="16" fill="#667a87">Helicity · analog states</text>
+
+<g fill="none" stroke-width="3"><path d="M168 214c-42 37-43 102-1 139" stroke="#526f8a"/><path d="m154 339 15 14 13-18" stroke="#526f8a"/><path d="M274 350c42-37 43-102 1-139" stroke="#9c4050"/><path d="m288 225-15-14-13 18" stroke="#9c4050"/></g>
+<text x="219" y="392" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#15314c">light helicity</text>
+<path d="M365 285H427" stroke="#9aabb4" stroke-width="3"/><path d="m416 274 12 11-12 11" fill="none" stroke="#9aabb4" stroke-width="3"/>
+<rect x="445" y="185" width="340" height="225" fill="#fff" stroke="#15314c" stroke-width="2"/>
+<rect x="463" y="204" width="304" height="42" fill="#e7ebee"/><rect x="463" y="246" width="304" height="122" fill="#e3ebf0"/>
+<path d="M492 270h245M492 292h245M492 314h245M492 336h245" stroke="#8ba2b2" stroke-width="2"/>
+<path d="M516 265v77M573 265v77M630 265v77M687 265v77" stroke="#a9bcc7" stroke-width="2"/>
+<rect x="463" y="368" width="304" height="24" fill="#c7d3d9"/>
+<text x="615" y="164" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#15314c">chiral active layer</text>
+<path d="M798 285H855" stroke="#9aabb4" stroke-width="3"/><path d="m844 274 12 11-12 11" fill="none" stroke="#9aabb4" stroke-width="3"/>
+<g fill="#15314c"><rect x="893" y="330" width="27" height="62"/><rect x="939" y="306" width="27" height="86"/><rect x="985" y="282" width="27" height="110"/><rect x="1031" y="258" width="27" height="134"/><rect x="1077" y="234" width="27" height="158"/></g>
+<text x="999" y="426" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#15314c">analog conductance states</text>
+<text x="601" y="540" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" fill="#15314c">Helicity-defined state modulation</text>
+<text x="48" y="711" font-family="Arial,sans-serif" font-size="15" fill="#667a87">Conceptual schematic · no experimental data</text>
+</svg>

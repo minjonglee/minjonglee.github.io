@@ -1,9 +1,9 @@
 {
   "order": 3,
   "visible": true,
-  "image": "/assets/concept-optoelectronic-stack.jpg",
-  "alt": "Concept illustration of a hybrid optoelectronic thin-film stack receiving light",
-  "caption": "Concept illustration · not experimental data",
+  "image": "/assets/schematics/research-optoelectronics.svg",
+  "alt": "Conceptual optoelectronic stack showing incoming light, a molecular interface, and carrier extraction; not experimental data",
+  "caption": "Conceptual schematic",
   "id": "optoelectronics",
   "title": "Organic & Hybrid Optoelectronics",
   "foundationText": "Organic photovoltaics, photodetectors, transparent electrodes, and charge-selective molecular interfaces are a foundation of my research. They provide a connected platform for studying how contacts and traps shape transport, with future possibilities in optoelectronic memory and sensory hardware.",

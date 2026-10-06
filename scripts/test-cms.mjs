@@ -37,12 +37,17 @@ for(const name of ['publications','projects','patents','research','awards','gall
     assert.ok(!editor.fields.some(field=>field.name==='order'),`${name} should not expose manual order`);
     assert.equal(editor.view.default.sort,'sortDate',`${name} CMS list should sort by date`);
     assert.equal(editor.view.default.order,'desc',`${name} CMS list should be newest first`);
+  } else if(name==='news') {
+    assert.ok(!editor.fields.some(field=>field.name==='order'),'Activities must sort by date without manual order');
+    assert.equal(editor.fields.find(field=>field.name==='date')?.type,'date');
+    assert.equal(editor.view.default.sort,'date');
+    assert.equal(editor.view.default.order,'desc');
   } else assert.ok(editor.fields.some(field=>field.name==='order'));
 }
 assert.ok(config.media.some(source=>source.name==='images'&&source.input==='assets'));
 const projectFields=editors.find(item=>item.name==='projects').fields;
 for(const key of ['title','program','fundingAgency','personalRole','startDate','status']) assert.equal(projectFields.find(field=>field.name===key)?.required,true,`project ${key} should be required`);
-for(const key of ['endDate','shortTitle','periodDisplay','description','relatedResearch','relatedPublications']) assert.ok(projectFields.some(field=>field.name===key),`project ${key} editor missing`);
+for(const key of ['endDate','shortTitle','periodDisplay','description','myContribution','relatedResearch','relatedPublications']) assert.ok(projectFields.some(field=>field.name===key),`project ${key} editor missing`);
 assert.notEqual(projectFields.find(field=>field.name==='period')?.required,true,'legacy period should not be required for new projects');
 const editorFields=name=>editors.find(item=>item.name===name).fields;
 for(const [name,keys] of Object.entries({research:['image','alt','caption','imagePosition','whatIControl','whatIMeasure','whyItMatters'],publications:['image','imageAlt','imageCaption','imagePosition'],projects:['image','imageAlt','imageCaption','imagePosition'],news:['thumbnail','thumbnailAlt','thumbnailCaption','thumbnailPosition','type'],gallery:['image','alt','caption','imagePosition','date','category','url']}))
@@ -50,6 +55,8 @@ for(const [name,keys] of Object.entries({research:['image','alt','caption','imag
 assert.ok(editorFields('news').find(field=>field.name==='type').options.values.includes('Video'),'Activities need a video category');
 assert.equal(editorFields('news').find(field=>field.name==='type').label,'Category');
 assert.equal(editorFields('news').find(field=>field.name==='type').required,true);
+for(const key of ['shortDescription','detailText','images','mediaLinks','sourceUrl','relatedAwardId']) assert.ok(editorFields('news').some(field=>field.name===key),`Activities need CMS field ${key}`);
+for(const key of ['familyId','familyTitle']) assert.ok(editorFields('patents').some(field=>field.name===key),`Patents need CMS field ${key}`);
 for(const name of ['news','awards','gallery']) assert.notEqual(editorFields(name).find(field=>field.name==='url').required,true,`${name} URL must be optional`);
 assert.ok(editorFields('awards').some(field=>field.name==='englishOrganization'),'English award organization must remain CMS-editable');
 for(const key of ['description','summary']) assert.notEqual(projectFields.find(field=>field.name===key)?.required,true,`project ${key} must be optional`);
@@ -69,15 +76,15 @@ try{
   const newPaper={id:'cms-test-paper',title:'CMS test publication',authors:'A. Researcher, Min Jong Lee',journalName:'Test Journal',year:2027,sortDate:'2027-01-01',publicationType:'Journal Article',publicationStatus:'Published',volume:'38',issue:'12',startPage:'1234',endPage:'1246',doi:'10.1234/example',keywords:['ionic memory'],featured:true,featuredOrder:0,featuredTitle:'CMS test feature',featuredContribution:'Test contribution',visible:true,image:'/assets/concept-memory-switching.jpg',imageAlt:'Concept device illustration',imagePosition:'top'};
   write('publications','cms-test-paper',newPaper);
   const project=JSON.parse(fs.readFileSync(path.join(content,'projects','doctoral-ionic-memory.json'),'utf8'));
-  write('projects','cms-test-project',{...project,id:'cms-test-project',englishTitle:'CMS test project',caseStudyId:'',homeAnchor:'cms-test-project',featured:true,featuredOrder:0,visible:true});
+  write('projects','cms-test-project',{...project,id:'cms-test-project',englishTitle:'CMS test project',myContribution:'Tested interface design and electrical characterization.',caseStudyId:'',homeAnchor:'cms-test-project',featured:true,featuredOrder:0,visible:true});
   const minimalProject={id:'cms-minimal-project',title:'CMS 신규 과제',program:'CMS test program',fundingAgency:'Test agency',personalRole:'Researcher',startDate:'2027-01',status:'Ongoing',visible:true,image:'/assets/concept-flexible-circuit.jpg',imageAlt:'Concept flexible circuit',imagePosition:'right'};
   write('projects','cms-minimal-project',minimalProject);
   const patent=JSON.parse(fs.readFileSync(path.join(content,'patents',fs.readdirSync(path.join(content,'patents')).find(file=>file.endsWith('.json'))),'utf8'));
-  const newPatent={...patent,id:'cms-test-patent',title:'CMS test patent',sortDate:'2027-02-01',visible:true,order:999};
+  const newPatent={...patent,id:'cms-test-patent',title:'CMS test patent',englishTitle:'CMS test patent',familyId:'',familyTitle:'',sortDate:'2027-02-01',visible:true,order:999};
   write('patents','cms-test-patent',newPatent);
   const newConference={id:'cms-test-conference',conferenceName:'CMS test conference',title:'CMS test presentation',authors:'Min Jong Lee',year:2027,sortDate:'2027-03-01',presentationType:'Poster',visible:true,order:999};
   write('conferences','cms-test-conference',newConference);
-  write('news','cms-test-news',{id:'cms-test-news',title:'CMS test news',date:'2027-01-01',type:'News',source:'Test source',thumbnail:'/assets/concept-device-layers.jpg',thumbnailAlt:'Concept layered device',thumbnailCaption:'CMS test activity caption',thumbnailPosition:'right',featured:true,visible:true,order:1});
+  write('news','cms-test-news',{id:'cms-test-news',title:'CMS test news',date:'2027-01-01',type:'News',source:'Test source',thumbnail:'/assets/concept-device-layers.jpg',thumbnailAlt:'Concept layered device',thumbnailPosition:'right',images:[{image:'/assets/concept-device-layers.jpg',alt:'Concept layered device',caption:'CMS test activity caption'}],mediaLinks:[{outlet:'Example outlet',url:'https://example.org/coverage'}],featured:true,visible:true});
   write('gallery','cms-test-gallery',{id:'cms-test-gallery',title:'CMS test gallery',category:'Research',image:'/assets/concept-device-layers.jpg',alt:'Concept layered device',caption:'CMS test caption',date:'2027-01-01',url:'https://example.com/gallery',imagePosition:'bottom',visible:true,order:1});
   const profile=JSON.parse(fs.readFileSync(path.join(content,'profile.json'),'utf8'));
   profile.heroImage='/assets/concept-flexible-circuit.jpg';profile.heroImageAlt='Concept flexible circuit';profile.heroImagePosition='left';
@@ -90,18 +97,20 @@ try{
   let html=build();
   for(const [page,text] of [['publications','CMS test publication'],['index','CMS test publication'],['index','CMS test news'],['projects','CMS test project'],['patents','CMS test patent'],['conferences','CMS test presentation'],['activities','CMS test news'],['research','CMS test research area']]) assert.ok(html[page].includes(text),`${page} did not pick up new content`);
   assert.equal([...html.publications.matchAll(/class="publication-item" id="([^"]+)"/g)][0][1],'cms-test-paper','A newly dated Paper should lead without renumbering old records');
-  assert.equal([...html.patents.matchAll(/class="output-entry patent-entry" id="([^"]+)"/g)][0][1],'cms-test-patent','A newly dated Patent should lead despite its legacy order');
+  assert.equal([...html.patents.matchAll(/class="patent-filing" id="([^"]+)"/g)][0][1],'cms-test-patent','A newly dated Patent should lead despite its legacy order');
   assert.equal([...html.conferences.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)][0][1],'cms-test-conference','A newly dated Conference should lead despite its legacy order');
   assert.ok(html.index.includes('concept-flexible-circuit.jpg')&&html.index.includes('object-position:left'),'Home hero image should follow CMS fields');
   assert.ok(html.index.includes('object-position:top'),'Featured paper crop focus should follow CMS fields');
   assert.ok(html.research.includes('research-hero-visual')&&html.research.includes('object-position:bottom'),'Research hero image should follow CMS fields');
   assert.ok(html.projects.includes('project-science')&&html.projects.includes('object-position:right'),'Project image should follow CMS fields');
+  assert.ok(html.projects.includes('Tested interface design and electrical characterization.'),'Project contribution should render when supplied');
   assert.ok(html.activities.includes('id="gallery"')&&html.activities.includes('CMS test gallery')&&html.activities.includes('https://example.com/gallery'),'Gallery should appear from CMS data');
   assert.ok(html.activities.includes('CMS test activity caption')&&html.activities.includes('object-position:right'),'Activities should render CMS thumbnail caption and crop focus');
-  assert.ok(html.activities.includes('<h3>CMS test news</h3>')&&html.index.includes('<h3>CMS test news</h3>'),'Activity with no URL should stay static in both locations');
+  assert.ok(html.activities.includes('<h3>CMS test news</h3>')&&html.index.includes('activities.html#cms-test-news'),'Home should open the internal activity detail');
+  assert.ok(html.activities.includes('https://example.org/coverage')&&html.activities.includes('Example outlet'),'CMS media links should render inside activity details');
   const linkedNews=JSON.parse(fs.readFileSync(path.join(content,'news','cms-test-news.json'),'utf8'));
   linkedNews.url='https://example.org/article';write('news','cms-test-news',linkedNews);html=build();
-  assert.ok(html.activities.includes('<a href="https://example.org/article">CMS test news</a>')&&html.index.includes('<a href="https://example.org/article">CMS test news</a>'),'A CMS URL should activate both activity links');
+  assert.ok(html.activities.includes('href="https://example.org/article"')&&!html.index.includes('href="https://example.org/article"'),'An external activity URL belongs inside details, not on the home card');
   assert.ok(html.publications.includes('href="conferences.html"'),'Conferences tab should reappear when CMS has a record');
   assert.ok(html.projects.split('id="ongoing"')[1].split('id="completed"')[0].includes('CMS 신규 과제'),'minimal project should appear among ongoing projects');
   assert.ok(html.projects.includes('2027.01 – Present'),'project period should derive from CMS dates');
@@ -127,6 +136,8 @@ try{
   newConference.visible=false;write('conferences','cms-test-conference',newConference);html=build();
   assert.ok(!html.patents.includes('CMS test patent'),'patent visible toggle did not rebuild');
   assert.ok(!html.conferences.includes('CMS test presentation'),'conference visible toggle did not rebuild');
+  linkedNews.visible=false;write('news','cms-test-news',linkedNews);html=build();
+  assert.ok(!html.activities.includes('CMS test news'),'activity visible toggle did not rebuild');
   fs.rmSync(path.join(content,'publications','cms-test-paper.json'));
   fs.rmSync(path.join(content,'gallery','cms-test-gallery.json'));
   html=build();

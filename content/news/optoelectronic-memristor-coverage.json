@@ -1,0 +1,29 @@
+{
+  "id": "optoelectronic-memristor-coverage",
+  "title": "Media coverage of low-power optoelectronic memristors",
+  "date": "2025-02-06",
+  "type": "Media",
+  "shortDescription": "Coverage of a first-author study using an intermediate layer to reduce traps in low-power optoelectronic memristors.",
+  "detailText": "The related research was published in Advanced Functional Materials. The laboratory compiled the reports and video listed below.",
+  "sourceUrl": "https://shimgrp.korea.ac.kr/notices/%ec%96%b8%eb%a1%a0-%eb%b3%b4%eb%8f%84-%ec%8b%ac%ec%9e%ac%ec%9b%90-%ea%b5%90%ec%88%98%eb%8b%98-%ec%a0%80%ec%a0%84%eb%a0%a5-%ea%b3%a0%ec%84%b1%eb%8a%a5-%ea%b4%91%ec%a0%84%ec%9e%90-%eb%a9%a4%eb%a6%ac/",
+  "relatedPublicationId": "paper-03",
+  "thumbnail": "/assets/schematics/featured-opto-memory.svg",
+  "thumbnailAlt": "Conceptual intermediate-layer schematic for optoelectronic memristors",
+  "images": [],
+  "mediaLinks": [
+    {"outlet": "University News Network", "url": "https://news.unn.net/news/articleView.html?idxno=574678"},
+    {"outlet": "Newsis", "url": "https://www.newsis.com/view/NISX20250206_0003055616"},
+    {"outlet": "Weekly Hankook", "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7104588"},
+    {"outlet": "News Free Zone", "url": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=607593"},
+    {"outlet": "Smart Economy", "url": "https://www.dailysmart.co.kr/news/articleView.html?idxno=103222"},
+    {"outlet": "NewsTNT", "url": "https://www.newstnt.com/news/articleView.html?idxno=456464"},
+    {"outlet": "The Fair News", "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=40902"},
+    {"outlet": "Asia Times", "url": "https://www.asiatime.co.kr/article/20250206500323"},
+    {"outlet": "Veritas Alpha", "url": "https://www.veritas-a.com/news/articleView.html?idxno=541390"},
+    {"outlet": "University Journal", "url": "https://dhnews.co.kr/news/view/1065586436218219"},
+    {"outlet": "Maeil Ilbo", "url": "https://www.m-i.kr/news/articleView.html?idxno=1205236"},
+    {"outlet": "YTN Science Today", "url": "https://www.youtube.com/watch?v=t0I_C4Qzbdk"}
+  ],
+  "featured": false,
+  "visible": true
+}
