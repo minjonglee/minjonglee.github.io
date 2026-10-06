@@ -101,7 +101,7 @@ assert.ok(!pages.index.includes('ADD VERIFIED RESEARCH FIGURE'),'Missing feature
 for(const file of ['featured-chiral-synapse.jpg','featured-hydrogen-synapse.jpg','featured-opto-memory.jpg']) assert.ok(featuredHtml.includes(`assets/artwork/${file}`),`Featured Work needs its distinct ${file} artwork`);
 assert.ok(!featuredHtml.includes('assets/schematics/'),'The old Featured Work schematics must not render');
 const memorySection=pages.research.split('id="memory"')[1].split('</section>')[0];
-assert.ok(memorySection.indexOf('paper-22')<memorySection.indexOf('paper-02'),'Accepted memory paper should lead representative work');
+assert.ok(memorySection.indexOf('paper-22')<memorySection.indexOf('paper-02'),'The selected memory paper should lead representative work');
 assert.ok(pages.research.includes('Toward integrated electronic systems'),'Integration must be marked as a future direction');
 assert.ok(pages.index.includes('Toward integrated electronic systems'),'Home long-term direction should match Research');
 assert.ok(pages.research.indexOf('Core research')<pages.research.indexOf('Research foundations')&&pages.research.indexOf('Research foundations')<pages.research.indexOf('Future direction'),'Research hierarchy should progress from core to foundations to future');

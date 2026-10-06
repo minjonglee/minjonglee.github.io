@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+import re
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -76,7 +77,12 @@ for group in ['first','co']:
     for p in sorted([p for p in published if p['type']==group],key=lambda p:-p['year']):
         number+=1
         text=f'<b>{number}.</b> {author(p["authors"])}. “{esc(p["title"])}.” <b>{esc(p.get("journalName") or p.get("journal", ""))}</b> ({p["year"]}{", "+p["publicationStatus"] if p.get("publicationStatus") not in {None,"Published"} else ""}).'
-        if p.get('doi'): text+=' <link href="https://doi.org/'+p['doi']+'">doi:'+esc(p['doi'])+'</link>'
+        doi_value = p.get('doi', '')
+        doi_url = p.get('doiUrl') or (doi_value if doi_value.startswith(('http://', 'https://')) else 'https://doi.org/' + doi_value if doi_value else '')
+        if doi_url:
+            match = re.search(r'10\.\d{4,9}/[^?#\s]+', doi_value or doi_url)
+            doi_label = 'doi:' + match.group(0) if match else 'DOI'
+            text += ' <link href="' + esc(doi_url) + '">' + esc(doi_label) + '</link>'
         flow.append(KeepTogether([para(text),Spacer(1,3)]))
 heading('Patents')
 for i,p in enumerate(data['patents'],1):

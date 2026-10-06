@@ -13,7 +13,7 @@ The Home hero remains `assets/concept-device-layers.jpg`. It is conceptual artwo
 | `research-flexible.jpg` | Research: flexible and stretchable electronics |
 | `research-integration.jpg` | Research: prospective device-to-system integration |
 
-The published-paper concepts were cross-checked against the [Advanced Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511728) and [Advanced Functional Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202421080). The accepted chiral paper has no verified public abstract in this repository, so its artwork stays at the level of the confirmed title. Artwork contains no internal labels or fabricated measurement plots.
+The published-paper concepts were cross-checked against the [Advanced Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511728) and [Advanced Functional Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202421080). The chiral paper artwork stays at the level of its confirmed title and does not assert a device stack. Artwork contains no internal labels or fabricated measurement plots.
 
 ## Activities: source photographs and press graphics
 

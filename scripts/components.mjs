@@ -9,7 +9,7 @@ export const patentIdentifier = p => p.registrationNumber || p.applicationNumber
 export const patentRecordDate = p => p.registrationDate || p.applicationDate || p.date || '';
 export const bySortDateDesc = (a,b) => String(b.sortDate||'').localeCompare(String(a.sortDate||'')) || String(a.id||'').localeCompare(String(b.id||''));
 export const sectionTabs = (items,file,label) => `<nav class="section-tabs shell" aria-label="${e(label)}">${items.map(item=>`<a href="${e(item.href)}"${item.href===file?' aria-current="page"':''}>${e(item.label)}</a>`).join('')}</nav>`;
-export const doiHref = p => p.doiUrl || (p.doi ? `https://doi.org/${String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'')}` : '');
+export const doiHref = p => p.doiUrl || (p.doi ? /^https?:\/\//i.test(String(p.doi)) ? String(p.doi) : `https://doi.org/${String(p.doi)}` : '');
 const publicStatuses=new Set(['Accepted','In Press','ASAP','Early View','Online Published','Published']);
 export const isPublicationVisible = p => publicStatuses.has(p.publicationStatus || p.status || 'Published');
 export const isUnpublished = p => !isPublicationVisible(p);
