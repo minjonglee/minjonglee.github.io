@@ -1,9 +1,9 @@
 {
   "order": 2,
   "visible": true,
-  "image": "/assets/schematics/research-memory.svg",
-  "alt": "Conceptual memory device states and resolvable analog levels; not experimental data",
-  "caption": "Conceptual schematic",
+  "image": "/assets/artwork/research-memory.jpg",
+  "alt": "Editorial artwork of a layered memory material with changing ionic distributions; not experimental imagery",
+  "caption": "Conceptual scientific artwork",
   "id": "memory",
   "number": "02",
   "title": "Adaptive & Reliable Memory Devices",

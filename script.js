@@ -91,6 +91,42 @@
     openHashEntry();
     window.addEventListener('hashchange', openHashEntry);
   }
+  const activityLightbox = document.querySelector('#activity-lightbox');
+  const activityImages = [...document.querySelectorAll('[data-activity-image]')];
+  if (activityLightbox && activityImages.length) {
+    const fullImage = activityLightbox.querySelector('img');
+    const caption = activityLightbox.querySelector('.activity-lightbox-caption');
+    const previous = activityLightbox.querySelector('.activity-lightbox-prev');
+    const next = activityLightbox.querySelector('.activity-lightbox-next');
+    let group = [];
+    let index = 0;
+    let opener = null;
+    const show = nextIndex => {
+      index = (nextIndex + group.length) % group.length;
+      const figure = group[index].closest('figure');
+      const thumbnail = group[index].querySelector('img');
+      fullImage.src = thumbnail.getAttribute('src');
+      fullImage.alt = thumbnail.alt;
+      caption.textContent = figure.querySelector('figcaption')?.textContent || '';
+      previous.hidden = next.hidden = group.length < 2;
+    };
+    activityImages.forEach(button => button.addEventListener('click', () => {
+      opener = button;
+      group = [...button.closest('.activity-entry').querySelectorAll('[data-activity-image]')];
+      show(group.indexOf(button));
+      activityLightbox.showModal();
+      activityLightbox.querySelector('.activity-lightbox-close').focus();
+    }));
+    previous.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    activityLightbox.querySelector('.activity-lightbox-close').addEventListener('click', () => activityLightbox.close());
+    activityLightbox.addEventListener('click', event => { if (event.target === activityLightbox) activityLightbox.close(); });
+    activityLightbox.addEventListener('close', () => { opener?.focus(); fullImage.removeAttribute('src'); });
+    activityLightbox.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' && group.length > 1) { event.preventDefault(); show(index - 1); }
+      if (event.key === 'ArrowRight' && group.length > 1) { event.preventDefault(); show(index + 1); }
+    });
+  }
   const galleryButtons = [...document.querySelectorAll('.gallery-open')];
   const galleryDialog = document.querySelector('#gallery-dialog');
   if (galleryDialog && galleryButtons.length) {

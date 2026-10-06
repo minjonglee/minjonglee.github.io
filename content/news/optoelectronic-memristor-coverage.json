@@ -7,9 +7,13 @@
   "detailText": "The related research was published in Advanced Functional Materials. The laboratory compiled the reports and video listed below.",
   "sourceUrl": "https://shimgrp.korea.ac.kr/notices/%ec%96%b8%eb%a1%a0-%eb%b3%b4%eb%8f%84-%ec%8b%ac%ec%9e%ac%ec%9b%90-%ea%b5%90%ec%88%98%eb%8b%98-%ec%a0%80%ec%a0%84%eb%a0%a5-%ea%b3%a0%ec%84%b1%eb%8a%a5-%ea%b4%91%ec%a0%84%ec%9e%90-%eb%a9%a4%eb%a6%ac/",
   "relatedPublicationId": "paper-03",
-  "thumbnail": "/assets/schematics/featured-opto-memory.svg",
-  "thumbnailAlt": "Conceptual intermediate-layer schematic for optoelectronic memristors",
-  "images": [],
+  "thumbnail": "/assets/images/activities/optoelectronic-memristor-press-02.jpg",
+  "thumbnailAlt": "Press graphic explaining trap reduction and switching in an optoelectronic memristor",
+  "thumbnailFit": "contain",
+  "images": [
+    {"image": "/assets/images/activities/optoelectronic-memristor-press-02.jpg", "alt": "University News Network research graphic on intermediate-layer trap reduction and device functions", "caption": "Research image from University News Network coverage"},
+    {"image": "/assets/images/activities/optoelectronic-memristor-press-01.jpg", "alt": "Researcher portraits accompanying the University News Network coverage", "caption": "Researcher portraits"}
+  ],
   "mediaLinks": [
     {"outlet": "University News Network", "url": "https://news.unn.net/news/articleView.html?idxno=574678"},
     {"outlet": "Newsis", "url": "https://www.newsis.com/view/NISX20250206_0003055616"},

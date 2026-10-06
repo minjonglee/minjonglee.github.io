@@ -1143,7 +1143,7 @@
             {
               "name": "alt",
               "label": "Image alternative text",
-              "type": "string",
+              "type": "text",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
@@ -2436,7 +2436,7 @@
             {
               "name": "imageAlt",
               "label": "Image alternative text",
-              "type": "text",
+              "type": "string",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
@@ -3075,6 +3075,19 @@
               "label": "Activity image alternative text",
               "type": "string",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
+            },
+            {
+              "name": "thumbnailFit",
+              "label": "Activity image fit",
+              "type": "select",
+              "options": {
+                "values": [
+                  "cover",
+                  "contain"
+                ]
+              },
+              "default": "cover",
+              "description": "Cover fills the card; contain keeps a full certificate or research figure visible."
             },
             {
               "name": "images",

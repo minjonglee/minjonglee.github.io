@@ -98,7 +98,8 @@ const featuredTitles=['paper-22','paper-02','paper-03'].map(id=>data.publication
 for(const title of featuredTitles) assert.ok(featuredHtml.includes(title),`featured paper missing: ${title}`);
 assert.ok(featuredTitles.every((title,index)=>index===0||featuredHtml.indexOf(featuredTitles[index-1])<featuredHtml.indexOf(title)),'Featured papers should follow the requested order');
 assert.ok(!pages.index.includes('ADD VERIFIED RESEARCH FIGURE'),'Missing featured image should not produce a placeholder');
-for(const file of ['featured-chiral-synapse.svg','featured-hydrogen-synapse.svg','featured-opto-memory.svg']) assert.ok(featuredHtml.includes(file),`Featured Work needs its distinct ${file} schematic`);
+for(const file of ['featured-chiral-synapse.jpg','featured-hydrogen-synapse.jpg','featured-opto-memory.jpg']) assert.ok(featuredHtml.includes(`assets/artwork/${file}`),`Featured Work needs its distinct ${file} artwork`);
+assert.ok(!featuredHtml.includes('assets/schematics/'),'The old Featured Work schematics must not render');
 const memorySection=pages.research.split('id="memory"')[1].split('</section>')[0];
 assert.ok(memorySection.indexOf('paper-22')<memorySection.indexOf('paper-02'),'Accepted memory paper should lead representative work');
 assert.ok(pages.research.includes('Toward integrated electronic systems'),'Integration must be marked as a future direction');
@@ -107,7 +108,13 @@ assert.ok(pages.research.indexOf('Core research')<pages.research.indexOf('Resear
 assert.ok(pages.projects.includes('class="project-case-inline"')&&!pages.projects.includes('class="section shell project-cases"'),'A single case study should be inside its related project');
 const biography=pages.about.match(/<div class="about-biography">([\s\S]*?)<\/div>/)?.[1]||'';
 assert.equal((biography.match(/<p>/g)||[]).length,2,'Biography should have two paragraphs');
-for(const file of ['featured-hydrogen-synapse.svg','featured-opto-memory.svg']) assert.ok(pages.activities.includes(file),`Media thumbnail missing: ${file}`);
+for(const file of ['research-interfaces.jpg','research-memory.jpg','research-optoelectronics.jpg','research-flexible.jpg','research-integration.jpg']) assert.ok(pages.research.includes(`assets/artwork/${file}`),`Research artwork missing: ${file}`);
+assert.ok(!pages.research.includes('assets/schematics/'),'The old Research schematics must not render');
+for(const file of ['samsung-award-presentation.jpg','samsung-award-ceremony.jpg','samsung-award-certificate.png','next-generation-engineering-award.jpg','hydrogen-synapse-press-figure.jpg','optoelectronic-memristor-press-02.jpg']) assert.ok(pages.activities.includes(`assets/images/activities/${file}`),`Activity image missing: ${file}`);
+assert.ok(pages.activities.includes('id="activity-lightbox"')&&pages.activities.includes('class="activity-image-open"'),'Activity details need a lightbox gallery');
+assert.ok(pages.activities.includes('object-fit:contain')&&pages.activities.includes('object-fit:cover'),'Activities should preserve research figures and fill photographic cards');
+assert.ok(!pages.activities.includes('assets/schematics/'),'Media cards should use source images rather than old artwork');
+for(const item of [...data.publications,...data.research,...data.news]) for(const value of [item.image,item.thumbnail,...(item.images??[]).map(image=>image.image)].filter(Boolean)) if(value.startsWith('/assets/')) assert.ok(fs.existsSync(path.join(defaultRoot,value.slice(1))),`Missing local image: ${value}`);
 assert.ok(!pages.index.includes('PORTFOLIO / 2026'));
 const hiddenFeatured=home({...data,pages:{...data.pages,home:{...data.pages.home,featured:{...data.pages.home.featured,visible:false}}}});
 assert.ok(!hiddenFeatured.includes('id="featured"')&&!hiddenFeatured.includes('href="#featured"'),'Hidden featured section should not leave a dead hero link');

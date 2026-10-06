@@ -8,7 +8,13 @@
   "detailText": "The laboratory announced Min Jong Lee's award on November 19, 2025.",
   "relatedAwardId": "award-02",
   "sourceUrl": "https://shimgrp.korea.ac.kr/notices/%ec%88%98%ec%83%81-%ec%84%9d%eb%b0%95%ec%82%ac%ed%86%b5%ed%95%a9%ea%b3%bc%ec%a0%95-%ec%9d%b4%eb%af%bc%ec%a2%85-%ec%82%bc%ec%84%b1%ec%a0%84%ec%9e%90-%ec%82%b0%ed%95%99%ed%98%91%eb%a0%a5-%ec%9a%b0/",
-  "images": [],
+  "thumbnail": "/assets/images/activities/samsung-award-presentation.jpg",
+  "thumbnailAlt": "Min Jong Lee presenting research at a Samsung Electronics industry–academia award event",
+  "images": [
+    {"image": "/assets/images/activities/samsung-award-presentation.jpg", "alt": "Min Jong Lee presenting his optoelectronic memristor research", "caption": "Research presentation"},
+    {"image": "/assets/images/activities/samsung-award-ceremony.jpg", "alt": "Min Jong Lee receiving the outstanding paper award", "caption": "Award presentation"},
+    {"image": "/assets/images/activities/samsung-award-certificate.png", "alt": "Samsung Electronics outstanding paper award plaque and certificate for Min Jong Lee", "caption": "Award plaque and certificate"}
+  ],
   "mediaLinks": [],
   "featured": true,
   "visible": true

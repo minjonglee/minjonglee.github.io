@@ -50,7 +50,7 @@ for(const key of ['title','program','fundingAgency','personalRole','startDate','
 for(const key of ['endDate','shortTitle','periodDisplay','description','myContribution','relatedResearch','relatedPublications']) assert.ok(projectFields.some(field=>field.name===key),`project ${key} editor missing`);
 assert.notEqual(projectFields.find(field=>field.name==='period')?.required,true,'legacy period should not be required for new projects');
 const editorFields=name=>editors.find(item=>item.name===name).fields;
-for(const [name,keys] of Object.entries({research:['image','alt','caption','imagePosition','whatIControl','whatIMeasure','whyItMatters'],publications:['image','imageAlt','imageCaption','imagePosition'],projects:['image','imageAlt','imageCaption','imagePosition'],news:['thumbnail','thumbnailAlt','thumbnailCaption','thumbnailPosition','type'],gallery:['image','alt','caption','imagePosition','date','category','url']}))
+for(const [name,keys] of Object.entries({research:['image','alt','caption','imagePosition','whatIControl','whatIMeasure','whyItMatters'],publications:['image','imageAlt','imageCaption','imagePosition'],projects:['image','imageAlt','imageCaption','imagePosition'],news:['thumbnail','thumbnailAlt','thumbnailCaption','thumbnailPosition','thumbnailFit','type'],gallery:['image','alt','caption','imagePosition','date','category','url']}))
   for(const key of keys) assert.ok(editorFields(name).some(field=>field.name===key),`${name} image/content editor missing ${key}`);
 assert.ok(editorFields('news').find(field=>field.name==='type').options.values.includes('Video'),'Activities need a video category');
 assert.equal(editorFields('news').find(field=>field.name==='type').label,'Category');
@@ -84,7 +84,7 @@ try{
   write('patents','cms-test-patent',newPatent);
   const newConference={id:'cms-test-conference',conferenceName:'CMS test conference',title:'CMS test presentation',authors:'Min Jong Lee',year:2027,sortDate:'2027-03-01',presentationType:'Poster',visible:true,order:999};
   write('conferences','cms-test-conference',newConference);
-  write('news','cms-test-news',{id:'cms-test-news',title:'CMS test news',date:'2027-01-01',type:'News',source:'Test source',thumbnail:'/assets/concept-device-layers.jpg',thumbnailAlt:'Concept layered device',thumbnailPosition:'right',images:[{image:'/assets/concept-device-layers.jpg',alt:'Concept layered device',caption:'CMS test activity caption'}],mediaLinks:[{outlet:'Example outlet',url:'https://example.org/coverage'}],featured:true,visible:true});
+  write('news','cms-test-news',{id:'cms-test-news',title:'CMS test news',date:'2027-01-01',type:'News',source:'Test source',thumbnail:'/assets/concept-device-layers.jpg',thumbnailAlt:'Concept layered device',thumbnailPosition:'right',thumbnailFit:'contain',images:[{image:'/assets/concept-device-layers.jpg',alt:'Concept layered device',caption:'CMS test activity caption'}],mediaLinks:[{outlet:'Example outlet',url:'https://example.org/coverage'}],featured:true,visible:true});
   write('gallery','cms-test-gallery',{id:'cms-test-gallery',title:'CMS test gallery',category:'Research',image:'/assets/concept-device-layers.jpg',alt:'Concept layered device',caption:'CMS test caption',date:'2027-01-01',url:'https://example.com/gallery',imagePosition:'bottom',visible:true,order:1});
   const profile=JSON.parse(fs.readFileSync(path.join(content,'profile.json'),'utf8'));
   profile.heroImage='/assets/concept-flexible-circuit.jpg';profile.heroImageAlt='Concept flexible circuit';profile.heroImagePosition='left';
@@ -105,7 +105,7 @@ try{
   assert.ok(html.projects.includes('project-science')&&html.projects.includes('object-position:right'),'Project image should follow CMS fields');
   assert.ok(html.projects.includes('Tested interface design and electrical characterization.'),'Project contribution should render when supplied');
   assert.ok(html.activities.includes('id="gallery"')&&html.activities.includes('CMS test gallery')&&html.activities.includes('https://example.com/gallery'),'Gallery should appear from CMS data');
-  assert.ok(html.activities.includes('CMS test activity caption')&&html.activities.includes('object-position:right'),'Activities should render CMS thumbnail caption and crop focus');
+  assert.ok(html.activities.includes('CMS test activity caption')&&html.activities.includes('object-position:right')&&html.activities.includes('object-fit:contain'),'Activities should render CMS thumbnail caption, crop focus, and fit');
   assert.ok(html.activities.includes('<h3>CMS test news</h3>')&&html.index.includes('activities.html#cms-test-news'),'Home should open the internal activity detail');
   assert.ok(html.activities.includes('https://example.org/coverage')&&html.activities.includes('Example outlet'),'CMS media links should render inside activity details');
   const linkedNews=JSON.parse(fs.readFileSync(path.join(content,'news','cms-test-news.json'),'utf8'));

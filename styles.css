@@ -324,11 +324,11 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .activity-filters button:hover { color:var(--ink); }
 .activity-list { border-top:1px solid var(--ink); }
 .activity-entry { display:block; border-bottom:1px solid var(--line); padding:23px 0 26px; }
-.activity-summary { display:grid; grid-template-columns:minmax(0,1fr); gap:25px; list-style:none; }
+.activity-summary { display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(22px,4vw,52px); align-items:center; list-style:none; }
 .activity-summary::-webkit-details-marker { display:none; }
 details .activity-summary { cursor:pointer; }
 details .activity-summary:hover h3 { color:var(--accent); }
-.activity-summary:has(> img) { grid-template-columns:190px minmax(0,1fr); }
+.activity-summary.has-image { grid-template-columns:minmax(0,46%) minmax(0,1fr); }
 .activity-summary>img { width:100%; aspect-ratio:8/5; object-fit:cover; background:var(--soft); }
 .activity-card-meta { color:var(--accent); font-size:11px; font-weight:600; line-height:1.5; }
 .activity-summary h3 { font-family:var(--serif); font-size:clamp(21px,2vw,26px); line-height:1.3; font-weight:400; margin-top:5px; overflow-wrap:anywhere; }
@@ -340,7 +340,8 @@ details .activity-summary:hover h3 { color:var(--accent); }
 .activity-detail>p { color:var(--muted); font-size:13px; line-height:1.7; margin:0 0 17px; }
 .activity-detail .text-link { font-size:12px; }
 .activity-image-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:20px 0; }
-.activity-image-grid img { width:100%; aspect-ratio:4/3; object-fit:contain; background:var(--soft); }
+.activity-image-open { display:block; width:100%; border:0; background:var(--soft); padding:0; cursor:zoom-in; }
+.activity-image-open img { width:100%; aspect-ratio:4/3; object-fit:contain; background:var(--soft); }
 .activity-image-grid figcaption { color:var(--muted); font-size:11px; line-height:1.5; margin-top:6px; }
 .activity-coverage { margin-top:21px; }
 .activity-coverage h4 { font-family:var(--serif); font-size:21px; font-weight:400; margin-bottom:11px; }
@@ -348,6 +349,14 @@ details .activity-summary:hover h3 { color:var(--accent); }
 .activity-coverage li { min-width:0; border-bottom:1px solid var(--line); }
 .activity-coverage a { display:flex; align-items:center; justify-content:space-between; gap:14px; color:var(--ink); text-decoration:none; font-size:13px; padding:11px 0; overflow-wrap:anywhere; }
 .activity-coverage a:hover { color:var(--accent); }
+.activity-lightbox { width:min(95vw,1180px); max-height:95dvh; padding:0; border:1px solid var(--line); background:var(--white); color:var(--ink); }
+.activity-lightbox::backdrop { background:rgba(13,24,39,.82); }
+.activity-lightbox-inner { padding:clamp(14px,2vw,25px); }
+.activity-lightbox-close { display:block; margin-left:auto; border:0; background:none; color:var(--accent); padding:8px 0 12px; }
+.activity-lightbox img { display:block; width:100%; max-height:72dvh; object-fit:contain; background:var(--soft); }
+.activity-lightbox-caption { color:var(--muted); font-size:13px; margin-top:12px; }
+.activity-lightbox-controls { display:flex; justify-content:space-between; gap:20px; margin-top:11px; }
+.activity-lightbox-controls button { border:0; background:none; color:var(--accent); padding:8px 0; font-size:13px; }
 .activities-gallery .section-intro { margin:12px 0 0; }
 .gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:27px; }
 .gallery-open { display:block; width:100%; border:0; padding:0; background:var(--soft); overflow:hidden; }
@@ -420,7 +429,7 @@ details .activity-summary:hover h3 { color:var(--accent); }
   .publications-hero { padding-block:44px 30px; }.publications-hero p { font-size:14px; }
   .publications-section { padding-bottom:52px; }.publication-controls { grid-template-columns:1fr; gap:10px; }.publication-year { margin-top:37px; }.publication-year>h2 { font-size:29px; }
   .publication-item { padding-block:16px 17px; }.publication-item h3 { font-size:19px; }.publication-topline { gap:8px 12px; }.publication-meta { font-size:12px; overflow-wrap:anywhere; }.publication-source { font-size:14px; }
-  .about-intro { grid-template-columns:1fr; gap:29px; padding-block:46px 58px; }.about-intro .portrait { max-width:210px; }.about-intro h1 { font-size:47px; }.about-biography { margin-top:24px; }.about-section { padding-block:57px 60px; }.about-entry { grid-template-columns:1fr; gap:5px; padding-block:19px; }.about-entry-date { margin:0; }.award-entry { display:flex; flex-direction:column; gap:4px; }.award-item-year { order:-1; text-align:left; padding:0; }.about-related { display:block; }.about-related .text-link { margin-top:16px; }.activity-row { grid-template-columns:50px 1fr; gap:16px; }.activity-row h3 { font-size:18px; }.activity-summary:has(> img) { grid-template-columns:1fr; }.activity-summary>img { max-width:360px; }.activity-detail { margin-left:0; }.activity-coverage ul,.activity-image-grid { grid-template-columns:1fr; }.gallery-grid { grid-template-columns:1fr; gap:25px; }
+  .about-intro { grid-template-columns:1fr; gap:29px; padding-block:46px 58px; }.about-intro .portrait { max-width:210px; }.about-intro h1 { font-size:47px; }.about-biography { margin-top:24px; }.about-section { padding-block:57px 60px; }.about-entry { grid-template-columns:1fr; gap:5px; padding-block:19px; }.about-entry-date { margin:0; }.award-entry { display:flex; flex-direction:column; gap:4px; }.award-item-year { order:-1; text-align:left; padding:0; }.about-related { display:block; }.about-related .text-link { margin-top:16px; }.activity-row { grid-template-columns:50px 1fr; gap:16px; }.activity-row h3 { font-size:18px; }.activity-summary.has-image { grid-template-columns:1fr; }.activity-detail { margin-left:0; }.activity-coverage ul,.activity-image-grid { grid-template-columns:1fr; }.gallery-grid { grid-template-columns:1fr; gap:25px; }
   .footer-top { display:block; }.footer-top>div+div { margin-top:30px; }.footer-bottom { flex-wrap:wrap; gap:8px 20px; }.footer-bottom>span:nth-child(2) { order:3; width:100%; }
   .cv-document { padding:28px 20px; }.cv-toolbar { gap:16px 25px; }.cv-document h1 { font-size:37px; }
 }

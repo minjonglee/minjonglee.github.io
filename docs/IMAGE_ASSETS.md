@@ -1,28 +1,42 @@
-# Research image assets
+# Image assets and provenance
 
-The Home hero uses `assets/concept-device-layers.jpg`, a concept illustration generated in September 2026 from a user-provided visual reference. It is not experimental microscopy, measured data, or a figure from a paper. The other older `assets/concept-*.jpg` files remain in the repository for reference but are no longer reused across Featured Work and Research.
+The Home hero remains `assets/concept-device-layers.jpg`. It is conceptual artwork. The eight Featured Work and Research images below were generated specifically for this site with the built-in image-generation tool, visually reviewed, and exported as 1586 × 992 JPEGs at quality 88. They are editorial interpretations, not microscopy, device photographs, or measured results. The generation prompts are recorded in [ARTWORK_PROMPTS.md](ARTWORK_PROMPTS.md).
 
-## Paper-specific and research schematics
+| Local file under `assets/artwork/` | Website use |
+|---|---|
+| `featured-chiral-synapse.jpg` | Home Featured Work: chiral perovskite synapse |
+| `featured-hydrogen-synapse.jpg` | Home Featured Work: hydrogen-bond artificial synapse |
+| `featured-opto-memory.jpg` | Home Featured Work: intermediate-layer optoelectronic memristor |
+| `research-interfaces.jpg` | Research: interfaces, defects, ions, and transport |
+| `research-memory.jpg` | Research: memory and reliability |
+| `research-optoelectronics.jpg` | Research: optoelectronics and hybrid devices |
+| `research-flexible.jpg` | Research: flexible and stretchable electronics |
+| `research-integration.jpg` | Research: prospective device-to-system integration |
 
-`node scripts/generate-schematics.mjs` creates eight local, code-native SVGs under `assets/schematics/`. They share a restrained editorial style and label themselves **Conceptual schematic · no experimental data**. Each image field remains independently replaceable in Pages CMS.
+The published-paper concepts were cross-checked against the [Advanced Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511728) and [Advanced Functional Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202421080). The accepted chiral paper has no verified public abstract in this repository, so its artwork stays at the level of the confirmed title. Artwork contains no internal labels or fabricated measurement plots.
 
-| Asset | Use | Scientific basis |
+## Activities: source photographs and press graphics
+
+These are local copies of the full-size images exposed by the source pages, rather than hotlinks. The laboratory source-page URLs remain in the CMS records as editor-only provenance and are never shown on the public Activities page.
+
+| Local file under `assets/images/activities/` | Website use | Source |
 |---|---|---|
-| `featured-chiral-synapse.svg` | Accepted chiral-perovskite synapse paper | Helicity and analog conductance states are stated in the paper title; the image does not assert a device stack or measured response. |
-| `featured-hydrogen-synapse.svg` | Hydrogen-bond artificial synapse paper | PVA–CsPbI₃ interface and FTO / hybrid / PMMA / Ag stack described by the published paper. |
-| `featured-opto-memory.svg` | Low-power optoelectronic memristor paper | TiO₂ interlayer, trap control, optical input, and memory are described in the published abstract. |
-| `research-interfaces.svg` | Core interface physics | Abstracted contacts, defects, ions, and transport paths. |
-| `research-memory.svg` | Core memory and reliability | Abstracted state formation and resolvable analog levels; no performance curve. |
-| `research-optoelectronics.svg` | Optoelectronics foundation | Light input, charge-selective interface, and carrier extraction. |
-| `research-flexible.svg` | Flexible electronics foundation | Bending and continuity of an interconnect. |
-| `research-integration.svg` | Future direction | Dotted progression from device to array to system, explicitly prospective. |
+| `samsung-award-presentation.jpg` | Samsung award card thumbnail and detail gallery | Laboratory notice recorded in `content/news/samsung-paper-award.json` |
+| `samsung-award-ceremony.jpg` | Samsung award detail gallery | Same laboratory notice |
+| `samsung-award-certificate.png` | Samsung award detail gallery | Same laboratory notice |
+| `next-generation-engineering-award.jpg` | Engineering researcher award card and detail gallery | Laboratory notice recorded in `content/news/next-generation-engineering-award.json` |
+| `hydrogen-synapse-press-figure.jpg` | Hydrogen-bond coverage card and detail gallery | [Korea University news report](https://www.korea.ac.kr/ko/552/subview.do?enc=Zm5jdDF8QEB8JTJGa3VzdG9yeSUyRmtvJTJGYXJ0Y2xWaWV3LmRvJTNGYXJ0Y2xTZXElM0QyODA3NyUyNg%3D%3D) |
+| `hydrogen-synapse-researchers.jpg` | Hydrogen-bond coverage detail gallery | Same Korea University report |
+| `optoelectronic-memristor-press-02.jpg` | Memristor coverage card and detail gallery | [University News Network report](https://news.unn.net/news/articleView.html?idxno=574678) |
+| `optoelectronic-memristor-press-01.jpg` | Memristor coverage detail gallery | Same University News Network report |
 
-The published-paper concepts were cross-checked against the [Advanced Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511728) and [Advanced Functional Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202421080). The accepted chiral paper has no verified public abstract in this repository, so its schematic stays at the level of its confirmed title.
+The two laboratory media notices did not include research photos in their HTML. Their linked university and news reports supplied the research graphics and portraits used above. The next-generation award certificate records October 24, 2025; the original laboratory post was first published August 29 and updated November 10. The activity uses the certificate's award date.
 
-## Activity photographs
+## Editing in Pages CMS
 
-The laboratory notices include award photographs, but their reuse rights are not documented in this repository. They were not copied or hotlinked. The two media entries use the local, paper-specific conceptual schematics as thumbnails; the award entries remain text-led until the owner uploads originals or cleared copies through Pages CMS, with accurate alternative text and captions.
+- **Publications → Papers:** Featured Work image, alternative text, caption, crop focus.
+- **Research → Research Areas:** each research image, alternative text, caption, crop focus.
+- **Activities → News & Media:** card thumbnail, alternative text, `Cover`/`Contain` fit, crop focus, and any number of detail gallery images with alternative text and captions.
+- **About → Profile:** Home hero image and alternative text.
 
-## Replacing a schematic
-
-In Pages CMS, open **About → Profile** for the Home hero, **Research → Research Areas** for a topic image, or **Publications → Papers** for a Featured Work image. Upload a cleared image, add meaningful alt text, and describe the image accurately in the caption. Remove the conceptual label only when the replacement is a genuine research figure. For local edits, run `node scripts/build.mjs` and `node scripts/check.mjs`.
+After local edits, run `node scripts/generate-cms-config.mjs`, `node scripts/build.mjs`, and `node scripts/check.mjs`.

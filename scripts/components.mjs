@@ -37,7 +37,7 @@ export const imagePosition = value => ['center','top','bottom','left','right'].i
 export function scientificVisual(image, alt, {label:caption='',className='',position='center'} = {}) {
   if (!image) return '';
   const priority=className==='hero-science' ? 'fetchpriority="high"' : 'loading="lazy"';
-  const dimensions=/\.svg(?:\?|$)/i.test(image)?'width="1200" height="750"':'width="1448" height="1086"';
+  const dimensions=/\/assets\/artwork\//i.test(image)?'width="1586" height="992"':/\.svg(?:\?|$)/i.test(image)?'width="1200" height="750"':'width="1448" height="1086"';
   return `<figure class="scientific-visual ${e(className)}"><img src="${e(image)}" alt="${e(alt)}" ${dimensions} style="object-position:${imagePosition(position)}" ${priority} decoding="async">${caption?`<figcaption>${e(caption)}</figcaption>`:''}</figure>`;
 }
 

@@ -1,14 +1,19 @@
 {
   "id": "next-generation-engineering-award",
   "title": "Next-Generation Engineering Researcher Award",
-  "date": "2025-08-29",
+  "date": "2025-10-24",
   "type": "Award",
   "source": "IPESK",
   "shortDescription": "Recognized with the Next-Generation Engineering Researcher Award.",
-  "detailText": "The laboratory announced Min Jong Lee's award on August 29, 2025.",
+  "detailText": "The certificate records the award to Min Jong Lee on October 24, 2025.",
   "relatedAwardId": "award-03",
   "sourceUrl": "https://shimgrp.korea.ac.kr/notices/%ec%88%98%ec%83%81-%ec%84%9d%eb%b0%95%ec%82%ac%ed%86%b5%ed%95%a9%ea%b3%bc%ec%a0%95-%ec%9d%b4%eb%af%bc%ec%a2%85-%ec%b0%a8%ec%84%b8%eb%8c%80-%ea%b3%b5%ed%95%99%ec%97%b0%ea%b5%ac%ec%9e%90%ec%83%81/",
-  "images": [],
+  "thumbnail": "/assets/images/activities/next-generation-engineering-award.jpg",
+  "thumbnailAlt": "Certificate naming Min Jong Lee as a Next-Generation Engineering Researcher Award recipient",
+  "thumbnailFit": "contain",
+  "images": [
+    {"image": "/assets/images/activities/next-generation-engineering-award.jpg", "alt": "Next-Generation Engineering Researcher Award certificate for Min Jong Lee", "caption": "Award certificate"}
+  ],
   "mediaLinks": [],
   "featured": false,
   "visible": true

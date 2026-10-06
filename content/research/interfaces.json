@@ -1,9 +1,9 @@
 {
   "order": 1,
   "visible": true,
-  "image": "/assets/schematics/research-interfaces.svg",
-  "alt": "Conceptual thin-film interface with marked defects and ionic transport pathways; not experimental data",
-  "caption": "Conceptual schematic",
+  "image": "/assets/artwork/research-interfaces.jpg",
+  "alt": "Editorial artwork of a thin-film material boundary with sparse defects and ions; not experimental imagery",
+  "caption": "Conceptual scientific artwork",
   "id": "interfaces",
   "number": "01",
   "title": "Interfacial & Nonequilibrium Physics",
