@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {isPublicationVisible} from './components.mjs';
+import {bySortDateDesc,isPublicationVisible} from './components.mjs';
 
 export const defaultRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
@@ -22,7 +22,7 @@ export function loadContent(contentRoot=path.join(defaultRoot,'content')) {
     return fs.readdirSync(dir).filter(file=>file.endsWith('.json')).map(file=>{
       const item=normalize(read(path.join(dir,file)));
       return {...item,id:item.id||path.basename(file,'.json')};
-    }).filter(item=>item.visible!==false).sort(ordered);
+    }).filter(item=>item.visible!==false).sort(['publications','patents','conferences'].includes(name)?bySortDateDesc:ordered);
   };
   const site=single('site.json');
   site.seo=Object.fromEntries((site.seoPages??[]).map(entry=>[entry.file,entry]));
@@ -40,7 +40,7 @@ export function loadContent(contentRoot=path.join(defaultRoot,'content')) {
   const research=collection('research');
   const researchProjects=collection('research-cases');
   const gallery=collection('gallery');
-  const featured=publications.filter(p=>p.featured===true&&isPublicationVisible(p)).sort((a,b)=>number(a.featuredOrder)-number(b.featuredOrder)||ordered(a,b)).map(p=>({paper:p.id,project:p.featuredProject,title:p.featuredTitle||p.title,contribution:p.featuredContribution||''}));
+  const featured=publications.filter(p=>p.featured===true&&isPublicationVisible(p)).sort((a,b)=>number(a.featuredOrder)-number(b.featuredOrder)||bySortDateDesc(a,b)).map(p=>({paper:p.id,project:p.featuredProject,title:p.featuredTitle||p.title,contribution:p.featuredContribution||''}));
   const data={site,profile,pages,publications,projects,patents,awards,education,experience,conferences,news,topics,research,researchProjects,gallery,featured,scholar:profile.scholar,notes:site.notes,trajectory:pages.about.trajectory};
   // Compatibility while page templates are moved from the old object shape.
   data.pillars=research.filter(item=>['interfaces','memory','integration'].includes(item.id));

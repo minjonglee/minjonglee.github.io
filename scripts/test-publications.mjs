@@ -24,9 +24,15 @@ for(const before of old){
 const config=JSON.parse(fs.readFileSync(path.join(defaultRoot,'.pages.yml'),'utf8'));
 const editor=config.content.flatMap(group=>group.items).find(item=>item.name==='publications');
 const fields=new Map(editor.fields.map(field=>[field.name,field]));
-for(const key of ['title','authors','journalName','publicationType','publicationStatus','year','publicationDate','onlinePublicationDate','volume','issue','startPage','endPage','pages','articleNumber','eLocationId','doi','doiUrl','publisherUrl','journalUrl','pdfUrl','supplementaryUrl','publisher','issn','eIssn','researchCategory','keywords','topics','relatedResearch','relatedProjects','myAuthorRole','firstAuthor','coFirstAuthor','correspondingAuthor','coCorrespondingAuthor','authorNotes','featured','visible','order','id'])
+for(const key of ['title','authors','journalName','publicationType','publicationStatus','year','sortDate','publicationDate','onlinePublicationDate','volume','issue','startPage','endPage','pages','articleNumber','eLocationId','doi','doiUrl','publisherUrl','journalUrl','pdfUrl','supplementaryUrl','publisher','issn','eIssn','researchCategory','keywords','topics','relatedResearch','relatedProjects','myAuthorRole','firstAuthor','coFirstAuthor','correspondingAuthor','coCorrespondingAuthor','authorNotes','featured','visible','id'])
   assert.ok(fields.has(key),`CMS missing ${key}`);
-for(const paper of current.publications) for(const key of Object.keys(paper)) assert.ok(fields.has(key),`CMS would omit ${paper.id}.${key}`);
+for(const paper of current.publications) for(const key of Object.keys(paper)) if(key!=='order') assert.ok(fields.has(key),`CMS would omit ${paper.id}.${key}`);
+assert.ok(!fields.has('order'),'Papers should not expose manual display order');
+assert.equal(fields.get('sortDate').type,'date');
+assert.equal(fields.get('sortDate').required,true);
+assert.ok(!Object.hasOwn(fields.get('sortDate'),'default'),'New Papers should default to the current local date in Pages CMS');
+assert.equal(editor.view.default.sort,'sortDate');
+assert.equal(editor.view.default.order,'desc');
 assert.equal(fields.get('visible').default,true);
 assert.equal(fields.get('publicationDate').default,'');
 assert.equal(fields.get('publicationStatus').default,'Published');
@@ -45,6 +51,9 @@ let html=publication(current,sample);
 for(const value of ['Vol. 38','Issue 12','pp. 1234–1246','https://doi.org/10.1234/example','ionic memory']) assert.ok(html.includes(value),`missing ${value}`);
 assert.ok(html.indexOf('pp. 1234–1246')<html.indexOf('<h3>'),'bibliographic metadata must precede the title');
 assert.ok(html.indexOf('publication-doi')<html.indexOf('<h3>'),'DOI must align with metadata');
+assert.match(html,/class="publication-doi"[^>]*aria-label="Open DOI" title="Open DOI"/);
+assert.match(html,/class="publication-doi"[^>]*target="_blank"[^>]*>\s*<svg/);
+assert.ok(!html.includes('DOI ↗'),'DOI text must not be visible');
 assert.ok(!html.includes('publication-bibliography'),'separate bibliography line remains');
 assert.equal(doiHref({...sample,doiUrl:'https://publisher.example/article'}),'https://publisher.example/article');
 html=publication(current,{...sample,volume:'',issue:'',startPage:'',endPage:'',articleNumber:'e2456789',doi:'',doiUrl:''});
@@ -69,4 +78,6 @@ assert.ok(acceptedRow.includes('publication-author-role')&&acceptedRow.includes(
 assert.ok(!page.includes('publication-manuscripts')&&!page.includes('A manuscript in revision'));
 assert.ok(page.indexOf('>2026</h2>')<page.indexOf('>2025</h2>'));
 assert.ok(page.includes('id="publication-search"')&&page.includes('id="publication-year-filter"'));
+const expectedIds=['paper-22','paper-07','paper-23','paper-08','paper-09','paper-10','paper-11','paper-02','paper-03','paper-12','paper-13','paper-14','paper-15','paper-16','paper-17','paper-04','paper-05','paper-18','paper-19','paper-20','paper-21','paper-06'];
+assert.deepEqual([...page.matchAll(/class="publication-item" id="([^"]+)"/g)].map(match=>match[1]),expectedIds,'Paper migration must preserve the published order');
 console.log(`Preserved published legacy records and verified ${visiblePapers.length} visible papers, CMS fields, metadata, and status filtering.`);

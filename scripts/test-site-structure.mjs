@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {defaultRoot,loadContent} from './content.mjs';
-import {patentRecordDate} from './components.mjs';
+import {bySortDateDesc} from './components.mjs';
 import {about,activities,conferences,home,projects} from './pages.mjs';
 
 const data=loadContent();
@@ -64,16 +64,17 @@ for(const status of ['all','registered','application']) assert.ok(pages.patents.
 assert.equal((pages.patents.match(/class="output-entry patent-entry"/g)||[]).length,8);
 assert.ok(!pages.patents.includes('class="output-year"')&&!pages.patents.includes('data-patent-year'),'Patents should be one continuous list');
 const patentIds=[...pages.patents.matchAll(/class="output-entry patent-entry" id="([^"]+)"/g)].map(match=>match[1]);
-const expectedPatentIds=[...data.patents].sort((a,b)=>String(patentRecordDate(b)).localeCompare(String(patentRecordDate(a)))||Number(a.order??999)-Number(b.order??999)).map(item=>item.id);
-assert.deepEqual(patentIds,expectedPatentIds,'Patents should be sorted by representative date');
+const expectedPatentIds=[...data.patents].sort(bySortDateDesc).map(item=>item.id);
+assert.deepEqual(patentIds,expectedPatentIds,'Patents should be sorted by sortDate');
+assert.deepEqual(patentIds,['patent-01','patent-02','patent-03','patent-04','patent-06','patent-05','patent-07','patent-08'],'Patent migration should preserve the visible order');
 assert.ok(!pages.conferences.includes('class="output-entry conference-entry"'));
 assert.ok(!pages.conferences.includes('class="output-year"'),'Conferences should not have year headings');
 const conferenceSample=conferences({...data,conferences:[
-  {id:'older',title:'Older presentation',conferenceName:'Older event',date:'2023-06',year:2023,order:1},
-  {id:'recent',title:'Recent presentation',conferenceName:'Recent event',date:'July 2025',year:2025,order:9},
-  {id:'undated',title:'Undated presentation',conferenceName:'Undated event',year:2026,order:0}
+  {id:'older',title:'Older presentation',conferenceName:'Older event',date:'2023-06',year:2023,sortDate:'2023-06-01',order:1},
+  {id:'recent',title:'Recent presentation',conferenceName:'Recent event',date:'July 2025',year:2025,sortDate:'2025-07-01',order:9},
+  {id:'newest',title:'New presentation',conferenceName:'New event',year:2026,sortDate:'2026-01-01',order:99}
 ]});
-assert.deepEqual([...conferenceSample.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)].map(match=>match[1]),['recent','older','undated'],'Conferences should sort by date and leave undated records last');
+assert.deepEqual([...conferenceSample.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)].map(match=>match[1]),['newest','recent','older'],'Conferences should sort by sortDate, independent of order');
 assert.ok(!conferenceSample.includes('class="output-year"'),'Populated Conferences should remain a continuous list');
 const featuredAwards=data.awards.filter(item=>item.visible!==false&&item.featured);
 if(featuredAwards.length) {

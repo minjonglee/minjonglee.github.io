@@ -1,4 +1,4 @@
-import {escape as e, textLink, paperLink, isPublicationVisible, isUnpublished, label, profiles, portrait, scientificVisual, imagePosition, researchDiagram, paperReference, publication, featured, pageHero, authors, formatPeriod, sectionTabs, patentIdentifier, patentRecordDate} from './components.mjs';
+import {escape as e, textLink, paperLink, isPublicationVisible, isUnpublished, label, profiles, portrait, scientificVisual, imagePosition, researchDiagram, paperReference, publication, featured, pageHero, authors, formatPeriod, sectionTabs, patentIdentifier, patentRecordDate, bySortDateDesc} from './components.mjs';
 
 const projectStatus = p => p.status || (p.endDate?'Completed':'Ongoing');
 const projectPeriod = p => {
@@ -65,9 +65,8 @@ export function research(d) {
 
 export function publications(d) {
   const page=d.pages.publications;
-  const byDate=(a,b)=>Number(b.year)-Number(a.year)||String(b.publicationDate||b.onlinePublicationDate||'').localeCompare(String(a.publicationDate||a.onlinePublicationDate||''))||Number(a.order??999)-Number(b.order??999);
-  const published=d.publications.filter(isPublicationVisible).sort(byDate);
-  const years=[...new Set(published.map(p=>p.year))];
+  const published=d.publications.filter(isPublicationVisible).sort(bySortDateDesc);
+  const years=[...new Set(published.map(p=>p.year))].sort((a,b)=>b-a);
   const allYears=[...new Set(published.map(p=>p.year))].sort((a,b)=>b-a);
   return `${outputHero(page.hero.title,page.hero.description)}${publicationsTabs(d,'publications.html')}
   <section class="shell publications-section" id="publications" aria-label="Publication list"><div class="publication-controls"><label class="sr-only" for="publication-search">Search publications</label><input id="publication-search" type="search" placeholder="Search title, author, journal or year" autocomplete="off"><label class="sr-only" for="publication-year-filter">Filter by year</label><select id="publication-year-filter"><option value="all">All years</option>${allYears.map(year=>`<option value="${e(year)}">${e(year)}</option>`).join('')}</select></div><p class="publication-count" id="publication-count" role="status" aria-live="polite">${published.length} publications</p><div id="publication-list">${years.map(year=>`<section class="publication-year" data-year-group><h2>${e(year)}</h2>${published.filter(p=>p.year===year).map(p=>publication(d,p)).join('')}</section>`).join('')}</div><p id="publication-empty" class="publication-empty" hidden>No publications match this search and year.</p><p class="record-note">${e(d.notes.authors)}</p></section>`;
@@ -84,7 +83,7 @@ export function projects(d) {
 
 export function patents(d) {
   const page=d.pages.patents;
-  const ordered=[...d.patents].sort((a,b)=>String(patentRecordDate(b)).localeCompare(String(patentRecordDate(a)))||Number(a.order??999)-Number(b.order??999));
+  const ordered=[...d.patents].sort(bySortDateDesc);
   const entry=p=>{
     const registered=['Registered','Granted'].includes(p.status);
     const date=patentRecordDate(p).replaceAll('-','.');
@@ -100,13 +99,7 @@ export function patents(d) {
 
 export function conferences(d) {
   const page=d.pages.conferences;
-  const dateKey=item=>{
-    const value=String(item.date||'').trim();
-    if(!value) return '';
-    const timestamp=Date.parse(value);
-    return Number.isNaN(timestamp)?value:new Date(timestamp).toISOString().slice(0,10);
-  };
-  const ordered=[...d.conferences].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(a.order??999)-Number(b.order??999));
+  const ordered=[...d.conferences].sort(bySortDateDesc);
   const entry=item=>`<article class="output-entry conference-entry" id="${e(item.id)}">${item.title?`<p class="output-source">${e(item.conferenceName)}</p><h3 class="output-title">${e(item.title)}</h3>`:`<h3 class="output-title">${e(item.conferenceName)}</h3>`}${item.authors?`<p class="output-authors">${authors(item.authors)}</p>`:''}<div class="conference-details">${item.presentationType?`<span class="output-badge">${e(item.presentationType)}</span>`:''}${item.date?`<span>${e(item.date)}</span>`:''}${item.location?`<span>${e(item.location)}</span>`:''}</div>${item.description?`<p class="output-description">${e(item.description)}</p>`:''}${item.url?textLink(item.url,'Conference record'):''}</article>`;
   return `${outputHero(page.hero.title,page.hero.description)}${publicationsTabs(d,'conferences.html')}<section class="shell output-section">${ordered.length?`<div class="output-list conference-list">${ordered.map(entry).join('')}</div>`:''}</section>`;
 }

@@ -9,6 +9,17 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const data=loadContent(process.env.SITE_CONTENT_DIR||path.join(root,'content'));
 const outputRoot=process.env.SITE_OUTPUT_DIR||root;
 fs.mkdirSync(outputRoot,{recursive:true});
+for (const name of ['publications','patents','conferences']) {
+  for (const item of data[name]) {
+    const value=String(item.sortDate||'');
+    const valid=/^\d{4}-\d{2}-\d{2}$/.test(value)
+      && !Number.isNaN(Date.parse(`${value}T00:00:00Z`))
+      && new Date(`${value}T00:00:00Z`).toISOString().slice(0,10)===value;
+    if (!valid) throw new Error(`${name}/${item.id}: Sort date must be a real YYYY-MM-DD date.`);
+    if (name==='publications' && Number(value.slice(0,4))!==Number(item.year))
+      throw new Error(`publications/${item.id}: Sort date year must match Year for consistent CMS and website order.`);
+  }
+}
 for (const image of [...data.publications, ...data.gallery]) {
   if (image.image && !(image.imageAlt || image.alt)) throw new Error('Every research/gallery image needs meaningful alt text.');
 }

@@ -7,6 +7,7 @@ export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
 export const patentIdentifier = p => p.registrationNumber || p.applicationNumber || p.number || '';
 export const patentRecordDate = p => p.registrationDate || p.applicationDate || p.date || '';
+export const bySortDateDesc = (a,b) => String(b.sortDate||'').localeCompare(String(a.sortDate||'')) || String(a.id||'').localeCompare(String(b.id||''));
 export const sectionTabs = (items,file,label) => `<nav class="section-tabs shell" aria-label="${e(label)}">${items.map(item=>`<a href="${e(item.href)}"${item.href===file?' aria-current="page"':''}>${e(item.label)}</a>`).join('')}</nav>`;
 export const doiHref = p => p.doiUrl || (p.doi ? `https://doi.org/${String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'')}` : '');
 const publicStatuses=new Set(['Accepted','In Press','ASAP','Early View','Online Published','Published']);
@@ -64,7 +65,7 @@ export function publication(data, p) {
   const statusText=status==='Published'?'':` (${status})`;
   const meta=[`${p.year}${statusText}`,bibliography].filter(Boolean).join(' · ');
   const search=[p.title,p.authors,p.journal,p.journalName,p.year,status,p.doi,p.doiUrl,p.volume,p.issue,p.pages,p.startPage,p.endPage,p.articleNumber,p.eLocationId,p.researchCategory,...(p.keywords??[])].filter(Boolean).join(' ').toLocaleLowerCase();
-  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span>${p.firstAuthor||p.coFirstAuthor||p.type==='first'?'<span class="publication-author-role">First author</span>':''}</p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="DOI for ${e(p.title)} (opens in a new tab)">DOI <span aria-hidden="true">↗</span></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}</article>`;
+  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span>${p.firstAuthor||p.coFirstAuthor||p.type==='first'?'<span class="publication-author-role">First author</span>':''}</p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI" title="Open DOI"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}</article>`;
 }
 
 export function featured(data) {

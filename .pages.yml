@@ -2106,16 +2106,16 @@
             "primary": "title",
             "fields": [
               "title",
-              "order",
+              "sortDate",
               "visible"
             ],
             "sort": [
-              "order",
+              "sortDate",
               "title"
             ],
             "default": {
-              "sort": "order",
-              "order": "asc"
+              "sort": "sortDate",
+              "order": "desc"
             }
           },
           "operations": {
@@ -2180,6 +2180,16 @@
               "name": "year",
               "label": "Year",
               "type": "number",
+              "required": true
+            },
+            {
+              "name": "sortDate",
+              "label": "Sort date (newest first)",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
+              "description": "Internal display order only, not a publication, patent, or conference date. New entries start with today; adjust it for older records. For Papers, keep the sort year equal to Year.",
               "required": true
             },
             {
@@ -2379,12 +2389,6 @@
               "default": true
             },
             {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
-            },
-            {
               "name": "id",
               "label": "Stable URL ID",
               "type": "string",
@@ -2513,16 +2517,16 @@
             "primary": "title",
             "fields": [
               "title",
-              "order",
+              "sortDate",
               "visible"
             ],
             "sort": [
-              "order",
+              "sortDate",
               "title"
             ],
             "default": {
-              "sort": "order",
-              "order": "asc"
+              "sort": "sortDate",
+              "order": "desc"
             }
           },
           "operations": {
@@ -2550,6 +2554,16 @@
               "name": "title",
               "label": "Title",
               "type": "string",
+              "required": true
+            },
+            {
+              "name": "sortDate",
+              "label": "Sort date (newest first)",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
+              "description": "Internal display order only, not a publication, patent, or conference date. New entries start with today; adjust it for older records. For Papers, keep the sort year equal to Year.",
               "required": true
             },
             {
@@ -2591,12 +2605,6 @@
                 "value": "{fields.id}",
                 "label": "{primary}"
               }
-            },
-            {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
             },
             {
               "name": "visible",
@@ -2694,16 +2702,16 @@
             "primary": "conferenceName",
             "fields": [
               "conferenceName",
-              "order",
+              "sortDate",
               "visible"
             ],
             "sort": [
-              "order",
+              "sortDate",
               "conferenceName"
             ],
             "default": {
-              "sort": "order",
-              "order": "asc"
+              "sort": "sortDate",
+              "order": "desc"
             }
           },
           "operations": {
@@ -2729,6 +2737,16 @@
               "name": "conferenceName",
               "label": "Conference name",
               "type": "string",
+              "required": true
+            },
+            {
+              "name": "sortDate",
+              "label": "Sort date (newest first)",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
+              "description": "Internal display order only, not a publication, patent, or conference date. New entries start with today; adjust it for older records. For Papers, keep the sort year equal to Year.",
               "required": true
             },
             {
@@ -2788,12 +2806,6 @@
               "type": "boolean",
               "description": "Turn off to hide this item without deleting it.",
               "default": true
-            },
-            {
-              "name": "order",
-              "label": "Display order",
-              "type": "number",
-              "description": "Lower numbers appear first."
             }
           ]
         },
