@@ -19,9 +19,30 @@
     "futureTitle": "Toward integrated electronic systems"
   },
   "selectedPapersHeading": "Representative work",
+  "expertise": {
+    "title": "Research expertise & methods",
+    "intro": "Methods and measurements documented in the studies and collaborative work below; individual technique attribution follows each paper.",
+    "areas": [
+      {
+        "title": "Device fabrication & interfaces",
+        "description": "Molecular contacts, self-assembled monolayers, ALD intermediate layers, hybrid devices, and printed interconnects.",
+        "papers": ["paper-02", "paper-03", "paper-24"]
+      },
+      {
+        "title": "Electrical characterization",
+        "description": "Current–voltage and pulse response, switching states, retention, endurance, and trace-to-trace variability.",
+        "papers": ["paper-22", "paper-02", "paper-24"]
+      },
+      {
+        "title": "Device physics & reliability",
+        "description": "Trap-mediated and ionic transport, analog-state precision, process-induced variability, and resistance changes under mechanical deformation.",
+        "papers": ["paper-03", "paper-22", "paper-24"]
+      }
+    ]
+  },
   "vision": {
     "title": "From interface-controlled transport to reliable, integrated memory",
-    "intro": "Published device studies establish how interfaces and defects affect transport and analog states. My ongoing work tests limits to memory precision and reliability; integrated memory hardware remains a longer-term research direction.",
+    "intro": "Published device studies establish how interfaces and defects affect transport, leakage, and analog states. Work on thin-film electrodes and capacitors provides a foundation for future oxide and memory-device physics; integrated memory hardware remains a longer-term research direction.",
     "questions": [
       "How do molecular interfaces and defects govern electronic and ionic transport?",
       "What limits the precision, stability, and reliability of emerging memory states?",

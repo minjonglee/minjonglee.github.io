@@ -1,11 +1,12 @@
 export const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const e = escape;
-export const arrow = '<span aria-hidden="true">↗</span>';
+export const arrow = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>';
 export const textLink = (href, label, extra = '') => `<a class="text-link" href="${e(href)}" ${extra}>${label} ${arrow}</a>`;
 export const tags = values => `<ul class="tags" aria-label="Topics">${values.map(x => `<li>${e(x)}</li>`).join('')}</ul>`;
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
 export const authorRoleLabel = p => p.coFirstAuthor ? 'Co-first author' : p.firstAuthor || p.type==='first' ? 'First author' : '';
+export const publicationBadgeLabel = p => p.firstAuthor || p.type==='first' ? 'First author' : authorRoleLabel(p);
 export const patentIdentifier = p => p.registrationNumber || p.applicationNumber || p.number || '';
 export const patentRecordDate = p => p.registrationDate || p.applicationDate || p.date || '';
 export const bySortDateDesc = (a,b) => String(b.sortDate||'').localeCompare(String(a.sortDate||'')) || String(a.id||'').localeCompare(String(b.id||''));
@@ -15,6 +16,17 @@ const publicStatuses=new Set(['Accepted','In Press','ASAP','Early View','Online 
 export const isPublicationVisible = p => publicStatuses.has(p.publicationStatus || p.status || 'Published');
 export const isUnpublished = p => !isPublicationVisible(p);
 export const journalName = p => p.journalName || String(p.journal || '').split(' · ')[0];
+export function publicationCitation(p) {
+  const parts=[];
+  if(p.volume) parts.push(`Vol. ${p.volume}`);
+  if(p.issue) parts.push(`Issue ${p.issue}`);
+  const pageRange=p.startPage&&p.endPage?`${p.startPage}–${p.endPage}`:p.pages;
+  if(pageRange) parts.push(`pp. ${pageRange}`);
+  if(p.articleNumber) parts.push(`Article ${p.articleNumber}`);
+  if(p.eLocationId) parts.push(`eLocation ${p.eLocationId}`);
+  const status=p.publicationStatus || p.status || 'Published';
+  return [String(p.year)+(status==='Published'?'':` (${status})`),...parts].join(' · ');
+}
 export const paperUrl = p => doiHref(p) || p.publisherUrl || p.externalUrl || `https://scholar.google.com/scholar?q=${encodeURIComponent(p.title)}`;
 export const paperLink = p => isUnpublished(p) ? '' : textLink(paperUrl(p), doiHref(p) ? 'Paper / DOI' : p.publisherUrl || p.externalUrl ? 'Paper link' : 'Find on Scholar', `aria-label="${e((doiHref(p)||p.externalUrl ? 'Read paper: ' : 'Search Google Scholar for: ') + p.title)}"`);
 
@@ -55,19 +67,10 @@ export function paperReference(data, id) {
 
 export function publication(data, p) {
   const status=p.publicationStatus || p.status || 'Published';
-  const parts=[];
-  if(p.volume) parts.push(`Vol. ${p.volume}`);
-  if(p.issue) parts.push(`Issue ${p.issue}`);
-  const pageRange=p.startPage&&p.endPage?`${p.startPage}–${p.endPage}`:p.pages;
-  if(pageRange) parts.push(`pp. ${pageRange}`);
-  if(p.articleNumber) parts.push(`Article ${p.articleNumber}`);
-  if(p.eLocationId) parts.push(`eLocation ${p.eLocationId}`);
-  const bibliography=parts.join(' · ');
   const source=journalName(p) || 'Publication';
-  const statusText=status==='Published'?'':` (${status})`;
-  const meta=[`${p.year}${statusText}`,bibliography].filter(Boolean).join(' · ');
+  const meta=publicationCitation(p);
   const search=[p.title,p.authors,p.journal,p.journalName,p.year,status,p.doi,p.doiUrl,p.volume,p.issue,p.pages,p.startPage,p.endPage,p.articleNumber,p.eLocationId,p.researchCategory,...(p.keywords??[])].filter(Boolean).join(' ').toLocaleLowerCase();
-  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span>${authorRoleLabel(p)?`<span class="publication-author-role">${e(authorRoleLabel(p))}</span>`:''}</p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI" title="Open DOI"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}${p.pressUrl?`<p class="publication-press-link">${textLink(p.pressUrl,'Korea University news','target="_blank" rel="noopener noreferrer"')}</p>`:''}</article>`;
+  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span>${publicationBadgeLabel(p)?`<span class="publication-author-role">${e(publicationBadgeLabel(p))}</span>`:''}</p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI" title="Open DOI"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}</article>`;
 }
 
 export function featured(data) {

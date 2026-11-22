@@ -55,7 +55,7 @@ for(const [name,keys] of Object.entries({research:['image','alt','caption','imag
 assert.ok(editorFields('news').find(field=>field.name==='type').options.values.includes('Video'),'Activities need a video category');
 assert.equal(editorFields('news').find(field=>field.name==='type').label,'Category');
 assert.equal(editorFields('news').find(field=>field.name==='type').required,true);
-for(const key of ['shortDescription','detailText','images','mediaLinks','sourceUrl','relatedAwardId']) assert.ok(editorFields('news').some(field=>field.name===key),`Activities need CMS field ${key}`);
+for(const key of ['shortDescription','detailText','images','institutionalLinks','mediaLinks','sourceUrl','relatedAwardId']) assert.ok(editorFields('news').some(field=>field.name===key),`Activities need CMS field ${key}`);
 for(const key of ['familyId','familyTitle']) assert.ok(editorFields('patents').some(field=>field.name===key),`Patents need CMS field ${key}`);
 for(const name of ['news','awards','gallery']) assert.notEqual(editorFields(name).find(field=>field.name==='url').required,true,`${name} URL must be optional`);
 assert.ok(editorFields('awards').some(field=>field.name==='englishOrganization'),'English award organization must remain CMS-editable');

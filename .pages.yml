@@ -1977,6 +1977,49 @@
               "type": "string"
             },
             {
+              "name": "expertise",
+              "label": "Expertise",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Intro",
+                  "type": "text"
+                },
+                {
+                  "name": "areas",
+                  "label": "Areas",
+                  "type": "object",
+                  "list": {
+                    "collapsible": true
+                  },
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "type": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "text"
+                    },
+                    {
+                      "name": "papers",
+                      "label": "Related publication IDs",
+                      "type": "string",
+                      "list": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "name": "vision",
               "label": "Vision",
               "type": "object",
@@ -3205,6 +3248,26 @@
                 {
                   "name": "caption",
                   "label": "Image caption",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "institutionalLinks",
+              "label": "Institutional coverage links",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "outlet",
+                  "label": "Outlet name",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "label": "External URL",
                   "type": "string"
                 }
               ]

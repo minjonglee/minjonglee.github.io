@@ -86,7 +86,7 @@ node scripts/stage-site.mjs
 
 To preview, run `node scripts/serve.mjs` and open <http://127.0.0.1:8765/>. Stop with `Ctrl+C`. The build regenerates the root HTML; edit JSON and templates, not generated HTML. `.site/` contains only deployment files.
 
-The web CV (`cv.html`) updates with every build. The PDF at `assets/min-jong-lee-cv.pdf` is an unchanged copy of the owner's `MJL_CV_20261001.pdf` and does **not** regenerate in GitHub Actions. After changing CV facts, upload a revised PDF through **About → Profile → CV PDF file** and keep the web CV content in sync. The optional `scripts/build_cv.py` creates a generated alternative; do not run it over the owner's PDF unless that replacement is intended.
+The web CV (`cv.html`) updates with every build. The PDF at `assets/min-jong-lee-cv.pdf` was generated on 22 November 2026 from the same Pages CMS records. The owner's original `MJL_CV_20261001.pdf` remains at its source location outside this repository. After editing CV facts in CMS, regenerate and review the PDF locally with `python scripts/build_cv.py --generated-date YYYY-MM-DD`, then commit the revised PDF with the content update. This exporter needs Python 3, ReportLab, and Korean-capable TrueType fonts (Windows Malgun fonts are the default). GitHub Actions does not regenerate PDFs. You can also upload an approved PDF through **About → Profile → CV PDF file**.
 
 ## Deployment and files
 

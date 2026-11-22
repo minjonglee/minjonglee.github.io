@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 import re
+from datetime import date
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -17,7 +18,12 @@ ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description='Export the public CV from Pages CMS JSON content')
 parser.add_argument('--font-regular', default=os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts', 'malgun.ttf'))
 parser.add_argument('--font-bold', default=os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts', 'malgunbd.ttf'))
+parser.add_argument('--generated-date', default=date.today().isoformat(), help='YYYY-MM-DD date shown on the public PDF')
 args = parser.parse_args()
+try:
+    generated_date = date.fromisoformat(args.generated_date)
+except ValueError as exc:
+    raise SystemExit('--generated-date must be YYYY-MM-DD') from exc
 for p in [args.font_regular, args.font_bold]:
     if not Path(p).is_file():
         raise SystemExit('Provide Korean-capable TrueType fonts using --font-regular and --font-bold.')
@@ -40,7 +46,7 @@ ink=colors.HexColor('#232420')
 muted=colors.HexColor('#62635c')
 styles = {
     'title': ParagraphStyle('title', fontName='CV-Bold', fontSize=26, leading=32, textColor=ink, spaceAfter=13),
-    'body': ParagraphStyle('body', fontName='CV', fontSize=8.7, leading=13.5, textColor=ink, spaceAfter=8),
+    'body': ParagraphStyle('body', fontName='CV', fontSize=8.7, leading=13, textColor=ink, spaceAfter=5),
     'heading': ParagraphStyle('heading', fontName='CV-Bold', fontSize=10.5, leading=16, textColor=ink, spaceBefore=19, spaceAfter=10, keepWithNext=True),
     'small': ParagraphStyle('small', fontName='CV', fontSize=7.4, leading=11.5, textColor=muted, spaceAfter=9),
 }
@@ -70,20 +76,27 @@ for item in data['education']:
     flow.append(para(details))
 
 published=[p for p in data['publications'] if p.get('publicationStatus',p.get('status','Published')) in {'Accepted','In Press','ASAP','Early View','Online Published','Published'}]
-heading('First-author publications')
-number=0
-for group in ['first','co']:
-    if group=='co': heading('Co-authored publications')
-    for p in sorted([p for p in published if p['type']==group],key=lambda p:-p['year']):
-        number+=1
-        text=f'<b>{number}.</b> {author(p["authors"])}. “{esc(p["title"])}.” <b>{esc(p.get("journalName") or p.get("journal", ""))}</b> ({p["year"]}{", "+p["publicationStatus"] if p.get("publicationStatus") not in {None,"Published"} else ""}).'
-        doi_value = p.get('doi', '')
-        doi_url = p.get('doiUrl') or (doi_value if doi_value.startswith(('http://', 'https://')) else 'https://doi.org/' + doi_value if doi_value else '')
-        if doi_url:
-            match = re.search(r'10\.\d{4,9}/[^?#\s]+', doi_value or doi_url)
-            doi_label = 'doi:' + match.group(0) if match else 'DOI'
-            text += ' <link href="' + esc(doi_url) + '">' + esc(doi_label) + '</link>'
-        flow.append(KeepTogether([para(text),Spacer(1,3)]))
+published.sort(key=lambda p: (p.get('sortDate',''),p.get('id','')), reverse=True)
+heading('Publications')
+for number,p in enumerate(published,1):
+    status = p.get('publicationStatus',p.get('status','Published'))
+    details = [str(p['year']) + (f' ({status})' if status != 'Published' else '')]
+    if p.get('volume'): details.append('Vol. ' + str(p['volume']))
+    if p.get('issue'): details.append('Issue ' + str(p['issue']))
+    pages = f"{p['startPage']}-{p['endPage']}" if p.get('startPage') and p.get('endPage') else p.get('pages')
+    if pages: details.append('pp. ' + str(pages))
+    if p.get('articleNumber'): details.append('Article ' + str(p['articleNumber']))
+    if p.get('eLocationId'): details.append('eLocation ' + str(p['eLocationId']))
+    role = 'Co-first author (equal contribution)' if p.get('coFirstAuthor') else 'First author' if p.get('firstAuthor') or p.get('type') == 'first' else ''
+    text=f'<b>{number}.</b> {author(p["authors"])}. “{esc(p["title"])}.” <b>{esc(p.get("journalName") or p.get("journal", ""))}</b> ({esc(" · ".join(details))}).'
+    if role: text += ' <b>[' + esc(role) + ']</b>'
+    doi_value = p.get('doi', '')
+    doi_url = p.get('doiUrl') or (doi_value if doi_value.startswith(('http://', 'https://')) else 'https://doi.org/' + doi_value if doi_value else '')
+    if doi_url:
+        match = re.search(r'10\.\d{4,9}/[^?#\s]+', doi_value or doi_url)
+        doi_label = 'doi:' + match.group(0) if match else 'DOI'
+        text += ' <link href="' + esc(doi_url) + '">' + esc(doi_label) + '</link>'
+    flow.append(KeepTogether([para(text),Spacer(1,2)]))
 heading('Patents')
 for i,p in enumerate(data['patents'],1):
     title=f'<b>{i}. {esc(p.get("englishTitle") or p["title"])}</b>'
@@ -97,15 +110,15 @@ for i,p in enumerate(data['patents'],1):
     flow.append(KeepTogether([para(title),para(original,'small'),para(facts),Spacer(1,3)]))
 heading('Research projects')
 for p in data['projects']:
-    text='<b>'+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])+'<br/>'+esc(p['sponsor'])+'<br/>Program period: '+esc(p['period'])
+    text='<b>'+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])+'<br/>'+esc(p['sponsor'])+' | Program period: '+esc(p['period'])
     if p.get('personalRole'): text+=' | Role: '+esc(p['personalRole'])
     if p.get('personalParticipationPeriod'): text+='<br/>My participation: '+esc(p['personalParticipationPeriod'])
-    flow.append(KeepTogether([para(text),Spacer(1,3)]))
+    flow.append(KeepTogether([para(text),Spacer(1,2)]))
 heading('Awards & academic programs')
 for p in sorted(data['awards'],key=lambda p:-int(p['year'])):
     flow.append(KeepTogether([para('<b>'+p['year']+' | '+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])),Spacer(1,2)]))
 flow.append(Spacer(1,15))
-flow.append(para('Public version updated October 2026. Project dates are official program periods, not individual participation dates. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
+flow.append(para('Generated ' + generated_date.strftime('%d %B %Y') + ' from the same content records as the web CV. Project dates are official program periods, not individual participation dates. English labels for Korean titles are descriptive translations. Author symbols: † equal contribution; * corresponding author. Phone number and detailed postal address omitted.','small'))
 
 def footer(canvas, doc):
     canvas.saveState()

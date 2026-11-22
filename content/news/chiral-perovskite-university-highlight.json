@@ -14,7 +14,7 @@
   "thumbnailCaption": "Conceptual scientific artwork",
   "thumbnailFit": "cover",
   "images": [],
-  "mediaLinks": [
+  "institutionalLinks": [
     {
       "outlet": "Korea University News",
       "url": "https://graduate.korea.ac.kr/community/news_view.html?no=1044&page=1"
@@ -23,6 +23,15 @@
       "outlet": "Korea University Technology Transfer",
       "url": "https://tlo.korea.ac.kr/zh/news/1528"
     }
+  ],
+  "mediaLinks": [
+    {"outlet": "한국강사신문", "url": "https://www.lecturernews.com/news/articleView.html?idxno=212167"},
+    {"outlet": "내일신문", "url": "https://www.naeil.com/news/read/605465?ref=naver"},
+    {"outlet": "이뉴스투데이", "url": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2480490"},
+    {"outlet": "이데일리", "url": "https://n.news.naver.com/mnews/article/018/0006388649?sid=102"},
+    {"outlet": "뉴스티앤티", "url": "https://www.newstnt.com/news/articleView.html?idxno=723112"},
+    {"outlet": "팝콘뉴스", "url": "https://www.popcornnews.net/news/articleView.html?idxno=136108"},
+    {"outlet": "베리타스알파", "url": "https://www.veritas-a.com/news/articleView.html?idxno=631979"}
   ],
   "featured": true,
   "visible": true

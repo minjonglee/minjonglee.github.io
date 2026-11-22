@@ -31,7 +31,7 @@ for (const item of data.news) {
   if (item.thumbnail && !item.thumbnailAlt) throw new Error(`Activity image ${item.id} needs alt text.`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date||'')) throw new Error(`Activity ${item.id} needs a YYYY-MM-DD date.`);
   for (const image of item.images??[]) if (image.image && !image.alt) throw new Error(`Activity detail image ${item.id} needs alt text.`);
-  for (const link of item.mediaLinks??[]) if ((link.outlet||link.url) && !(link.outlet && /^https?:\/\//i.test(link.url||''))) throw new Error(`Activity ${item.id} has an incomplete or unsafe media link.`);
+  for (const link of [...(item.institutionalLinks??[]),...(item.mediaLinks??[])]) if ((link.outlet||link.url) && !(link.outlet && /^https?:\/\//i.test(link.url||''))) throw new Error(`Activity ${item.id} has an incomplete or unsafe coverage link.`);
 }
 for (const [name,figure] of Object.entries(data.researchFigures??{})) {
   if (figure.image && !figure.alt) throw new Error(`Research figure ${name} needs alt text.`);
