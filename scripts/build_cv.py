@@ -50,8 +50,9 @@ styles = {
     'heading': ParagraphStyle('heading', fontName='CV-Bold', fontSize=10.5, leading=16, textColor=ink, spaceBefore=19, spaceAfter=10, keepWithNext=True),
     'small': ParagraphStyle('small', fontName='CV', fontSize=7.4, leading=11.5, textColor=muted, spaceAfter=9),
 }
+SUBSCRIPT_DIGITS = str.maketrans('₀₁₂₃₄₅₆₇₈₉', '0123456789')
 def esc(text):
-    return escape(str(text).replace('–','-').replace('—','-').replace('‑','-').replace('→','to'))
+    return escape(str(text).translate(SUBSCRIPT_DIGITS).replace('–','-').replace('—','-').replace('‑','-').replace('→','to'))
 def para(text, style='body'):
     return Paragraph(text, styles[style])
 def heading(text):
