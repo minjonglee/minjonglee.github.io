@@ -1,0 +1,22 @@
+{
+  "id": "platforms",
+  "order": 3,
+  "visible": true,
+  "featured": true,
+  "homeRole": "platform",
+  "areaType": "Research pillar 03",
+  "displayTitle": "Thin-Film Electronics & Device Platforms",
+  "homeTitle": "Thin-Film Electronics & Device Platforms",
+  "homeDescription": "ALD electrodes, optoelectronics, flexible devices, and future electronic integration.",
+  "question": "How do thin-film interfaces, processing conditions, and material properties translate into electrical performance and reliability?",
+  "whatIControl": "Thin-film electrode and contact design · printed-film thickness and trace geometry",
+  "whatIMeasure": "Device transport and leakage · initial trace-to-trace variability · electrical response under repeated deformation",
+  "whyItMatters": "Separating processing variation from operating stress clarifies which material and geometric changes matter in working devices.",
+  "foundationText": "Organic and hybrid optoelectronics and printed stretchable interconnects provide connected experimental foundations. Oxide electronics and integrated devices are future interests, not completed platforms.",
+  "image": "/assets/artwork/research-optoelectronics.jpg",
+  "alt": "Conceptual artwork of a thin-film electronic stack and molecular interface; not an experimental image",
+  "caption": "Conceptual scientific artwork",
+  "showPapers": true,
+  "selectedPapers": ["paper-06", "paper-05", "paper-24"],
+  "links": [{"label": "Related projects", "href": "projects.html"}]
+}

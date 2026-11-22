@@ -1310,8 +1310,8 @@
             },
             {
               "name": "evidence",
-              "label": "Evidence",
-              "type": "string"
+              "label": "Experimental evidence",
+              "type": "text"
             },
             {
               "name": "projects",
@@ -1922,56 +1922,6 @@
               ]
             },
             {
-              "name": "map",
-              "label": "Map",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it.",
-                  "default": true
-                },
-                {
-                  "name": "ariaLabel",
-                  "label": "Aria Label",
-                  "type": "text"
-                },
-                {
-                  "name": "coreLabel",
-                  "label": "Core Label",
-                  "type": "string"
-                },
-                {
-                  "name": "coreTitle",
-                  "label": "Core Title",
-                  "type": "string"
-                },
-                {
-                  "name": "platforms",
-                  "label": "Platforms",
-                  "type": "string",
-                  "list": true
-                },
-                {
-                  "name": "foundation",
-                  "label": "Foundation",
-                  "type": "string"
-                },
-                {
-                  "name": "futureLabel",
-                  "label": "Future Label",
-                  "type": "string"
-                },
-                {
-                  "name": "futureTitle",
-                  "label": "Future Title",
-                  "type": "string"
-                }
-              ]
-            },
-            {
               "name": "selectedPapersHeading",
               "label": "Selected Papers Heading",
               "type": "string"
@@ -2005,40 +1955,168 @@
                       "type": "string"
                     },
                     {
-                      "name": "description",
-                      "label": "Description",
+                      "name": "method",
+                      "label": "Method",
+                      "type": "text"
+                    },
+                    {
+                      "name": "question",
+                      "label": "Question",
+                      "type": "text"
+                    },
+                    {
+                      "name": "relevance",
+                      "label": "Device relevance",
                       "type": "text"
                     },
                     {
                       "name": "papers",
                       "label": "Related publication IDs",
-                      "type": "string",
-                      "list": true
+                      "type": "reference",
+                      "options": {
+                        "collection": "publications",
+                        "multiple": true,
+                        "value": "{fields.id}",
+                        "label": "{primary}"
+                      }
+                    },
+                    {
+                      "name": "projects",
+                      "label": "Projects",
+                      "type": "reference",
+                      "options": {
+                        "collection": "projects",
+                        "multiple": true,
+                        "value": "{fields.id}",
+                        "label": "{primary}"
+                      }
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "vision",
-              "label": "Vision",
+              "name": "contributions",
+              "label": "Selected research contributions",
               "type": "object",
+              "list": {
+                "collapsible": true
+              },
               "fields": [
+                {
+                  "name": "id",
+                  "label": "Stable URL ID",
+                  "type": "string",
+                  "required": true,
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+                },
+                {
+                  "name": "paper",
+                  "label": "Publication ID",
+                  "type": "reference",
+                  "options": {
+                    "collection": "publications",
+                    "multiple": false,
+                    "value": "{fields.id}",
+                    "label": "{primary}"
+                  }
+                },
+                {
+                  "name": "heading",
+                  "label": "Heading",
+                  "type": "string"
+                },
+                {
+                  "name": "question",
+                  "label": "Question",
+                  "type": "text"
+                },
+                {
+                  "name": "mechanism",
+                  "label": "Physical mechanism",
+                  "type": "text"
+                },
+                {
+                  "name": "approach",
+                  "label": "Scientific approach",
+                  "type": "text"
+                },
+                {
+                  "name": "evidence",
+                  "label": "Experimental evidence",
+                  "type": "text"
+                },
+                {
+                  "name": "significance",
+                  "label": "Scientific significance",
+                  "type": "text"
+                },
+                {
+                  "name": "myContribution",
+                  "label": "My contribution",
+                  "type": "text",
+                  "description": "Describe only your verified technical work on this project. Leave blank when it is not documented."
+                },
+                {
+                  "name": "contributionSource",
+                  "label": "Personal contribution source URL",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "directions",
+              "label": "Current and future directions",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "id",
+                  "label": "Stable URL ID",
+                  "type": "string",
+                  "required": true,
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+                },
+                {
+                  "name": "stage",
+                  "label": "Research stage",
+                  "type": "string"
+                },
                 {
                   "name": "title",
                   "label": "Title",
                   "type": "string"
                 },
                 {
-                  "name": "intro",
-                  "label": "Intro",
+                  "name": "text",
+                  "label": "Text",
                   "type": "text"
                 },
                 {
-                  "name": "questions",
-                  "label": "Questions",
-                  "type": "string",
-                  "list": true
+                  "name": "project",
+                  "label": "Project",
+                  "type": "reference",
+                  "options": {
+                    "collection": "projects",
+                    "multiple": false,
+                    "value": "{fields.id}",
+                    "label": "{primary}"
+                  }
+                },
+                {
+                  "name": "paper",
+                  "label": "Publication ID",
+                  "type": "reference",
+                  "options": {
+                    "collection": "publications",
+                    "multiple": false,
+                    "value": "{fields.id}",
+                    "label": "{primary}"
+                  }
                 }
               ]
             }

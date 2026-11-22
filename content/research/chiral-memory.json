@@ -23,7 +23,7 @@
   "papers": ["paper-22"],
   "selectedPapers": ["paper-22"],
   "showPapers": true,
-  "homeRole": "platform",
+  "homeRole": "none",
   "homeTitle": "Chiral & optoelectronic memory",
   "homeDescription": "Optical helicity, persistent analog states, and device-array validation.",
   "featured": true

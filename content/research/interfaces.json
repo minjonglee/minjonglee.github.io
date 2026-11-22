@@ -8,10 +8,10 @@
   "number": "01",
   "title": "Interfacial & Nonequilibrium Physics",
   "subtitle": "Molecular interfaces, defects & ionic dynamics",
-  "question": "How do molecular-scale interfaces and defects reshape electronic and ionic energy landscapes?",
-  "whatIControl": "Molecular contacts · thin-film interfaces · defect environments",
-  "whatIMeasure": "Charge transport · trap behavior · state-formation dynamics",
-  "whyItMatters": "Interfacial physics links material chemistry to device behavior and reliability.",
+  "question": "How do molecular interfaces and defects modify charge transport and device behavior?",
+  "whatIControl": "Molecular contacts · self-assembled monolayers · intermediate-layer and electrode interfaces",
+  "whatIMeasure": "Charge injection and transport · interface energetics · trap-related device response",
+  "whyItMatters": "Connecting interfacial chemistry to measurable electrical behavior helps identify the origins of loss and instability.",
   "summary": "Molecular contacts and local defects set the conditions for transport. I connect interface engineering in optoelectronics with trap control and ionic dynamics in emerging memory.",
   "motivation": "An electronic device is often governed by a small fraction of its material: the interface, the defect, or the pathway an ion can access. Understanding these local environments offers a route from chemical structure to device function.",
   "current": "Current work investigates state-formation dynamics and low-frequency noise to study the precision limits of ion-migration-controlled multilevel memristors. This is an active research question, with outcomes still to be established.",
@@ -29,11 +29,11 @@
     "paper-02"
   ],
   "status": "Established expertise + current research",
-  "areaType": "Core science",
-  "displayTitle": "Molecular interfaces & defect physics",
+  "areaType": "Research pillar 01",
+  "displayTitle": "Interface & Defect Engineering",
   "homeRole": "core",
-  "homeTitle": "Molecular interfaces & defect physics",
-  "homeDescription": "Molecular contacts, traps, and ionic dynamics in charge transport.",
+  "homeTitle": "Interface & Defect Engineering",
+  "homeDescription": "Molecular contacts, traps, energy alignment, and charge transport.",
   "featured": true,
   "paragraphs": [
     {
@@ -58,6 +58,7 @@
   "showPapers": true,
   "selectedPapers": [
     "paper-05",
-    "paper-03"
+    "paper-03",
+    "paper-06"
   ]
 }

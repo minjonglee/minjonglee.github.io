@@ -8,10 +8,10 @@
   "number": "02",
   "title": "Adaptive & Reliable Memory Devices",
   "subtitle": "Resistive, capacitive & emerging memory",
-  "question": "How can interfacial and defect physics be used to understand and control memory variability and reliability?",
-  "whatIControl": "Interface chemistry · defect landscape · ionic pathways",
-  "whatIMeasure": "DC and pulse switching · low-frequency noise · retention · endurance · variability",
-  "whyItMatters": "Precision and reliability in multilevel memory and analog synaptic states.",
+  "question": "What governs memory-state formation, variability, analog precision, and long-term reliability?",
+  "whatIControl": "Interfacial chemistry · defect landscapes · electrical programming conditions",
+  "whatIMeasure": "Switching and analog states · retention · endurance · noise and device variability",
+  "whyItMatters": "Mechanism-led measurements distinguish a useful memory state from one limited by drift or stochastic switching.",
   "summary": "Memory depends on how a device changes state and how well it holds that state. My work links molecular and interfacial control to synaptic devices, optoelectronic memristors, and capacitor platforms.",
   "motivation": "Variability can limit precision and reliability in memory devices. Understanding the roles of interfaces, defects, and ionic motion can help explain how device states form and change.",
   "current": "My current focus includes low-power switching, variability, and reliability in memristors. Earlier work also includes MIM capacitors, dielectric and electrode interfaces, leakage control, and thin-film stack integration.",
@@ -29,11 +29,11 @@
     "paper-08"
   ],
   "status": "Established expertise + current research",
-  "areaType": "Device platform",
-  "displayTitle": "Memristive memory & neuromorphic electronics",
+  "areaType": "Research pillar 02",
+  "displayTitle": "Memory Device Physics & Reliability",
   "homeRole": "platform",
-  "homeTitle": "Memory & neuromorphic electronics",
-  "homeDescription": "Switching physics, analog precision, variability, and reliability.",
+  "homeTitle": "Memory Device Physics & Reliability",
+  "homeDescription": "Ionic dynamics, resistive switching, analog precision, noise, and variability.",
   "featured": true,
   "paragraphs": [
     {
@@ -63,6 +63,8 @@
   "selectedPapers": [
     "paper-02",
     "paper-03",
-    "paper-23"
+    "paper-23",
+    "paper-08",
+    "paper-22"
   ]
 }

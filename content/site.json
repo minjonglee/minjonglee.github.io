@@ -58,6 +58,10 @@
         "href": "activities.html"
       },
       {
+        "label": "Patents",
+        "href": "patents.html"
+      },
+      {
         "label": "CV",
         "kind": "cv"
       }
@@ -76,12 +80,12 @@
     {
       "file": "about.html",
       "title": "About",
-      "description": "Min Jong Lee is an integrated M.S.–Ph.D. researcher in electronic devices, materials, and interface physics at Korea University."
+      "description": "Min Jong Lee researches how microscopic interfaces and defects affect transport, switching, variability, and reliability across electronic devices."
     },
     {
       "file": "research.html",
       "title": "Research",
-      "description": "Research on molecular interfaces, memristive and chiral optoelectronic memory, and flexible-electronics variability, with integration as a future direction."
+      "description": "Min Jong Lee studies interface and defect engineering, memory-device physics and reliability, and thin-film electronic platforms."
     },
     {
       "file": "projects.html",
