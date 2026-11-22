@@ -1,0 +1,30 @@
+{
+  "id": "chiral-memory",
+  "order": 3,
+  "visible": true,
+  "image": "/assets/artwork/research-chiral-memory.jpg",
+  "alt": "Conceptual artwork of helicity-conditioned light interacting with a layered chiral perovskite film; not a measured research figure",
+  "caption": "Conceptual scientific artwork",
+  "imagePosition": "center",
+  "areaType": "Core research",
+  "displayTitle": "Chiral & optoelectronic memory",
+  "question": "How can optical helicity be encoded as a persistent, distinguishable electronic memory state?",
+  "whatIControl": "Optical helicity · electrical programming conditions",
+  "whatIMeasure": "Retained conductance · read-noise-limited state capacity · retention · array response",
+  "whyItMatters": "An optical input can become a persistent analog state rather than a transient polarization-sensitive response.",
+  "findings": "A co-first-author Advanced Materials study demonstrated 72 distinguishable conductance states retained for 10⁶ s. A separate read-noise analysis predicted a capacity of 72.3 levels; a 7×7 device array was evaluated for computing.",
+  "metrics": [
+    {"value": "72", "label": "Experimentally distinct states"},
+    {"value": "10⁶ s", "label": "State retention"},
+    {"value": "7×7", "label": "Evaluated device array"},
+    {"value": "0.73%", "label": "Mean array interconnection error"}
+  ],
+  "pressUrl": "https://graduate.korea.ac.kr/community/news_view.html?no=1044&page=1",
+  "papers": ["paper-22"],
+  "selectedPapers": ["paper-22"],
+  "showPapers": true,
+  "homeRole": "platform",
+  "homeTitle": "Chiral & optoelectronic memory",
+  "homeDescription": "Optical helicity, persistent analog states, and device-array validation.",
+  "featured": true
+}

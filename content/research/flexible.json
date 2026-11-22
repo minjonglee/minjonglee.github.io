@@ -1,14 +1,14 @@
 {
-  "order": 4,
+  "order": 5,
   "visible": true,
   "image": "/assets/artwork/research-flexible.jpg",
   "alt": "Editorial artwork of a flexible electronic film and interconnects bending across a curved surface; not an experimental photograph",
   "caption": "Conceptual scientific artwork",
-  "title": "Flexible & Stretchable Electronics",
-  "question": "How can electronic materials and interconnects remain functional under bending and stretching?",
-  "whatIControl": "Interconnect materials · stretchable films · process design",
-  "whatIMeasure": "Mechanical robustness and electrical function under deformation.",
-  "whyItMatters": "Reliable materials and interconnects for flexible electronic platforms.",
+  "title": "Thin-Film & Flexible Electronics",
+  "question": "How does printed-film thickness shape electrical differences between nominally identical stretchable interconnects?",
+  "whatIControl": "Doctor-blade print thickness · trace geometry · process uniformity",
+  "whatIMeasure": "Initial trace-to-trace electrical variability separately from resistance changes under repeated deformation.",
+  "whyItMatters": "Process uniformity and electrical reliability require distinct measurements of initial nonuniformity and mechanical cycling.",
   "scope": "Research experience includes flexible interconnects, stretchable PCB technologies, and mechanically robust films in deformable electronic systems.",
   "evidence": "Participation in these programs extends device and materials research to mechanical deformation.",
   "projects": [
@@ -16,13 +16,13 @@
     "stretchable-pcb",
     "stretchable-films"
   ],
-  "papers": [],
+  "papers": ["paper-24"],
   "id": "flexible",
   "areaType": "Device platform",
-  "displayTitle": "Flexible & stretchable electronics",
+  "displayTitle": "Thin-film & flexible electronics",
   "homeRole": "platform",
-  "homeTitle": "Flexible & stretchable electronics",
-  "homeDescription": "Interconnects, stretchable PCBs, and thin films in government and industry R&D.",
+  "homeTitle": "Thin-film & flexible electronics",
+  "homeDescription": "Printing variability, stretchable interconnects, and electrical reliability.",
   "featured": false,
   "paragraphs": [
     {
@@ -44,5 +44,7 @@
       "href": "projects.html#stretchable-pcb"
     }
   ],
-  "showPapers": false
+  "showPapers": true,
+  "selectedPapers": ["paper-24"],
+  "foundationText": "First-author work examines how doctor-blade-printed film thickness contributes to electrical variability between liquid-metal-particle interconnect traces. Initial differences are evaluated separately from resistance changes under repeated deformation; related flexible-device programs extend this process–structure–property foundation."
 }

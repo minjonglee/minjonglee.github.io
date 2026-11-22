@@ -1,6 +1,6 @@
 # Image assets and provenance
 
-The Home hero remains `assets/concept-device-layers.jpg`. It is conceptual artwork. The eight Featured Work and Research images below were generated specifically for this site with the built-in image-generation tool, visually reviewed, and exported as 1586 × 992 JPEGs at quality 88. They are editorial interpretations, not microscopy, device photographs, or measured results. The generation prompts are recorded in [ARTWORK_PROMPTS.md](ARTWORK_PROMPTS.md).
+The Home hero remains `assets/concept-device-layers.jpg`. It is conceptual artwork. The nine Featured Work and Research images below were generated specifically for this site with the built-in image-generation tool, visually reviewed, and exported as 1586 × 992 JPEGs at quality 88. They are editorial interpretations, not microscopy, device photographs, or measured results. The generation prompts are recorded in [ARTWORK_PROMPTS.md](ARTWORK_PROMPTS.md).
 
 | Local file under `assets/artwork/` | Website use |
 |---|---|
@@ -9,6 +9,7 @@ The Home hero remains `assets/concept-device-layers.jpg`. It is conceptual artwo
 | `featured-opto-memory.jpg` | Home Featured Work: intermediate-layer optoelectronic memristor |
 | `research-interfaces.jpg` | Research: interfaces, defects, ions, and transport |
 | `research-memory.jpg` | Research: memory and reliability |
+| `research-chiral-memory.jpg` | Research: chiral optoelectronic memory concept; not an experimental image |
 | `research-optoelectronics.jpg` | Research: optoelectronics and hybrid devices |
 | `research-flexible.jpg` | Research: flexible and stretchable electronics |
 | `research-integration.jpg` | Research: prospective device-to-system integration |

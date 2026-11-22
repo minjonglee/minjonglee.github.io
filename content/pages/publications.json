@@ -6,7 +6,7 @@
   },
   "selectedTitle": "Selected publications",
   "fullTitle": "Full publication list",
-  "fullNote": "Chronological by year · first-author work identified in each entry",
+  "fullNote": "Chronological by year · first and co-first authorship identified in each entry",
   "bibliographyAfter": "DOI links are provided where verified; other records link to an explicitly labeled Scholar search.",
   "allFilterLabel": "All"
 }

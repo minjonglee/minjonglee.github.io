@@ -1,0 +1,29 @@
+{
+  "id": "chiral-perovskite-university-highlight",
+  "title": "Helicity-Defined Analog Memory in Chiral Perovskites Featured by Korea University",
+  "date": "2026-10-15",
+  "type": "Research highlight",
+  "source": "Korea University",
+  "shortDescription": "Korea University highlighted a co-first-author Advanced Materials study that stores optical handedness as persistent analog conductance states.",
+  "detailText": "Min Jong Lee and Hyoungwook Cho contributed equally as first authors. The study demonstrated 72 distinguishable conductance states retained for 10⁶ s and evaluated a 7×7 device array. Read-noise analysis estimated a state capacity of 72.3; this estimate is distinct from the 72 experimentally demonstrated states.",
+  "url": "https://graduate.korea.ac.kr/community/news_view.html?no=1044&page=1",
+  "sourceUrl": "https://shimgrp.korea.ac.kr/notices/%ec%96%b8%eb%a1%a0-%eb%b3%b4%eb%8f%84-%ec%8b%ac%ec%9e%ac%ec%9b%90-%ea%b5%90%ec%88%98%eb%8b%98-%ec%8b%ac%ec%9e%ac%ec%9b%90%c2%b7%ec%9d%b4%ed%98%95%eb%af%bc-%ea%b5%90%ec%88%98%ed%8c%80-%eb%b9%9b/",
+  "relatedPublicationId": "paper-22",
+  "thumbnail": "/assets/artwork/research-chiral-memory.jpg",
+  "thumbnailAlt": "Conceptual artwork of circularly polarized light interacting with a layered chiral perovskite; not an experimental image",
+  "thumbnailCaption": "Conceptual scientific artwork",
+  "thumbnailFit": "cover",
+  "images": [],
+  "mediaLinks": [
+    {
+      "outlet": "Korea University News",
+      "url": "https://graduate.korea.ac.kr/community/news_view.html?no=1044&page=1"
+    },
+    {
+      "outlet": "Korea University Technology Transfer",
+      "url": "https://tlo.korea.ac.kr/zh/news/1528"
+    }
+  ],
+  "featured": true,
+  "visible": true
+}

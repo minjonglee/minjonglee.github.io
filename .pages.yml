@@ -326,6 +326,11 @@
                   "name": "futureLabel",
                   "label": "Future Label",
                   "type": "string"
+                },
+                {
+                  "name": "foundationText",
+                  "label": "Foundation Text",
+                  "type": "text"
                 }
               ]
             },
@@ -1119,6 +1124,14 @@
           },
           "fields": [
             {
+              "name": "id",
+              "label": "Stable URL ID",
+              "type": "string",
+              "required": true,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+            },
+            {
               "name": "order",
               "label": "Display order",
               "type": "number",
@@ -1152,9 +1165,31 @@
               "type": "string"
             },
             {
-              "name": "title",
-              "label": "Title",
+              "name": "imagePosition",
+              "label": "Image crop focus",
+              "type": "select",
+              "options": {
+                "values": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              },
+              "default": "center",
+              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
+            },
+            {
+              "name": "areaType",
+              "label": "Area Type",
               "type": "string"
+            },
+            {
+              "name": "displayTitle",
+              "label": "Display Title",
+              "type": "string",
+              "required": true
             },
             {
               "name": "question",
@@ -1177,20 +1212,34 @@
               "type": "string"
             },
             {
-              "name": "scope",
-              "label": "Scope",
+              "name": "findings",
+              "label": "Verified research findings",
               "type": "text"
             },
             {
-              "name": "evidence",
-              "label": "Evidence",
-              "type": "string"
+              "name": "metrics",
+              "label": "Verified result metrics",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "value",
+                  "label": "Value",
+                  "type": "string"
+                },
+                {
+                  "name": "label",
+                  "label": "Label",
+                  "type": "string"
+                }
+              ]
             },
             {
-              "name": "projects",
-              "label": "Projects",
-              "type": "string",
-              "list": true
+              "name": "pressUrl",
+              "label": "Official university coverage URL",
+              "type": "string"
             },
             {
               "name": "papers",
@@ -1204,23 +1253,20 @@
               }
             },
             {
-              "name": "id",
-              "label": "Stable URL ID",
-              "type": "string",
-              "required": true,
-              "pattern": "^[a-z0-9-]+$",
-              "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
+              "name": "selectedPapers",
+              "label": "Selected publication IDs",
+              "type": "reference",
+              "options": {
+                "collection": "publications",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
             },
             {
-              "name": "areaType",
-              "label": "Area Type",
-              "type": "string"
-            },
-            {
-              "name": "displayTitle",
-              "label": "Display Title",
-              "type": "string",
-              "required": true
+              "name": "showPapers",
+              "label": "Show Papers",
+              "type": "boolean"
             },
             {
               "name": "homeRole",
@@ -1251,6 +1297,27 @@
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "string"
+            },
+            {
+              "name": "scope",
+              "label": "Scope",
+              "type": "text"
+            },
+            {
+              "name": "evidence",
+              "label": "Evidence",
+              "type": "string"
+            },
+            {
+              "name": "projects",
+              "label": "Projects",
+              "type": "string",
+              "list": true
             },
             {
               "name": "paragraphs",
@@ -1293,9 +1360,9 @@
               ]
             },
             {
-              "name": "showPapers",
-              "label": "Show Papers",
-              "type": "boolean"
+              "name": "foundationText",
+              "label": "Foundation Text",
+              "type": "text"
             },
             {
               "name": "number",
@@ -1357,38 +1424,6 @@
               "name": "prospective",
               "label": "Future direction (not completed)",
               "type": "boolean"
-            },
-            {
-              "name": "selectedPapers",
-              "label": "Selected publication IDs",
-              "type": "reference",
-              "options": {
-                "collection": "publications",
-                "multiple": true,
-                "value": "{fields.id}",
-                "label": "{primary}"
-              }
-            },
-            {
-              "name": "foundationText",
-              "label": "Foundation Text",
-              "type": "text"
-            },
-            {
-              "name": "imagePosition",
-              "label": "Image crop focus",
-              "type": "select",
-              "options": {
-                "values": [
-                  "center",
-                  "top",
-                  "bottom",
-                  "left",
-                  "right"
-                ]
-              },
-              "default": "center",
-              "description": "Choose the crop focus. The image keeps its section aspect ratio on all screen sizes."
             },
             {
               "name": "keywords",
@@ -1595,6 +1630,28 @@
               "description": "Describe only your verified technical work on this project. Leave blank when it is not documented."
             },
             {
+              "name": "relatedResearch",
+              "label": "Related research",
+              "type": "reference",
+              "options": {
+                "collection": "research",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
+            },
+            {
+              "name": "relatedPublications",
+              "label": "Related Publications",
+              "type": "reference",
+              "options": {
+                "collection": "publications",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
+            },
+            {
               "name": "shortTitle",
               "label": "Short title (optional)",
               "type": "string"
@@ -1614,17 +1671,6 @@
               "name": "researchCategory",
               "label": "Research category",
               "type": "string"
-            },
-            {
-              "name": "relatedResearch",
-              "label": "Related research",
-              "type": "reference",
-              "options": {
-                "collection": "research",
-                "multiple": true,
-                "value": "{fields.id}",
-                "label": "{primary}"
-              }
             },
             {
               "name": "image",
@@ -1671,17 +1717,6 @@
               "name": "collaborators",
               "label": "Collaborators",
               "type": "string"
-            },
-            {
-              "name": "relatedPublications",
-              "label": "Related Publications",
-              "type": "reference",
-              "options": {
-                "collection": "publications",
-                "multiple": true,
-                "value": "{fields.id}",
-                "label": "{primary}"
-              }
             },
             {
               "name": "relatedPatents",
@@ -1940,6 +1975,29 @@
               "name": "selectedPapersHeading",
               "label": "Selected Papers Heading",
               "type": "string"
+            },
+            {
+              "name": "vision",
+              "label": "Vision",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Intro",
+                  "type": "text"
+                },
+                {
+                  "name": "questions",
+                  "label": "Questions",
+                  "type": "string",
+                  "list": true
+                }
+              ]
             }
           ]
         },
@@ -2258,6 +2316,11 @@
               "type": "string"
             },
             {
+              "name": "pressUrl",
+              "label": "Official university coverage URL",
+              "type": "string"
+            },
+            {
               "name": "publisherUrl",
               "label": "Publisher URL",
               "type": "string"
@@ -2412,6 +2475,11 @@
               "name": "featuredContribution",
               "label": "Featured contribution",
               "type": "text"
+            },
+            {
+              "name": "featuredMetrics",
+              "label": "Featured verified results",
+              "type": "string"
             },
             {
               "name": "featuredProject",
@@ -3041,6 +3109,11 @@
               "required": true
             },
             {
+              "name": "source",
+              "label": "Source / organization",
+              "type": "string"
+            },
+            {
               "name": "shortDescription",
               "label": "Short description",
               "type": "text"
@@ -3051,6 +3124,12 @@
               "type": "text"
             },
             {
+              "name": "url",
+              "label": "External URL",
+              "type": "string",
+              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
+            },
+            {
               "name": "sourceUrl",
               "label": "Source page (internal reference)",
               "description": "Provenance for editors only. This laboratory page is not linked on the public site.",
@@ -3058,8 +3137,14 @@
             },
             {
               "name": "relatedPublicationId",
-              "label": "Related Publication Id",
-              "type": "string"
+              "label": "Related publication",
+              "type": "reference",
+              "options": {
+                "collection": "publications",
+                "multiple": false,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
             },
             {
               "name": "thumbnail",
@@ -3075,6 +3160,11 @@
               "label": "Activity image alternative text",
               "type": "string",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
+            },
+            {
+              "name": "thumbnailCaption",
+              "label": "Activity image caption",
+              "type": "string"
             },
             {
               "name": "thumbnailFit",
@@ -3153,25 +3243,9 @@
               "default": true
             },
             {
-              "name": "source",
-              "label": "Source / organization",
-              "type": "string"
-            },
-            {
               "name": "relatedAwardId",
               "label": "Related award ID",
               "description": "Optional existing Awards & Scholarships record ID; avoids showing the same award twice in Activities.",
-              "type": "string"
-            },
-            {
-              "name": "url",
-              "label": "External URL",
-              "type": "string",
-              "description": "Optional. Leave empty when there is no real article, record, or detail page; no fallback link will be created."
-            },
-            {
-              "name": "thumbnailCaption",
-              "label": "Activity image caption",
               "type": "string"
             },
             {

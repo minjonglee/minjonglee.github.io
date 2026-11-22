@@ -1,0 +1,22 @@
+{
+  "id": "paper-24",
+  "title": "Printed Thickness and Trace-to-Trace Electrical Variability in Liquid Metal Particle Stretchable Interconnects",
+  "authors": "Min Jong Lee, Sang Heon Lee, and Jae Won Shim*",
+  "journalName": "Journal of Flexible and Printed Electronics",
+  "publicationType": "Journal Article",
+  "publicationStatus": "Accepted",
+  "year": 2026,
+  "sortDate": "2026-11-22",
+  "myAuthorRole": "First author",
+  "firstAuthor": true,
+  "coFirstAuthor": false,
+  "correspondingAuthor": false,
+  "featured": false,
+  "visible": true,
+  "researchCategory": "Thin-Film & Flexible Electronics",
+  "relatedResearch": ["flexible"],
+  "relatedProjects": ["stretchable-pcb"],
+  "summary": "Examines how doctor-blade-printed film thickness contributes to electrical differences between nominally identical liquid-metal-particle traces, distinguishing initial nonuniformity from resistance changes under repeated deformation.",
+  "source": "AEEL official publications list, accessed November 2026",
+  "type": "first"
+}

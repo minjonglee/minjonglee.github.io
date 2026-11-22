@@ -38,11 +38,12 @@
       const query = search.value.trim().toLocaleLowerCase();
       const year = yearFilter.value;
       let visible = 0;
-      rows.forEach(row => { row.hidden = (year !== 'all' && row.dataset.year !== year) || !row.dataset.search.includes(query); if (!row.hidden) visible++; });
+      let firstAuthors = 0;
+      rows.forEach(row => { row.hidden = (year !== 'all' && row.dataset.year !== year) || !row.dataset.search.includes(query); if (!row.hidden) { visible++; if (row.querySelector('.publication-author-role')) firstAuthors++; } });
       list.querySelectorAll('[data-year-group]').forEach(group => {
         group.hidden = ![...group.querySelectorAll('.publication-item')].some(row => !row.hidden);
       });
-      count.textContent = `${visible} ${visible === 1 ? 'record' : 'records'} shown`;
+      count.textContent = `${visible} ${visible === 1 ? 'record' : 'records'} shown · ${firstAuthors} first/co-first-author papers`;
       if (empty) empty.hidden = visible !== 0;
     };
     search.addEventListener('input', update);

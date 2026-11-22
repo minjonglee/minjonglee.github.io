@@ -30,10 +30,10 @@
   ],
   "status": "Established expertise + current research",
   "areaType": "Device platform",
-  "displayTitle": "Memory & reliability",
+  "displayTitle": "Memristive memory & neuromorphic electronics",
   "homeRole": "platform",
-  "homeTitle": "Memory & reliability",
-  "homeDescription": "Memristive switching, state variability, and capacitive-device questions.",
+  "homeTitle": "Memory & neuromorphic electronics",
+  "homeDescription": "Switching physics, analog precision, variability, and reliability.",
   "featured": true,
   "paragraphs": [
     {
@@ -61,8 +61,8 @@
   ],
   "showPapers": true,
   "selectedPapers": [
-    "paper-22",
     "paper-02",
-    "paper-03"
+    "paper-03",
+    "paper-23"
   ]
 }

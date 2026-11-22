@@ -3,12 +3,12 @@
     "line1": "Interface & device physics",
     "line2Prefix": "for ",
     "accent": "emerging electronics.",
-    "deck": "I study how interfaces, defects, and ionic dynamics govern charge transport, state formation, and reliability in emerging electronic devices. My work spans memristive electronics, optoelectronic devices, and flexible electronic platforms.",
+    "deck": "I investigate how molecular interfaces, defects, and ionic dynamics shape charge transport and persistent electronic states. My work connects perovskite memory, neuromorphic devices, and optoelectronics with the question of how emerging devices can operate reliably.",
     "focusCurrentLabel": "Current focus",
-    "focusCurrent": "Emerging memory · Device reliability",
+    "focusCurrent": "Emerging memory · Analog precision · Reliability",
     "focusFutureLabel": "Long-term direction",
     "focusFuture": "Toward integrated electronic systems",
-    "affiliation": "Integrated M.S.–Ph.D. researcher · Electrical Engineering, Korea University",
+    "affiliation": "Integrated M.S.–Ph.D. researcher · School of Electrical Engineering, Korea University",
     "actions": [
       {
         "label": "Research",
@@ -16,8 +16,8 @@
         "arrow": "→"
       },
       {
-        "label": "Selected work",
-        "href": "#featured",
+        "label": "Publications",
+        "href": "publications.html",
         "arrow": "→"
       },
       {
@@ -33,7 +33,8 @@
     "title": "Research",
     "moreLabel": "Research in depth",
     "coreLabel": "Core science",
-    "futureLabel": "Long-term direction"
+    "futureLabel": "Long-term direction",
+    "foundationText": "Organic, hybrid, thin-film, and flexible electronics underpin this device-physics research."
   },
   "featured": {
     "visible": true,

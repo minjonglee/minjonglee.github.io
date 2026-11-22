@@ -9,7 +9,7 @@
   ],
   "sponsor": "Samsung Electronics",
   "personalRole": "Participating Researcher",
-  "summary": "",
+  "summary": "Research on liquid-metal-particle stretchable interconnects, printed-process uniformity, and electrical reliability.",
   "featured": false,
   "featuredOrder": 999,
   "homeCategory": "",
@@ -22,5 +22,8 @@
   "fundingAgency": "삼성전자㈜",
   "startDate": "2024-08",
   "endDate": "2024-11",
-  "status": "Completed"
+  "status": "Completed",
+  "myContribution": "Related first-author work examines how printed-film thickness contributes to initial trace-to-trace electrical variability and distinguishes that nonuniformity from resistance changes under repeated mechanical deformation.",
+  "relatedResearch": ["flexible"],
+  "relatedPublications": ["paper-24"]
 }

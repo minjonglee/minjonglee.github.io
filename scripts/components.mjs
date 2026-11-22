@@ -5,6 +5,7 @@ export const textLink = (href, label, extra = '') => `<a class="text-link" href=
 export const tags = values => `<ul class="tags" aria-label="Topics">${values.map(x => `<li>${e(x)}</li>`).join('')}</ul>`;
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
+export const authorRoleLabel = p => p.coFirstAuthor ? 'Co-first author' : p.firstAuthor || p.type==='first' ? 'First author' : '';
 export const patentIdentifier = p => p.registrationNumber || p.applicationNumber || p.number || '';
 export const patentRecordDate = p => p.registrationDate || p.applicationDate || p.date || '';
 export const bySortDateDesc = (a,b) => String(b.sortDate||'').localeCompare(String(a.sortDate||'')) || String(a.id||'').localeCompare(String(b.id||''));
@@ -37,7 +38,7 @@ export const imagePosition = value => ['center','top','bottom','left','right'].i
 export function scientificVisual(image, alt, {label:caption='',className='',position='center'} = {}) {
   if (!image) return '';
   const priority=className==='hero-science' ? 'fetchpriority="high"' : 'loading="lazy"';
-  const dimensions=/\/assets\/artwork\//i.test(image)?'width="1586" height="992"':/\.svg(?:\?|$)/i.test(image)?'width="1200" height="750"':'width="1448" height="1086"';
+  const dimensions=/(?:^|\/)assets\/artwork\//i.test(image)?'width="1586" height="992"':/\.svg(?:\?|$)/i.test(image)?'width="1200" height="750"':'width="1448" height="1086"';
   return `<figure class="scientific-visual ${e(className)}"><img src="${e(image)}" alt="${e(alt)}" ${dimensions} style="object-position:${imagePosition(position)}" ${priority} decoding="async">${caption?`<figcaption>${e(caption)}</figcaption>`:''}</figure>`;
 }
 
@@ -66,14 +67,14 @@ export function publication(data, p) {
   const statusText=status==='Published'?'':` (${status})`;
   const meta=[`${p.year}${statusText}`,bibliography].filter(Boolean).join(' · ');
   const search=[p.title,p.authors,p.journal,p.journalName,p.year,status,p.doi,p.doiUrl,p.volume,p.issue,p.pages,p.startPage,p.endPage,p.articleNumber,p.eLocationId,p.researchCategory,...(p.keywords??[])].filter(Boolean).join(' ').toLocaleLowerCase();
-  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span>${p.firstAuthor||p.coFirstAuthor||p.type==='first'?'<span class="publication-author-role">First author</span>':''}</p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI" title="Open DOI"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}</article>`;
+  return `<article class="publication-item" id="${e(p.id)}" data-year="${e(p.year)}" data-search="${e(search)}"><div class="publication-topline"><p class="publication-meta"><span class="publication-source">${e(source)}</span><span class="publication-meta-separator" aria-hidden="true">|</span><span>${e(meta)}</span>${authorRoleLabel(p)?`<span class="publication-author-role">${e(authorRoleLabel(p))}</span>`:''}</p>${doiHref(p)?`<a class="publication-doi" href="${e(doiHref(p))}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI" title="Open DOI"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`:''}</div><h3>${e(p.title)}</h3><p class="authors">${authors(p.authors)}</p>${p.authorNotes?`<p class="publication-author-note">${e(p.authorNotes)}</p>`:''}${p.pressUrl?`<p class="publication-press-link">${textLink(p.pressUrl,'Korea University news','target="_blank" rel="noopener noreferrer"')}</p>`:''}</article>`;
 }
 
 export function featured(data) {
   return `<div class="featured-grid">${data.featured.slice(0,3).map(f=>{
     const p=data.publications.find(p=>p.id===f.paper);
     const paperAction=doiHref(p)||p.publisherUrl||p.externalUrl?paperLink(p):`<span class="work-status">${e(p.publicationStatus==='Accepted'?'Accepted · DOI pending':p.publicationStatus||'Publication link pending')}</span>`;
-    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:p.imageCaption??'',position:p.imagePosition})}<div class="featured-copy"><p class="work-source">${e(journalName(p))} · ${p.year}</p><h3>${e(p.title)}</h3>${f.contribution?`<p class="work-contribution">${e(f.contribution)}</p>`:''}${paperAction}</div></article>`;
+    return `<article class="featured-work">${scientificVisual(p.image,p.imageAlt,{label:p.imageCaption??'',position:p.imagePosition})}<div class="featured-copy"><p class="work-source">${e(journalName(p))} · ${p.year}${p.coFirstAuthor?'<span class="work-authorship">Co-first author</span>':''}</p><h3>${e(p.title)}</h3>${f.contribution?`<p class="work-contribution">${e(f.contribution)}</p>`:''}${p.featuredMetrics?`<p class="work-evidence">${e(p.featuredMetrics)}</p>`:''}<div class="featured-actions">${paperAction}${p.pressUrl?textLink(p.pressUrl,'Featured by Korea University','target="_blank" rel="noopener noreferrer"'):''}</div></div></article>`;
   }).join('')}</div>`;
 }
 
@@ -105,7 +106,7 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="${e(site.favicon)}">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js?v=20261007-gallery" defer></script>
+  <script src="script.js?v=20261122-research" defer></script>
   <script type="application/ld+json">${JSON.stringify(person).replaceAll('<','\\u003c')}</script>
 ${extraHead}
 </head>

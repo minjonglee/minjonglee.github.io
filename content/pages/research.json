@@ -1,8 +1,8 @@
 {
   "hero": {
     "kicker": "Research",
-    "title": "From interface physics toward integrated electronic systems.",
-    "description": "Interfaces, defects, and ionic dynamics shape charge transport and state formation. I study their consequences for device reliability and emerging memory, building on organic, hybrid, and flexible electronics.",
+    "title": "Interface physics for reliable memory and emerging electronics.",
+    "description": "Molecular contacts, defects, and ionic motion shape transport and state formation. I study these mechanisms in memory and optoelectronic devices, drawing on thin-film and flexible-electronics research while distinguishing current results from future integration goals.",
     "image": "",
     "alt": "",
     "caption": "",
@@ -10,13 +10,22 @@
   },
   "map": {
     "visible": true,
-    "ariaLabel": "Research framework: interface, defect, and ionic physics inform emerging memory and reliability. Organic and hybrid optoelectronics and flexible electronics are connected foundations. Integrated electronic systems are a long-term direction.",
+    "ariaLabel": "Research framework: molecular interfaces and defects inform memory state formation, optoelectronic memory, and reliability. Thin-film and flexible electronics are connected foundations. Integrated electronic systems are a future direction.",
     "coreLabel": "Core science",
     "coreTitle": "Interfaces · Defects · Ions · Transport",
-    "platforms": ["Memory & reliability"],
+    "platforms": ["Memory & neuromorphic electronics", "Chiral & optoelectronic memory"],
     "foundation": "Connected foundations: organic & hybrid optoelectronics · flexible electronics R&D",
     "futureLabel": "Long-term direction",
     "futureTitle": "Toward integrated electronic systems"
   },
-  "selectedPapersHeading": "Representative work"
+  "selectedPapersHeading": "Representative work",
+  "vision": {
+    "title": "From interface-controlled transport to reliable, integrated memory",
+    "intro": "Published device studies establish how interfaces and defects affect transport and analog states. My ongoing work tests limits to memory precision and reliability; integrated memory hardware remains a longer-term research direction.",
+    "questions": [
+      "How do molecular interfaces and defects govern electronic and ionic transport?",
+      "What limits the precision, stability, and reliability of emerging memory states?",
+      "How can device-level physics guide scalable memory and computing hardware?"
+    ]
+  }
 }
