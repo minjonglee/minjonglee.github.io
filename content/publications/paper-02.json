@@ -16,7 +16,8 @@
     "interfaces"
   ],
   "featured": true,
-  "featuredOrder": 2,
+  "featuredOrder": 1,
+  "featuredQuestion": "How can interfacial chemistry improve the linearity and stability of analog memory states?",
   "featuredTitle": "Molecular control of synaptic response",
   "featuredContribution": "Hydrogen bonding at the polymer–perovskite interface suppresses traps and stabilizes analog switching, improving the linearity needed for neuromorphic computation.",
   "featuredMetrics": ">8× lower interfacial trap density · 50 analog states retained for >10⁴ s",

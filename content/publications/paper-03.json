@@ -17,7 +17,8 @@
     "opto"
   ],
   "featured": true,
-  "featuredOrder": 3,
+  "featuredOrder": 2,
+  "featuredQuestion": "Can interface trap control reduce the voltage and power required for optoelectronic switching?",
   "featuredTitle": "Reducing traps in optoelectronic memory",
   "featuredContribution": "An ALD TiO₂ intermediate layer limits interfacial trapping and enables low-voltage switching in optoelectronic memristors, linking interface design to device function.",
   "featuredMetrics": "15× lower interfacial trap density · +0.24 V SET · ≈0.7 μW switching power",

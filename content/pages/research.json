@@ -78,6 +78,22 @@
       "significance": "The result tests whether an optical input can become a persistent analog state with measurable precision and array-level behavior."
     }
   ],
+  "platformEvidence": {
+    "title": "Additional evidence across platforms",
+    "intro": "Two concise studies show how the same interface-to-device reasoning extends beyond the detailed memory case studies.",
+    "items": [
+      {
+        "paper": "paper-05",
+        "label": "Molecular contact engineering",
+        "significance": "SAM-based hole-selective contacts connect interfacial energetics with transport in photovoltaic and capacitor devices."
+      },
+      {
+        "paper": "paper-24",
+        "label": "Process-induced variability in printed interconnects",
+        "significance": "This first-author accepted study distinguishes initial trace nonuniformity from resistance changes under repeated mechanical deformation."
+      }
+    ]
+  },
   "directions": [
     {"id": "current-ionic-memory", "stage": "Current doctoral research", "title": "Interface-controlled ionic memory", "text": "The ongoing independent project asks how interfaces, defect landscapes, and ionic motion limit multilevel precision. State-formation dynamics and low-frequency noise are being studied; specific results are still in development.", "project": "doctoral-ionic-memory"},
     {"id": "oxide-direction", "stage": "Developing research interest", "title": "Oxide electronics & memory reliability", "text": "Prior ALD electrode and capacitor studies provide a basis for new questions about oxide interfaces, defect-mediated transport, dielectric behavior, and memory reliability. Experimental work in memory-specific oxide platforms is a future direction.", "paper": "paper-06"},

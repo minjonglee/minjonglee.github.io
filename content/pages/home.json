@@ -12,21 +12,28 @@
     "actions": [
       {
         "label": "Research",
-        "href": "research.html",
-        "arrow": "→"
+        "href": "research.html"
       },
       {
-        "label": "Publications",
-        "href": "publications.html",
-        "arrow": "→"
+        "label": "Selected Publications",
+        "href": "publications.html"
       },
       {
-        "label": "CV",
+        "label": "Download CV",
         "href": "",
-        "kind": "cv",
-        "arrow": "↓"
+        "kind": "cv"
+      },
+      {
+        "label": "Contact",
+        "href": "mailto:minjong_lee@korea.ac.kr",
+        "kind": "contact"
       }
     ]
+  },
+  "highlights": {
+    "visible": true,
+    "title": "Selected highlights",
+    "awardId": "award-02"
   },
   "research": {
     "visible": true,
@@ -40,6 +47,23 @@
     "visible": true,
     "title": "Featured work",
     "moreLabel": "All publications"
+  },
+  "breadth": {
+    "visible": true,
+    "title": "Research breadth",
+    "intro": "Connected work in molecular contacts, thin-film electrodes, and printed electronics extends the same mechanism-driven approach across device platforms.",
+    "areas": [
+      {
+        "title": "Molecular Interfaces & Thin-Film Electrodes",
+        "description": "Contact energetics, charge-selective molecular interfaces, and ALD-based electrode platforms for photovoltaic and capacitor devices.",
+        "papers": ["paper-05", "paper-06"]
+      },
+      {
+        "title": "Printed & Flexible Electronics",
+        "description": "Process-induced thickness variation, trace-to-trace electrical nonuniformity, and resistance changes under repeated deformation.",
+        "papers": ["paper-24"]
+      }
+    ]
   },
   "activities": {
     "visible": true,

@@ -282,16 +282,41 @@
                       "type": "string"
                     },
                     {
-                      "name": "arrow",
-                      "label": "Arrow",
-                      "type": "string"
-                    },
-                    {
                       "name": "kind",
                       "label": "Kind",
                       "type": "string"
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "name": "highlights",
+              "label": "Selected highlights",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "awardId",
+                  "label": "Featured award",
+                  "type": "reference",
+                  "options": {
+                    "collection": "awards",
+                    "multiple": false,
+                    "value": "{fields.id}",
+                    "label": "{primary}"
+                  }
                 }
               ]
             },
@@ -358,6 +383,61 @@
                 }
               ],
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "breadth",
+              "label": "Research breadth",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "visible",
+                  "label": "Show on website",
+                  "type": "boolean",
+                  "description": "Turn off to hide this item without deleting it.",
+                  "default": true
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Intro",
+                  "type": "text"
+                },
+                {
+                  "name": "areas",
+                  "label": "Areas",
+                  "type": "object",
+                  "list": {
+                    "collapsible": true
+                  },
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "type": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "text"
+                    },
+                    {
+                      "name": "papers",
+                      "label": "Related publication IDs",
+                      "type": "reference",
+                      "options": {
+                        "collection": "publications",
+                        "multiple": true,
+                        "value": "{fields.id}",
+                        "label": "{primary}"
+                      }
+                    }
+                  ]
+                }
+              ]
             },
             {
               "name": "activities",
@@ -1531,10 +1611,9 @@
               "required": true
             },
             {
-              "name": "summary",
-              "label": "Summary",
-              "type": "text",
-              "description": "Optional. Include only information beyond the project title; leave blank rather than repeat it."
+              "name": "technicalRelevance",
+              "label": "Technical relevance",
+              "type": "text"
             },
             {
               "name": "featured",
@@ -1628,6 +1707,12 @@
               "label": "My contribution",
               "type": "text",
               "description": "Describe only your verified technical work on this project. Leave blank when it is not documented."
+            },
+            {
+              "name": "summary",
+              "label": "Summary",
+              "type": "text",
+              "description": "Optional. Include only information beyond the project title; leave blank rather than repeat it."
             },
             {
               "name": "relatedResearch",
@@ -2062,6 +2147,54 @@
                   "name": "contributionSource",
                   "label": "Personal contribution source URL",
                   "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "platformEvidence",
+              "label": "Additional platform evidence",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Intro",
+                  "type": "text"
+                },
+                {
+                  "name": "items",
+                  "label": "Items",
+                  "type": "object",
+                  "list": {
+                    "collapsible": true
+                  },
+                  "fields": [
+                    {
+                      "name": "paper",
+                      "label": "Publication ID",
+                      "type": "reference",
+                      "options": {
+                        "collection": "publications",
+                        "multiple": false,
+                        "value": "{fields.id}",
+                        "label": "{primary}"
+                      }
+                    },
+                    {
+                      "name": "label",
+                      "label": "Label",
+                      "type": "string"
+                    },
+                    {
+                      "name": "significance",
+                      "label": "Scientific significance",
+                      "type": "text"
+                    }
+                  ]
                 }
               ]
             },
@@ -2674,6 +2807,11 @@
               "name": "doiSource",
               "label": "Doi Source",
               "type": "string"
+            },
+            {
+              "name": "featuredQuestion",
+              "label": "Featured scientific question",
+              "type": "text"
             },
             {
               "name": "imagePosition",
