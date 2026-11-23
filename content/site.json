@@ -1,10 +1,10 @@
 {
-  "siteTitle": "Min Jong Lee · Electronic Device Research",
+  "siteTitle": "Min Jong Lee · Device Physics and Reliability",
   "baseUrl": "https://minjonglee.github.io/",
   "themeColor": "#fafaf8",
   "favicon": "favicon.svg",
   "socialPreview": "/assets/social-preview.png",
-  "socialPreviewAlt": "Min Jong Lee — Interface and device physics for emerging electronics",
+  "socialPreviewAlt": "Min Jong Lee — From Interface Physics to Reliable Electronic Systems",
   "navigation": [
     {
       "label": "About",
@@ -74,8 +74,8 @@
   "seoPages": [
     {
       "file": "index.html",
-      "title": "Interface & Device Physics for Emerging Electronics",
-      "description": "Min Jong Lee studies molecular interfaces, defects, ionic dynamics, and device reliability across emerging memory, optoelectronic, and flexible electronic platforms."
+      "title": "From Interface Physics to Reliable Electronic Systems",
+      "description": "Min Jong Lee connects memory device physics and reliability with neuromorphic hardware, semiconductor interfaces, and emerging electronic systems."
     },
     {
       "file": "about.html",
@@ -85,7 +85,7 @@
     {
       "file": "research.html",
       "title": "Research",
-      "description": "Min Jong Lee studies interface and defect engineering, memory-device physics and reliability, and thin-film electronic platforms."
+      "description": "Min Jong Lee studies memory device physics and reliability, connected computing hardware, semiconductor interfaces, and flexible electronic platforms."
     },
     {
       "file": "projects.html",

@@ -22,7 +22,7 @@
   "featured": true,
   "visible": true,
   "id": "paper-22",
-  "featuredOrder": 3,
+  "featuredOrder": 2,
   "featuredQuestion": "Can an optical input be encoded as persistent, distinguishable analog conductance states?",
   "featuredContribution": "Optical helicity biases persistent analog conductance states in chiral perovskite synapses; read-noise analysis connects state capacity to device reliability.",
   "image": "/assets/artwork/featured-chiral-synapse.jpg",

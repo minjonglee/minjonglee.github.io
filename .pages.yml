@@ -219,104 +219,14 @@
               "type": "object",
               "fields": [
                 {
-                  "name": "line1",
-                  "label": "Line1",
+                  "name": "headline",
+                  "label": "Section headline",
                   "type": "string"
                 },
                 {
-                  "name": "line2Prefix",
-                  "label": "Line2Prefix",
-                  "type": "string"
-                },
-                {
-                  "name": "accent",
-                  "label": "Accent",
-                  "type": "string"
-                },
-                {
-                  "name": "deck",
-                  "label": "Deck",
+                  "name": "description",
+                  "label": "Description",
                   "type": "text"
-                },
-                {
-                  "name": "focusCurrentLabel",
-                  "label": "Focus Current Label",
-                  "type": "string"
-                },
-                {
-                  "name": "focusCurrent",
-                  "label": "Focus Current",
-                  "type": "string"
-                },
-                {
-                  "name": "focusFutureLabel",
-                  "label": "Focus Future Label",
-                  "type": "string"
-                },
-                {
-                  "name": "focusFuture",
-                  "label": "Focus Future",
-                  "type": "string"
-                },
-                {
-                  "name": "affiliation",
-                  "label": "Affiliation",
-                  "type": "string"
-                },
-                {
-                  "name": "actions",
-                  "label": "Actions",
-                  "type": "object",
-                  "list": {
-                    "collapsible": true
-                  },
-                  "fields": [
-                    {
-                      "name": "label",
-                      "label": "Label",
-                      "type": "string"
-                    },
-                    {
-                      "name": "href",
-                      "label": "Href",
-                      "type": "string"
-                    },
-                    {
-                      "name": "kind",
-                      "label": "Kind",
-                      "type": "string"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "highlights",
-              "label": "Selected highlights",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it.",
-                  "default": true
-                },
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "awardId",
-                  "label": "Featured award",
-                  "type": "reference",
-                  "options": {
-                    "collection": "awards",
-                    "multiple": false,
-                    "value": "{fields.id}",
-                    "label": "{primary}"
-                  }
                 }
               ]
             },
@@ -326,85 +236,14 @@
               "type": "object",
               "fields": [
                 {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it.",
-                  "default": true
-                },
-                {
                   "name": "title",
                   "label": "Title",
                   "type": "string"
                 },
                 {
-                  "name": "moreLabel",
-                  "label": "More Label",
+                  "name": "headline",
+                  "label": "Section headline",
                   "type": "string"
-                },
-                {
-                  "name": "coreLabel",
-                  "label": "Core Label",
-                  "type": "string"
-                },
-                {
-                  "name": "futureLabel",
-                  "label": "Future Label",
-                  "type": "string"
-                },
-                {
-                  "name": "foundationText",
-                  "label": "Foundation Text",
-                  "type": "text"
-                }
-              ]
-            },
-            {
-              "name": "featured",
-              "label": "Feature on homepage",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it.",
-                  "default": true
-                },
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "moreLabel",
-                  "label": "More Label",
-                  "type": "string"
-                }
-              ],
-              "description": "Show this item in a featured area on the home page."
-            },
-            {
-              "name": "breadth",
-              "label": "Research breadth",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it.",
-                  "default": true
-                },
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "intro",
-                  "label": "Intro",
-                  "type": "text"
                 },
                 {
                   "name": "areas",
@@ -420,52 +259,17 @@
                       "type": "string"
                     },
                     {
-                      "name": "description",
-                      "label": "Description",
-                      "type": "text"
-                    },
-                    {
-                      "name": "papers",
-                      "label": "Related publication IDs",
-                      "type": "reference",
-                      "options": {
-                        "collection": "publications",
-                        "multiple": true,
-                        "value": "{fields.id}",
-                        "label": "{primary}"
-                      }
+                      "name": "anchor",
+                      "label": "Research page anchor",
+                      "type": "string"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "activities",
-              "label": "Activities",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "visible",
-                  "label": "Show on website",
-                  "type": "boolean",
-                  "description": "Turn off to hide this item without deleting it.",
-                  "default": true
-                },
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "moreLabel",
-                  "label": "More Label",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "name": "current",
-              "label": "Current",
+              "name": "work",
+              "label": "Work",
               "type": "object",
               "fields": [
                 {
@@ -474,46 +278,120 @@
                   "type": "string"
                 },
                 {
-                  "name": "moreLabel",
-                  "label": "More Label",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "name": "about",
-              "label": "About",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "title",
-                  "label": "Title",
+                  "name": "headline",
+                  "label": "Section headline",
                   "type": "string"
                 },
                 {
-                  "name": "text",
-                  "label": "Text",
-                  "type": "text"
-                },
-                {
-                  "name": "links",
-                  "label": "Links",
+                  "name": "features",
+                  "label": "Featured research",
                   "type": "object",
                   "list": {
                     "collapsible": true
                   },
                   "fields": [
                     {
-                      "name": "label",
-                      "label": "Label",
+                      "name": "paper",
+                      "label": "Publication ID",
+                      "type": "reference",
+                      "options": {
+                        "collection": "publications",
+                        "multiple": false,
+                        "value": "{fields.id}",
+                        "label": "{primary}"
+                      }
+                    },
+                    {
+                      "name": "title",
+                      "label": "Title",
                       "type": "string"
                     },
                     {
-                      "name": "href",
-                      "label": "Href",
-                      "type": "string"
+                      "name": "description",
+                      "label": "Description",
+                      "type": "text"
+                    },
+                    {
+                      "name": "evidence",
+                      "label": "Experimental evidence",
+                      "type": "text"
                     }
                   ]
+                },
+                {
+                  "name": "breadthTitle",
+                  "label": "Breadth heading",
+                  "type": "string"
+                },
+                {
+                  "name": "breadthParagraphs",
+                  "label": "Breadth paragraphs",
+                  "type": "string",
+                  "list": true
+                },
+                {
+                  "name": "journalStatement",
+                  "label": "Journal statement",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "name": "outlook",
+              "label": "Outlook",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "headline",
+                  "label": "Section headline",
+                  "type": "string"
+                },
+                {
+                  "name": "introduction",
+                  "label": "Introduction",
+                  "type": "text"
+                },
+                {
+                  "name": "directions",
+                  "label": "Current and future directions",
+                  "type": "object",
+                  "list": {
+                    "collapsible": true
+                  },
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "type": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "contact",
+              "label": "Contact",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "headline",
+                  "label": "Section headline",
+                  "type": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "type": "text"
                 }
               ]
             }
@@ -2007,13 +1885,8 @@
               ]
             },
             {
-              "name": "selectedPapersHeading",
-              "label": "Selected Papers Heading",
-              "type": "string"
-            },
-            {
-              "name": "expertise",
-              "label": "Expertise",
+              "name": "areas",
+              "label": "Areas",
               "type": "object",
               "fields": [
                 {
@@ -2022,13 +1895,25 @@
                   "type": "string"
                 },
                 {
-                  "name": "intro",
-                  "label": "Intro",
-                  "type": "text"
+                  "name": "core",
+                  "label": "Core",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "type": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "text"
+                    }
+                  ]
                 },
                 {
-                  "name": "areas",
-                  "label": "Areas",
+                  "name": "connected",
+                  "label": "Connected research areas",
                   "type": "object",
                   "list": {
                     "collapsible": true
@@ -2040,119 +1925,39 @@
                       "type": "string"
                     },
                     {
-                      "name": "method",
-                      "label": "Method",
+                      "name": "description",
+                      "label": "Description",
                       "type": "text"
                     },
                     {
-                      "name": "question",
-                      "label": "Question",
+                      "name": "anchor",
+                      "label": "Research page anchor",
+                      "type": "string"
+                    }
+                  ]
+                },
+                {
+                  "name": "platform",
+                  "label": "Connected device platform",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "type": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
                       "type": "text"
-                    },
-                    {
-                      "name": "relevance",
-                      "label": "Device relevance",
-                      "type": "text"
-                    },
-                    {
-                      "name": "papers",
-                      "label": "Related publication IDs",
-                      "type": "reference",
-                      "options": {
-                        "collection": "publications",
-                        "multiple": true,
-                        "value": "{fields.id}",
-                        "label": "{primary}"
-                      }
-                    },
-                    {
-                      "name": "projects",
-                      "label": "Projects",
-                      "type": "reference",
-                      "options": {
-                        "collection": "projects",
-                        "multiple": true,
-                        "value": "{fields.id}",
-                        "label": "{primary}"
-                      }
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "contributions",
-              "label": "Selected research contributions",
-              "type": "object",
-              "list": {
-                "collapsible": true
-              },
-              "fields": [
-                {
-                  "name": "id",
-                  "label": "Stable URL ID",
-                  "type": "string",
-                  "required": true,
-                  "pattern": "^[a-z0-9-]+$",
-                  "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
-                },
-                {
-                  "name": "paper",
-                  "label": "Publication ID",
-                  "type": "reference",
-                  "options": {
-                    "collection": "publications",
-                    "multiple": false,
-                    "value": "{fields.id}",
-                    "label": "{primary}"
-                  }
-                },
-                {
-                  "name": "heading",
-                  "label": "Heading",
-                  "type": "string"
-                },
-                {
-                  "name": "question",
-                  "label": "Question",
-                  "type": "text"
-                },
-                {
-                  "name": "mechanism",
-                  "label": "Physical mechanism",
-                  "type": "text"
-                },
-                {
-                  "name": "approach",
-                  "label": "Scientific approach",
-                  "type": "text"
-                },
-                {
-                  "name": "evidence",
-                  "label": "Experimental evidence",
-                  "type": "text"
-                },
-                {
-                  "name": "significance",
-                  "label": "Scientific significance",
-                  "type": "text"
-                },
-                {
-                  "name": "myContribution",
-                  "label": "My contribution",
-                  "type": "text",
-                  "description": "Describe only your verified technical work on this project. Leave blank when it is not documented."
-                },
-                {
-                  "name": "contributionSource",
-                  "label": "Personal contribution source URL",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "name": "platformEvidence",
-              "label": "Additional platform evidence",
+              "name": "outlook",
+              "label": "Outlook",
               "type": "object",
               "fields": [
                 {
@@ -2161,95 +1966,39 @@
                   "type": "string"
                 },
                 {
-                  "name": "intro",
-                  "label": "Intro",
+                  "name": "headline",
+                  "label": "Section headline",
+                  "type": "string"
+                },
+                {
+                  "name": "introduction",
+                  "label": "Introduction",
                   "type": "text"
                 },
                 {
-                  "name": "items",
-                  "label": "Items",
+                  "name": "directions",
+                  "label": "Current and future directions",
                   "type": "object",
                   "list": {
                     "collapsible": true
                   },
                   "fields": [
                     {
-                      "name": "paper",
-                      "label": "Publication ID",
-                      "type": "reference",
-                      "options": {
-                        "collection": "publications",
-                        "multiple": false,
-                        "value": "{fields.id}",
-                        "label": "{primary}"
-                      }
-                    },
-                    {
-                      "name": "label",
-                      "label": "Label",
+                      "name": "title",
+                      "label": "Title",
                       "type": "string"
                     },
                     {
-                      "name": "significance",
-                      "label": "Scientific significance",
+                      "name": "description",
+                      "label": "Description",
                       "type": "text"
+                    },
+                    {
+                      "name": "anchor",
+                      "label": "Research page anchor",
+                      "type": "string"
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "name": "directions",
-              "label": "Current and future directions",
-              "type": "object",
-              "list": {
-                "collapsible": true
-              },
-              "fields": [
-                {
-                  "name": "id",
-                  "label": "Stable URL ID",
-                  "type": "string",
-                  "required": true,
-                  "pattern": "^[a-z0-9-]+$",
-                  "description": "Short English key for links, e.g. new-memory-study. Keep existing keys unchanged."
-                },
-                {
-                  "name": "stage",
-                  "label": "Research stage",
-                  "type": "string"
-                },
-                {
-                  "name": "title",
-                  "label": "Title",
-                  "type": "string"
-                },
-                {
-                  "name": "text",
-                  "label": "Text",
-                  "type": "text"
-                },
-                {
-                  "name": "project",
-                  "label": "Project",
-                  "type": "reference",
-                  "options": {
-                    "collection": "projects",
-                    "multiple": false,
-                    "value": "{fields.id}",
-                    "label": "{primary}"
-                  }
-                },
-                {
-                  "name": "paper",
-                  "label": "Publication ID",
-                  "type": "reference",
-                  "options": {
-                    "collection": "publications",
-                    "multiple": false,
-                    "value": "{fields.id}",
-                    "label": "{primary}"
-                  }
                 }
               ]
             }
@@ -2697,7 +2446,7 @@
               "name": "featured",
               "label": "Feature on homepage",
               "type": "boolean",
-              "description": "Show this item in a featured area on the home page."
+              "description": "Legacy feature flag. Edit Site Settings → Home page → Research Work to choose the two studies shown on Home."
             },
             {
               "name": "visible",
@@ -2718,7 +2467,7 @@
               "name": "featuredOrder",
               "label": "Homepage order",
               "type": "number",
-              "description": "Lower numbers appear first."
+              "description": "Legacy homepage order; the Home page editor now sets the two displayed studies."
             },
             {
               "name": "featuredTitle",

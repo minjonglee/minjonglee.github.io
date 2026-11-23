@@ -1,91 +1,75 @@
 {
   "hero": {
-    "line1": "Interface & device physics",
-    "line2Prefix": "for ",
-    "accent": "emerging electronics.",
-    "deck": "I investigate how molecular interfaces, defects, and electronic and ionic dynamics govern transport, memory-state formation, variability, and reliability. My work connects physical mechanisms with experimental devices across memory, optoelectronic, and thin-film platforms.",
-    "focusCurrentLabel": "Research focus",
-    "focusCurrent": "Interface engineering · Device physics · Reliability",
-    "focusFutureLabel": "Research direction",
-    "focusFuture": "Emerging memory · Thin-film electronics · Integrated systems",
-    "affiliation": "Integrated M.S.–Ph.D. researcher · School of Electrical Engineering, Korea University",
-    "actions": [
-      {
-        "label": "Research",
-        "href": "research.html"
-      },
-      {
-        "label": "Selected Publications",
-        "href": "publications.html"
-      },
-      {
-        "label": "Download CV",
-        "href": "",
-        "kind": "cv"
-      },
-      {
-        "label": "Contact",
-        "href": "mailto:minjong_lee@korea.ac.kr",
-        "kind": "contact"
-      }
-    ]
-  },
-  "highlights": {
-    "visible": true,
-    "title": "Selected highlights",
-    "awardId": "award-02"
+    "headline": "From Interface Physics to Reliable Electronic Systems.",
+    "description": "I investigate how interfaces, defects, and electronic and ionic transport govern memory operation, device variability, and reliability. My research connects physical mechanisms with experimental devices, arrays, and circuit-level functionality across semiconductor and emerging electronic platforms."
   },
   "research": {
-    "visible": true,
     "title": "Research",
-    "moreLabel": "Research in depth",
-    "coreLabel": "Core science",
-    "futureLabel": "Long-term direction",
-    "foundationText": "Organic and hybrid optoelectronics and printed electronics form connected foundations for this device-physics research."
-  },
-  "featured": {
-    "visible": true,
-    "title": "Featured work",
-    "moreLabel": "All publications"
-  },
-  "breadth": {
-    "visible": true,
-    "title": "Research breadth",
-    "intro": "Connected work in molecular contacts, thin-film electrodes, and printed electronics extends the same mechanism-driven approach across device platforms.",
+    "headline": "Different platforms. A common physics.",
     "areas": [
       {
-        "title": "Molecular Interfaces & Thin-Film Electrodes",
-        "description": "Contact energetics, charge-selective molecular interfaces, and ALD-based electrode platforms for photovoltaic and capacitor devices.",
-        "papers": ["paper-05", "paper-06"]
+        "title": "Memory Device Physics & Reliability",
+        "anchor": "memory"
       },
       {
-        "title": "Printed & Flexible Electronics",
-        "description": "Process-induced thickness variation, trace-to-trace electrical nonuniformity, and resistance changes under repeated deformation.",
-        "papers": ["paper-24"]
+        "title": "Neuromorphic Computing & Memory Circuits",
+        "anchor": "chiral-memory"
+      },
+      {
+        "title": "Semiconductor Interfaces & Oxide Electronics",
+        "anchor": "interfaces"
+      },
+      {
+        "title": "Flexible, Stretchable & Optoelectronic Devices",
+        "anchor": "flexible"
       }
     ]
   },
-  "activities": {
-    "visible": true,
-    "title": "Activities",
-    "moreLabel": "All activities"
-  },
-  "current": {
-    "title": "Current research",
-    "moreLabel": "View all projects"
-  },
-  "about": {
-    "title": "About",
-    "text": "Min Jong Lee is an integrated M.S.–Ph.D. researcher in electrical engineering at Korea University. His first-author work connects molecular interfaces, optoelectronic devices, and emerging memory.",
-    "links": [
+  "work": {
+    "title": "Research Work",
+    "headline": "Physical mechanisms demonstrated in functional hardware.",
+    "features": [
       {
-        "label": "More about Min Jong Lee",
-        "href": "about.html"
+        "paper": "paper-02",
+        "title": "Interface-Engineered Synapses for Reliable Neuromorphic Computing",
+        "description": "Hydrogen-bond engineering improves analog memory stability and switching behavior, connecting interface control with crossbar-array operation and CNN-based neuromorphic computation.",
+        "evidence": "7 × 7 crossbar · synaptic learning · CNN inference"
       },
       {
-        "label": "Research activities",
-        "href": "activities.html"
+        "paper": "paper-22",
+        "title": "Helicity-Defined Analog Memory with Circuit-Level Validation",
+        "description": "Optical helicity defines persistent analog conductance states, with array-level operation, ADC/FPGA-assisted readout, and mixed-signal vector–matrix computation.",
+        "evidence": "7 × 7 array · ADC/FPGA readout · mixed-signal VMM"
+      }
+    ],
+    "breadthTitle": "Research Across Electronic Platforms",
+    "breadthParagraphs": [
+      "Beyond these studies, my research spans emerging memory devices, semiconductor thin films and interfaces, capacitor structures, molecular electronics, photodetection, photovoltaics, and flexible and stretchable electronic systems.",
+      "Across these platforms, I investigate how materials, interfaces, and transport mechanisms influence device functionality, electrical variability, and reliability."
+    ],
+    "journalStatement": "First-author and collaborative research published in Advanced Materials, ACS Nano, Advanced Functional Materials, and other leading journals."
+  },
+  "outlook": {
+    "title": "Research Outlook",
+    "headline": "From Understanding Devices to Engineering Reliable Systems.",
+    "introduction": "I aim to translate fundamental understanding of interfaces, defects, and transport into reliable electronic technologies, connecting memory physics with computing hardware and integrated electronic systems.",
+    "directions": [
+      {
+        "title": "Predictive Memory Reliability",
+        "description": "Defects, noise, leakage, and transport physics across emerging memories and semiconductor-relevant oxide and dielectric interfaces."
+      },
+      {
+        "title": "Hardware-Aware Memory Computing",
+        "description": "Connecting device-level nonidealities with array accuracy, peripheral circuits, and reliable computing hardware."
+      },
+      {
+        "title": "Integrated & Adaptive Electronics",
+        "description": "Exploring reliable electronic functions across thin-film, optoelectronic, flexible, and future heterogeneous architectures."
       }
     ]
+  },
+  "contact": {
+    "headline": "Let's Explore What We Can Build.",
+    "description": "For research collaboration and academic exchange, please get in touch."
   }
 }

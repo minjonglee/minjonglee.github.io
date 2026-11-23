@@ -1,102 +1,56 @@
 {
   "hero": {
     "kicker": "Research",
-    "title": "Interfaces, defects, and transport across electronic devices.",
-    "description": "I study how microscopic interfaces and electronic or ionic transport govern device operation, variability, and reliability. Three research pillars connect physical questions to memory devices and thin-film electronic platforms.",
+    "title": "Device Physics and Reliability Across Electronic Platforms.",
+    "description": "I investigate how interfaces, defects, and electronic and ionic transport govern device operation, variability, and reliability. My research connects physical mechanisms with experimental devices, extending from material and interface engineering to memory arrays, computing hardware, and emerging electronic platforms.",
     "image": "",
     "alt": "",
     "caption": "",
     "imagePosition": "center"
   },
-  "selectedPapersHeading": "Representative work",
-  "expertise": {
-    "title": "Research expertise & methods",
-    "intro": "These capabilities are evidenced by first-author and collaborative studies. A listed method does not imply sole responsibility for every instrument or experiment.",
-    "areas": [
+  "areas": {
+    "title": "Research Areas",
+    "core": {
+      "title": "Memory Device Physics & Reliability",
+      "description": "My core research examines the physical mechanisms governing memory-state formation, resistive switching, and long-term stability. I investigate ionic and defect dynamics, stochastic transport, analog-state precision, low-frequency noise, retention, endurance, and device variability."
+    },
+    "connected": [
       {
-        "title": "Materials & Interface Engineering",
-        "method": "Molecular contacts, SAMs, ALD-related thin films, and hybrid-device interfaces.",
-        "question": "How does local chemistry change energy alignment and trap populations?",
-        "relevance": "Charge injection, transport, and stable device operation.",
-        "papers": ["paper-05", "paper-03", "paper-06"]
+        "title": "Neuromorphic Computing & Memory Circuits",
+        "description": "I study how the electrical characteristics of memory devices translate into functional computing hardware. My research experience includes artificial synapses, crossbar arrays, learning behavior, CNN-based inference, mixed-signal readout, and vector–matrix computation.",
+        "anchor": "chiral-memory"
       },
       {
-        "title": "Electrical characterization",
-        "method": "Current–voltage and pulse-response studies, retention and endurance testing, and variability measurements.",
-        "question": "How do electronic states form, change, and persist?",
-        "relevance": "Quantified switching behavior and device-to-device comparison.",
-        "papers": ["paper-02", "paper-22", "paper-24"]
-      },
-      {
-        "title": "Device physics & reliability",
-        "method": "Trap and ionic-transport analysis, analog-state readout, noise, and leakage measurements in published and ongoing work.",
-        "question": "Which mechanisms constrain precision and stability?",
-        "relevance": "Interpreting memory-state and capacitor behavior beyond a single performance number.",
-        "papers": ["paper-03", "paper-08", "paper-22"]
-      },
-      {
-        "title": "Processing & Applied Devices",
-        "method": "Thin-film electrode studies and doctor-blade-printed interconnects in academic and collaborative programs.",
-        "question": "How does process-induced geometry vary between nominally identical devices?",
-        "relevance": "Separating initial electrical nonuniformity from changes during mechanical cycling.",
-        "papers": ["paper-06", "paper-24"],
-        "projects": ["stretchable-pcb"]
+        "title": "Semiconductor Interfaces & Oxide Electronics",
+        "description": "My work includes molecular and thin-film interface engineering, ALD-based electrode and oxide platforms, capacitor structures, charge injection, and leakage-related device behavior. These studies provide a foundation for investigating broader semiconductor interface and reliability challenges.",
+        "anchor": "interfaces"
       }
-    ]
-  },
-  "contributions": [
-    {
-      "id": "hydrogen-bonded-memory",
-      "paper": "paper-02",
-      "heading": "Molecular interfaces for reliable analog memory",
-      "question": "Can hydrogen bonding at a polymer–perovskite interface improve the symmetry and stability of analog switching?",
-      "mechanism": "Interfacial hydrogen bonding suppresses trap-mediated disruption of ionic and electronic response.",
-      "approach": "Compare interface-controlled synaptic devices through switching and state-retention measurements.",
-      "evidence": "More than eightfold lower interfacial trap density and 50 analog conductance states retained beyond 10⁴ s.",
-      "significance": "Interfacial chemistry offers a physical route to more reproducible analog memory states."
-    },
-    {
-      "id": "optoelectronic-memory",
-      "paper": "paper-03",
-      "heading": "Defect-controlled optoelectronic memory",
-      "question": "Can an intermediate layer lower trap density while preserving low-power optoelectronic switching?",
-      "mechanism": "An ALD TiO₂ intermediate layer changes the device interface and reduces trapping.",
-      "approach": "Relate intermediate-layer design to trap-density estimates and switching measurements.",
-      "evidence": "A fifteenfold reduction in interfacial trap density, +0.24 V SET operation, and approximately 0.7 μW switching power.",
-      "significance": "The study connects a controlled interface to both the switching mechanism and its operating cost."
-    },
-    {
-      "id": "chiral-memory",
-      "paper": "paper-22",
-      "heading": "Persistent analog states conditioned by optical helicity",
-      "question": "Can optical helicity condition distinguishable electronic memory states that remain readable over time?",
-      "mechanism": "Helicity-dependent excitation biases persistent conductance states in a chiral perovskite synapse.",
-      "approach": "Evaluate retained conductance, readout-noise-limited state capacity, and a small device array.",
-      "myContribution": "Conceptualization, methodology, investigation, data curation, and original-draft writing, as listed in the publisher’s CRediT statement.",
-      "contributionSource": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75308",
-      "evidence": "72 experimentally distinguishable states, 10⁶ s retention, read-noise analysis, and evaluation of a 7×7 device array.",
-      "significance": "The result tests whether an optical input can become a persistent analog state with measurable precision and array-level behavior."
+    ],
+    "platform": {
+      "title": "Flexible, Stretchable & Optoelectronic Devices",
+      "description": "My research also spans printed and stretchable interconnects, deformation-induced electrical variability, photodetectors, photovoltaics, and hybrid electronic platforms. These studies extend my device-physics experience across different material systems, fabrication approaches, and operating conditions."
     }
-  ],
-  "platformEvidence": {
-    "title": "Additional evidence across platforms",
-    "intro": "Two concise studies show how the same interface-to-device reasoning extends beyond the detailed memory case studies.",
-    "items": [
+  },
+  "outlook": {
+    "title": "Research Outlook",
+    "headline": "From Device Physics to Reliable Electronic Systems.",
+    "introduction": "I aim to translate fundamental understanding of interfaces, defects, and transport into reliable electronic technologies. Rather than focusing on a single material system, I seek to address transferable physical questions across semiconductor memories, computing hardware, and integrated electronic platforms.",
+    "directions": [
       {
-        "paper": "paper-05",
-        "label": "Molecular contact engineering",
-        "significance": "SAM-based hole-selective contacts connect interfacial energetics with transport in photovoltaic and capacitor devices."
+        "title": "Predictive Memory Reliability",
+        "description": "Building on my research in ionic memory and interface-controlled transport, I aim to investigate how defects, electrical noise, leakage, and operating stress determine memory precision, variability, and failure. Future interests include oxide-based electronics and DRAM-relevant dielectric and capacitor interfaces.",
+        "anchor": "current-ionic-memory"
       },
       {
-        "paper": "paper-24",
-        "label": "Process-induced variability in printed interconnects",
-        "significance": "This first-author accepted study distinguishes initial trace nonuniformity from resistance changes under repeated mechanical deformation."
+        "title": "Hardware-Aware Memory Computing",
+        "description": "My experience with analog memory, crossbar arrays, and circuit-level evaluation motivates further research connecting device nonidealities with reliable computation. I am particularly interested in variability-aware hardware design, peripheral readout, and future memory–CMOS co-design.",
+        "anchor": "hardware-aware"
+      },
+      {
+        "title": "Integrated & Adaptive Electronic Systems",
+        "description": "My research experience in thin films, optoelectronics, and flexible electronics provides a foundation for exploring new electronic architectures. Longer-term interests include low-temperature device integration, heterogeneous electronic systems, and emerging three-dimensional platforms.",
+        "anchor": "integration"
       }
     ]
-  },
-  "directions": [
-    {"id": "current-ionic-memory", "stage": "Current doctoral research", "title": "Interface-controlled ionic memory", "text": "The ongoing independent project asks how interfaces, defect landscapes, and ionic motion limit multilevel precision. State-formation dynamics and low-frequency noise are being studied; specific results are still in development.", "project": "doctoral-ionic-memory"},
-    {"id": "oxide-direction", "stage": "Developing research interest", "title": "Oxide electronics & memory reliability", "text": "Prior ALD electrode and capacitor studies provide a basis for new questions about oxide interfaces, defect-mediated transport, dielectric behavior, and memory reliability. Experimental work in memory-specific oxide platforms is a future direction.", "paper": "paper-06"},
-    {"id": "integration", "stage": "Long-term direction", "title": "Toward integrated electronic systems", "text": "I aim to connect interface design, electrical characterization, and reliability physics to low-temperature and integrated device platforms. These system-level aims remain prospective.", "project": "ald-electrodes-industry"}
-  ]
+  }
 }

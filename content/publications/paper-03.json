@@ -16,7 +16,7 @@
     "interfaces",
     "opto"
   ],
-  "featured": true,
+  "featured": false,
   "featuredOrder": 2,
   "featuredQuestion": "Can interface trap control reduce the voltage and power required for optoelectronic switching?",
   "featuredTitle": "Reducing traps in optoelectronic memory",

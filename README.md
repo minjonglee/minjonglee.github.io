@@ -9,7 +9,7 @@ This is a static HTML, CSS, and JavaScript site. The editable source is JSON in 
 | Main menu | Page | Contents |
 |---|---|---|
 | About | `about.html` | Portrait, biography, education, and honors; distinct experience appears when added |
-| Research | `research.html` | Core interface and memory work, connected foundations, future direction; **Projects** tab opens `projects.html` |
+| Research | `research.html` | Core memory physics, connected computing and interface work, future direction; **Projects** tab opens `projects.html` |
 | Publications | `publications.html` | **Papers** and **Patents**; **Conferences** appears when a verified record exists |
 | Activities | `activities.html` | Date-sorted awards, research highlights, and media archive; Gallery appears when a cleared photograph is added |
 | CV | `cv.html` | Public web CV and PDF download |
@@ -33,28 +33,28 @@ The homepage is `index.html`. Existing `.html` URLs remain in place; `contact.ht
 
 The generated `.pages.yml` preserves the existing record fields. Regenerate it after changing the JSON schema with `node scripts/generate-cms-config.mjs` and commit the result.
 
-Homepage research rows come from **Research → Research Areas** records marked **Feature on homepage**: `core` (interface physics), `platform` (memory), and `future` (explicit long-term direction). A `foundation` record appears as a smaller connected research note. Featured papers come from the Papers selection; featured awards and News & Media records appear under homepage Activities. To change these selections, edit the records in CMS rather than the generated HTML.
+The Home and Research overview text is edited in **Site Settings → Home page** and **Research → Research page text**. Home presents four short research areas and exactly two Advanced Materials studies, chosen in the Home page editor under **Research Work → Featured research**. The editorial titles and summaries there are separate from the official titles, author lists, and metadata in **Publications → Papers**. Awards and media coverage remain on Activities. Research Area and case-study records are retained for project relationships and historical detail; changing their older homepage fields does not change the new overview.
 
-The Home page editor has visibility switches for Research, Featured Work, and Activities. The Research page editor can hide the core research progression; each Research Area has its own **Show on website** switch. The Projects page editor can hide case studies. A single case study expands within its related project; two or more appear in a separate section. Sections with no featured papers, activities, gallery photographs, or conference presentations are omitted automatically.
+The Home page editor controls the Home introduction, research area list, two featured studies, outlook, and contact text. The Research page editor controls the Research introduction, four areas, and future outlook. The Projects page editor can hide case studies. A single case study expands within its related project; two or more appear in a separate section. Empty gallery and conference sections are omitted automatically.
 
 ### Replace images in Pages CMS
 
-Upload to the relevant image field, fill in its alternative text, and optionally set a caption and **Image crop focus**. The focus menu supports center, top, bottom, left, and right. Images keep the aspect ratio shown below across screen sizes; Research Area images use `object-fit: contain` so a later wide figure stays fully visible inside the 4:3 frame. Missing images leave a text-led layout without a placeholder. Existing concept illustrations remain labeled as illustrations until you replace them.
+Upload to the relevant image field, fill in its alternative text, and optionally set a caption and **Image crop focus**. The focus menu supports center, top, bottom, left, and right. The Research overview is text-led; Research Area images remain available for future project or detailed research pages. Existing concept illustrations remain labeled as illustrations until you replace them.
 
 | Image | CMS editor and fields | Recommended source size |
 |---|---|---|
 | Home hero | **About → Profile**: Home hero image, alternative text, caption, crop focus | 1600 × 1200 px (4:3) |
 | Research page hero | **Research → Research page text → Hero**: image, alt, caption, crop focus | 1600 × 900 px (16:9) |
 | Memory, interfaces, optoelectronics, flexible, integration, or new area | **Research → Research Areas**: image, alt, caption, crop focus | 1200 × 750 px (8:5) |
-| Featured Work | **Publications → Papers**: image, image alt, image caption, crop focus; set **Feature on homepage** and Homepage order | 1200 × 750 px (8:5) |
+| Home Research Work | **Publications → Papers**: image, image alt, image caption, crop focus; select the record in **Site Settings → Home page → Research Work** | 1200 × 750 px (8:5) |
 | Project | **Research → Projects**: image, image alt, image caption, crop focus | 1600 × 900 px (16:9) |
 | Activity and Gallery | **Activities → News & Media**: thumbnail, alt, cover/contain fit, crop focus, detail images and captions; **Gallery**: image, alt, caption, crop focus, date, category, URL | 1600 × 1000 px (activity); 1200 × 900 px (gallery) |
 
-The Home hero retains one labeled concept image. Featured Work and Research use eight distinct, CMS-editable scientific editorial artworks in `assets/artwork/`. They are labeled as conceptual and do not contain measurement plots or invented experimental results. Source photographs and press graphics used by Activities are local files under `assets/images/activities/`. See `docs/IMAGE_ASSETS.md` for the asset list and provenance, and `docs/ARTWORK_PROMPTS.md` for the artwork prompts.
+The Home hero retains one labeled concept image. The two Home research features use separate conceptual scientific artworks in `assets/artwork/`; the images do not represent experiments or measurement plots. Source photographs and press graphics used by Activities are local files under `assets/images/activities/`. See `docs/IMAGE_ASSETS.md` for the asset list and provenance, and `docs/ARTWORK_PROMPTS.md` for the artwork prompts.
 
 ### Add a paper
 
-Open **Publications → Papers → New**. Enter a unique lowercase **Stable URL ID** such as `new-memory-paper`, Title, Authors in publication order, Journal, Year, Publication status, and author role. **Sort date** starts with today's date and controls the newest-first order in both CMS and the public list. For an older paper, change it to a date in the paper's **Year**; the build checks that the years match. Sort date is an internal ordering key, not a claim about the actual publication date. Enter only verified Volume, Issue, Pages, Article number, publication dates, and DOI values. `†` and `*` can remain in the Authors field. A DOI alone creates a `https://doi.org/` link. Use **Feature on homepage** only for a representative paper.
+Open **Publications → Papers → New**. Enter a unique lowercase **Stable URL ID** such as `new-memory-paper`, Title, Authors in publication order, Journal, Year, Publication status, and author role. **Sort date** starts with today's date and controls the newest-first order in both CMS and the public list. For an older paper, change it to a date in the paper's **Year**; the build checks that the years match. Sort date is an internal ordering key, not a claim about the actual publication date. Enter only verified Volume, Issue, Pages, Article number, publication dates, and DOI values. `†` and `*` can remain in the Authors field. A DOI alone creates a `https://doi.org/` link. Home features are explicitly chosen in the Home page editor.
 
 The public Papers list and web CV show only **Accepted, In Press, ASAP, Early View, Online Published, and Published** records. **Manuscript, Submitted, Under Review, and In Revision** records can stay editable in CMS but do not appear publicly. The public list currently has 23 records: 7 first- or co-first-author and 16 co-authored. These counts update automatically in the generated pages. The metadata line combines Journal, Year, and available bibliographic fields without changing how they are stored. The downloadable October 2026 PDF is the owner's original and may predate newer web records; replace it only with a revised PDF supplied by the owner.
 
