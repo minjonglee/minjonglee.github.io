@@ -103,7 +103,7 @@ const featuredHtml=pages.index.split('id="featured"')[1].split('</section>')[0];
 assert.equal((featuredHtml.match(/class="editorial-work" id=/g)||[]).length,2,'Home should feature exactly two equally weighted papers');
 assert.ok(featuredHtml.includes('Interface-Engineered Synapses for Reliable Neuromorphic Computing'));
 assert.ok(featuredHtml.includes('Helicity-Defined Analog Memory with Circuit-Level Validation'));
-assert.ok(featuredHtml.includes('featured-hydrogen-synapse.jpg')&&featuredHtml.includes('featured-chiral-synapse.jpg')&&!featuredHtml.includes('featured-opto-memory.jpg'),'Only the two Advanced Materials artworks should appear');
+assert.ok(featuredHtml.includes('featured-neuromorphic-user-photo.jpg')&&featuredHtml.includes('featured-chiral-user-photo.jpg')&&!featuredHtml.includes('featured-opto-memory.jpg'),'Only the two Advanced Materials featured images should appear');
 assert.ok(featuredHtml.includes('7 × 7 crossbar')&&featuredHtml.includes('CNN inference')&&featuredHtml.includes('ADC/FPGA readout')&&featuredHtml.includes('mixed-signal VMM'),'Hardware validation is missing');
 assert.ok(featuredHtml.includes('https://doi.org/10.1002/adma.202511728')&&featuredHtml.includes('https://doi.org/10.1002/adma.75308'));
 assert.ok(!featuredHtml.includes('Korea University News'),'Press links belong in Activities');
