@@ -28,7 +28,6 @@ export function home(d) {
     return rows?`<div class="editorial-research-group"><p class="area-type">${title}</p><ul class="editorial-research-list">${rows}</ul></div>`:'';
   }).join('');
   const directions=page.outlook.directions.map(item=>`<article><h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
-  const journalText=e(page.work.journalStatement).replace('Advanced Materials, ACS Nano, Advanced Functional Materials','<strong>Advanced Materials, ACS Nano, Advanced Functional Materials</strong>');
   return `<section class="home-hero shell" aria-labelledby="home-title">
     <div class="home-hero-grid${heroImage?'':' home-hero-text-only'}"><div class="home-hero-copy">
       <p class="home-name">${e(d.profile.name)}</p>
@@ -46,12 +45,7 @@ export function home(d) {
   <section class="editorial-section editorial-work-section" id="featured" aria-labelledby="home-work-title"><div class="shell">
     ${sectionHead(page.work.title,page.work.headline,'home-work-title')}
     <div class="editorial-work-grid">${featured}</div>
-    <div class="editorial-breadth">
-      <h3>${e(page.work.breadthTitle)}</h3>
-      ${page.work.breadthParagraphs.map(text=>`<p>${e(text)}</p>`).join('')}
-      <p class="journal-line">${journalText}</p>
-      ${editorialLink('publications.html','Explore All Publications')}
-    </div>
+    <div class="editorial-work-footer">${editorialLink('publications.html','Explore All Publications')}</div>
   </div></section>
   <section class="editorial-section shell editorial-outlook" id="outlook" aria-labelledby="home-outlook-title">
     ${sectionHead(page.outlook.title,page.outlook.headline,'home-outlook-title')}
