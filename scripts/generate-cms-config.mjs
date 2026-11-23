@@ -100,8 +100,8 @@ function fields(value,scope){
     if(key==='familyTitle') field.description='Optional English title shared by confirmed filings in this patent family.';
     if(key==='order'||key==='featuredOrder') field.description=scope==='publications'&&key==='featuredOrder'?'Legacy homepage order; the Home page editor now sets the two displayed studies.':'Lower numbers appear first.';
     if(['image','heroImage','thumbnail'].includes(key)) {
-      const dimensions=scope==='publications'?'1600 × 1000 px (8:5)':scope==='research'?'1200 × 750 px (8:5)':scope==='gallery'?'1200 × 900 px (4:3)':scope.startsWith('news')?'1600 × 1000 px (8:5)':scope==='profile'?'1600 × 1200 px (4:3)':scope==='research-page.hero'?'1600 × 900 px (16:9)':'1600 × 900 px (16:9)';
-      field.description=`Upload an image you may publish. Recommended: ${dimensions}. Fill in alternative text; caption and crop position are optional.`;
+      const dimensions=scope==='publications'?'1600 × 1000 px (8:5)':scope==='research'?'1200 × 750 px (8:5)':scope==='gallery'?'1200 × 900 px (4:3)':scope.startsWith('news')?'1600 × 1000 px (8:5)':scope==='profile'?'1600 × 1200 px (4:3)':scope.startsWith('research-page.areas')?'1600 × 1000 px (8:5)':scope==='research-page.hero'?'1600 × 900 px (16:9)':'1600 × 900 px (16:9)';
+      field.description=scope.startsWith('research-page.areas')?`Upload an image you may publish. Recommended: ${dimensions}. Fill in alternative text.`:`Upload an image you may publish. Recommended: ${dimensions}. Fill in alternative text; caption and crop position are optional.`;
     }
     if(['alt','imageAlt','heroImageAlt','thumbnailAlt'].includes(key)) field.description='Describe the image for readers who cannot see it. Required when an image is present.';
     if(key==='visible') field.default=true;

@@ -3,6 +3,7 @@ import {escape as e, doiHref, scientificVisual, pageHero, sectionTabs} from './c
 const editorialLink=(href,text,extra='')=>`<a class="editorial-link" href="${e(href)}" ${extra}>${e(text)}</a>`;
 const sectionHead=(kicker,headline,id)=>`<div class="editorial-heading"><p class="eyebrow">${e(kicker)}</p><h2 id="${e(id)}">${e(headline)}</h2></div>`;
 const researchTabs=file=>sectionTabs([{label:'Overview',href:'research.html'},{label:'Projects',href:'projects.html'}],file,'Research sections');
+const areaImage=item=>`<figure class="editorial-area-image"><img src="${e(item.image)}" alt="${e(item.alt)}" width="1536" height="960" loading="lazy" decoding="async"></figure>`;
 
 export function home(d) {
   const page=d.pages.home;
@@ -53,18 +54,13 @@ export function home(d) {
     <p class="editorial-intro">${e(page.outlook.introduction)}</p>
     <div class="editorial-direction-grid">${directions}</div>
     ${editorialLink('research.html#directions','Explore Future Research')}
-  </section>
-  <section class="editorial-section editorial-contact" id="contact" aria-labelledby="home-contact-title"><div class="shell">
-    <h2 id="home-contact-title">${e(page.contact.headline)}</h2>
-    <p>${e(page.contact.description)}</p>
-    <div class="editorial-link-row">${editorialLink(`mailto:${d.profile.email}`,'Email')}${editorialLink(d.scholar,'Google Scholar','target="_blank" rel="noopener noreferrer"')}${editorialLink(d.profile.cv,'Download CV','download')}</div>
-  </div></section>`;
+  </section>`;
 }
 
 export function research(d) {
   const page=d.pages.research;
   const introImage=scientificVisual(page.hero.image,page.hero.alt,{label:page.hero.caption,className:'research-hero-visual',position:page.hero.imagePosition});
-  const connected=page.areas.connected.map(item=>`<article class="editorial-connected-area" id="${e(item.anchor)}"><h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
+  const connected=page.areas.connected.map(item=>`<article class="editorial-connected-area" id="${e(item.anchor)}">${item.anchor==='neuromorphic'?'<span class="anchor-target" id="chiral-memory"></span>':''}${areaImage(item)}<h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
   const directions=page.outlook.directions.map(item=>`<article class="editorial-research-direction" id="${e(item.anchor)}"><h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
   return `${pageHero(e(page.hero.kicker),e(page.hero.title),e(page.hero.description))}
   ${researchTabs('research.html')}
@@ -72,16 +68,16 @@ ${introImage?`<div class="shell research-hero-image">${introImage}</div>`:''}
   <section class="editorial-section shell editorial-research-areas" id="expertise" aria-labelledby="research-areas-title">
     <p class="eyebrow">Research Areas</p><h2 id="research-areas-title" class="sr-only">${e(page.areas.title)}</h2>
     <article class="editorial-core-area" id="memory">
-      <div><p class="area-type">Core research</p><h3>${e(page.areas.core.title)}</h3></div>
-      <p>${e(page.areas.core.description)}</p>
+      ${areaImage(page.areas.core)}
+      <div class="editorial-core-copy"><p class="area-type">Core research</p><h3>${e(page.areas.core.title)}</h3><p>${e(page.areas.core.description)}</p></div>
     </article>
     <div class="editorial-connected-grid">
       ${connected}
+      <article class="editorial-connected-area" id="flexible">
+        <span class="anchor-target" id="platforms"></span><span class="anchor-target" id="optoelectronics"></span><span class="anchor-target" id="foundations"></span>
+        ${areaImage(page.areas.platform)}<h3>${e(page.areas.platform.title)}</h3><p>${e(page.areas.platform.description)}</p>
+      </article>
     </div>
-    <article class="editorial-platform-area" id="flexible">
-      <span class="anchor-target" id="platforms"></span><span class="anchor-target" id="optoelectronics"></span><span class="anchor-target" id="foundations"></span>
-      <p class="area-type">Connected device platforms</p><h3>${e(page.areas.platform.title)}</h3><p>${e(page.areas.platform.description)}</p>
-    </article>
   </section>
   <section class="editorial-section editorial-research-outlook" id="directions" aria-labelledby="research-outlook-title"><div class="shell">
     ${sectionHead(page.outlook.title,page.outlook.headline,'research-outlook-title')}

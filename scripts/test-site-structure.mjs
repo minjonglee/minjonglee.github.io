@@ -78,7 +78,7 @@ const conferenceSample=conferences({...data,conferences:[
 ]});
 assert.deepEqual([...conferenceSample.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)].map(match=>match[1]),['newest','recent','older'],'Conferences should sort by sortDate, independent of order');
 assert.ok(!conferenceSample.includes('class="output-year"'),'Populated Conferences should remain a continuous list');
-assert.ok(pages.activities.includes('Activity archive')&&!pages.activities.includes('Selected activities'));
+assert.ok(pages.activities.includes('>Archive</h2>')&&!pages.activities.includes('Selected activities'));
 for(const filter of ['all','awards','research','media']) assert.ok(pages.activities.includes(`data-activity-filter="${filter}"`));
 assert.equal((pages.activities.match(/class="activity-entry"/g)||[]).length,9,'Six verified awards and three research/media records should appear without duplicate award cards');
 assert.ok(pages.activities.includes('id="chiral-perovskite-university-highlight"')&&pages.activities.includes('Korea University News'),'Chiral paper should have official university coverage');
@@ -90,8 +90,10 @@ assert.ok(!pages.index.includes('Outstanding Graduate Research Achievement')&&pa
 assert.ok(!pages.index.includes('home-evidence-strip')&&!pages.index.includes('Selected highlights'),'Home must not show achievement counters');
 assert.ok(!pages.index.includes('home-activity-list'),'Home must not repeat Activities');
 assert.ok(!pages.activities.includes('id="gallery"'),'Gallery should be hidden until an image is provided');
-const sectionOrder=['class="home-hero shell"','id="research"','id="featured"','id="outlook"','class="editorial-section editorial-contact"'].map(marker=>pages.index.indexOf(marker));
+const sectionOrder=['class="home-hero shell"','id="research"','id="featured"','id="outlook"','class="site-footer" id="contact"'].map(marker=>pages.index.indexOf(marker));
 assert.ok(sectionOrder.every((position,index)=>position>=0&&(index===0||position>sectionOrder[index-1])),'Home section order is incorrect');
+assert.ok(!pages.index.includes("Let's Explore What We Can Build.")&&!pages.index.includes('class="editorial-contact"'),'Home marketing CTA must be removed');
+assert.ok(pages.index.includes('research.html#neuromorphic')&&!pages.index.includes('research.html#chiral-memory'),'Home neuromorphic link must use the broader anchor');
 assert.ok(pages.index.includes('From Interface Physics to Reliable Electronic Systems.'));
 assert.ok(pages.index.includes('Different platforms. A common physics.'));
 const researchTitles=['Memory Device Physics &amp; Reliability','Neuromorphic Computing &amp; Memory Circuits','Semiconductor Interfaces &amp; Oxide Electronics','Flexible, Stretchable &amp; Optoelectronic Devices'];
@@ -111,7 +113,9 @@ assert.ok(pages.index.includes('mailto:minjong_lee@korea.ac.kr')&&pages.index.in
 for(const banned of ['Three connected lines of inquiry','Selected Research Contributions','Additional evidence across platforms','Research expertise &amp; methods','Current Research &amp; Future Directions']) assert.ok(!pages.research.includes(banned),'Research retains redundant section: '+banned);
 const researchOrder=['Device Physics and Reliability Across Electronic Platforms.','id="expertise"','id="directions"','id="contributions"'].map(marker=>pages.research.indexOf(marker));
 assert.ok(researchOrder.every((position,index)=>position>=0&&(index===0||position>researchOrder[index-1])),'Research section order is incorrect');
-for(const id of ['memory','chiral-memory','interfaces','flexible','platforms','optoelectronics','integration']) assert.ok(pages.research.includes('id="'+id+'"'),'Legacy research anchor missing: '+id);
+for(const id of ['memory','neuromorphic','chiral-memory','interfaces','flexible','platforms','optoelectronics','integration']) assert.ok(pages.research.includes('id="'+id+'"'),'Research anchor missing: '+id);
+assert.equal((pages.research.match(/class="editorial-area-image"/g)||[]).length,4,'Research should display four area images');
+for(const file of ['memory-probe-station.jpg','neuromorphic-chip.jpg','semiconductor-interfaces.jpg','flexible-electronics.jpg']) assert.ok(pages.research.includes('assets/images/research/'+file),'Research area image missing: '+file);
 assert.ok(pages.research.includes('Core research')&&pages.research.includes('Future research directions'));
 assert.ok(pages.research.includes('DRAM-relevant dielectric')&&pages.research.includes('future memory–CMOS co-design'),'Future interests must remain prospective');
 assert.ok(pages.research.includes('Explore Research Projects')&&pages.research.includes('View Publications'));

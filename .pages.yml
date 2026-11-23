@@ -354,7 +354,7 @@
                 {
                   "name": "introduction",
                   "label": "Introduction",
-                  "type": "text"
+                  "type": "string"
                 },
                 {
                   "name": "directions",
@@ -375,23 +375,6 @@
                       "type": "text"
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "name": "contact",
-              "label": "Contact",
-              "type": "object",
-              "fields": [
-                {
-                  "name": "headline",
-                  "label": "Section headline",
-                  "type": "string"
-                },
-                {
-                  "name": "description",
-                  "label": "Description",
-                  "type": "text"
                 }
               ]
             }
@@ -1908,6 +1891,21 @@
                       "name": "description",
                       "label": "Description",
                       "type": "text"
+                    },
+                    {
+                      "name": "image",
+                      "label": "Research or article image",
+                      "type": "image",
+                      "options": {
+                        "media": "images"
+                      },
+                      "description": "Upload an image you may publish. Recommended: 1600 × 1000 px (8:5). Fill in alternative text."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image alternative text",
+                      "type": "string",
+                      "description": "Describe the image for readers who cannot see it. Required when an image is present."
                     }
                   ]
                 },
@@ -1933,6 +1931,21 @@
                       "name": "anchor",
                       "label": "Research page anchor",
                       "type": "string"
+                    },
+                    {
+                      "name": "image",
+                      "label": "Research or article image",
+                      "type": "image",
+                      "options": {
+                        "media": "images"
+                      },
+                      "description": "Upload an image you may publish. Recommended: 1600 × 1000 px (8:5). Fill in alternative text."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image alternative text",
+                      "type": "string",
+                      "description": "Describe the image for readers who cannot see it. Required when an image is present."
                     }
                   ]
                 },
@@ -1950,6 +1963,21 @@
                       "name": "description",
                       "label": "Description",
                       "type": "text"
+                    },
+                    {
+                      "name": "image",
+                      "label": "Research or article image",
+                      "type": "image",
+                      "options": {
+                        "media": "images"
+                      },
+                      "description": "Upload an image you may publish. Recommended: 1600 × 1000 px (8:5). Fill in alternative text."
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image alternative text",
+                      "type": "string",
+                      "description": "Describe the image for readers who cannot see it. Required when an image is present."
                     }
                   ]
                 }
@@ -1973,7 +2001,7 @@
                 {
                   "name": "introduction",
                   "label": "Introduction",
-                  "type": "text"
+                  "type": "string"
                 },
                 {
                   "name": "directions",

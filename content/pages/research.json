@@ -12,43 +12,51 @@
     "title": "Research Areas",
     "core": {
       "title": "Memory Device Physics & Reliability",
-      "description": "My core research examines the physical mechanisms governing memory-state formation, resistive switching, and long-term stability. I investigate ionic and defect dynamics, stochastic transport, analog-state precision, low-frequency noise, retention, endurance, and device variability."
+      "description": "My core research examines how ionic and defect dynamics govern resistive and analog memory states. I study switching precision, noise, variability, retention, and endurance to connect device physics with reliability.",
+      "image": "assets/images/research/memory-probe-station.jpg",
+      "alt": "Microelectronic chip under probe needles"
     },
     "connected": [
       {
         "title": "Neuromorphic Computing & Memory Circuits",
-        "description": "I study how the electrical characteristics of memory devices translate into functional computing hardware. My research experience includes artificial synapses, crossbar arrays, learning behavior, CNN-based inference, mixed-signal readout, and vector–matrix computation.",
-        "anchor": "chiral-memory"
+        "description": "I connect analog device behavior with crossbar arrays, synaptic learning, and CNN inference. Mixed-signal readout, ADC/FPGA-assisted evaluation, and vector–matrix computation extend that work toward memory circuits.",
+        "anchor": "neuromorphic",
+        "image": "assets/images/research/neuromorphic-chip.jpg",
+        "alt": "Close view of a patterned microelectronic chip"
       },
       {
         "title": "Semiconductor Interfaces & Oxide Electronics",
-        "description": "My work includes molecular and thin-film interface engineering, ALD-based electrode and oxide platforms, capacitor structures, charge injection, and leakage-related device behavior. These studies provide a foundation for investigating broader semiconductor interface and reliability challenges.",
-        "anchor": "interfaces"
+        "description": "My work includes molecular and thin-film interfaces, ALD-based electrodes, oxide electronics, and capacitor structures. I examine charge injection and leakage behavior as foundations for broader semiconductor reliability questions.",
+        "anchor": "interfaces",
+        "image": "assets/images/research/semiconductor-interfaces.jpg",
+        "alt": "Patterned sample held beside laboratory processing equipment"
       }
     ],
     "platform": {
       "title": "Flexible, Stretchable & Optoelectronic Devices",
-      "description": "My research also spans printed and stretchable interconnects, deformation-induced electrical variability, photodetectors, photovoltaics, and hybrid electronic platforms. These studies extend my device-physics experience across different material systems, fabrication approaches, and operating conditions."
+      "description": "I study printed and stretchable interconnects, including electrical variability under deformation. Work on photodetectors and photovoltaic interfaces broadens this device-physics perspective across materials and operating conditions.",
+      "image": "assets/images/research/flexible-electronics.jpg",
+      "alt": "Flexible transparent circuit held between gloved hands"
     }
   },
   "outlook": {
     "title": "Research Outlook",
     "headline": "From Device Physics to Reliable Electronic Systems.",
-    "introduction": "I aim to translate fundamental understanding of interfaces, defects, and transport into reliable electronic technologies. Rather than focusing on a single material system, I seek to address transferable physical questions across semiconductor memories, computing hardware, and integrated electronic platforms.",
+    "introduction": "I aim to carry insights from interface physics and device experiments into reliable memory and integrated electronic systems.",
     "directions": [
       {
         "title": "Predictive Memory Reliability",
-        "description": "Building on my research in ionic memory and interface-controlled transport, I aim to investigate how defects, electrical noise, leakage, and operating stress determine memory precision, variability, and failure. Future interests include oxide-based electronics and DRAM-relevant dielectric and capacitor interfaces.",
+        "description": "Building on ionic memory and interface-controlled transport, I aim to study how defects, noise, leakage, and stress shape memory failure. Future interests include oxide electronics and DRAM-relevant dielectric and capacitor interfaces.",
         "anchor": "current-ionic-memory"
       },
       {
         "title": "Hardware-Aware Memory Computing",
-        "description": "My experience with analog memory, crossbar arrays, and circuit-level evaluation motivates further research connecting device nonidealities with reliable computation. I am particularly interested in variability-aware hardware design, peripheral readout, and future memory–CMOS co-design.",
+        "description": "My work on analog memory, crossbar arrays, and circuit-level evaluation motivates variability-aware hardware and peripheral readout. I am interested in future memory–CMOS co-design.",
         "anchor": "hardware-aware"
       },
       {
         "title": "Integrated & Adaptive Electronic Systems",
-        "description": "My research experience in thin films, optoelectronics, and flexible electronics provides a foundation for exploring new electronic architectures. Longer-term interests include low-temperature device integration, heterogeneous electronic systems, and emerging three-dimensional platforms.",
+        "description": "Thin-film, optoelectronic, and flexible devices provide a foundation for exploring new architectures. Longer-term interests include low-temperature processing, heterogeneous systems, and three-dimensional integration.",
         "anchor": "integration"
       }
     ]

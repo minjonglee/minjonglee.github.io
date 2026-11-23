@@ -16,6 +16,17 @@ The Home hero remains `assets/concept-device-layers.jpg`. It is conceptual artwo
 
 The published-paper concepts were cross-checked against the [Advanced Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511728) and [Advanced Functional Materials paper](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202421080). The chiral paper artwork stays at the level of its confirmed title and does not assert a device stack. Artwork contains no internal labels or fabricated measurement plots.
 
+## Research overview images
+
+The site owner supplied four reference images for the November 2026 Research overview update. The site uses those supplied images, center-cropped to 1536 × 960 pixels and encoded as optimized JPEGs. They appear once each, with no on-page image captions.
+
+| Local file under `assets/images/research/` | Research area |
+|---|---|
+| `memory-probe-station.jpg` | Memory Device Physics & Reliability |
+| `neuromorphic-chip.jpg` | Neuromorphic Computing & Memory Circuits |
+| `semiconductor-interfaces.jpg` | Semiconductor Interfaces & Oxide Electronics |
+| `flexible-electronics.jpg` | Flexible, Stretchable & Optoelectronic Devices |
+
 ## Activities: source photographs and press graphics
 
 These are local copies of the full-size images exposed by the source pages, rather than hotlinks. The laboratory source-page URLs remain in the CMS records as editor-only provenance and are never shown on the public Activities page.

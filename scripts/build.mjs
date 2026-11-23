@@ -49,7 +49,7 @@ for (const [file,render] of definitions) {
   const noConferences=file==='conferences.html'&&!data.conferences.length;
   fs.writeFileSync(path.join(outputRoot,file),layout(data,noConferences
     ? {file,title,description,canonical:'publications.html',extraHead:'<meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=publications.html">',body:'<section class="page-hero shell"><h1>Conferences</h1><a class="text-link" href="publications.html">View publications →</a></section>'}
-    : {file,title,description,body:render(data),bodyClass:file==='cv.html'?'cv-page':''}));
+    : {file,title,description,body:render(data),bodyClass:file==='cv.html'?'cv-page':file==='research.html'?'research-page':''}));
 }
 for (const [file,destination,label] of [['contact.html','index.html#contact','Contact details'],['recognition.html','about.html#recognition','Activities & recognition']]) {
   fs.writeFileSync(path.join(outputRoot,file),layout(data,{file,title:label,description:`Continue to ${label.toLowerCase()} for Min Jong Lee.`,canonical:destination.split('#')[0],extraHead:`<meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=${destination}">`,body:`<section class="page-hero shell"><h1>${label}</h1><p>This page has moved.</p><a class="text-link" href="${destination}">Continue to ${label.toLowerCase()} →</a></section>`}));

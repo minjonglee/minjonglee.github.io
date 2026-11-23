@@ -35,22 +35,23 @@ The generated `.pages.yml` preserves the existing record fields. Regenerate it a
 
 The Home and Research overview text is edited in **Site Settings → Home page** and **Research → Research page text**. Home presents four short research areas and exactly two Advanced Materials studies, chosen in the Home page editor under **Research Work → Featured research**. The editorial titles and summaries there are separate from the official titles, author lists, and metadata in **Publications → Papers**. Awards and media coverage remain on Activities. Research Area and case-study records are retained for project relationships and historical detail; changing their older homepage fields does not change the new overview.
 
-The Home page editor controls the Home introduction, research area list, two featured studies, outlook, and contact text. The Research page editor controls the Research introduction, four areas, and future outlook. The Projects page editor can hide case studies. A single case study expands within its related project; two or more appear in a separate section. Empty gallery and conference sections are omitted automatically.
+The Home page editor controls the Home introduction, research area list, two featured studies, and outlook. Contact details appear in the shared footer and are edited under Site Settings and About → Profile. The Research page editor controls the Research introduction, four areas and their images, and future outlook. The Projects page editor can hide case studies. A single case study expands within its related project; two or more appear in a separate section. Empty gallery and conference sections are omitted automatically.
 
 ### Replace images in Pages CMS
 
-Upload to the relevant image field, fill in its alternative text, and optionally set a caption and **Image crop focus**. The focus menu supports center, top, bottom, left, and right. The Research overview is text-led; Research Area images remain available for future project or detailed research pages. Existing concept illustrations remain labeled as illustrations until you replace them.
+Upload to the relevant image field and fill in its alternative text. Captions and **Image crop focus** are optional where offered. The focus menu supports center, top, bottom, left, and right. The Research overview displays four supplied images, one per area. Existing Home concept illustrations remain labeled as illustrations.
 
 | Image | CMS editor and fields | Recommended source size |
 |---|---|---|
 | Home hero | **About → Profile**: Home hero image, alternative text, caption, crop focus | 1600 × 1200 px (4:3) |
 | Research page hero | **Research → Research page text → Hero**: image, alt, caption, crop focus | 1600 × 900 px (16:9) |
+| Four Research overview areas | **Research → Research page text → Research Areas**: image and alt for each area | 1600 × 1000 px (8:5) |
 | Memory, interfaces, optoelectronics, flexible, integration, or new area | **Research → Research Areas**: image, alt, caption, crop focus | 1200 × 750 px (8:5) |
 | Home Research Work | **Publications → Papers**: image, image alt, image caption, crop focus; select the record in **Site Settings → Home page → Research Work** | 1200 × 750 px (8:5) |
 | Project | **Research → Projects**: image, image alt, image caption, crop focus | 1600 × 900 px (16:9) |
 | Activity and Gallery | **Activities → News & Media**: thumbnail, alt, cover/contain fit, crop focus, detail images and captions; **Gallery**: image, alt, caption, crop focus, date, category, URL | 1600 × 1000 px (activity); 1200 × 900 px (gallery) |
 
-The Home hero retains one labeled concept image. The two Home research features use separate conceptual scientific artworks in `assets/artwork/`; the images do not represent experiments or measurement plots. Source photographs and press graphics used by Activities are local files under `assets/images/activities/`. See `docs/IMAGE_ASSETS.md` for the asset list and provenance, and `docs/ARTWORK_PROMPTS.md` for the artwork prompts.
+The Home hero retains one labeled concept image. The two Home research features use separate conceptual scientific artworks in `assets/artwork/`; the images do not represent experiments or measurement plots. The four Research overview images supplied for this update are stored in `assets/images/research/`. Source photographs and press graphics used by Activities are local files under `assets/images/activities/`. See `docs/IMAGE_ASSETS.md` for the asset list and provenance, and `docs/ARTWORK_PROMPTS.md` for the older artwork prompts.
 
 ### Add a paper
 

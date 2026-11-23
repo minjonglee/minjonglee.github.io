@@ -13,7 +13,7 @@
       },
       {
         "title": "Neuromorphic Computing & Memory Circuits",
-        "anchor": "chiral-memory"
+        "anchor": "neuromorphic"
       },
       {
         "title": "Semiconductor Interfaces & Oxide Electronics",
@@ -44,32 +44,27 @@
     ],
     "breadthTitle": "Research Across Electronic Platforms",
     "breadthParagraphs": [
-      "Beyond these studies, my research spans emerging memory devices, semiconductor thin films and interfaces, capacitor structures, molecular electronics, photodetection, photovoltaics, and flexible and stretchable electronic systems.",
-      "Across these platforms, I investigate how materials, interfaces, and transport mechanisms influence device functionality, electrical variability, and reliability."
+      "My broader work spans memory devices, semiconductor interfaces, molecular electronics, photodetection, photovoltaics, and flexible electronics, with a recurring focus on transport, variability, and reliability."
     ],
     "journalStatement": "First-author and collaborative research published in Advanced Materials, ACS Nano, Advanced Functional Materials, and other leading journals."
   },
   "outlook": {
     "title": "Research Outlook",
     "headline": "From Understanding Devices to Engineering Reliable Systems.",
-    "introduction": "I aim to translate fundamental understanding of interfaces, defects, and transport into reliable electronic technologies, connecting memory physics with computing hardware and integrated electronic systems.",
+    "introduction": "I aim to connect device physics with reliable memory, computing hardware, and integrated electronic systems.",
     "directions": [
       {
         "title": "Predictive Memory Reliability",
-        "description": "Defects, noise, leakage, and transport physics across emerging memories and semiconductor-relevant oxide and dielectric interfaces."
+        "description": "Understanding how defects, noise, and leakage shape memory variability and lifetime."
       },
       {
         "title": "Hardware-Aware Memory Computing",
-        "description": "Connecting device-level nonidealities with array accuracy, peripheral circuits, and reliable computing hardware."
+        "description": "Connecting device nonidealities with array accuracy and peripheral circuits."
       },
       {
         "title": "Integrated & Adaptive Electronics",
-        "description": "Exploring reliable electronic functions across thin-film, optoelectronic, flexible, and future heterogeneous architectures."
+        "description": "Extending interface and device research toward adaptive, integrated platforms."
       }
     ]
-  },
-  "contact": {
-    "headline": "Let's Explore What We Can Build.",
-    "description": "For research collaboration and academic exchange, please get in touch."
   }
 }
