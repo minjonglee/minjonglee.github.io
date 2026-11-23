@@ -92,6 +92,8 @@ assert.ok(!pages.index.includes('home-activity-list'),'Home must not repeat Acti
 assert.ok(!pages.activities.includes('id="gallery"'),'Gallery should be hidden until an image is provided');
 const sectionOrder=['class="home-hero shell"','id="research"','id="featured"','id="outlook"','class="site-footer" id="contact"'].map(marker=>pages.index.indexOf(marker));
 assert.ok(sectionOrder.every((position,index)=>position>=0&&(index===0||position>sectionOrder[index-1])),'Home section order is incorrect');
+const heroHtml=pages.index.split('class="home-hero shell"')[1].split('</section>')[0];
+assert.ok(heroHtml.includes('home-hero-device-physics-v1.jpg')&&!heroHtml.includes('<figcaption>')&&!heroHtml.includes('concept-device-layers.jpg'),'Home hero should use the supplied image without a caption');
 assert.ok(!pages.index.includes("Let's Explore What We Can Build.")&&!pages.index.includes('class="editorial-contact"'),'Home marketing CTA must be removed');
 assert.ok(pages.index.includes('research.html#neuromorphic')&&!pages.index.includes('research.html#chiral-memory'),'Home neuromorphic link must use the broader anchor');
 assert.ok(pages.index.includes('From Interface Physics to Reliable Electronic Systems.'));
