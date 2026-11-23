@@ -18,7 +18,9 @@ for(const name of ['publications','projects','patents','awards','topics']){
     assert.ok(current[name].some(record=>record.id===item.id)||name==='awards',`missing migrated ${name}: ${item.id}`);
   }
 }
-assert.equal(fs.readdirSync(path.join(defaultRoot,'content','research-cases')).filter(file=>file.endsWith('.json')).length,previous.researchProjects.length,'research case migration count changed');
+const researchCaseFiles=fs.readdirSync(path.join(defaultRoot,'content','research-cases')).filter(file=>file.endsWith('.json'));
+assert.equal(researchCaseFiles.length,previous.researchProjects.length+2,'Five legacy cases and two new selected cases should be retained');
+for(const item of previous.researchProjects) assert.ok(researchCaseFiles.includes(`${item.id}.json`),`missing legacy research case: ${item.id}`);
 const config=JSON.parse(fs.readFileSync(path.join(defaultRoot,'.pages.yml'),'utf8'));
 const editors=config.content.flatMap(group=>group.items);
 for(const name of ['publications','projects','patents','research','awards','gallery','education','experience','conferences','news']){
@@ -116,15 +118,14 @@ try{
   linkedNews.url='https://example.org/article';write('news','cms-test-news',linkedNews);html=build();
   assert.ok(html.activities.includes('href="https://example.org/article"')&&!html.index.includes('href="https://example.org/article"'),'An external activity URL belongs inside details, not on the home card');
   assert.ok(html.publications.includes('href="conferences.html"'),'Conferences tab should reappear when CMS has a record');
-  assert.ok(html.projects.split('id="ongoing"')[1].split('id="completed"')[0].includes('CMS 신규 과제'),'minimal project should appear among ongoing projects');
+  assert.ok(html.projects.split('id="funded"')[1].split('</section>')[0].includes('CMS 신규 과제'),'minimal project should appear among funded projects');
   assert.ok(html.projects.includes('2027.01 – Present'),'project period should derive from CMS dates');
   assert.ok(html.cv.includes('CMS 신규 과제'),'CV should use the original title when no English title is supplied');
   minimalProject.status='Completed';write('projects','cms-minimal-project',minimalProject);html=build();
-  assert.ok(!html.projects.split('id="ongoing"')[1].split('id="completed"')[0].includes('CMS 신규 과제'),'status change should remove project from ongoing list');
-  assert.ok(html.projects.split('id="completed"')[1].includes('CMS 신규 과제'),'status change should place project in completed list');
+  assert.ok(html.projects.split('id="funded"')[1].split('</section>')[0].includes('CMS 신규 과제'),'status change should keep project in its funded category');
   minimalProject.endDate='2027-02';write('projects','cms-minimal-project',minimalProject);html=build();
   assert.ok(html.projects.includes('2027.01 – 2027.02'),'completed period should use the end date');
-  assert.ok(html.projects.indexOf('id="cms-minimal-project"')<html.projects.indexOf('id="ald-electrodes-industry"'),'completed projects should sort by end date');
+  assert.ok(html.projects.split('id="funded"')[1].indexOf('id="cms-minimal-project"')>html.projects.split('id="funded"')[1].indexOf('id="photonic-skin"'),'completed funded projects should follow ongoing funded projects');
   for(const text of ['Vol. 38','Issue 12','pp. 1234–1246','https://doi.org/10.1234/example']) assert.ok(html.publications.includes(text),`new publication missing ${text}`);
   assert.ok(html.index.includes('assets/concept-memory-switching.jpg'),'CMS image path was not normalized');
   newPaper.title='CMS updated publication';newPaper.featured=false;write('publications','cms-test-paper',newPaper);

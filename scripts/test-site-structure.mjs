@@ -42,11 +42,12 @@ assert.ok(pages.about.indexOf('id="education"')<pages.about.indexOf('id="recogni
 const sortedAwards=[...data.awards].sort((a,b)=>Number(b.year)-Number(a.year)||Number(a.order??999)-Number(b.order??999));
 assert.deepEqual([...pages.about.matchAll(/class="award-entry" id="([^"]+)"/g)].map(match=>match[1]),sortedAwards.map(item=>item.id),'About honors order is incorrect');
 for(const item of data.projects) assert.ok(pages.projects.includes(`id="${item.id}"`)||pages.projects.includes(item.title),`project missing: ${item.id}`);
-assert.ok(pages.projects.indexOf('id="ongoing"')<pages.projects.indexOf('id="completed"'),'Projects status section order is incorrect');
+const projectSections=['selected-projects','independent','industry','funded'];
+assert.ok(projectSections.every((id,index)=>pages.projects.includes(`id="${id}"`)&&(index===0||pages.projects.indexOf(`id="${id}"`)>pages.projects.indexOf(`id="${projectSections[index-1]}"`))),'Projects section order is incorrect');
 for(const item of data.projects) {
-  const section=item.status==='Completed'?'completed':'ongoing';
-  const html=section==='ongoing'?pages.projects.split('id="ongoing"')[1].split('id="completed"')[0]:pages.projects.split('id="completed"')[1];
-  assert.ok(html.includes(`id="${item.id}"`),`project in wrong status section: ${item.id}`);
+  const section=item.category==='independent'?'independent':item.category==='industry'?'industry':'funded';
+  const html=pages.projects.split(`id="${section}"`)[1].split('</section>')[0];
+  assert.ok(html.includes(`id="${item.id}"`),`project in wrong section: ${item.id}`);
 }
 for(const id of ['photonic-skin','flexible-fpcb','ald-electrodes-industry']) {
   const entry=pages.projects.split(`id="${id}"`)[1].split('</article>')[0];
@@ -98,28 +99,35 @@ assert.ok(!pages.index.includes("Let's Explore What We Can Build.")&&!pages.inde
 assert.ok(pages.index.includes('research.html#neuromorphic')&&!pages.index.includes('research.html#chiral-memory'),'Home neuromorphic link must use the broader anchor');
 assert.ok(pages.index.includes('From Interface Physics to Reliable Electronic Systems.'));
 assert.ok(pages.index.includes('Different platforms. A common physics.'));
-const researchTitles=['Memory Device Physics &amp; Reliability','Neuromorphic Computing &amp; Memory Circuits','Semiconductor Interfaces &amp; Oxide Electronics','Flexible, Stretchable &amp; Optoelectronic Devices'];
-const homeResearch=pages.index.split('class="editorial-research-list"')[1].split('</ul>')[0];
+const researchTitles=['Memory Device Physics &amp; Reliability','Neuromorphic Devices &amp; Array-Level Computing','Semiconductor Interfaces &amp; Oxide Electronics','Flexible, Stretchable &amp; Optoelectronic Devices'];
+const homeResearch=pages.index.split('class="editorial-research-groups"')[1].split('</section>')[0];
 assert.ok(researchTitles.every((title,index)=>homeResearch.includes(title)&&(index===0||homeResearch.indexOf(title)>homeResearch.indexOf(researchTitles[index-1]))),'Home research area order is incorrect');
+assert.equal((homeResearch.match(/class="is-core"/g)||[]).length,2,'Home should emphasize exactly two core research areas');
 const featuredHtml=pages.index.split('id="featured"')[1].split('</section>')[0];
 assert.equal((featuredHtml.match(/class="editorial-work" id=/g)||[]).length,2,'Home should feature exactly two equally weighted papers');
-assert.ok(featuredHtml.includes('Interface-Engineered Synapses for Reliable Neuromorphic Computing'));
-assert.ok(featuredHtml.includes('Helicity-Defined Analog Memory with Circuit-Level Validation'));
+assert.ok(featuredHtml.includes('Hydrogen-Bond Engineering for Precise and Reliable Analog Memory'));
+assert.ok(featuredHtml.includes('Helicity-Encoded Analog Memory with Array-Level Computing'));
 assert.ok(featuredHtml.includes('featured-neuromorphic-user-photo.jpg')&&featuredHtml.includes('featured-chiral-user-photo.jpg')&&!featuredHtml.includes('featured-opto-memory.jpg'),'Only the two Advanced Materials featured images should appear');
-assert.ok(featuredHtml.includes('7 × 7 crossbar')&&featuredHtml.includes('CNN inference')&&featuredHtml.includes('ADC/FPGA readout')&&featuredHtml.includes('mixed-signal VMM'),'Hardware validation is missing');
+assert.ok(featuredHtml.includes('7 × 7 crossbar')&&featuredHtml.includes('image-classification evaluation')&&featuredHtml.includes('ADC/FPGA readout')&&featuredHtml.includes('vector–matrix multiplication'),'Hardware validation is missing');
+assert.ok(featuredHtml.includes('&gt;8× lower interfacial trap density')&&featuredHtml.includes('72 distinguishable states'),'Verified paper metrics are missing');
+assert.ok(!featuredHtml.includes('Conceptual scientific artwork')&&!featuredHtml.includes('<figcaption>'),'Featured images should have no visible caption');
 assert.ok(featuredHtml.includes('https://doi.org/10.1002/adma.202511728')&&featuredHtml.includes('https://doi.org/10.1002/adma.75308'));
 assert.ok(!featuredHtml.includes('Korea University News'),'Press links belong in Activities');
 assert.ok(pages.index.includes('Research Across Electronic Platforms')&&pages.index.includes('Advanced Materials, ACS Nano, Advanced Functional Materials'),'Research breadth is missing');
 assert.ok(pages.index.includes('Predictive Memory Reliability')&&pages.index.includes('Hardware-Aware Memory Computing')&&pages.index.includes('Integrated &amp; Adaptive Electronics'));
 assert.ok(pages.index.includes('mailto:minjong_lee@korea.ac.kr')&&pages.index.includes('Download CV')&&pages.index.includes('Google Scholar'));
-for(const banned of ['Three connected lines of inquiry','Selected Research Contributions','Additional evidence across platforms','Research expertise &amp; methods','Current Research &amp; Future Directions']) assert.ok(!pages.research.includes(banned),'Research retains redundant section: '+banned);
-const researchOrder=['Device Physics and Reliability Across Electronic Platforms.','id="expertise"','id="directions"','id="contributions"'].map(marker=>pages.research.indexOf(marker));
+for(const banned of ['Three connected lines of inquiry','Additional evidence across platforms','Research expertise &amp; methods','Current Research &amp; Future Directions']) assert.ok(!pages.research.includes(banned),'Research retains redundant section: '+banned);
+const researchOrder=['Device Physics and Reliability Across Electronic Platforms.','id="expertise"','id="selected-contributions"','id="directions"','id="contributions"'].map(marker=>pages.research.indexOf(marker));
 assert.ok(researchOrder.every((position,index)=>position>=0&&(index===0||position>researchOrder[index-1])),'Research section order is incorrect');
+assert.equal((pages.research.match(/class="editorial-core-area/g)||[]).length,2,'Research should have two core areas');
+assert.equal((pages.research.match(/class="editorial-contribution"/g)||[]).length,5,'Research should show five selected contributions');
+for(const id of data.pages.research.selectedContributions) assert.ok(pages.research.includes(`id="contribution-${id}"`)&&pages.projects.includes(`id="${id}"`),`Selected contribution missing: ${id}`);
 for(const id of ['memory','neuromorphic','chiral-memory','interfaces','flexible','platforms','optoelectronics','integration']) assert.ok(pages.research.includes('id="'+id+'"'),'Research anchor missing: '+id);
 assert.equal((pages.research.match(/class="editorial-area-image"/g)||[]).length,4,'Research should display four area images');
 for(const file of ['memory-probe-station.jpg','neuromorphic-chip.jpg','semiconductor-interfaces.jpg','flexible-electronics.jpg']) assert.ok(pages.research.includes('assets/images/research/'+file),'Research area image missing: '+file);
 assert.ok(pages.research.includes('Core research')&&pages.research.includes('Future research directions'));
-assert.ok(pages.research.includes('DRAM-relevant dielectric')&&pages.research.includes('future memory–CMOS co-design'),'Future interests must remain prospective');
+assert.ok(pages.about.includes('Experimental and Analytical Experience'),'About should describe documented research methods');
+assert.ok(pages.research.includes('dielectric, and capacitor structures')&&pages.research.includes('memory–CMOS co-design remains a future interest'),'Future interests must remain prospective');
 assert.ok(pages.research.includes('Explore Research Projects')&&pages.research.includes('View Publications'));
 const stretchableProject=pages.projects.split('id="stretchable-pcb"')[1].split('</article>')[0];
 assert.ok(stretchableProject.includes('publications.html#paper-24'),'Stretchable PCB project should link the accepted paper');
@@ -139,6 +147,6 @@ for(const file of ['samsung-award-presentation.jpg','samsung-award-ceremony.jpg'
 assert.ok(pages.activities.includes('id="activity-lightbox"')&&pages.activities.includes('class="activity-image-open"'));
 for(const item of [...data.publications,...data.research,...data.news]) for(const value of [item.image,item.thumbnail,...(item.images??[]).map(image=>image.image)].filter(Boolean)) if(value.startsWith('assets/')) assert.ok(fs.existsSync(path.join(defaultRoot,value)),'Missing local image: '+value);
 
-assert.ok(!projects({...data,projects:data.projects.filter(item=>item.status==='Ongoing')}).includes('id="completed"'),'Empty project groups should be omitted');
+assert.ok(!projects({...data,projects:data.projects.filter(item=>item.category!=='industry')}).includes('id="industry"'),'Empty project groups should be omitted');
 assert.ok(!about({...data,awards:[]}).includes('id="recognition"'),'Empty honors section should be omitted');
 console.log('Navigation, secondary tabs, migrated records, patent filters, and empty-state content checks passed.');

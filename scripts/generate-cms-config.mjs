@@ -30,9 +30,11 @@ const choices={
   'news.type':['Award','News','Media','Journal cover','Research highlight','Video','YouTube','Conference','Academic activity','Press Release','Interview','Announcement'],
   'projects.category':['independent','government','industry'],
   'research.homeRole':['core','platform','foundation','future','none'],
+  'home.research.areas.tier':['core','connected'],
+  'research-page.areas.connected.tier':['core','connected'],
   'gallery.category':['Conference','Research','Collaboration','Award'],
 };
-const refTargets={'publications.topics':'topics','publications.featuredProject':'projects','publications.relatedResearch':'research','publications.relatedProjects':'projects','news.relatedPublicationId':'publications','research.papers':'publications','research.selectedPapers':'publications','research.relatedProjects':'projects','research-cases.papers':'publications','research-cases.patents':'patents','projects.caseStudyId':'research-cases','projects.relatedResearch':'research','projects.relatedPublications':'publications','projects.relatedPatents':'patents','patents.relatedResearch':'research','patents.relatedProject':'projects','patents.relatedPublication':'publications','gallery.relatedActivity':'news','home.work.features.paper':'publications'};
+const refTargets={'publications.topics':'topics','publications.featuredProject':'projects','publications.relatedResearch':'research','publications.relatedProjects':'projects','news.relatedPublicationId':'publications','research.papers':'publications','research.selectedPapers':'publications','research.relatedProjects':'projects','research-cases.papers':'publications','research-cases.patents':'patents','projects.caseStudyId':'research-cases','projects.relatedResearch':'research','projects.relatedPublications':'publications','projects.relatedPatents':'patents','patents.relatedResearch':'research','patents.relatedProject':'projects','patents.relatedPublication':'publications','gallery.relatedActivity':'news','home.work.features.paper':'publications','research-page.selectedContributions':'research-cases','about-page.expertise.papers':'publications'};
 const additional={
   publications:{sortDate:'',journalName:'',publicationType:'Journal Article',publicationStatus:'Published',publicationDate:'',onlinePublicationDate:'',volume:'',issue:'',startPage:'',endPage:'',pages:'',articleNumber:'',eLocationId:'',doiUrl:'',publisherUrl:'',journalUrl:'',pdfUrl:'',supplementaryUrl:'',publisher:'',issn:'',eIssn:'',researchCategory:'',keywords:[],relatedResearch:[],relatedProjects:[],myAuthorRole:'',firstAuthor:false,coFirstAuthor:false,correspondingAuthor:false,coCorrespondingAuthor:false,authorNotes:'',externalUrl:'',imagePosition:'center',summary:'',abstract:'',pressUrl:'',featuredMetrics:'',featuredQuestion:''},
   projects:{shortTitle:'',periodDisplay:'',description:'',myContribution:'',technicalRelevance:'',researchCategory:'',relatedResearch:[],image:'',imageAlt:'',imageCaption:'',imagePosition:'center',externalUrl:'',collaborators:'',program:'',fundingAgency:'',startDate:'',endDate:'',status:'Ongoing',relatedPublications:[],relatedPatents:[]},
@@ -45,7 +47,7 @@ const additional={
   gallery:{id:'',title:'',category:'',image:'',alt:'',caption:'',imagePosition:'center',location:'',year:'',date:'',url:'',relatedActivity:'',order:1,visible:true,featured:false},
   topics:{visible:true,featured:false},
   awards:{type:'',organization:'',englishOrganization:'',date:'',description:'',url:'',featured:false},
-  'research-cases':{hypothesis:'',featured:false}
+  'research-cases':{hypothesis:'',mechanism:'',evidence:'',achievement:'',myContribution:'',featured:false}
 };
 
 function mergeValues(values){

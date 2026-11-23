@@ -2,7 +2,7 @@
   "hero": {
     "kicker": "Research",
     "title": "Device Physics and Reliability Across Electronic Platforms.",
-    "description": "I investigate how interfaces, defects, and electronic and ionic transport govern device operation, variability, and reliability. My research connects physical mechanisms with experimental devices, extending from material and interface engineering to memory arrays, computing hardware, and emerging electronic platforms.",
+    "description": "I study how interfacial chemistry, defects, and electronic and ionic transport shape memory states, switching variation, and reliability. Published device and array studies test these mechanisms across several electronic platforms.",
     "image": "",
     "alt": "",
     "caption": "",
@@ -18,9 +18,10 @@
     },
     "connected": [
       {
-        "title": "Neuromorphic Computing & Memory Circuits",
-        "description": "I connect analog device behavior with crossbar arrays, synaptic learning, and CNN inference. Mixed-signal readout, ADC/FPGA-assisted evaluation, and vector–matrix computation extend that work toward memory circuits.",
+        "title": "Neuromorphic Devices & Array-Level Computing",
+        "description": "I connect analog conductance control with fabricated crossbar arrays and computing validation. Published studies include synaptic learning, image classification, PCB-integrated ADC/FPGA readout, and mixed-signal vector–matrix multiplication.",
         "anchor": "neuromorphic",
+        "tier": "core",
         "image": "assets/images/research/neuromorphic-chip.jpg",
         "alt": "Close view of a patterned microelectronic chip"
       },
@@ -39,24 +40,31 @@
       "alt": "Flexible transparent circuit held between gloved hands"
     }
   },
+  "selectedContributions": [
+    "hydrogen-bonded-memory",
+    "chiral-analog-memory",
+    "optoelectronic-memory",
+    "molecular-contacts",
+    "printed-interconnects"
+  ],
   "outlook": {
     "title": "Research Outlook",
     "headline": "From Device Physics to Reliable Electronic Systems.",
-    "introduction": "I aim to carry insights from interface physics and device experiments into reliable memory and integrated electronic systems.",
+    "introduction": "These questions extend published device and array results toward predictive reliability and integrated electronics.",
     "directions": [
       {
         "title": "Predictive Memory Reliability",
-        "description": "Building on ionic memory and interface-controlled transport, I aim to study how defects, noise, leakage, and stress shape memory failure. Future interests include oxide electronics and DRAM-relevant dielectric and capacitor interfaces.",
+        "description": "Can noise signatures and stochastic state evolution identify the physical sources of analog memory variability and predict the onset of reliability degradation?",
         "anchor": "current-ionic-memory"
       },
       {
         "title": "Hardware-Aware Memory Computing",
-        "description": "My work on analog memory, crossbar arrays, and circuit-level evaluation motivates variability-aware hardware and peripheral readout. I am interested in future memory–CMOS co-design.",
+        "description": "How do device variability, read noise, and nonlinear updates propagate into array-computation errors? I aim to test mitigation through device and peripheral design; memory–CMOS co-design remains a future interest.",
         "anchor": "hardware-aware"
       },
       {
         "title": "Integrated & Adaptive Electronic Systems",
-        "description": "Thin-film, optoelectronic, and flexible devices provide a foundation for exploring new architectures. Longer-term interests include low-temperature processing, heterogeneous systems, and three-dimensional integration.",
+        "description": "How do interfacial defects, charge-injection barriers, and processing conditions determine leakage and long-term stability in thin-film, dielectric, and capacitor structures? Heterogeneous and 3D integration remain longer-term interests.",
         "anchor": "integration"
       }
     ]

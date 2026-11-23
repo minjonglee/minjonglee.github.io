@@ -6,7 +6,7 @@ export const tags = values => `<ul class="tags" aria-label="Topics">${values.map
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
 export const authors = text => e(text).replaceAll('Min Jong Lee', '<strong>Min Jong Lee</strong>');
 export const authorRoleLabel = p => p.coFirstAuthor ? 'Co-first author' : p.firstAuthor || p.type==='first' ? 'First author' : '';
-export const publicationBadgeLabel = p => p.firstAuthor || p.type==='first' ? 'First author' : authorRoleLabel(p);
+export const publicationBadgeLabel = authorRoleLabel;
 export const patentIdentifier = p => p.registrationNumber || p.applicationNumber || p.number || '';
 export const patentRecordDate = p => p.registrationDate || p.applicationDate || p.date || '';
 export const bySortDateDesc = (a,b) => String(b.sortDate||'').localeCompare(String(a.sortDate||'')) || String(a.id||'').localeCompare(String(b.id||''));

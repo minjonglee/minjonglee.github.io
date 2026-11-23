@@ -28,7 +28,7 @@ const projectEntry = (d,p,inlineCase=false) => {
   return `<article class="project-entry" id="${e(p.id)}"><h3 ${/[가-힣]/.test(title)?'lang="ko"':''}>${e(title)}</h3>${official?`<p class="project-translation" lang="ko">${e(official)}</p>`:''}${meta?`<p class="project-agency">${e(meta)}</p>`:''}${details?`<p class="project-role">${e(details)}</p>`:''}${p.personalParticipationPeriod?`<p class="project-participation">My participation: ${e(formatPeriod(p.personalParticipationPeriod))}</p>`:''}${p.summary||p.description?`<p class="project-summary">${e(p.description||p.summary)}</p>`:''}${p.technicalRelevance?`<div class="project-relevance"><span>Technical relevance</span><p>${e(p.technicalRelevance)}</p></div>`:''}${p.myContribution?`<div class="project-contribution"><span>My contribution</span><p>${e(p.myContribution)}</p></div>`:''}${p.image?scientificVisual(p.image,p.imageAlt,{label:p.imageCaption,position:p.imagePosition,className:'project-science'}):''}${links?`<div class="project-links">${links}</div>`:''}${study&&inlineCase?`<details class="project-case-inline" id="${e(study.id)}"><summary>Research detail · ${e(study.title)}</summary>${caseStudy(d,study,true)}</details>`:''}</article>`;
 };
 const caseStudy = (d,p,inline=false) => {
-  const facts=[['Research question',p.question],['Hypothesis',p.hypothesis],['Approach',p.approach],['Methods',(p.methods??[]).join(' · ')],[(p.papers??[]).length?'Scientific contribution':'Current research status',p.outcome],['Role',p.role]].filter(([,value])=>value);
+  const facts=[['Research question',p.question],['Hypothesis',p.hypothesis],['Physical mechanism',p.mechanism],['Approach',p.approach],['Methods',(p.methods??[]).join(' · ')],['Experimental evidence',p.evidence],['Key achievement',p.achievement],[(p.papers??[]).length?'Scientific contribution':'Current research status',p.outcome],['My contribution',p.myContribution],['Role',p.role]].filter(([,value])=>value);
   return `<article class="project-detail"${inline?'':` id="${e(p.id)}"`}><div class="project-heading"><p class="project-state">${e(p.status)}</p><h3>${e(p.title)}</h3></div><div class="project-body"><dl class="project-facts">${facts.map(([heading,value])=>`<div><dt>${e(heading)}</dt><dd>${e(value)}</dd></div>`).join('')}</dl>${(p.papers??[]).length?`<h4 class="small-heading">Related publications</h4><ul class="paper-references">${p.papers.map(id=>paperReference(d,id)).join('')}</ul>`:''}${(p.patents??[]).length?`<h4 class="small-heading">Related patents</h4><ul class="paper-references">${p.patents.map(id=>{const patent=d.patents.find(item=>item.id===id);return patent?`<li><a href="patents.html#${e(patent.id)}">${e(patent.englishTitle||patent.title)}</a><span>${e(patent.status)} · ${e(patentIdentifier(patent))}</span></li>`:''}).join('')}</ul>`:''}</div></article>`;
 };
 
@@ -63,12 +63,18 @@ export function publications(d) {
 
 export function projects(d) {
   const page=d.pages.projects;
-  const inlineCase=page.caseStudiesVisible!==false&&d.researchProjects.length===1&&d.projects.some(p=>p.caseStudyId===d.researchProjects[0].id);
-  const sections=[['Ongoing','startDate'],['Completed','endDate']].map(([status,dateKey])=>{
-    const entries=d.projects.filter(p=>projectStatus(p)===status).sort((a,b)=>String(b[dateKey]||'').localeCompare(String(a[dateKey]||''))||Number(a.order??999)-Number(b.order??999));
-    return entries.length?`<section class="section shell project-group" id="${status.toLowerCase()}"><h2>${e(status==='Ongoing'?page.ongoingTitle:page.completedTitle)}</h2><div class="project-list">${entries.map(p=>projectEntry(d,p,inlineCase)).join('')}</div></section>`:'';
-  }).join('');
-  return `${heroFrom(page)}${researchTabs('projects.html')}${sections}${page.caseStudiesVisible!==false&&d.researchProjects.length&&!inlineCase?`<section class="section shell project-cases"><h2>${e(page.caseStudiesTitle)}</h2><div class="project-case-list">${d.researchProjects.map(p=>caseStudy(d,p)).join('')}</div></section>`:''}<div class="shell project-endnote"><p class="record-note">${e(page.note)}</p>${textLink(page.outputsUrl,e(page.outputsLabel))}</div>`;
+  const order=(a,b)=>Number(projectStatus(a)!=='Ongoing')-Number(projectStatus(b)!=='Ongoing')||String(b.startDate||'').localeCompare(String(a.startDate||''))||Number(a.order??999)-Number(b.order??999);
+  const group=(id,title,entries,inlineCase=false)=>entries.length?`<section class="section shell project-group" id="${id}"><h2>${e(title)}</h2><div class="project-list">${entries.sort(order).map(p=>projectEntry(d,p,inlineCase)).join('')}</div></section>`:'';
+  const selected=(d.pages.research.selectedContributions??[]).map(id=>{
+    const item=d.researchProjects.find(entry=>entry.id===id);
+    if(!item) throw new Error(`Missing selected research project: ${id}`);
+    return item;
+  });
+  const selectedSection=page.caseStudiesVisible!==false&&selected.length?`<section class="section shell project-cases" id="selected-projects"><h2>${e(page.selectedTitle||page.caseStudiesTitle)}</h2>${page.selectedIntro?`<p class="section-intro">${e(page.selectedIntro)}</p>`:''}<div class="project-case-list">${selected.map(item=>caseStudy(d,item)).join('')}</div></section>`:'';
+  const independent=group('independent',page.independentTitle||page.ongoingTitle,d.projects.filter(p=>p.category==='independent'),true);
+  const industry=group('industry',page.industryTitle||'Industry–Academic R&D',d.projects.filter(p=>p.category==='industry'));
+  const funded=group('funded',page.fundedTitle||'Funded Research Programs',d.projects.filter(p=>p.category!=='independent'&&p.category!=='industry'));
+  return `${heroFrom(page)}${researchTabs('projects.html')}${selectedSection}${independent}${industry}${funded}<div class="shell project-endnote"><p class="record-note">${e(page.note)}</p>${textLink(page.outputsUrl,e(page.outputsLabel))}</div>`;
 }
 
 export function patents(d) {
@@ -110,10 +116,19 @@ export function about(d) {
   const education=d.education.map(item=>{const [university,...location]=String(item.school||'').split(', ');const details=[item.gpa?`GPA ${item.gpa}`:'',item.honor,item.advisor?`Advisor: ${item.advisor}`:''].filter(Boolean);return `<article class="about-entry" id="${e(item.id)}"><p class="about-entry-date">${e(item.period||'')}</p><div><h3>${e(university)}</h3><p class="about-entry-role">${e(item.degree)}</p>${location.length?`<p class="about-entry-meta">${e(location.join(', '))}</p>`:''}${details.length?`<p class="about-entry-meta">${e(details.join(' · '))}</p>`:''}</div></article>`}).join('');
   const distinctExperience=d.experience.filter(item=>!(item.organization===d.profile.institution&&item.title?.toLowerCase()===d.profile.position?.toLowerCase()));
   const experience=distinctExperience.map(item=>`<article class="about-entry" id="${e(item.id)}"><p class="about-entry-date">${e(item.period||'')}</p><div><h3>${e(item.organization)}</h3><p class="about-entry-role">${e(item.title)}</p>${item.department?`<p class="about-entry-meta">${e(item.department)}</p>`:''}${item.description?`<p class="about-entry-meta">${e(item.description)}</p>`:''}</div></article>`).join('');
+  const expertise=(page.expertise??[]).map(item=>{
+    const papers=(item.papers??[]).map(id=>{
+      const paper=d.publications.find(entry=>entry.id===id);
+      if(!paper) throw new Error(`Missing expertise publication: ${id}`);
+      return `<a href="publications.html#${e(id)}">${e(paper.journalName||paper.journal)} · ${e(paper.year)}</a>`;
+    }).join('');
+    return `<article class="about-expertise-item"><h3>${e(item.title)}</h3><p>${e(item.description)}</p>${papers?`<div class="about-expertise-papers">${papers}</div>`:''}</article>`;
+  }).join('');
   const awards=[...d.awards].sort((a,b)=>Number(b.year)-Number(a.year)||Number(a.order??999)-Number(b.order??999));
   return `<section class="about-intro shell about-page" id="profile">${portrait(d)}<div class="about-intro-copy"><p class="about-field">${e(page.field)}</p><h1>${e(d.profile.name)}</h1><p class="about-position">${page.positionLines.map(e).join('<br>')}</p><div class="about-biography"><h2>${e(page.biographyTitle)}</h2><p>${e(d.profile.bio)}</p><p>${e(d.profile.vision)}</p></div>${profiles(d)}<p class="about-affiliation">${e(d.profile.lab)} · Advisor: <a href="${e(d.profile.advisorUrl)}">${e(d.profile.advisor)}</a></p></div></section>
   <section class="section shell about-page about-section" id="education"><h2>${e(page.educationTitle)}</h2><div class="about-entry-list">${education}</div></section>
 ${experience?`  <section class="section shell about-page about-section" id="experience"><h2>Experience</h2><div class="about-entry-list">${experience}</div></section>`:''}
+  ${expertise?`<section class="section shell about-page about-section" id="expertise"><h2>${e(page.expertiseTitle||'Experimental experience')}</h2>${page.expertiseIntro?`<p class="section-intro">${e(page.expertiseIntro)}</p>`:''}<div class="about-expertise-list">${expertise}</div></section>`:''}
   ${awards.length?`<section class="section shell about-page about-section about-recognition" id="recognition"><h2>Honors &amp; Scholarships</h2><div class="award-list">${awards.map(item=>`<article class="award-entry" id="${e(item.id)}"><div class="award-main"><h3>${e(item.englishTitle||item.title)}</h3><p class="award-meta">${e([item.englishOrganization||item.organization,item.type].filter(Boolean).join(' · '))}</p>${item.englishTitle&&item.title!==item.englishTitle?`<p class="award-original" lang="ko">${e(item.title)}</p>`:''}${item.description?`<p>${e(item.description)}</p>`:''}${item.url?textLink(item.url,'Award record'):''}</div><span class="award-item-year">${e(item.year)}</span></article>`).join('')}</div><div class="about-related"><div><p class="about-related-title">${e(page.activitiesTitle)}</p><p>${e(page.activitiesIntro)}</p></div>${textLink('activities.html',e(page.activitiesLinkLabel))}</div></section>`:''}`;
 }
 

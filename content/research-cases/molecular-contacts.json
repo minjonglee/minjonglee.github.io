@@ -1,21 +1,26 @@
 {
   "id": "molecular-contacts",
-  "title": "Molecular contacts for organic devices",
-  "status": "Published work · 2024",
-  "question": "How do self-assembled monolayers reshape charge-selective contacts?",
-  "role": "First Author",
-  "approach": "Study SAM-tailored hole-selective contacts across indoor organic photovoltaic and capacitor devices.",
+  "title": "Molecular and ALD-Based Interface Engineering",
+  "status": "Published research · 2023–2024",
+  "question": "How do molecular contacts and ALD-grown electrodes change charge extraction across device platforms?",
+  "role": "First author on both related papers",
+  "mechanism": "SAM dipoles tune electrode work function and hole extraction; a separate ALD study develops laminated In₂O₃:V₂O₅ electrode stacks.",
+  "approach": "Study these interface strategies separately in organic photovoltaics and capacitor devices.",
+  "evidence": "Published device studies of SAM-treated contacts and ALD-processed laminated electrodes.",
+  "achievement": "Two first-author papers connect interface design with photovoltaic and capacitor operation.",
+  "myContribution": "First author on both published papers.",
   "methods": [
     "Self-assembled monolayers",
     "Hole-selective interfaces",
     "Photovoltaic / capacitor devices"
   ],
-  "outcome": "SAM-based hole-selective contacts connect interface engineering with indoor organic photovoltaics and capacitor devices.",
+  "outcome": "The two studies establish complementary molecular and oxide-electrode routes for controlling thin-film device interfaces.",
   "papers": [
-    "paper-05"
+    "paper-05",
+    "paper-06"
   ],
   "patents": [],
-  "visible": false,
+  "visible": true,
   "order": 4,
   "featured": false
 }

@@ -1,0 +1,18 @@
+{
+  "id": "chiral-analog-memory",
+  "title": "Helicity-Defined Persistent Analog Memory",
+  "status": "Published research · Advanced Materials (2026)",
+  "question": "Can optical helicity program durable analog states that remain electrically distinguishable in an addressed array?",
+  "role": "Co-first author",
+  "mechanism": "Chirality-matched circularly polarized light conditions persistent conductance updates in layered chiral perovskite synapses.",
+  "approach": "Measure state separability and retention, then evaluate a PCB-integrated 7 × 7 device array with ADC/FPGA readout.",
+  "evidence": "State-resolved retention and read-noise analysis; array conductance maps and mixed-signal vector–matrix multiplication.",
+  "achievement": "72 statistically distinguishable states through 10⁶ s · 7 × 7 array · PCB-integrated readout.",
+  "myContribution": "Co-first author; the publisher credits conceptualization, methodology, investigation, data curation, and original-draft writing.",
+  "outcome": "Helicity-conditioned states remained circuit-readable through PCB-based array addressing and digitization.",
+  "papers": ["paper-22"],
+  "patents": [],
+  "visible": true,
+  "order": 3,
+  "featured": false
+}

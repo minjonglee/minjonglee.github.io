@@ -1,23 +1,27 @@
 {
   "id": "hydrogen-bonded-memory",
-  "title": "Molecular control of artificial synapses",
-  "status": "Published work · 2025",
-  "question": "Can molecular interactions make artificial synapses more linear and symmetric?",
-  "role": "First Author",
-  "approach": "Use hydrogen bonding as a molecular design variable to study linear and symmetric synaptic response.",
+  "title": "Hydrogen-Bond-Engineered Analog Memory",
+  "status": "Published research · Advanced Materials (2025)",
+  "question": "Can hydrogen-bonded interfaces reduce trap-driven variation in analog synaptic updates?",
+  "role": "First author",
+  "mechanism": "PVA hydroxyl groups bond with surface iodides in CsPbI₃, reducing interfacial traps and stabilizing ion transport.",
+  "approach": "Engineer the PVA–CsPbI₃ interface and compare analog conductance updates with device and array measurements.",
+  "evidence": "DFT and electrical analysis; fabricated 7 × 7 crossbar; image-classification evaluation.",
+  "achievement": ">8× lower interfacial trap density · ≈12.5 pJ/update · >10⁴ s retention at 85 °C.",
+  "myContribution": "First author of the published study.",
   "methods": [
     "Molecular interactions",
     "Artificial synaptic devices",
     "Electrical response"
   ],
-  "outcome": "Hydrogen-bond-driven control of artificial synapses connects molecular interactions with neuromorphic device behavior.",
+  "outcome": "Hydrogen-bonded interface control produced linear and symmetric analog switching with device-to-array validation.",
   "papers": [
     "paper-02"
   ],
   "patents": [
     "patent-06"
   ],
-  "visible": false,
+  "visible": true,
   "order": 2,
   "featured": false
 }

@@ -1,16 +1,20 @@
 {
   "id": "optoelectronic-memory",
-  "title": "Interface-controlled optoelectronic memory",
-  "status": "Published work · 2025",
+  "title": "Trap-Engineered Optoelectronic Memristors",
+  "status": "Published research · Advanced Functional Materials (2025)",
   "question": "How can an intermediate layer improve low-power optoelectronic memory?",
-  "role": "First Author",
-  "approach": "Introduce an intermediate layer to address traps in low-power optoelectronic memristors.",
+  "role": "First author",
+  "mechanism": "An ALD TiO₂ nanofilm passivates perovskite-interface defects and improves electron-transport alignment.",
+  "approach": "Compare trap density and switching behavior in devices with and without the intermediate layer.",
+  "evidence": "Electrical and optical device characterization; 5 × 5 array image-recognition evaluation.",
+  "achievement": "15× lower interfacial trap density · +0.24 V SET · ≈0.7 µW switching power.",
+  "myContribution": "First author of the published study.",
   "methods": [
     "Intermediate-layer engineering",
     "Trap-density analysis",
     "Optoelectronic memristors"
   ],
-  "outcome": "Intermediate-layer engineering reduces trap density in optoelectronic memristors for multifunctional systems.",
+  "outcome": "The intermediate layer reduced trap density and enabled low-voltage nonvolatile memory, optical sensing, and logic demonstrations.",
   "papers": [
     "paper-03"
   ],
@@ -18,7 +22,7 @@
     "patent-02",
     "patent-03"
   ],
-  "visible": false,
+  "visible": true,
   "order": 3,
   "featured": false
 }

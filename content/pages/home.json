@@ -1,7 +1,7 @@
 {
   "hero": {
     "headline": "From Interface Physics to Reliable Electronic Systems.",
-    "description": "I investigate how interfaces, defects, and electronic and ionic transport govern memory operation, device variability, and reliability. My research connects physical mechanisms with experimental devices, arrays, and circuit-level functionality across semiconductor and emerging electronic platforms."
+    "description": "I investigate how interfaces, defects, and electronic and ionic transport govern memory-state formation, device variability, and reliability. My research connects physical mechanisms with device engineering, electrical characterization, and array-level validation across semiconductor and emerging electronic platforms."
   },
   "research": {
     "title": "Research",
@@ -9,19 +9,23 @@
     "areas": [
       {
         "title": "Memory Device Physics & Reliability",
-        "anchor": "memory"
+        "anchor": "memory",
+        "tier": "core"
       },
       {
-        "title": "Neuromorphic Computing & Memory Circuits",
-        "anchor": "neuromorphic"
+        "title": "Neuromorphic Devices & Array-Level Computing",
+        "anchor": "neuromorphic",
+        "tier": "core"
       },
       {
         "title": "Semiconductor Interfaces & Oxide Electronics",
-        "anchor": "interfaces"
+        "anchor": "interfaces",
+        "tier": "connected"
       },
       {
         "title": "Flexible, Stretchable & Optoelectronic Devices",
-        "anchor": "flexible"
+        "anchor": "flexible",
+        "tier": "connected"
       }
     ]
   },
@@ -31,15 +35,15 @@
     "features": [
       {
         "paper": "paper-02",
-        "title": "Interface-Engineered Synapses for Reliable Neuromorphic Computing",
-        "description": "Hydrogen-bond engineering improves analog memory stability and switching behavior, connecting interface control with crossbar-array operation and CNN-based neuromorphic computation.",
-        "evidence": "7 × 7 crossbar · synaptic learning · CNN inference"
+        "title": "Hydrogen-Bond Engineering for Precise and Reliable Analog Memory",
+        "description": "PVA–CsPbI₃ hydrogen bonding suppresses interfacial traps and stabilizes linear, symmetric analog updates. A fabricated 7 × 7 crossbar and image-classification evaluation connect device physics to computation.",
+        "evidence": ">8× lower interfacial trap density · ≈12.5 pJ/update · >10⁴ s at 85 °C"
       },
       {
         "paper": "paper-22",
-        "title": "Helicity-Defined Analog Memory with Circuit-Level Validation",
-        "description": "Optical helicity defines persistent analog conductance states, with array-level operation, ADC/FPGA-assisted readout, and mixed-signal vector–matrix computation.",
-        "evidence": "7 × 7 array · ADC/FPGA readout · mixed-signal VMM"
+        "title": "Helicity-Encoded Analog Memory with Array-Level Computing",
+        "description": "Optical helicity conditions persistent, electrically readable conductance states. A PCB-integrated 7 × 7 array with ADC/FPGA readout validates mixed-signal vector–matrix multiplication.",
+        "evidence": "72 distinguishable states · 10⁶ s retention · PCB/ADC/FPGA readout"
       }
     ],
     "breadthTitle": "Research Across Electronic Platforms",
@@ -55,15 +59,15 @@
     "directions": [
       {
         "title": "Predictive Memory Reliability",
-        "description": "Understanding how defects, noise, and leakage shape memory variability and lifetime."
+        "description": "Can read noise and stochastic state evolution reveal the origins of analog memory variability and anticipate reliability loss?"
       },
       {
         "title": "Hardware-Aware Memory Computing",
-        "description": "Connecting device nonidealities with array accuracy and peripheral circuits."
+        "description": "How do switching variation and read noise propagate into array errors, and which device or peripheral choices can reduce them?"
       },
       {
         "title": "Integrated & Adaptive Electronics",
-        "description": "Extending interface and device research toward adaptive, integrated platforms."
+        "description": "How do interface defects and processing conditions govern leakage and long-term stability in advanced thin-film and capacitor structures?"
       }
     ]
   }

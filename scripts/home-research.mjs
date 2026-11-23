@@ -1,4 +1,4 @@
-import {escape as e, doiHref, scientificVisual, pageHero, sectionTabs} from './components.mjs';
+import {escape as e, doiHref, authorRoleLabel, scientificVisual, pageHero, sectionTabs} from './components.mjs';
 
 const editorialLink=(href,text,extra='')=>`<a class="editorial-link" href="${e(href)}" ${extra}>${e(text)}</a>`;
 const sectionHead=(kicker,headline,id)=>`<div class="editorial-heading"><p class="eyebrow">${e(kicker)}</p><h2 id="${e(id)}">${e(headline)}</h2></div>`;
@@ -14,7 +14,7 @@ export function home(d) {
     return `<article class="editorial-work" id="feature-${e(item.paper)}">
       ${scientificVisual(paper.image,paper.imageAlt,{label:paper.imageCaption,position:paper.imagePosition,className:'editorial-work-image'})}
       <div class="editorial-work-copy">
-        <p class="editorial-meta">${e(paper.journalName||paper.journal)} · ${e(paper.year)} <span>First author</span></p>
+        <p class="editorial-meta">${e(paper.journalName||paper.journal)} · ${e(paper.year)} <span>${e(authorRoleLabel(paper))}</span></p>
         <h3>${e(item.title)}</h3>
         <p class="editorial-work-description">${e(item.description)}</p>
         <p class="editorial-evidence">${e(item.evidence)}</p>
@@ -22,7 +22,10 @@ export function home(d) {
       </div>
     </article>`;
   }).join('');
-  const researchRows=page.research.areas.map((area,index)=>`<li class="${index===0?'is-core':''}"><a href="research.html#${e(area.anchor)}"><span>${e(area.title)}</span></a></li>`).join('');
+  const researchGroups=[['core','Core research'],['connected','Connected research platforms']].map(([tier,title])=>{
+    const rows=page.research.areas.filter(area=>area.tier===tier).map(area=>`<li class="${tier==='core'?'is-core':''}"><a href="research.html#${e(area.anchor)}"><span>${e(area.title)}</span></a></li>`).join('');
+    return rows?`<div class="editorial-research-group"><p class="area-type">${title}</p><ul class="editorial-research-list">${rows}</ul></div>`:'';
+  }).join('');
   const directions=page.outlook.directions.map(item=>`<article><h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
   const journalText=e(page.work.journalStatement).replace('Advanced Materials, ACS Nano, Advanced Functional Materials','<strong>Advanced Materials, ACS Nano, Advanced Functional Materials</strong>');
   return `<section class="home-hero shell" aria-labelledby="home-title">
@@ -36,7 +39,7 @@ export function home(d) {
   </section>
   <section class="editorial-section shell home-research" id="research" aria-labelledby="home-research-title">
     ${sectionHead(page.research.title,page.research.headline,'home-research-title')}
-    <ul class="editorial-research-list">${researchRows}</ul>
+    <div class="editorial-research-groups">${researchGroups}</div>
     ${editorialLink('research.html','Research in Depth')}
   </section>
   <section class="editorial-section editorial-work-section" id="featured" aria-labelledby="home-work-title"><div class="shell">
@@ -60,17 +63,26 @@ export function home(d) {
 export function research(d) {
   const page=d.pages.research;
   const introImage=scientificVisual(page.hero.image,page.hero.alt,{label:page.hero.caption,className:'research-hero-visual',position:page.hero.imagePosition});
-  const connected=page.areas.connected.map(item=>`<article class="editorial-connected-area" id="${e(item.anchor)}">${item.anchor==='neuromorphic'?'<span class="anchor-target" id="chiral-memory"></span>':''}${areaImage(item)}<h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
+  const core=[{...page.areas.core,anchor:'memory'},...page.areas.connected.filter(item=>item.tier==='core')].map((item,index)=>`<article class="editorial-core-area${index?' editorial-core-secondary':''}" id="${e(item.anchor)}">${item.anchor==='neuromorphic'?'<span class="anchor-target" id="chiral-memory"></span>':''}${areaImage(item)}<div class="editorial-core-copy"><p class="area-type">Core research</p><h3>${e(item.title)}</h3><p>${e(item.description)}</p></div></article>`).join('');
+  const connected=page.areas.connected.filter(item=>item.tier!=='core').map(item=>`<article class="editorial-connected-area" id="${e(item.anchor)}">${areaImage(item)}<h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
+  const contributions=(page.selectedContributions??[]).map(id=>{
+    const item=d.researchProjects.find(project=>project.id===id);
+    if(!item) throw new Error(`Missing selected research contribution: ${id}`);
+    const facts=[['Physical mechanism',item.mechanism],['Experimental evidence',item.evidence],['Key achievement',item.achievement],['My contribution',item.myContribution||item.role]].filter(([,value])=>value);
+    const papers=(item.papers??[]).map(paperId=>{
+      const paper=d.publications.find(entry=>entry.id===paperId);
+      if(!paper) throw new Error(`Missing publication ${paperId} for ${id}`);
+      return editorialLink(`publications.html#${paper.id}`,`${paper.journalName||paper.journal} · ${paper.year}`);
+    }).join('');
+    return `<article class="editorial-contribution" id="contribution-${e(item.id)}"><div class="editorial-contribution-head"><p class="project-state">${e(item.status)}</p><h3>${e(item.title)}</h3><p>${e(item.question)}</p></div><div class="editorial-contribution-body"><dl>${facts.map(([name,value])=>`<div><dt>${e(name)}</dt><dd>${e(value)}</dd></div>`).join('')}</dl><div class="editorial-link-row">${editorialLink(`projects.html#${e(item.id)}`,'Project details')}${papers}</div></div></article>`;
+  }).join('');
   const directions=page.outlook.directions.map(item=>`<article class="editorial-research-direction" id="${e(item.anchor)}"><h3>${e(item.title)}</h3><p>${e(item.description)}</p></article>`).join('');
   return `${pageHero(e(page.hero.kicker),e(page.hero.title),e(page.hero.description))}
   ${researchTabs('research.html')}
 ${introImage?`<div class="shell research-hero-image">${introImage}</div>`:''}
   <section class="editorial-section shell editorial-research-areas" id="expertise" aria-labelledby="research-areas-title">
     <p class="eyebrow">Research Areas</p><h2 id="research-areas-title" class="sr-only">${e(page.areas.title)}</h2>
-    <article class="editorial-core-area" id="memory">
-      ${areaImage(page.areas.core)}
-      <div class="editorial-core-copy"><p class="area-type">Core research</p><h3>${e(page.areas.core.title)}</h3><p>${e(page.areas.core.description)}</p></div>
-    </article>
+    ${core}
     <div class="editorial-connected-grid">
       ${connected}
       <article class="editorial-connected-area" id="flexible">
@@ -78,6 +90,10 @@ ${introImage?`<div class="shell research-hero-image">${introImage}</div>`:''}
         ${areaImage(page.areas.platform)}<h3>${e(page.areas.platform.title)}</h3><p>${e(page.areas.platform.description)}</p>
       </article>
     </div>
+  </section>
+  <section class="editorial-section shell editorial-contributions" id="selected-contributions" aria-labelledby="selected-contributions-title">
+    ${sectionHead('Selected Research Contributions','Mechanisms tested in devices and arrays.','selected-contributions-title')}
+    <div class="editorial-contribution-list">${contributions}</div>
   </section>
   <section class="editorial-section editorial-research-outlook" id="directions" aria-labelledby="research-outlook-title"><div class="shell">
     ${sectionHead(page.outlook.title,page.outlook.headline,'research-outlook-title')}

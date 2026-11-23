@@ -87,7 +87,7 @@ const chiralRow=page.split('id="paper-22"')[1].split('</article>')[0];
 assert.ok(chiralRow.includes('Vol. 38')&&chiralRow.includes('Article e75308'),'Published chiral paper should show verified bibliographic metadata');
 assert.equal(chiralRow.includes('class="publication-doi"'),Boolean(doiHref(chiralPaper)),'DOI icon visibility should follow CMS DOI data');
 assert.ok(chiralRow.includes('publication-author-role')&&chiralRow.includes('<strong>Min Jong Lee</strong>'),'First author and name should be visible');
-assert.ok(chiralRow.includes('First author')&&chiralRow.includes('<strong>Min Jong Lee</strong>†, Hyoungwook Cho†'),'Chiral paper should show first-author badge and equal-contribution marks');
+assert.ok(chiralRow.includes('Co-first author')&&chiralRow.includes('<strong>Min Jong Lee</strong>†, Hyoungwook Cho†'),'Chiral paper should show co-first-author badge and equal-contribution marks');
 assert.ok(!chiralRow.includes('Korea University news'),'Press coverage belongs in Activities, not the publication row');
 const afmPaper=current.publications.find(p=>p.id==='paper-23');
 const afmRow=page.split('id="paper-23"')[1].split('</article>')[0];

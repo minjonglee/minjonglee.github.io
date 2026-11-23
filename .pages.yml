@@ -262,6 +262,17 @@
                       "name": "anchor",
                       "label": "Research page anchor",
                       "type": "string"
+                    },
+                    {
+                      "name": "tier",
+                      "label": "Tier",
+                      "type": "select",
+                      "options": {
+                        "values": [
+                          "core",
+                          "connected"
+                        ]
+                      }
                     }
                   ]
                 }
@@ -518,7 +529,7 @@
             {
               "name": "heroImageAlt",
               "label": "Home hero image alternative text",
-              "type": "string",
+              "type": "text",
               "description": "Describe the image for readers who cannot see it. Required when an image is present."
             },
             {
@@ -977,6 +988,47 @@
               "name": "environmentTitle",
               "label": "Environment Title",
               "type": "string"
+            },
+            {
+              "name": "expertiseTitle",
+              "label": "Expertise Title",
+              "type": "string"
+            },
+            {
+              "name": "expertiseIntro",
+              "label": "Expertise Intro",
+              "type": "string"
+            },
+            {
+              "name": "expertise",
+              "label": "Expertise",
+              "type": "object",
+              "list": {
+                "collapsible": true
+              },
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "type": "text"
+                },
+                {
+                  "name": "papers",
+                  "label": "Related publication IDs",
+                  "type": "reference",
+                  "options": {
+                    "collection": "publications",
+                    "multiple": true,
+                    "value": "{fields.id}",
+                    "label": "{primary}"
+                  }
+                }
+              ]
             },
             {
               "name": "independence",
@@ -1739,15 +1791,30 @@
               "type": "string"
             },
             {
+              "name": "mechanism",
+              "label": "Physical mechanism",
+              "type": "text"
+            },
+            {
               "name": "approach",
               "label": "Scientific approach",
               "type": "text"
             },
             {
-              "name": "methods",
-              "label": "Methods",
-              "type": "string",
-              "list": true
+              "name": "evidence",
+              "label": "Experimental evidence",
+              "type": "text"
+            },
+            {
+              "name": "achievement",
+              "label": "Achievement",
+              "type": "string"
+            },
+            {
+              "name": "myContribution",
+              "label": "My contribution",
+              "type": "text",
+              "description": "Describe only your verified technical work on this project. Leave blank when it is not documented."
             },
             {
               "name": "outcome",
@@ -1794,6 +1861,12 @@
               "label": "Feature on homepage",
               "type": "boolean",
               "description": "Show this item in a featured area on the home page."
+            },
+            {
+              "name": "methods",
+              "label": "Methods",
+              "type": "string",
+              "list": true
             },
             {
               "name": "hypothesis",
@@ -1933,6 +2006,17 @@
                       "type": "string"
                     },
                     {
+                      "name": "tier",
+                      "label": "Tier",
+                      "type": "select",
+                      "options": {
+                        "values": [
+                          "core",
+                          "connected"
+                        ]
+                      }
+                    },
+                    {
                       "name": "image",
                       "label": "Research or article image",
                       "type": "image",
@@ -1982,6 +2066,17 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "selectedContributions",
+              "label": "Selected Contributions",
+              "type": "reference",
+              "options": {
+                "collection": "research-cases",
+                "multiple": true,
+                "value": "{fields.id}",
+                "label": "{primary}"
+              }
             },
             {
               "name": "outlook",
@@ -2060,6 +2155,31 @@
                   "type": "text"
                 }
               ]
+            },
+            {
+              "name": "selectedTitle",
+              "label": "Selected Title",
+              "type": "string"
+            },
+            {
+              "name": "selectedIntro",
+              "label": "Selected Intro",
+              "type": "string"
+            },
+            {
+              "name": "independentTitle",
+              "label": "Independent Title",
+              "type": "string"
+            },
+            {
+              "name": "industryTitle",
+              "label": "Industry Title",
+              "type": "string"
+            },
+            {
+              "name": "fundedTitle",
+              "label": "Funded Title",
+              "type": "string"
             },
             {
               "name": "ongoingTitle",

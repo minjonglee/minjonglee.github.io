@@ -2,8 +2,13 @@
   "hero": {
     "kicker": "Projects",
     "title": "Projects",
-    "description": "Independent doctoral research and participation in government-funded and industry–academic R&D programs."
+    "description": "Published device research, independent doctoral work, and participation in industry–academic and government-funded R&D."
   },
+  "selectedTitle": "Selected Research Projects",
+  "selectedIntro": "Published and accepted studies organized around the physical question, experimental evidence, and documented author role.",
+  "independentTitle": "Independent Doctoral Research",
+  "industryTitle": "Industry–Academic R&D",
+  "fundedTitle": "Funded Research Programs",
   "ongoingTitle": "Ongoing Projects",
   "completedTitle": "Completed Projects",
   "caseStudiesTitle": "Research case studies",
