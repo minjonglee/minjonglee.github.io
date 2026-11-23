@@ -92,6 +92,15 @@
     openHashEntry();
     window.addEventListener('hashchange', openHashEntry);
   }
+  if (pageName === 'projects.html') {
+    const openProjectHash = () => {
+      const item = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      const details = item?.matches('.project-case') ? item.querySelector('.project-case-details') : item?.matches('details.project-entry-details') ? item : null;
+      if (details) details.open = true;
+    };
+    openProjectHash();
+    window.addEventListener('hashchange', openProjectHash);
+  }
   const activityLightbox = document.querySelector('#activity-lightbox');
   const activityImages = [...document.querySelectorAll('[data-activity-image]')];
   if (activityLightbox && activityImages.length) {

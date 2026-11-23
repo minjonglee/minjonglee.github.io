@@ -3,6 +3,8 @@
   "title": "Hydrogen-Bond-Engineered Analog Memory",
   "status": "Published research · Advanced Materials (2025)",
   "question": "Can hydrogen-bonded interfaces reduce trap-driven variation in analog synaptic updates?",
+  "teaser": "Hydrogen bonding suppresses interfacial traps to stabilize analog conductance updates.",
+  "highlights": ">8× lower trap density · 7 × 7 crossbar",
   "role": "First author",
   "mechanism": "PVA hydroxyl groups bond with surface iodides in CsPbI₃, reducing interfacial traps and stabilizing ion transport.",
   "approach": "Engineer the PVA–CsPbI₃ interface and compare analog conductance updates with device and array measurements.",

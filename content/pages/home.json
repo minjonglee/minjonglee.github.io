@@ -35,13 +35,13 @@
     "features": [
       {
         "paper": "paper-02",
-        "title": "Hydrogen-Bond Engineering for Precise and Reliable Analog Memory",
+        "title": "Hydrogen-Bonded Analog Memory",
         "description": "PVA–CsPbI₃ hydrogen bonding suppresses interfacial traps and stabilizes linear, symmetric analog updates. A fabricated 7 × 7 crossbar and image-classification evaluation connect device physics to computation.",
         "evidence": ">8× lower interfacial trap density · ≈12.5 pJ/update · >10⁴ s at 85 °C"
       },
       {
         "paper": "paper-22",
-        "title": "Helicity-Encoded Analog Memory with Array-Level Computing",
+        "title": "Helicity-Encoded Analog Memory",
         "description": "Optical helicity conditions persistent, electrically readable conductance states. A PCB-integrated 7 × 7 array with ADC/FPGA readout validates mixed-signal vector–matrix multiplication.",
         "evidence": "72 distinguishable states · 10⁶ s retention · PCB/ADC/FPGA readout"
       }

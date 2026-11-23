@@ -3,6 +3,8 @@
   "title": "Printed Interconnects and Electrical Reliability",
   "status": "Accepted research · 2026",
   "question": "How much of the electrical variation between nominally identical stretchable traces originates in printed-film thickness?",
+  "teaser": "Printed-film thickness helps explain resistance variation between stretchable interconnect traces.",
+  "highlights": "",
   "role": "First author on the accepted manuscript",
   "mechanism": "Printed-film thickness contributes to initial trace-to-trace resistance variation; deformation-related changes are analyzed separately.",
   "approach": "Compare film-thickness differences with electrical characterization across printed liquid-metal-particle traces.",

@@ -3,6 +3,8 @@
   "title": "Helicity-Defined Persistent Analog Memory",
   "status": "Published research · Advanced Materials (2026)",
   "question": "Can optical helicity program durable analog states that remain electrically distinguishable in an addressed array?",
+  "teaser": "Optical helicity programs persistent conductance states that remain electrically readable in a device array.",
+  "highlights": "72 distinguishable states · 10⁶ s retention",
   "role": "Co-first author",
   "mechanism": "Chirality-matched circularly polarized light conditions persistent conductance updates in layered chiral perovskite synapses.",
   "approach": "Measure state separability and retention, then evaluate a PCB-integrated 7 × 7 device array with ADC/FPGA readout.",

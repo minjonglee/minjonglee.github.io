@@ -52,6 +52,7 @@ for(const key of ['title','program','fundingAgency','personalRole','startDate','
 for(const key of ['endDate','shortTitle','periodDisplay','description','myContribution','relatedResearch','relatedPublications']) assert.ok(projectFields.some(field=>field.name===key),`project ${key} editor missing`);
 assert.notEqual(projectFields.find(field=>field.name==='period')?.required,true,'legacy period should not be required for new projects');
 const editorFields=name=>editors.find(item=>item.name===name).fields;
+for(const key of ['teaser','highlights']) assert.ok(editorFields('research-cases').some(field=>field.name===key),`Research case editor missing ${key}`);
 for(const [name,keys] of Object.entries({research:['image','alt','caption','imagePosition','whatIControl','whatIMeasure','whyItMatters'],publications:['image','imageAlt','imageCaption','imagePosition'],projects:['image','imageAlt','imageCaption','imagePosition'],news:['thumbnail','thumbnailAlt','thumbnailCaption','thumbnailPosition','thumbnailFit','type'],gallery:['image','alt','caption','imagePosition','date','category','url']}))
   for(const key of keys) assert.ok(editorFields(name).some(field=>field.name===key),`${name} image/content editor missing ${key}`);
 assert.ok(editorFields('news').find(field=>field.name==='type').options.values.includes('Video'),'Activities need a video category');

@@ -39,12 +39,12 @@
   ],
   "environmentTitle": "Current research environment",
   "expertiseTitle": "Experimental and Analytical Experience",
-  "expertiseIntro": "Methods and measurements documented in first- and co-first-author studies across memory, interfaces, and electronic devices.",
+  "expertiseIntro": "Methods documented in device and interface research.",
   "expertise": [
     {
       "title": "Interface engineering",
       "description": "Hydrogen-bonded perovskite interfaces, self-assembled monolayer contacts, and ALD-grown thin films and electrodes.",
-      "papers": ["paper-02", "paper-03", "paper-05", "paper-06"]
+      "papers": ["paper-05", "paper-02", "paper-03", "paper-06"]
     },
     {
       "title": "Memory-device characterization",
@@ -54,7 +54,7 @@
     {
       "title": "Array-level evaluation",
       "description": "Fabricated crossbar characterization, image-classification evaluation, and PCB-integrated ADC/FPGA readout.",
-      "papers": ["paper-02", "paper-22"]
+      "papers": ["paper-22", "paper-02"]
     },
     {
       "title": "Flexible interconnect reliability",

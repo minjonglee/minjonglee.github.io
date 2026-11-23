@@ -12,14 +12,14 @@
     "title": "Research Areas",
     "core": {
       "title": "Memory Device Physics & Reliability",
-      "description": "My core research examines how ionic and defect dynamics govern resistive and analog memory states. I study switching precision, noise, variability, retention, and endurance to connect device physics with reliability.",
+      "description": "Investigating how interfaces, defects, and charge transport govern memory switching, variability, and long-term stability.",
       "image": "assets/images/research/memory-probe-station.jpg",
       "alt": "Microelectronic chip under probe needles"
     },
     "connected": [
       {
         "title": "Neuromorphic Devices & Array-Level Computing",
-        "description": "I connect analog conductance control with fabricated crossbar arrays and computing validation. Published studies include synaptic learning, image classification, PCB-integrated ADC/FPGA readout, and mixed-signal vector–matrix multiplication.",
+        "description": "Connecting analog memory behavior with fabricated device arrays, electrical readout, and computing validation.",
         "anchor": "neuromorphic",
         "tier": "core",
         "image": "assets/images/research/neuromorphic-chip.jpg",
@@ -27,7 +27,7 @@
       },
       {
         "title": "Semiconductor Interfaces & Oxide Electronics",
-        "description": "My work includes molecular and thin-film interfaces, ALD-based electrodes, oxide electronics, and capacitor structures. I examine charge injection and leakage behavior as foundations for broader semiconductor reliability questions.",
+        "description": "Engineering molecular, thin-film, and oxide interfaces to study charge injection and device reliability.",
         "anchor": "interfaces",
         "image": "assets/images/research/semiconductor-interfaces.jpg",
         "alt": "Patterned sample held beside laboratory processing equipment"
@@ -35,7 +35,7 @@
     ],
     "platform": {
       "title": "Flexible, Stretchable & Optoelectronic Devices",
-      "description": "I study printed and stretchable interconnects, including electrical variability under deformation. Work on photodetectors and photovoltaic interfaces broadens this device-physics perspective across materials and operating conditions.",
+      "description": "Examining electrical variability in printed and stretchable interconnects alongside optoelectronic device interfaces.",
       "image": "assets/images/research/flexible-electronics.jpg",
       "alt": "Flexible transparent circuit held between gloved hands"
     }
@@ -50,21 +50,21 @@
   "outlook": {
     "title": "Research Outlook",
     "headline": "From Device Physics to Reliable Electronic Systems.",
-    "introduction": "These questions extend published device and array results toward predictive reliability and integrated electronics.",
+    "introduction": "Future questions building on published device and array studies.",
     "directions": [
       {
         "title": "Predictive Memory Reliability",
-        "description": "Can noise signatures and stochastic state evolution identify the physical sources of analog memory variability and predict the onset of reliability degradation?",
+        "description": "Can electrical noise reveal the sources of analog-memory variability before reliability degrades?",
         "anchor": "current-ionic-memory"
       },
       {
         "title": "Hardware-Aware Memory Computing",
-        "description": "How do device variability, read noise, and nonlinear updates propagate into array-computation errors? I aim to test mitigation through device and peripheral design; memory–CMOS co-design remains a future interest.",
+        "description": "How do device variability and read noise affect array computation, and which design choices reduce the errors?",
         "anchor": "hardware-aware"
       },
       {
-        "title": "Integrated & Adaptive Electronic Systems",
-        "description": "How do interfacial defects, charge-injection barriers, and processing conditions determine leakage and long-term stability in thin-film, dielectric, and capacitor structures? Heterogeneous and 3D integration remain longer-term interests.",
+        "title": "Integrated Semiconductor Interfaces",
+        "description": "How do interface defects and processing conditions control leakage and long-term stability in thin-film and capacitor devices?",
         "anchor": "integration"
       }
     ]

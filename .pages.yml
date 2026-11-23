@@ -1786,6 +1786,16 @@
               "type": "text"
             },
             {
+              "name": "teaser",
+              "label": "Teaser",
+              "type": "string"
+            },
+            {
+              "name": "highlights",
+              "label": "Selected highlights",
+              "type": "string"
+            },
+            {
               "name": "role",
               "label": "Role",
               "type": "string"

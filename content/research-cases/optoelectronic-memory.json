@@ -3,6 +3,8 @@
   "title": "Trap-Engineered Optoelectronic Memristors",
   "status": "Published research · Advanced Functional Materials (2025)",
   "question": "How can an intermediate layer improve low-power optoelectronic memory?",
+  "teaser": "An ALD TiO₂ interlayer reduces interface traps and enables low-power optoelectronic memory.",
+  "highlights": "15× lower trap density · ≈0.7 µW switching power",
   "role": "First author",
   "mechanism": "An ALD TiO₂ nanofilm passivates perovskite-interface defects and improves electron-transport alignment.",
   "approach": "Compare trap density and switching behavior in devices with and without the intermediate layer.",
