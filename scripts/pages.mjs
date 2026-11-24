@@ -102,7 +102,7 @@ export function patents(d) {
       ...family.filings.map(p=>patentCountry(p.country||p.jurisdiction||'')),
       ...family.filings.flatMap(p=>String(p.jurisdiction||'').split(/\s*[·,]\s*/).map(patentCountry))
     ])].filter(country=>country&&country!=='KR');
-    const search=[family.title,original,first.inventors,...overseasCodes,...family.filings.flatMap(p=>[p.title,p.englishTitle,p.status,p.country,p.jurisdiction,p.applicationNumber,p.registrationNumber])].filter(Boolean).join(' ').toLocaleLowerCase();
+    const search=[family.title,original,first.inventors,...overseasCodes,...family.filings.flatMap(p=>[p.title,p.englishTitle,p.status,p.country,p.jurisdiction,p.applicationNumber,patentNumber(p.applicationNumber),p.registrationNumber,patentNumber(p.registrationNumber)])].filter(Boolean).join(' ').toLocaleLowerCase();
     const filing=p=>{
       const registered=['Registered','Granted'].includes(p.status);
       const country=patentCountry(p.country||p.jurisdiction||'');
