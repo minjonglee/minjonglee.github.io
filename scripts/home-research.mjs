@@ -34,7 +34,7 @@ export function home(d) {
       <h1 id="home-title">${e(page.hero.headline)}</h1>
       <p class="home-deck">${e(page.hero.description)}</p>
       <p class="home-affiliation"><strong>${e(d.profile.position)}</strong><br>${e(d.profile.department)}, ${e(d.profile.institution)}</p>
-      <div class="editorial-link-row home-actions">${editorialLink('research.html','Explore Research')}${editorialLink('publications.html','View Publications')}${editorialLink(d.profile.cv,'Download CV','download')}${editorialLink(`mailto:${d.profile.email}`,'Email')}${editorialLink(d.scholar,'Google Scholar','target="_blank" rel="noopener noreferrer"')}</div>
+      <div class="home-actions"><div class="home-actions-primary">${editorialLink('research.html','Explore Research')}${editorialLink('publications.html','View Publications')}</div><div class="home-actions-secondary"><a href="${e(d.profile.cv)}" download aria-label="Download CV">CV</a><span aria-hidden="true">·</span><a href="${e(d.scholar)}" target="_blank" rel="noopener noreferrer">Google Scholar</a><span aria-hidden="true">·</span><a href="mailto:${e(d.profile.email)}">Email</a></div></div>
     </div>${heroImage}</div>
   </section>
   <section class="editorial-section shell home-research" id="research" aria-labelledby="home-research-title">
