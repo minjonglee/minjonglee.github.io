@@ -365,12 +365,12 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .output-entry .record-note { margin-top:11px; }
 .output-description { color:var(--muted); font-size:13px; margin-top:12px; }
 .output-entry .text-link { margin-top:11px; }
-.patent-english-note { display:inline-block; color:var(--muted); font:400 11px/1.5 var(--sans); letter-spacing:0; vertical-align:middle; }
+.patent-english-note { display:inline-block; margin-left:6px; color:var(--muted); font:400 11px/1.5 var(--sans); letter-spacing:0; vertical-align:middle; }
 .patent-original { color:var(--muted); font-size:13px; line-height:1.6; margin-bottom:5px; overflow-wrap:anywhere; word-break:keep-all; }
 .patent-extra { color:var(--muted); font-size:11px; line-height:1.65; margin-top:5px; }
 .patent-family-entry .output-title { margin:0 0 6px; }
 .patent-filings { border-top:1px solid var(--line); margin-top:13px; padding-top:9px; }
-.patent-filing { min-width:0; padding:3px 0; }
+.patent-filing { min-width:0; padding:3px 0; scroll-margin-top:245px; }
 .patent-filing-country { color:var(--accent); font-size:13px; font-weight:700; }
 .patent-filing-heading { color:var(--ink); font-size:13px; line-height:1.5; }
 .patent-filing .patent-filing-number,.patent-filing .patent-filing-history { color:var(--muted); font-size:12px; line-height:1.55; overflow-wrap:anywhere; }
@@ -555,6 +555,7 @@ details .activity-summary:hover h3 { color:var(--accent); }
   .section-tabs { gap:20px; min-height:50px; }.section-tabs a { font-size:12px; }
   .output-section { padding-block:24px 58px; }
   .output-entry { padding-block:21px 23px; }.output-title { font-size:20px; }
+  .patent-english-note { display:block; margin:4px 0 0; }
   .patent-controls input { width:100%; }.patent-filters { gap:7px; }.patent-filters button { padding-inline:12px; }
   .publications-hero { padding-block:44px 30px; }.publications-hero p { font-size:14px; }
   .publications-section { padding-bottom:52px; }.publication-controls { grid-template-columns:1fr; gap:10px; }.publication-year { margin-top:37px; }.publication-year>h2 { font-size:29px; }
