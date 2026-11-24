@@ -115,8 +115,6 @@ for i,p in enumerate(data['patents'],1):
     codes=list(dict.fromkeys(patent_country(value) for value in [p.get('country'),*re.split(r'\s*[·,]\s*',p.get('jurisdiction',''))] if value))
     overseas=[code for code in codes if code!='KR']
     facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(country)+' | '+esc(number_label)+': '+esc(identifier)+' | '+esc(record_date)
-    if registered and p.get('applicationNumber'):
-        facts+='<br/>Application number: '+esc(p['applicationNumber'])+' | '+esc(p.get('applicationDate',''))
     if len(codes)>1 and overseas: facts+='<br/>Overseas jurisdictions: '+esc(' · '.join(overseas))
     flow.append(KeepTogether([para(title),para(original,'small'),para(facts),Spacer(1,3)]))
 heading('Research projects')

@@ -163,7 +163,7 @@ assert.ok(stretchableProject.includes('publications.html#paper-24'),'Stretchable
 for(const id of ['ald-electrodes-industry','flexible-fpcb','stretchable-pcb']) assert.ok(pages.projects.split('id="'+id+'"')[1].split('</article>')[0].includes('Technical relevance'),'Project relevance missing: '+id);
 assert.ok(pages.cv.includes('Printed Thickness and Trace-to-Trace Electrical Variability in Liquid Metal Particle Stretchable Interconnects')&&pages.cv.includes('Journal of Flexible and Printed Electronics</em> 2026 (Accepted)'),'Web CV must preserve the accepted paper');
 assert.ok(pages.cv.includes('Download CV (November 2026 PDF)'));
-assert.ok(pages.cv.includes('10-2026-0214010')&&pages.cv.includes('10-3029711')&&pages.cv.includes('Application No. 10-2025-0091536'),'Web CV must show the new application and both PVA patent numbers');
+assert.ok(pages.cv.includes('10-2026-0214010')&&pages.cv.includes('10-3029711')&&!pages.cv.includes('10-2025-0091536'),'Web CV must show the new application and only the PVA registration number');
 assert.ok(pages.projects.includes('patents.html#patent-09')&&pages.projects.includes('patents.html#patent-06'),'Related project records must link to the updated patents');
 assert.ok(pages.cv.includes('Vol. 36 · Issue 87 · Article e78448'));
 const chiralActivity=pages.activities.split('id="chiral-perovskite-university-highlight"')[1].split('</details>')[0];
