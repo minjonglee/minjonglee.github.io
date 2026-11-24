@@ -113,7 +113,7 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   <meta property="og:image:alt" content="${e(site.socialPreviewAlt)}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="${e(site.favicon)}">
-  <link rel="stylesheet" href="styles.css?v=20261124-patents-2">
+  <link rel="stylesheet" href="styles.css?v=20261124-patents-3">
   <script src="script.js?v=20261124-patents-1" defer></script>
   <script type="application/ld+json">${JSON.stringify(person).replaceAll('<','\\u003c')}</script>
 ${extraHead}

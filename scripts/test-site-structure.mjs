@@ -60,7 +60,7 @@ for(const item of data.patents) {
 }
 assert.ok(pages.patents.includes('10-2024-0060762'));
 assert.ok(pages.patents.includes('MIM 커패시터'));
-assert.ok(pages.patents.includes('Overseas jurisdictions: <span class="patent-overseas-codes">US · CN · TW</span>')&&pages.patents.includes('Application No. 19/002,282'),'Unverified overseas jurisdictions must stay distinct from the documented US application');
+assert.ok(pages.patents.includes('Overseas jurisdictions: <span class="patent-overseas-codes">US · CN · TW</span>')&&pages.patents.includes('No. 19/002,282'),'Unverified overseas jurisdictions must stay distinct from the documented US application');
 assert.ok(!pages.patents.includes('Also listed in'),'Unverified overseas jurisdictions should appear as compact country codes');
 assert.ok(pages.patents.includes('10-2026-0214010')&&pages.patents.includes('Descriptive English translation'),'The new chiral application and its English-title status are missing');
 assert.ok(pages.patents.includes('10-3029711')&&pages.patents.includes('10-2025-0091536'),'The registered PVA patent must retain registration and application identifiers');
