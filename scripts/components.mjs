@@ -1,6 +1,11 @@
 export const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const e = escape;
 export const arrow = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+export const arrowUp = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>';
+export const arrowLeft = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg>';
+export const arrowRight = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>';
+export const chevron = '<svg class="detail-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>';
+export const closeIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg>';
 export const textLink = (href, label, extra = '') => `<a class="text-link" href="${e(href)}" ${extra}>${label} ${arrow}</a>`;
 export const tags = values => `<ul class="tags" aria-label="Topics">${values.map(x => `<li>${e(x)}</li>`).join('')}</ul>`;
 export const label = text => `<p class="eyebrow">${e(text)}</p>`;
@@ -108,7 +113,7 @@ export function layout(data, {file, title, description, body, canonical, extraHe
   <meta property="og:image:alt" content="${e(site.socialPreviewAlt)}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="${e(site.favicon)}">
-  <link rel="stylesheet" href="styles.css?v=20261123-refine-4">
+  <link rel="stylesheet" href="styles.css?v=20261124-polish-1">
   <script src="script.js?v=20261122-research" defer></script>
   <script type="application/ld+json">${JSON.stringify(person).replaceAll('<','\\u003c')}</script>
 ${extraHead}
@@ -121,7 +126,7 @@ ${extraHead}
     <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">${nav.map(item=>{const href=item.kind==='cv'?'cv.html':item.href;return `<a${item.kind==='cv'?' class="nav-cv"':''} href="${e(href)}"${activeFile===href?' aria-current="page"':''}>${e(item.label)}</a>`}).join('')}</nav>
   </div></header>
   <main id="main" tabindex="-1">${body}</main>
-  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">${e(data.profile.name.toUpperCase())}</a><p>${e(footer.affiliation)}<br>${e(footer.department)}</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${footer.links.map(item=>textLink(footerHref(item),e(item.label))).join('')}${data.profile.orcid&&!footer.links.some(item=>item.label==='ORCID')?textLink(data.profile.orcid,'ORCID'):''}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> ${e(footer.copyrightName)}</span><span>${e(footer.location)}</span><a href="#top">${e(footer.backToTop)}</a></div></div></footer>
+  <footer class="site-footer" id="contact"><div class="shell"><div class="footer-top"><div><a class="brand" href="index.html">${e(data.profile.name.toUpperCase())}</a><p>${e(footer.affiliation)}<br>${e(footer.department)}</p></div><div class="footer-contact"><a class="footer-email" href="mailto:${e(data.profile.email)}">${e(data.profile.email)}</a><div class="profile-links">${footer.links.map(item=>textLink(footerHref(item),e(item.label))).join('')}${data.profile.orcid&&!footer.links.some(item=>item.label==='ORCID')?textLink(data.profile.orcid,'ORCID'):''}</div></div></div><div class="footer-bottom"><span>© <span id="copyright-year">${new Date().getFullYear()}</span> ${e(footer.copyrightName)}</span><span>${e(footer.location)}</span><a href="#top">${e(footer.backToTop)} ${arrowUp}</a></div></div></footer>
 </body>
 </html>
 `;
