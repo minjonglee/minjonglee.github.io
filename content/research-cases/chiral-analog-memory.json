@@ -13,7 +13,7 @@
   "myContribution": "Co-first author; the publisher credits conceptualization, methodology, investigation, data curation, and original-draft writing.",
   "outcome": "Helicity-conditioned states remained circuit-readable through PCB-based array addressing and digitization.",
   "papers": ["paper-22"],
-  "patents": [],
+  "patents": ["patent-09"],
   "visible": true,
   "order": 3,
   "featured": false

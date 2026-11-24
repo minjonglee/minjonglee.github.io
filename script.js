@@ -62,6 +62,11 @@
         const filings = [...family.querySelectorAll('.patent-filing')];
         filings.forEach(filing => { filing.hidden = !matches || filter !== 'all' && filing.dataset.patentStatus !== filter; });
         family.hidden = !filings.some(filing => !filing.hidden);
+        const overseas = family.querySelector('.patent-overseas');
+        if (overseas) {
+          const recorded = [...overseas.querySelectorAll('.patent-filing')];
+          overseas.hidden = family.hidden || recorded.length > 0 && !recorded.some(filing => !filing.hidden);
+        }
       }
       if (empty) empty.hidden = families.some(family => !family.hidden);
     };

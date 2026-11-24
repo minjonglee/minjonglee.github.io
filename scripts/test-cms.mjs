@@ -12,7 +12,8 @@ vm.runInNewContext(fs.readFileSync(path.join(defaultRoot,'content.js'),'utf8'),c
 const previous=context.window.SITE_CONTENT;
 const current=loadContent();
 for(const name of ['publications','projects','patents','awards','topics']){
-  if(name!=='publications') assert.equal(current[name].length,previous[name].length,`${name} count changed unexpectedly`);
+  if(name==='patents') assert.equal(current[name].length,previous[name].length+1,'The new chiral application should be the only added patent');
+  else if(name!=='publications') assert.equal(current[name].length,previous[name].length,`${name} count changed unexpectedly`);
   for(const item of previous[name]){
     if(name==='publications'&&!isPublicationVisible(item)) continue;
     assert.ok(current[name].some(record=>record.id===item.id)||name==='awards',`missing migrated ${name}: ${item.id}`);
@@ -104,7 +105,7 @@ try{
   let html=build();
   for(const [page,text] of [['publications','CMS test publication'],['index','CMS test publication'],['projects','CMS test project'],['patents','CMS test patent'],['conferences','CMS test presentation'],['activities','CMS test news'],['research','CMS test research area']]) assert.ok(html[page].includes(text),`${page} did not pick up new content`);
   assert.equal([...html.publications.matchAll(/class="publication-item" id="([^"]+)"/g)][0][1],'cms-test-paper','A newly dated Paper should lead without renumbering old records');
-  assert.equal([...html.patents.matchAll(/class="patent-filing" id="([^"]+)"/g)][0][1],'cms-test-patent','A newly dated Patent should lead despite its legacy order');
+  assert.equal([...html.patents.matchAll(/class="patent-filing patent-filing-(?:domestic|overseas)" id="([^"]+)"/g)][0][1],'cms-test-patent','A newly dated Patent should lead despite its legacy order');
   assert.equal([...html.conferences.matchAll(/class="output-entry conference-entry" id="([^"]+)"/g)][0][1],'cms-test-conference','A newly dated Conference should lead despite its legacy order');
   assert.ok(html.index.includes('concept-flexible-circuit.jpg')&&html.index.includes('object-position:left'),'Home hero image should follow CMS fields');
   assert.ok(html.index.includes('object-position:top'),'Featured paper crop focus should follow CMS fields');

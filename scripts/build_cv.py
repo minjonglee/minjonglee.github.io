@@ -42,6 +42,7 @@ data = {
     'awards': collection('awards'),
 }
 data['scholar'] = data['profile']['scholar']
+data['patents'].sort(key=lambda p: (p.get('sortDate',''), p.get('id','')), reverse=True)
 ink=colors.HexColor('#232420')
 muted=colors.HexColor('#62635c')
 styles = {
@@ -60,6 +61,10 @@ def heading(text):
     flow.append(para(esc(text).upper(),'heading'))
 def author(text):
     return esc(text).replace('Min Jong Lee','<b>Min Jong Lee</b>')
+
+def patent_country(value):
+    name=str(value or '').strip()
+    return {'Korea':'KR','China':'CN','Taiwan':'TW','United States':'US'}.get(name,name)
 flow=[]
 profile=data['profile']
 flow.append(para('MIN JONG LEE','title'))
@@ -106,15 +111,21 @@ for i,p in enumerate(data['patents'],1):
     number_label='Registration number' if registered else 'Application number'
     identifier=p.get('registrationNumber') or p.get('applicationNumber') or p.get('number','')
     record_date=p.get('registrationDate') or p.get('applicationDate') or p.get('date','')
-    facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(p['jurisdiction'])+' | '+esc(number_label)+': '+esc(identifier)+' | '+esc(record_date)
-    if p.get('territoryNote'): facts+='<br/>'+esc(p['territoryNote'])
+    country=patent_country(p.get('country') or p.get('jurisdiction'))
+    codes=list(dict.fromkeys(patent_country(value) for value in [p.get('country'),*re.split(r'\s*[·,]\s*',p.get('jurisdiction',''))] if value))
+    overseas=[code for code in codes if code!='KR']
+    facts=esc(p['inventors'])+'<br/>'+esc(p['status'])+' | '+esc(country)+' | '+esc(number_label)+': '+esc(identifier)+' | '+esc(record_date)
+    if registered and p.get('applicationNumber'):
+        facts+='<br/>Application number: '+esc(p['applicationNumber'])+' | '+esc(p.get('applicationDate',''))
+    if len(codes)>1 and overseas: facts+='<br/>Overseas jurisdictions: '+esc(' · '.join(overseas))
     flow.append(KeepTogether([para(title),para(original,'small'),para(facts),Spacer(1,3)]))
 heading('Research projects')
 for p in data['projects']:
     text='<b>'+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])+'<br/>'+esc(p['sponsor'])+' | Program period: '+esc(p['period'])
     if p.get('personalRole'): text+=' | Role: '+esc(p['personalRole'])
     if p.get('personalParticipationPeriod'): text+='<br/>My participation: '+esc(p['personalParticipationPeriod'])
-    flow.append(KeepTogether([para(text),Spacer(1,2)]))
+    flow.append(KeepTogether([para(text)]))
+    flow.append(Spacer(1,7))
 heading('Awards & academic programs')
 for p in sorted(data['awards'],key=lambda p:-int(p['year'])):
     flow.append(KeepTogether([para('<b>'+p['year']+' | '+esc(p['englishTitle'])+'</b><br/>'+esc(p['title'])),Spacer(1,2)]))

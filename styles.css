@@ -365,21 +365,20 @@ dd { margin:0; font-size:14px; color:var(--muted); }
 .output-entry .record-note { margin-top:11px; }
 .output-description { color:var(--muted); font-size:13px; margin-top:12px; }
 .output-entry .text-link { margin-top:11px; }
-.patent-entry .output-title { margin:0 0 6px; }
+.patent-english-note { display:inline-block; color:var(--muted); font:400 11px/1.5 var(--sans); letter-spacing:0; vertical-align:middle; }
 .patent-original { color:var(--muted); font-size:13px; line-height:1.6; margin-bottom:5px; overflow-wrap:anywhere; word-break:keep-all; }
-.patent-metadata { color:var(--accent); font-size:13px; font-weight:600; line-height:1.6; margin-top:9px; overflow-wrap:anywhere; }
-.patent-family { display:flex; flex-wrap:wrap; gap:7px 24px; color:var(--muted); font-size:12px; line-height:1.55; margin-top:9px; }
-.patent-family>div { display:flex; flex-wrap:wrap; gap:4px 8px; min-width:0; }
-.patent-family dt { color:var(--ink); font-weight:600; }
-.patent-family dd { overflow-wrap:anywhere; }
 .patent-extra { color:var(--muted); font-size:11px; line-height:1.65; margin-top:5px; }
 .patent-family-entry .output-title { margin:0 0 6px; }
-.patent-filings { border-top:1px solid var(--line); margin-top:15px; }
-.patent-filing { display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:15px; align-items:start; border-bottom:1px solid var(--line); padding:13px 0; }
+.patent-filings { border-top:1px solid var(--line); margin-top:13px; padding-top:9px; }
+.patent-filing { min-width:0; padding:3px 0; }
 .patent-filing-country { color:var(--accent); font-size:13px; font-weight:700; }
-.patent-filing p { color:var(--ink); font-size:13px; line-height:1.5; }
-.patent-filing .patent-filing-number { color:var(--muted); font-size:12px; overflow-wrap:anywhere; }
+.patent-filing-heading { color:var(--ink); font-size:13px; line-height:1.5; }
+.patent-filing .patent-filing-number,.patent-filing .patent-filing-history { color:var(--muted); font-size:12px; line-height:1.55; overflow-wrap:anywhere; }
 .patent-filing .text-link { margin:0; padding:0; min-height:0; font-size:11px; }
+.patent-overseas { margin-top:7px; }
+.patent-overseas-list { display:flex; flex-wrap:wrap; gap:0 8px; color:var(--muted); font-size:12px; line-height:1.55; }
+.patent-overseas-codes { color:var(--accent); font-weight:700; white-space:normal; }
+.patent-overseas-records { display:flex; flex-wrap:wrap; gap:2px 24px; }
 .output-empty { color:var(--muted); font-size:14px; padding:35px 0; }
 .conference-details { display:flex; flex-wrap:wrap; align-items:center; gap:8px 17px; color:var(--muted); font-size:12px; margin-top:13px; }
 
@@ -556,7 +555,7 @@ details .activity-summary:hover h3 { color:var(--accent); }
   .section-tabs { gap:20px; min-height:50px; }.section-tabs a { font-size:12px; }
   .output-section { padding-block:24px 58px; }
   .output-entry { padding-block:21px 23px; }.output-title { font-size:20px; }
-  .patent-controls input { width:100%; }.patent-filters { gap:7px; }.patent-filters button { padding-inline:12px; }.patent-filing { grid-template-columns:44px minmax(0,1fr); gap:10px; }.patent-filing .text-link { grid-column:2; }
+  .patent-controls input { width:100%; }.patent-filters { gap:7px; }.patent-filters button { padding-inline:12px; }
   .publications-hero { padding-block:44px 30px; }.publications-hero p { font-size:14px; }
   .publications-section { padding-bottom:52px; }.publication-controls { grid-template-columns:1fr; gap:10px; }.publication-year { margin-top:37px; }.publication-year>h2 { font-size:29px; }
   .publication-item { padding-block:16px 17px; }.publication-item h3 { font-size:19px; }.publication-topline { gap:8px 12px; }.publication-meta { font-size:13px; overflow-wrap:anywhere; }.publication-source { font-size:14px; }

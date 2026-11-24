@@ -2897,6 +2897,12 @@
               "type": "text"
             },
             {
+              "name": "englishTitleNote",
+              "label": "English title note",
+              "type": "string",
+              "description": "Use a note such as \"Descriptive English translation\" when no official English title has been verified."
+            },
+            {
               "name": "assignee",
               "label": "Assignee",
               "type": "string"
